@@ -1,0 +1,138 @@
+create database fot;
+
+
+use fot;
+
+
+CREATE TABLE userAccount (
+    user_id CHAR(7) PRIMARY KEY,
+    user_name VARCHAR(50) NOT NULL,
+    email VARCHAR(60) UNIQUE NOT NULL,
+    roll VARCHAR(30),
+    phoneNumber VARCHAR(10), 
+    address VARCHAR(60),
+    depName VARCHAR(20),
+    password VARCHAR(255) NOT NULL, 
+    profilePic BLOB
+);
+
+
+CREATE TABLE notice (
+    notice_id CHAR(7) PRIMARY KEY,
+    title VARCHAR(50) NOT NULL,
+    postedDay DATE NOT NULL,
+    content BLOB,
+    userRoll VARCHAR(10),
+    FOREIGN KEY (userRoll) REFERENCES userAccount(roll) ON DELETE CASCADE
+);
+
+CREATE TABLE timeTable (
+    timeTable_id CHAR(7) PRIMARY KEY,
+    caption VARCHAR(50) NOT NULL,
+    submittedDate DATE NOT NULL,
+    depName VARCHAR(20),
+    FOREIGN KEY (depName) REFERENCES userAccount(depName) ON DELETE CASCADE
+);
+
+CREATE TABLE caMarks (
+    mark_id INT AUTO_INCREMENT,
+    studentId CHAR(7) NOT NULL,
+    courseId CHAR(7) NOT NULL,
+    q1_mark DECIMAL(5,2),
+    q2_mark DECIMAL(5,2),
+    q3_mark DECIMAL(5,2),
+    q_total DECIMAL(5,2),
+    assessment_mark1 DECIMAL(5,2),
+	assessment_mark2 DECIMAL(5,2),
+	assessment_total DECIMAL(5,2),
+    mid_mark DECIMAL(5,2),
+    total_ca DECIMAL(5,2),
+    eligibility CHAR(6),
+    PRIMARY KEY (studentId, courseId),
+    FOREIGN KEY (studentId) REFERENCES userAccount(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (courseId) REFERENCES courseUnit(courseId) ON DELETE CASCADE
+);
+
+CREATE TABLE finalMarks (
+    mark_id INT AUTO_INCREMENT UNIQUE,
+    studentId CHAR(7) NOT NULL,
+    courseId CHAR(7) NOT NULL,
+    finalPractical DECIMAL(5,2),
+    finalTheory DECIMAL(5,2),
+    finalTotal DECIMAL(5,2),
+    grade CHAR(2),
+    cgpa DECIMAL(4,2),
+    sgpa DECIMAL(4,2),
+    PRIMARY KEY (studentId, courseId),
+    FOREIGN KEY (studentId) REFERENCES userAccount(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (courseId) REFERENCES courseUnit(courseId) ON DELETE CASCADE
+);
+
+CREATE TABLE exam_medical (
+    medical_id INT AUTO_INCREMENT PRIMARY KEY,
+    studentId CHAR(7) NOT NULL,
+    courseId CHAR(7) NOT NULL,
+    medicalDate DATE NOT NULL,
+    description VARCHAR(255),
+    status VARCHAR(20),
+    UNIQUE (studentId, courseId),
+    FOREIGN KEY (studentId) REFERENCES userAccount(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (courseId) REFERENCES courseUnit(courseId) ON DELETE CASCADE
+);
+
+CREATE TABLE attendence_medical (
+    medical_id INT AUTO_INCREMENT PRIMARY KEY,
+    studentId CHAR(7) NOT NULL,
+    courseId CHAR(7) NOT NULL,
+    medicalDate DATE NOT NULL,
+    description VARCHAR(255),
+    status VARCHAR(20),
+    UNIQUE (studentId, courseId),
+    FOREIGN KEY (studentId) REFERENCES userAccount(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (courseId) REFERENCES courseUnit(courseId) ON DELETE CASCADE
+);
+
+
+CREATE TABLE attendance (
+    attendance_id INT AUTO_INCREMENT PRIMARY KEY,
+    studentId CHAR(7) NOT NULL,
+    courseId CHAR(7) NOT NULL,
+    attendanceType VARCHAR(20) NOT NULL,
+    date DATE NOT NULL,
+    status VARCHAR(20),
+    UNIQUE (studentId, courseId, attendanceType),
+    FOREIGN KEY (studentId) REFERENCES userAccount(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (courseId) REFERENCES courseUnit(courseId) ON DELETE CASCADE
+);
+
+CREATE TABLE courseUnit (
+    courseId CHAR(7) PRIMARY KEY,
+    courseName VARCHAR(40) NOT NULL,
+    credit INT NOT NULL,
+    cType VARCHAR(20)
+);
+
+
+CREATE TABLE student_course (
+    courseId CHAR(7) NOT NULL,
+    studentId VARCHAR(7) NOT NULL,
+    PRIMARY KEY (courseId, studentId),
+    FOREIGN KEY (courseId) REFERENCES courseUnit(courseId) ON DELETE CASCADE,
+    FOREIGN KEY (studentId) REFERENCES userAccount(user_id) ON DELETE CASCADE
+);
+
+CREATE TABLE lecture_course (
+    lecId CHAR(7) NOT NULL,
+    courseId CHAR(7) NOT NULL,
+    PRIMARY KEY (lecId, studentId),
+    FOREIGN KEY (courseId) REFERENCES courseUnit(courseId) ON DELETE CASCADE,
+    FOREIGN KEY (studentId) REFERENCES userAccount(user_id) ON DELETE CASCADE
+);
+
+
+
+
+
+
+
+
