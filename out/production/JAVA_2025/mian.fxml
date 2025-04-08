@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+
+<BorderPane fx:id="firstBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="509.0" prefWidth="710.0" stylesheets="@../resources/lecture_style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <SplitPane orientation="VERTICAL" prefHeight="54.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="48.0" prefWidth="598.0" style="-fx-background-color: #027A7A;">
+               <children>
+                  <Label fx:id="topicHeaderLabel" layoutX="22.0" layoutY="9.0" prefHeight="34.0" prefWidth="308.0" text="TecMIs - Faculty Of Technology" textFill="WHITE" />
+               </children></AnchorPane>
+        </items>
+      </SplitPane>
+   </top>
+   <bottom>
+      <SplitPane orientation="VERTICAL" prefHeight="13.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="5.0" prefWidth="598.0" style="-fx-background-color: #027A7A;" />
+        </items>
+      </SplitPane>
+   </bottom>
+   <left>
+      <Pane prefHeight="423.0" prefWidth="658.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane layoutX="138.0" layoutY="-30.0" />
+            <Label fx:id="lectureNameLabel" layoutX="286.0" layoutY="24.0" text="lectureName" />
+            <Label fx:id="departmentNameLabel" layoutX="286.0" layoutY="52.0" text="departmentName" />
+            <Separator layoutX="25.0" layoutY="135.0" prefHeight="0.0" prefWidth="666.0" />
+            <Button fx:id="editProfileButton" layoutX="286.0" layoutY="79.0" mnemonicParsing="false" style="-fx-background-color: #ACACAC;" text="edit profile" textFill="WHITE">
+               <graphic>
+                  <ImageView fx:id="editProfileIcon" fitHeight="28.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/pencil.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="noticeButton" layoutX="496.0" layoutY="29.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-color: #027A7A;" text="Notices" textFill="WHITE">
+               <graphic>
+                  <ImageView fx:id="noticesIcon" fitHeight="59.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/bell-ring.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <AnchorPane layoutX="154.0" layoutY="47.0" />
+            <Circle fx:id="profilePic" layoutX="211.0" layoutY="70.0" radius="47.0" stroke="BLACK" strokeType="INSIDE" />
+            <Button fx:id="manageCourseButton" layoutX="69.0" layoutY="153.0" mnemonicParsing="false" prefHeight="121.0" prefWidth="153.0" style="-fx-background-color: #027A7A;" />
+            <Button fx:id="viewStudentButton" layoutX="496.0" layoutY="296.0" mnemonicParsing="false" prefHeight="121.0" prefWidth="152.0" style="-fx-background-color: #027A7A;" />
+            <Button fx:id="studentMarksButton" layoutX="496.0" layoutY="153.0" mnemonicParsing="false" prefHeight="121.0" prefWidth="152.0" style="-fx-background-color: #027A7A;" />
+            <Button fx:id="studentAttendenceButton" layoutX="282.0" layoutY="296.0" mnemonicParsing="false" prefHeight="121.0" prefWidth="152.0" style="-fx-background-color: #027A7A;" />
+            <Label layoutX="303.0" layoutY="378.0" text="Student Attendence" textFill="WHITE" />
+            <Button fx:id="studentMedicalButton" layoutX="69.0" layoutY="296.0" mnemonicParsing="false" prefHeight="121.0" prefWidth="152.0" style="-fx-background-color: #027A7A;" />
+            <Button fx:id="studentEligibilityButton" layoutX="279.0" layoutY="153.0" mnemonicParsing="false" prefHeight="121.0" prefWidth="152.0" style="-fx-background-color: #027A7A;" />
+            <ImageView fx:id="manageCourseIcon" fitHeight="62.0" fitWidth="83.0" layoutX="114.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/book-alt.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="viewStudentIcon" fitHeight="70.0" fitWidth="85.0" layoutX="540.0" layoutY="308.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/users-alt.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="StudentMarksIcon" fitHeight="73.0" fitWidth="81.0" layoutX="540.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/chart-pie-alt.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="studentAttendenceIcon" fitHeight="67.0" fitWidth="72.0" layoutX="325.0" layoutY="308.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/clock-three.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="studentMedicalIcon" fitHeight="58.0" fitWidth="107.0" layoutX="116.0" layoutY="313.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/first-aid-kit.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="studentEligibilityIcon" fitHeight="64.0" fitWidth="109.0" layoutX="330.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/terms-check.png" />
+               </image>
+            </ImageView>
+            <Label alignment="BOTTOM_CENTER" layoutX="95.0" layoutY="238.0" style="-fx-background-color: #027A7A;" text="Manage Courses" textFill="WHITE" />
+            <Label layoutX="304.0" layoutY="238.0" text="Student Eligibility" textFill="WHITE" />
+            <Label layoutX="97.0" layoutY="378.0" text="Student Medical" textFill="WHITE" />
+            <Label layoutX="530.0" layoutY="387.0" text="View Students" textFill="WHITE" />
+            <Label layoutX="529.0" layoutY="247.0" text="Student Marks" textFill="WHITE" />
+         </children>
+      </Pane>
+   </left>
+</BorderPane>
