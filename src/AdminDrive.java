@@ -5,7 +5,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Login extends Application {
+public class AdminDrive extends Application {
 
     public static void main(String[] args) {
         launch(args);
@@ -13,7 +13,7 @@ public class Login extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Login.class.getResource("sample.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(AdminDrive.class.getResource("loginform.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("Hello!");
         stage.setScene(scene);
