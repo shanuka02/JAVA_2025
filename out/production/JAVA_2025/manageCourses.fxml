@@ -7,14 +7,15 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="710.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller">
-   <top>
-      <SplitPane orientation="VERTICAL" prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #027A7A;" BorderPane.alignment="CENTER" />
-   </top>
-   <bottom>
-      <SplitPane orientation="VERTICAL" prefHeight="22.0" prefWidth="600.0" style="-fx-background-color: #027A7A;" BorderPane.alignment="CENTER" />
-   </bottom>
-   <center>
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="710.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller">
+<!--   <top>-->
+<!--      <SplitPane orientation="VERTICAL" prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #027A7A;" BorderPane.alignment="CENTER" />-->
+<!--   </top>-->
+<!--   <bottom>-->
+<!--      <SplitPane orientation="VERTICAL" prefHeight="22.0" prefWidth="600.0" style="-fx-background-color: #027A7A;" BorderPane.alignment="CENTER" />-->
+<!--   </bottom>-->
+
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <TextField fx:id="CourseName1" layoutX="74.0" layoutY="78.0" prefHeight="25.0" prefWidth="317.0" />
          <TextField fx:id="CourseName2" layoutX="74.0" layoutY="122.0" prefHeight="25.0" prefWidth="318.0" />
@@ -28,5 +29,5 @@
          <Button layoutX="459.0" layoutY="218.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: #027A7A;" text="Select" textFill="WHITE" />
          <Button layoutX="459.0" layoutY="260.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" style="-fx-background-color: #027A7A;" text="Select" textFill="WHITE" />
       </Pane>
-   </center>
-</BorderPane>
+
+</AnchorPane>

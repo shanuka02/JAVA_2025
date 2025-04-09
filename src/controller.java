@@ -1,25 +1,22 @@
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Circle;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 import javafx.scene.control.TextField;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 public class controller {
+    // UI Components
     public BorderPane firstBorderPane;
     public Circle profilePic;
     public ImageView editProfileIcon;
@@ -31,61 +28,63 @@ public class controller {
     public ImageView studentMedicalIcon;
     public ImageView studentEligibilityIcon;
 
-    @FXML
-    private Button noticeButton;
+    @FXML private StackPane contentPane;
+    @FXML private Pane mainContentPane;
 
-    @FXML
-    private Button editProfileButton;
+    // Buttons
+    @FXML private Button noticeButton;
+    @FXML private Button editProfileButton;
+    @FXML private Button manageCourseButton;
+    @FXML private Button studentEligibilityButton;
+    @FXML private Button studentMarksButton;
+    @FXML private Button studentMedicalButton;
+    @FXML private Button studentAttendenceButton;
+    @FXML private Button viewStudentButton;
+    @FXML private Button backButton;
 
-    @FXML
-    private Button manageCourseButton;
+    // Labels
+    @FXML private Label lectureNameLabel;
+    @FXML private Label departmentNameLabel;
 
-    @FXML
-    private Button studentEligibilityButton;
-
-    @FXML
-    private Button studentMarksButton;
-
-    @FXML
-    private Button studentMedicalButton;
-
-    @FXML
-    private Button studentAttendenceButton;
-
-    @FXML
-    private Button viewStudentButton;
-
-    @FXML
-    private Label lectureNameLabel;
-
-    @FXML
-    private Label departmentNameLabel;
-
+    // Course Fields
     @FXML private TextField CourseName1;
-    @FXML private  TextField CourseName2;
-    @FXML private  TextField CourseName3;
-    @FXML private  TextField CourseName4;
+    @FXML private TextField CourseName2;
+    @FXML private TextField CourseName3;
+    @FXML private TextField CourseName4;
     @FXML private TextField CourseName5;
 
-    private TextField[] fields ;
-
+    private TextField[] fields;
 
     @FXML
     public void initialize() {
+        // Initialize course fields array
         fields = new TextField[]{CourseName1, CourseName2, CourseName3, CourseName4, CourseName5};
+
+
+            System.out.println("Checking FXML injection:");
+            System.out.println("contentPane: " + contentPane);
+            System.out.println("mainContentPane: " + mainContentPane);
+            System.out.println("backButton: " + backButton);
+            // ... check other important fields
+
+
+        // Check if backButton exists before using it
+        if (backButton != null) {
+            backButton.setVisible(false);
+        } else {
+            System.err.println("Warning: backButton is null - check FXML file");
+        }
+        // Load course names from database
         loadCourseNames();
     }
 
     private void loadCourseNames() {
-        try{
-
+        try {
             Connection conn = dbConnection.getConnection();
-            String query = "SELECT courseName FROM courseunit ";
+            String query = "SELECT courseName FROM courseunit";
             assert conn != null;
             PreparedStatement stmt = conn.prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
-
-            TextField[] fields = {CourseName1, CourseName2, CourseName3, CourseName4, CourseName5};
 
             int index = 0;
             while (rs.next() && index < fields.length) {
@@ -98,7 +97,6 @@ public class controller {
             rs.close();
             stmt.close();
             conn.close();
-
         } catch (SQLException e) {
             e.printStackTrace();
             // Set default values if database fails
@@ -111,41 +109,49 @@ public class controller {
     }
 
     @FXML
-    private void handleMangeCourseButton(javafx.event.ActionEvent actionEvent) throws IOException {
-        //load the new fxml file
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("manageCourses.fxml"));
-        Parent root = loader.load();
+    private void handleMangeCourseButton(javafx.event.ActionEvent actionEvent) {
+        try {
+            // Load the manage courses view
+            Parent manageCoursesView = FXMLLoader.load(getClass().getResource("manageCourses.fxml"));
 
-        // Get the controller of the new window
-        controller manageCoursesController = loader.getController();
+            // Replace current content with the new view
+            contentPane.getChildren().setAll(manageCoursesView);
 
-        //create new stage (window)
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setResizable(false);
-        stage.show();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            // Show back button
+            backButton.setVisible(true);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
+    @FXML
+    private void handleBackButton() {
+        // Return to main content
+        contentPane.getChildren().setAll(mainContentPane);
 
+        // Hide back button
+        backButton.setVisible(false);
+    }
+
+    // Add similar methods for other buttons
+    @FXML
+    private void handleViewStudentButton() {
+        loadView("viewStudents.fxml");
+    }
+
+    @FXML
+    private void handleStudentMarksButton() {
+        loadView("studentMarks.fxml");
+    }
+
+    // Generic method to load views
+    private void loadView(String fxmlFile) {
+        try {
+            Parent view = FXMLLoader.load(getClass().getResource(fxmlFile));
+            contentPane.getChildren().setAll(view);
+            backButton.setVisible(true);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
-
