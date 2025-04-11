@@ -32,7 +32,7 @@ public class loginController{
     private Button loginButton;
 
     @FXML
-    private PasswordField PasswordField;
+    private PasswordField passwordField;
 
     @FXML
     private TextField userField;
@@ -47,10 +47,10 @@ public class loginController{
 
 
         String userName=  userField.getText();
-        String password =  PasswordField.getText();
+        String password =  passwordField.getText();
 
 
-        String query = "SELECT * FROM users WHERE user_name = ? AND password = ?";
+        String query = "SELECT * FROM userAccount WHERE user_name = ? AND password = ?";
         try{
             PreparedStatement pstmt = con.prepareStatement(query);
             pstmt.setString(1, userName);
