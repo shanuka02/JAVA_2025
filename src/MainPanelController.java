@@ -20,7 +20,7 @@ public class MainPanelController{
 
     public void handleLogClick(ActionEvent actionEvent) {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("loginform.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("\\FXMLfiles\\loginform.fxml"));
         try {
             Parent root = loader.load();
             Scene scene = new Scene(root);

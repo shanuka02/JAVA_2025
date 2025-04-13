@@ -28,7 +28,7 @@ public class ApplicationDrive extends Application {
         stage.setHeight(600);
 
         //creates a new FXMLLoader object that will load  FXML file containing the interface definition.
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("MainPanel.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("\\FXMLfiles\\MainPanel.fxml"));
         //loads the FXML file and creates the Ui component hierarchy
         Parent root = loader.load();
         Scene scene = new Scene(root);

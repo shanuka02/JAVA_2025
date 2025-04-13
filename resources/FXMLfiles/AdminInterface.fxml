@@ -21,9 +21,9 @@
          <children>
             <Pane prefHeight="408.0" prefWidth="646.0" style="-fx-background-radius: 20 px;">
                <children>
-                  <Button layoutX="48.0" layoutY="123.0" mnemonicParsing="false" prefHeight="112.0" prefWidth="169.0" style="-fx-border-radius: 10px;" text="Create User">
+                  <Button layoutX="48.0" layoutY="123.0" mnemonicParsing="false" prefHeight="112.0" prefWidth="169.0" style="-fx-border-radius: 10px;">
                      <graphic>
-                        <Label text="Label" />
+                        <Label text="Manage User" />
                      </graphic>
                   </Button>
                   <Button layoutX="245.0" layoutY="125.0" mnemonicParsing="false" prefHeight="109.0" prefWidth="169.0" style="-fx-border-radius: 10px;">
@@ -36,14 +36,9 @@
                         <Label text="Manage Timetable" />
                      </graphic>
                   </Button>
-                  <Button layoutX="148.0" layoutY="276.0" mnemonicParsing="false" prefHeight="119.0" prefWidth="169.0" style="-fx-border-radius: 10px;" text="Manage Cource">
+                  <Button layoutX="245.0" layoutY="265.0" mnemonicParsing="false" prefHeight="119.0" prefWidth="169.0" style="-fx-border-radius: 10px;" text="Manage Course">
                      <graphic>
-                        <Label text="Manage " />
-                     </graphic>
-                  </Button>
-                  <Button layoutX="353.0" layoutY="276.0" mnemonicParsing="false" prefHeight="119.0" prefWidth="169.0" style="-fx-border-radius: 10px;">
-                     <graphic>
-                        <Label text="Label" />
+                        <Label />
                      </graphic>
                   </Button>
                   <Circle fill="DODGERBLUE" layoutX="205.0" layoutY="57.0" radius="49.0" stroke="BLACK" strokeType="INSIDE" />
