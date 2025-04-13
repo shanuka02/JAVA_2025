@@ -35,7 +35,6 @@ CREATE TABLE timeTable (
 );
 
 CREATE TABLE caMarks (
-    mark_id INT AUTO_INCREMENT,
     studentId CHAR(7) NOT NULL,
     courseId CHAR(7) NOT NULL,
     q1_mark DECIMAL(5,2),
