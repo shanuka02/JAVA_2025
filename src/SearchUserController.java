@@ -8,5 +8,7 @@ public class SearchUserController {
     @FXML
     private Button Button2;
 
+    @FXML
+
 
 }
