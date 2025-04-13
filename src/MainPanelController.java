@@ -16,22 +16,13 @@ public class MainPanelController{
     @FXML
     private Button logbutton;
 
-    private NavigationManager navigationManager;
-
-    public void setNavigationManager(NavigationManager navManager) {
-        this.navigationManager = navManager;
-    }
-
-
 
 
     public void handleLogClick(ActionEvent actionEvent) {
-      //  navigationManager.loadInterface("loginform.fxml");
-        // direct to admin interface
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("loginform.fxml"));
-        Parent root = null;
         try {
-            root = loader.load();
+            Parent root = loader.load();
             Scene scene = new Scene(root);
             ApplicationDrive.getPrimaryStage().setScene(scene);
 
