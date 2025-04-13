@@ -3,29 +3,33 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import javax.swing.*;
 import java.io.IOException;
 
 public class NavigationManager {
 
     private Stage stage;
 
- NavigationManager(Stage stage){
+
+
+    public void setStage(Stage stage) {
         this.stage = stage;
     }
 
-    public void loadInterface(String fxmlFile){
-
+    public void loadInterface(String fxmlFile) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
-            Scene scene = new Scene(loader.load(), 320, 240);
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
 
-            stage.setScene(scene);
-            stage.show();
+            if (stage != null) {
+                stage.setScene(scene);
+            }
+
         } catch (IOException e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null,"fail to load Interface","Error",JOptionPane.ERROR_MESSAGE);
+        }catch(Exception e){
+           ;e.getMessage();
         }
-
     }
+
 }

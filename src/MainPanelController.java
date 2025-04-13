@@ -1,10 +1,15 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-public class MainPanelController {
+import java.io.IOException;
+
+public class MainPanelController{
     @FXML
     private BorderPane mainPanel1;
 
@@ -13,16 +18,27 @@ public class MainPanelController {
 
     private NavigationManager navigationManager;
 
-
-    // this method call automatically by the javafx framework after the FXML fields have been injected nad initialized'
-    public void initialize(){
-        Stage stage = (Stage)  mainPanel1.getScene().getWindow();
-        //create the navigation manager object
-        navigationManager = new NavigationManager(stage);
+    public void setNavigationManager(NavigationManager navManager) {
+        this.navigationManager = navManager;
     }
 
+
+
+
     public void handleLogClick(ActionEvent actionEvent) {
-        navigationManager.loadInterface("loginController.fxml");   //direct to admin interface
+      //  navigationManager.loadInterface("loginform.fxml");
+        // direct to admin interface
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("loginform.fxml"));
+        Parent root = null;
+        try {
+            root = loader.load();
+            Scene scene = new Scene(root);
+            ApplicationDrive.getPrimaryStage().setScene(scene);
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
 
 
     }

@@ -43,32 +43,14 @@ public class loginController{
     @FXML
     private TextField userField;
 
-    private NavigationManager navigationManager;
-
-
-  /*  // this method call automatically by the javafx framework after the FXML fields have been injected nad initialized'
-    public void initialize(){
-        Stage stage = (Stage) mainBorder.getScene().getWindow();
-        //create the navigation manager object
-        navigationManager = new NavigationManager(stage);
-    }
-*/
-    public void setStage(Stage stage){
-        this.navigationManager =new NavigationManager(stage);
-    }
 
     public void handleLoginButtonClick(ActionEvent actionEvent) {
-
-
 
         mySqlCon conobj = new mySqlCon();
         Connection con  = conobj.con();
 
-
-
-
-        String userName=  userField.getText();
-        String password =  passwordField.getText();
+        String userName=  userField.getText().trim();
+        String password =  passwordField.getText().trim();
 
 
         String query = "SELECT * FROM userAccount WHERE user_name = ? AND password = ?";
@@ -79,23 +61,26 @@ public class loginController{
 
             ResultSet  rs = pstmt.executeQuery();
             if (rs.next()) {
-                // if roll is admin   direct to admininterface.java
-                // if roll is undergraduate   direct to undergraduateinterface.java
-                //JOptionPane.showMessageDialog(null, "Login successful!");
 
-                String role =  rs.getString("role");
-                if("admin".equalsIgnoreCase(role)){
 
-                    //call the method in NavitionManager to lad interfaces
-                    navigationManager.loadInterface("AdminInterface.fxml");   //direct to admin interface
+                String roll =  rs.getString("roll");
+                if("admin".equalsIgnoreCase(roll)){
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminInterface.fxml"));
+                    Parent root = null;
+                    try {
+                        root = loader.load();
+                        Scene scene = new Scene(root);
+                        ApplicationDrive.getPrimaryStage().setScene(scene);
 
-                }else if("undergraduate".equalsIgnoreCase(role)){
+                    } catch (IOException e) {
+                        System.out.println("error");                    }
 
-                    navigationManager.loadInterface("UndergraduateInterface.fxml"); // direct to undergraduate interface
 
-                }else if("lecture".equalsIgnoreCase(role)){
+                }else if("undergraduate".equalsIgnoreCase(roll)){
 
-                    navigationManager.loadInterface("lectureInterface.fxml");
+
+                }else if("lecture".equalsIgnoreCase(roll)){
+
 
                 }else{
                     JOptionPane.showMessageDialog(null,"Unknown Role.","Login Failed",JOptionPane.ERROR_MESSAGE);
