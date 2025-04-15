@@ -77,6 +77,7 @@ public class SearchUserController {
 
     @FXML
     private TableColumn<UserAccountModel, String> colUserId3;
+
     @FXML
     private TableColumn<UserAccountModel, String> colUserName3;
     @FXML
@@ -105,18 +106,37 @@ public class SearchUserController {
     @FXML
     public void initialize() {
         // Setup Table Columns with properties
+
+        colUserId3.setCellValueFactory(data -> data.getValue().user_idProperty());
+        colUserName3.setCellValueFactory(data -> data.getValue().user_nameProperty());
+        colEmail3.setCellValueFactory(data -> data.getValue().emailProperty());
+        colRoll3.setCellValueFactory(data -> data.getValue().rollProperty());
+        colPhone3.setCellValueFactory(data -> data.getValue().phoneNumberProperty());
+        colAddress3.setCellValueFactory(data -> data.getValue().addressProperty());
+        colDep3.setCellValueFactory(data -> data.getValue().depNameProperty());
+        colPassword3.setCellValueFactory(data -> data.getValue().passwordProperty());
+
         colUserId1.setCellValueFactory(data -> data.getValue().user_idProperty());
+        colUserName1.setCellValueFactory(data -> data.getValue().user_nameProperty());
+        colEmail1.setCellValueFactory(data -> data.getValue().emailProperty());
+        colRoll1.setCellValueFactory(data -> data.getValue().rollProperty());
+        colPhone1.setCellValueFactory(data -> data.getValue().phoneNumberProperty());
+        colAddress1.setCellValueFactory(data -> data.getValue().addressProperty());
+        colDep1.setCellValueFactory(data -> data.getValue().depNameProperty());
+        colPassword1.setCellValueFactory(data -> data.getValue().passwordProperty());
+
+        colUserId2.setCellValueFactory(data -> data.getValue().user_idProperty());
         colUserName2.setCellValueFactory(data -> data.getValue().user_nameProperty());
-        colEmail.setCellValueFactory(data -> data.getValue().emailProperty());
-        colRoll.setCellValueFactory(data -> data.getValue().rollProperty());
-        colPhone.setCellValueFactory(data -> data.getValue().phoneNumberProperty());
-        colAddress.setCellValueFactory(data -> data.getValue().addressProperty());
-        colDep.setCellValueFactory(data -> data.getValue().depNameProperty());
-        colPassword.setCellValueFactory(data -> data.getValue().passwordProperty());
+        colEmail2.setCellValueFactory(data -> data.getValue().emailProperty());
+        colRoll2.setCellValueFactory(data -> data.getValue().rollProperty());
+        colPhone2.setCellValueFactory(data -> data.getValue().phoneNumberProperty());
+        colAddress2.setCellValueFactory(data -> data.getValue().addressProperty());
+        colDep2.setCellValueFactory(data -> data.getValue().depNameProperty());
+        colPassword2.setCellValueFactory(data -> data.getValue().passwordProperty());
 
     }
 
-/*
+
     public void handleButton1Click(ActionEvent actionEvent) {
         connection = new mySqlCon();
         Connection con = connection.con();
@@ -188,7 +208,7 @@ public class SearchUserController {
         }
 
     }
-*/
+
 
 
 }

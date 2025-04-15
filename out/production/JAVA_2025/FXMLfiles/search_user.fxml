@@ -36,14 +36,14 @@
                                  <content>
                                     <TableView fx:id="table1" prefHeight="454.0" prefWidth="656.0">
                                       <columns>
-                                        <TableColumn fx:id="T11" prefWidth="75.0" text="user_id" />
-                                        <TableColumn fx:id="T12" prefWidth="75.0" text="user_name" />
-                                          <TableColumn fx:id="T13" prefWidth="75.0" text="email" />
-                                          <TableColumn fx:id="T14" prefWidth="75.0" text="roll" />
-                                          <TableColumn fx:id="T15" prefWidth="75.0" text="phoneNumber" />
-                                          <TableColumn fx:id="T16" prefWidth="75.0" text="address" />
-                                          <TableColumn fx:id="T17" prefWidth="75.0" text="depName" />
-                                          <TableColumn fx:id="T18" prefWidth="75.0" text="password" />
+                                        <TableColumn fx:id="colUserId1" prefWidth="75.0" text="user_id" />
+                                        <TableColumn fx:id="colUserName1" prefWidth="75.0" text="user_name" />
+                                          <TableColumn fx:id="colEmail1" prefWidth="75.0" text="email" />
+                                          <TableColumn fx:id="colRoll1" prefWidth="75.0" text="roll" />
+                                          <TableColumn fx:id="colPhone1" prefWidth="75.0" text="phoneNumber" />
+                                          <TableColumn fx:id="colAddress1" prefWidth="75.0" text="address" />
+                                          <TableColumn fx:id="colDep1" prefWidth="75.0" text="depName" />
+                                          <TableColumn fx:id="colPassword1" prefWidth="75.0" text="password" />
 
                                       </columns>
                                     </TableView>
@@ -63,19 +63,19 @@
                                  <content>
                                     <TableView fx:id="table2" prefHeight="126.0" prefWidth="639.0">
                                       <columns>
-                                        <TableColumn fx:id="T21" prefWidth="75.0" text="userId" />
-                                        <TableColumn fx:id="T22" prefWidth="75.0" text="user_name" />
-                                          <TableColumn fx:id="T23" prefWidth="75.0" text="email" />
-                                          <TableColumn fx:id="T24" prefWidth="75.0" text="roll" />
-                                          <TableColumn fx:id="T25" prefWidth="75.0" text="PhoneNumber" />
-                                          <TableColumn fx:id="T26" prefWidth="75.0" text="address" />
-                                          <TableColumn fx:id="T27" prefWidth="75.0" text="depName" />
-                                          <TableColumn fx:id="T28" prefWidth="75.0" text="password" />
+                                        <TableColumn fx:id="colUserId2" prefWidth="75.0" text="userId" />
+                                        <TableColumn fx:id="colUserName2" prefWidth="75.0" text="user_name" />
+                                          <TableColumn fx:id="colEmail2" prefWidth="75.0" text="email" />
+                                          <TableColumn fx:id="colRoll2" prefWidth="75.0" text="roll" />
+                                          <TableColumn fx:id="colPhone2" prefWidth="75.0" text="PhoneNumber" />
+                                          <TableColumn fx:id="colAddress2" prefWidth="75.0" text="address" />
+                                          <TableColumn fx:id="colDep2" prefWidth="75.0" text="depName" />
+                                          <TableColumn fx:id="colPassword2" prefWidth="75.0" text="password" />
                                       </columns>
                                     </TableView>
                                  </content>
                               </ScrollPane>
-                              <Button fx:id="Button1" layoutX="442.0" layoutY="30.0" mnemonicParsing="false"  prefHeight="25.0" prefWidth="153.0" text="Search" />
+                              <Button fx:id="Button1" layoutX="442.0" layoutY="30.0" mnemonicParsing="false" onAction="#handleButton1Click" prefHeight="25.0" prefWidth="153.0" text="Search" />
                            </children>
                         </AnchorPane>
                   </content>
@@ -90,14 +90,14 @@
                                  <content>
                                     <TableView fx:id="table3" prefHeight="324.0" prefWidth="602.0">
                                       <columns>
-                                        <TableColumn fx:id="T1" prefWidth="75.0" text="user_id" />
-                                        <TableColumn fx:id="T2" prefWidth="75.0" text="user_name" />
-                                          <TableColumn fx:id="T3" prefWidth="75.0" text="email" />
-                                          <TableColumn fx:id="T4" prefWidth="75.0" text="roll" />
-                                          <TableColumn fx:id="T5" prefWidth="75.0" text="phoneNumber" />
-                                          <TableColumn fx:id="T6" prefWidth="75.0" text="address" />
-                                          <TableColumn fx:id="T7" prefWidth="75.0" text="depName" />
-                                          <TableColumn fx:id="T8" prefWidth="75.0" text="password" />
+                                        <TableColumn fx:id="colUserId3" prefWidth="75.0" text="user_id" />
+                                        <TableColumn fx:id="colUserName3" prefWidth="75.0" text="user_name" />
+                                          <TableColumn fx:id="colEmail3" prefWidth="75.0" text="email" />
+                                          <TableColumn fx:id="colRoll3" prefWidth="75.0" text="roll" />
+                                          <TableColumn fx:id="colPhone3" prefWidth="75.0" text="phoneNumber" />
+                                          <TableColumn fx:id="colAddress3" prefWidth="75.0" text="address" />
+                                          <TableColumn fx:id="colDep3" prefWidth="75.0" text="depName" />
+                                          <TableColumn fx:id="colPassword3" prefWidth="75.0" text="password" />
 
                                       </columns>
                                     </TableView>
@@ -114,7 +114,7 @@
                                     <RadioButton fx:id="B3" layoutX="211.0" layoutY="15.0" mnemonicParsing="false" text="Technical Officer" toggleGroup="$roll" />
                                  </children>
                               </Pane>
-                              <Button fx:id="Button2" layoutX="454.0" layoutY="26.0" mnemonicParsing="false"  prefHeight="25.0" prefWidth="145.0" text="Search" />
+                              <Button fx:id="Button2" layoutX="454.0" layoutY="26.0" mnemonicParsing="false" onAction="#handleButton2Click" prefHeight="25.0" prefWidth="145.0" text="Search" />
                            </children>
                         </AnchorPane>
                      </content>
