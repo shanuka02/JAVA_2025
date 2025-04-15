@@ -40,10 +40,11 @@
                                         <TableColumn fx:id="T12" prefWidth="75.0" text="user_name" />
                                           <TableColumn fx:id="T13" prefWidth="75.0" text="email" />
                                           <TableColumn fx:id="T14" prefWidth="75.0" text="roll" />
-                                          <TableColumn fx:id="T15" prefWidth="75.0" text="PhoneNumber" />
+                                          <TableColumn fx:id="T15" prefWidth="75.0" text="phoneNumber" />
                                           <TableColumn fx:id="T16" prefWidth="75.0" text="address" />
                                           <TableColumn fx:id="T17" prefWidth="75.0" text="depName" />
-                                          <TableColumn fx:id="T171" prefWidth="75.0" text="password" />
+                                          <TableColumn fx:id="T18" prefWidth="75.0" text="password" />
+
                                       </columns>
                                     </TableView>
                                  </content>
@@ -74,7 +75,7 @@
                                     </TableView>
                                  </content>
                               </ScrollPane>
-                              <Button fx:id="Button1" layoutX="442.0" layoutY="30.0" mnemonicParsing="false" onAction="#handleButton1Click" prefHeight="25.0" prefWidth="153.0" text="Search" />
+                              <Button fx:id="Button1" layoutX="442.0" layoutY="30.0" mnemonicParsing="false"  prefHeight="25.0" prefWidth="153.0" text="Search" />
                            </children>
                         </AnchorPane>
                   </content>
@@ -97,8 +98,7 @@
                                           <TableColumn fx:id="T6" prefWidth="75.0" text="address" />
                                           <TableColumn fx:id="T7" prefWidth="75.0" text="depName" />
                                           <TableColumn fx:id="T8" prefWidth="75.0" text="password" />
-                                          <TableColumn prefWidth="75.0" text="C2" />
-                                          <TableColumn prefWidth="75.0" text="C2" />
+
                                       </columns>
                                     </TableView>
                                  </content>
@@ -114,7 +114,7 @@
                                     <RadioButton fx:id="B3" layoutX="211.0" layoutY="15.0" mnemonicParsing="false" text="Technical Officer" toggleGroup="$roll" />
                                  </children>
                               </Pane>
-                              <Button fx:id="Button2" layoutX="454.0" layoutY="26.0" mnemonicParsing="false" onAction="#handleButton2Click" prefHeight="25.0" prefWidth="145.0" text="Search" />
+                              <Button fx:id="Button2" layoutX="454.0" layoutY="26.0" mnemonicParsing="false"  prefHeight="25.0" prefWidth="145.0" text="Search" />
                            </children>
                         </AnchorPane>
                      </content>

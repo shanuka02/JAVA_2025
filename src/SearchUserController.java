@@ -9,9 +9,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-
 
 public class SearchUserController {
     @FXML
@@ -43,21 +40,57 @@ public class SearchUserController {
     private TableView<UserAccountModel> table3;
 
     @FXML
-    private TableColumn<UserAccountModel, String> colUserId;
+    private TableColumn<UserAccountModel, String> colUserId1;
     @FXML
-    private TableColumn<UserAccountModel, String> colUserName;
+    private TableColumn<UserAccountModel, String> colUserName1;
     @FXML
-    private TableColumn<UserAccountModel, String> colEmail;
+    private TableColumn<UserAccountModel, String> colEmail1;
     @FXML
-    private TableColumn<UserAccountModel, String> colRoll;
+    private TableColumn<UserAccountModel, String> colRoll1;
     @FXML
-    private TableColumn<UserAccountModel, String> colPhone;
+    private TableColumn<UserAccountModel, String> colPhone1;
     @FXML
-    private TableColumn<UserAccountModel, String> colAddress;
+    private TableColumn<UserAccountModel, String> colAddress1;
     @FXML
-    private TableColumn<UserAccountModel, String> colDep;
+    private TableColumn<UserAccountModel, String> colDep1;
     @FXML
-    private TableColumn<UserAccountModel, String> colPassword;
+    private TableColumn<UserAccountModel, String> colPassword1;
+
+
+    @FXML
+    private TableColumn<UserAccountModel, String> colUserId2;
+    @FXML
+    private TableColumn<UserAccountModel, String> colUserName2;
+    @FXML
+    private TableColumn<UserAccountModel, String> colEmail2;
+    @FXML
+    private TableColumn<UserAccountModel, String> colRoll2;
+    @FXML
+    private TableColumn<UserAccountModel, String> colPhone2;
+    @FXML
+    private TableColumn<UserAccountModel, String> colAddress2;
+    @FXML
+    private TableColumn<UserAccountModel, String> colDep2;
+    @FXML
+    private TableColumn<UserAccountModel, String> colPassword2;
+
+
+    @FXML
+    private TableColumn<UserAccountModel, String> colUserId3;
+    @FXML
+    private TableColumn<UserAccountModel, String> colUserName3;
+    @FXML
+    private TableColumn<UserAccountModel, String> colEmail3;
+    @FXML
+    private TableColumn<UserAccountModel, String> colRoll3;
+    @FXML
+    private TableColumn<UserAccountModel, String> colPhone3;
+    @FXML
+    private TableColumn<UserAccountModel, String> colAddress3;
+    @FXML
+    private TableColumn<UserAccountModel, String> colDep3;
+    @FXML
+    private TableColumn<UserAccountModel, String> colPassword3;
 
     @FXML
     private TextField TextField1;
@@ -68,11 +101,12 @@ public class SearchUserController {
 
 
 
+
     @FXML
     public void initialize() {
         // Setup Table Columns with properties
-        colUserId.setCellValueFactory(data -> data.getValue().user_idProperty());
-        colUserName.setCellValueFactory(data -> data.getValue().user_nameProperty());
+        colUserId1.setCellValueFactory(data -> data.getValue().user_idProperty());
+        colUserName2.setCellValueFactory(data -> data.getValue().user_nameProperty());
         colEmail.setCellValueFactory(data -> data.getValue().emailProperty());
         colRoll.setCellValueFactory(data -> data.getValue().rollProperty());
         colPhone.setCellValueFactory(data -> data.getValue().phoneNumberProperty());
@@ -82,7 +116,7 @@ public class SearchUserController {
 
     }
 
-
+/*
     public void handleButton1Click(ActionEvent actionEvent) {
         connection = new mySqlCon();
         Connection con = connection.con();
@@ -90,7 +124,7 @@ public class SearchUserController {
         String userId = TextField1.getText().trim();
         ObservableList<UserAccountModel> data = FXCollections.observableArrayList();
 
-        String query = "SELECT * FROM userAccount WHERE user_id = ?";
+        String query = "SELECT  user_id ,user_name,email , roll,phoneNumber ,address ,depName ,password   FROM useraccount WHERE user_id = ?";
         try {
             PreparedStatement pstm = con.prepareStatement(query);
             pstm.setString(1, userId);
@@ -102,7 +136,7 @@ public class SearchUserController {
                         rs.getString("user_name"),
                         rs.getString("email"),
                         rs.getString("roll"),
-                        rs.getString("PhoneNumber"),
+                        rs.getString("phoneNumber"),
                         rs.getString("address"),
                         rs.getString("depName"),
                         rs.getString("password")
@@ -127,7 +161,7 @@ public class SearchUserController {
         RadioButton selectedRadioButton = (RadioButton)roll.getSelectedToggle();
         String rolls = selectedRadioButton.getText();
 
-        String query = "SELECT * FROM userAccount WHERE roll = ?";
+        String query = " SELECT  user_id ,user_name,email , roll,phoneNumber ,address ,depName ,password   FROM useraccount WHERE roll = ?";
         try {
             PreparedStatement pstm = con.prepareStatement(query);
             pstm.setString(1, rolls);
@@ -139,7 +173,7 @@ public class SearchUserController {
                         rs.getString("user_name"),
                         rs.getString("email"),
                         rs.getString("roll"),
-                        rs.getString("PhoneNumber"),
+                        rs.getString("phoneNumber"),
                         rs.getString("address"),
                         rs.getString("depName"),
                         rs.getString("password")
@@ -152,42 +186,12 @@ public class SearchUserController {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        table2.getItems().clear();
+
     }
+*/
 
 
 }
 
 
 
-class UserAccountModel {
-    private final StringProperty user_id;
-    private final StringProperty user_name;
-    private final StringProperty email;
-    private final StringProperty roll;
-    private final StringProperty phoneNumber;
-    private final StringProperty address;
-    private final StringProperty depName;
-    private final StringProperty password;
-
-    public UserAccountModel(String user_id, String user_name, String email, String roll,
-                            String phoneNumber, String address, String depName, String password) {
-        this.user_id = new SimpleStringProperty(user_id);
-        this.user_name = new SimpleStringProperty(user_name);
-        this.email = new SimpleStringProperty(email);
-        this.roll = new SimpleStringProperty(roll);
-        this.phoneNumber = new SimpleStringProperty(phoneNumber);
-        this.address = new SimpleStringProperty(address);
-        this.depName = new SimpleStringProperty(depName);
-        this.password = new SimpleStringProperty(password);
-    }
-
-    public StringProperty user_idProperty() { return user_id; }
-    public StringProperty user_nameProperty() { return user_name; }
-    public StringProperty emailProperty() { return email; }
-    public StringProperty rollProperty() { return roll; }
-    public StringProperty phoneNumberProperty() { return phoneNumber; }
-    public StringProperty addressProperty() { return address; }
-    public StringProperty depNameProperty() { return depName; }
-    public StringProperty passwordProperty() { return password; }
-}

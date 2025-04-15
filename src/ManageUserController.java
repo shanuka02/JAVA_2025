@@ -13,7 +13,7 @@ public class ManageUserController{
     private Button SearchButton;
 
     public void searchButtonHandle(ActionEvent actionEvent) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXMLFiles/SearchUser.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("\\FXMLfiles\\search_user.fxml"));
         try {
             Parent root = loader.load();
             Scene scene = new Scene(root);
