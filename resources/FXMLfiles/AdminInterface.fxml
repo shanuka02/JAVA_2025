@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Circle?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="527.0" prefWidth="646.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="527.0" prefWidth="646.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AdminInterface">
    <top>
       <HBox prefHeight="55.0" prefWidth="646.0" BorderPane.alignment="CENTER">
          <children>
@@ -21,7 +20,7 @@
          <children>
             <Pane prefHeight="408.0" prefWidth="646.0" style="-fx-background-radius: 20 px;">
                <children>
-                  <Button layoutX="48.0" layoutY="123.0" mnemonicParsing="false" prefHeight="112.0" prefWidth="169.0" style="-fx-border-radius: 10px;">
+                  <Button fx:id="B1" layoutX="48.0" layoutY="123.0" mnemonicParsing="false" onAction="#handleManageUser" prefHeight="112.0" prefWidth="169.0" style="-fx-border-radius: 10px;">
                      <graphic>
                         <Label text="Manage User" />
                      </graphic>
@@ -38,7 +37,7 @@
                   </Button>
                   <Button layoutX="245.0" layoutY="265.0" mnemonicParsing="false" prefHeight="119.0" prefWidth="169.0" style="-fx-border-radius: 10px;" text="Manage Course">
                      <graphic>
-                        <Label />
+                        <Label text="Manage Course" />
                      </graphic>
                   </Button>
                   <Circle fill="DODGERBLUE" layoutX="205.0" layoutY="57.0" radius="49.0" stroke="BLACK" strokeType="INSIDE" />

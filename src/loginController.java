@@ -65,7 +65,7 @@ public class loginController{
 
                 String roll =  rs.getString("roll");
                 if("admin".equalsIgnoreCase(roll)){
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminInterface.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("\\FXMLfiles\\AdminInterface.fxml"));
                     Parent root = null;
                     try {
                         root = loader.load();
@@ -99,18 +99,5 @@ public class loginController{
     }
 
 
-    private void loadInterface(String fxmlFile) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
-            Parent root = loader.load();
 
-            // Assuming you have a reference to the current stage
-            Stage stage = (Stage) mainBorder.getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Failed to load interface.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }
 }

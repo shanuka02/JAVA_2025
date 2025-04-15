@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.ToggleButtonGroup?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
@@ -10,12 +9,13 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="615.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SearchUserController">
+<BorderPane fx:id="border" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="615.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SearchUserController">
    <top>
       <HBox prefHeight="74.0" prefWidth="615.0" BorderPane.alignment="CENTER">
          <children>
@@ -36,13 +36,14 @@
                                  <content>
                                     <TableView fx:id="table1" prefHeight="454.0" prefWidth="656.0">
                                       <columns>
-                                        <TableColumn prefWidth="75.0" text="C1" />
-                                        <TableColumn prefWidth="75.0" text="C2" />
-                                          <TableColumn prefWidth="75.0" text="C2" />
-                                          <TableColumn prefWidth="75.0" text="C2" />
-                                          <TableColumn prefWidth="75.0" text="C2" />
-                                          <TableColumn prefWidth="75.0" text="C2" />
-                                          <TableColumn prefWidth="75.0" text="C2" />
+                                        <TableColumn fx:id="T11" prefWidth="75.0" text="user_id" />
+                                        <TableColumn fx:id="T12" prefWidth="75.0" text="user_name" />
+                                          <TableColumn fx:id="T13" prefWidth="75.0" text="email" />
+                                          <TableColumn fx:id="T14" prefWidth="75.0" text="roll" />
+                                          <TableColumn fx:id="T15" prefWidth="75.0" text="PhoneNumber" />
+                                          <TableColumn fx:id="T16" prefWidth="75.0" text="address" />
+                                          <TableColumn fx:id="T17" prefWidth="75.0" text="depName" />
+                                          <TableColumn fx:id="T171" prefWidth="75.0" text="password" />
                                       </columns>
                                     </TableView>
                                  </content>
@@ -59,33 +60,27 @@
                               <TextField fx:id="TextField1" layoutX="97.0" layoutY="30.0" />
                               <ScrollPane layoutX="14.0" layoutY="82.0" prefHeight="147.0" prefWidth="588.0">
                                  <content>
-                                    <TableView fx:id="Table2" prefHeight="126.0" prefWidth="620.0">
+                                    <TableView fx:id="table2" prefHeight="126.0" prefWidth="639.0">
                                       <columns>
-                                        <TableColumn prefWidth="75.0" text="C1" />
-                                        <TableColumn prefWidth="75.0" text="C2" />
-                                          <TableColumn prefWidth="75.0" text="C2" />
-                                          <TableColumn prefWidth="75.0" text="C2" />
-                                          <TableColumn prefWidth="75.0" text="C2" />
-                                          <TableColumn prefWidth="75.0" text="C2" />
-                                          <TableColumn prefWidth="75.0" text="C2" />
-                                          <TableColumn prefWidth="75.0" text="C2" />
+                                        <TableColumn fx:id="T21" prefWidth="75.0" text="userId" />
+                                        <TableColumn fx:id="T22" prefWidth="75.0" text="user_name" />
+                                          <TableColumn fx:id="T23" prefWidth="75.0" text="email" />
+                                          <TableColumn fx:id="T24" prefWidth="75.0" text="roll" />
+                                          <TableColumn fx:id="T25" prefWidth="75.0" text="PhoneNumber" />
+                                          <TableColumn fx:id="T26" prefWidth="75.0" text="address" />
+                                          <TableColumn fx:id="T27" prefWidth="75.0" text="depName" />
+                                          <TableColumn fx:id="T28" prefWidth="75.0" text="password" />
                                       </columns>
                                     </TableView>
                                  </content>
                               </ScrollPane>
-                              <Button fx:id="Button1" layoutX="442.0" layoutY="30.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="153.0" text="Search" onAction="#handleButton1Click" />
+                              <Button fx:id="Button1" layoutX="442.0" layoutY="30.0" mnemonicParsing="false" onAction="#handleButton1Click" prefHeight="25.0" prefWidth="153.0" text="Search" />
                            </children>
                         </AnchorPane>
                   </content>
                 </Tab>
                   <Tab text="Search By Roll">
-                     <content>
-                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
-                          <content>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-                          </content>
-                        </ScrollPane>
-                     </content>
+
                      <content>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>
@@ -94,14 +89,14 @@
                                  <content>
                                     <TableView fx:id="table3" prefHeight="324.0" prefWidth="602.0">
                                       <columns>
-                                        <TableColumn prefWidth="75.0" text="C1" />
-                                        <TableColumn prefWidth="75.0" text="C2" />
-                                          <TableColumn prefWidth="75.0" text="C2" />
-                                          <TableColumn prefWidth="75.0" text="C2" />
-                                          <TableColumn prefWidth="75.0" text="C2" />
-                                          <TableColumn prefWidth="75.0" text="C2" />
-                                          <TableColumn prefWidth="75.0" text="C2" />
-                                          <TableColumn prefWidth="75.0" text="C2" />
+                                        <TableColumn fx:id="T1" prefWidth="75.0" text="user_id" />
+                                        <TableColumn fx:id="T2" prefWidth="75.0" text="user_name" />
+                                          <TableColumn fx:id="T3" prefWidth="75.0" text="email" />
+                                          <TableColumn fx:id="T4" prefWidth="75.0" text="roll" />
+                                          <TableColumn fx:id="T5" prefWidth="75.0" text="phoneNumber" />
+                                          <TableColumn fx:id="T6" prefWidth="75.0" text="address" />
+                                          <TableColumn fx:id="T7" prefWidth="75.0" text="depName" />
+                                          <TableColumn fx:id="T8" prefWidth="75.0" text="password" />
                                           <TableColumn prefWidth="75.0" text="C2" />
                                           <TableColumn prefWidth="75.0" text="C2" />
                                       </columns>
@@ -110,16 +105,16 @@
                               </ScrollPane>
                               <Pane layoutX="93.0" layoutY="15.0" prefHeight="46.0" prefWidth="361.0">
                                  <children>
-                                    <ToggleButtonGroup layoutX="14.0" layoutY="14.0" prefHeight="22.0" prefWidth="327.0" selectionType="SINGLE">
-                                        <toggles>
-                                          <RadioButton fx:id="Undergraduate" mnemonicParsing="false" text="Undergraduate     " />
-                                          <RadioButton fx:id="TechnicalOfficer" mnemonicParsing="false" text="TechnicalOffier     " />
-                                          <RadioButton fx:id="Lecture" mnemonicParsing="false" prefHeight="19.0" prefWidth="96.0" text="Lecture" />
-                                        </toggles>
-                                    </ToggleButtonGroup>
+
+                                    <RadioButton fx:id="B1" layoutY="15.0" mnemonicParsing="false" text="Undergraduate">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="roll" />
+                                       </toggleGroup></RadioButton>
+                                    <RadioButton fx:id="B2" layoutX="121.0" layoutY="15.0" mnemonicParsing="false" text="Lecture" toggleGroup="$roll" />
+                                    <RadioButton fx:id="B3" layoutX="211.0" layoutY="15.0" mnemonicParsing="false" text="Technical Officer" toggleGroup="$roll" />
                                  </children>
                               </Pane>
-                              <Button fx:id="Button2" layoutX="454.0" layoutY="26.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="145.0" text="Search" onAction="#handleButton2Click" />
+                              <Button fx:id="Button2" layoutX="454.0" layoutY="26.0" mnemonicParsing="false" onAction="#handleButton2Click" prefHeight="25.0" prefWidth="145.0" text="Search" />
                            </children>
                         </AnchorPane>
                      </content>

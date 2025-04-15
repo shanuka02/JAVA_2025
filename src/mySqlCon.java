@@ -1,7 +1,7 @@
 import java.sql.*;
 
 public class mySqlCon {
-    Statement stmt;
+
     Connection con;
 
 
