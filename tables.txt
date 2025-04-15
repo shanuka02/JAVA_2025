@@ -35,7 +35,6 @@ CREATE TABLE timeTable (
 );
 
 CREATE TABLE caMarks (
-    mark_id INT AUTO_INCREMENT,
     studentId CHAR(7) NOT NULL,
     courseId CHAR(7) NOT NULL,
     q1_mark DECIMAL(5,2),
@@ -112,6 +111,11 @@ CREATE TABLE courseUnit (
     cType VARCHAR(20)
 );
 
+ALTER TABLE courseUnit
+ADD nuOfQuises INT,
+ADD nuOfAssesments int;
+
+
 
 CREATE TABLE student_course (
     courseId CHAR(7) NOT NULL,
@@ -128,6 +132,29 @@ CREATE TABLE lecture_course (
     FOREIGN KEY (courseId) REFERENCES courseUnit(courseId) ON DELETE CASCADE,
     FOREIGN KEY (studentId) REFERENCES userAccount(user_id) ON DELETE CASCADE
 );
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+INSERT INTO caMarks (
+    studentId, courseId,
+    q1_mark, q2_mark, q3_mark, q_total,
+    assessment_mark1, assessment_mark2, assessment_total,
+    mid_mark, total_ca, eligibility
+) VALUES 
+('TG1301', 'ICT2113', 7.5, 8.0, 9.0, NULL, 14.0, 13.5, 27.5, 18.0, NULL, NULL),
+('TG1302', 'ICT2122', 6.0, 7.5, 8.0, NULL, 12.0, 11.5, 23.5, 16.0, NULL, NULL),
+('TG1303', 'ICT2133', 8.5, 9.0, 7.0, NULL, 13.5, 14.0, 27.5, 17.0, NULL, NULL),
+('TG1304', 'ICT2142', 9.0, 9.5, 9.0, NULL, 14.5, 14.5, 29.0, 19.0, NULL, NULL),
+('TG1305', 'ICT2152', 5.5, 6.0, 7.5, NULL, 10.0, 12.0, 22.0, 15.0, NULL, NULL);
+
+INSERT INTO userAccount (
+    user_id, user_name, email, roll, phoneNumber, address, depName, password, profilePic
+) VALUES 
+('TG1301', 'Nimal Perera', 'nimalp@example.com', 'Student', '0712345678', '123 Galle Road', 'IT', 'password123', NULL),
+('TG1302', 'Sunil Silva', 'sunils@example.com', 'Student', '0723456789', '456 Matara Road', 'IT', 'password123', NULL),
+('TG1303', 'Kamal Fernando', 'kamalf@example.com', 'Student', '0774567890', '789 Kandy Street', 'CS', 'password123', NULL),
+('TG1304', 'Amali Jayasuriya', 'amalij@example.com', 'Student', '0756789012', '321 Colombo Road', 'CS', 'password123', NULL),
+('TG1305', 'Dilani Ranatunga', 'dilanir@example.com', 'Student', '0785678901', '654 Kurunegala Lane', 'SE', 'password123', NULL);
 
 
 
