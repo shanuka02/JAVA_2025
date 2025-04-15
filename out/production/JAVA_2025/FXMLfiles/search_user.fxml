@@ -106,7 +106,7 @@
                               <Pane layoutX="93.0" layoutY="15.0" prefHeight="46.0" prefWidth="361.0">
                                  <children>
 
-                                    <RadioButton fx:id="B1" layoutY="15.0" mnemonicParsing="false" text="Undergraduate">
+                                    <RadioButton fx:id="B1" layoutY="15.0" mnemonicParsing="false" selected="true" text="Undergraduate">
                                        <toggleGroup>
                                           <ToggleGroup fx:id="roll" />
                                        </toggleGroup></RadioButton>

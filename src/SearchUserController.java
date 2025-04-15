@@ -134,6 +134,40 @@ public class SearchUserController {
         colDep2.setCellValueFactory(data -> data.getValue().depNameProperty());
         colPassword2.setCellValueFactory(data -> data.getValue().passwordProperty());
 
+        loadAllUsers();
+    }
+
+    public void loadAllUsers(){
+        connection = new mySqlCon();
+        Connection con = connection.con();
+
+        String userId = TextField1.getText().trim();
+        ObservableList<UserAccountModel> data = FXCollections.observableArrayList();
+
+        String query = "SELECT  user_id ,user_name,email , roll,phoneNumber ,address ,depName ,password   FROM useraccount ";
+
+        try {
+            PreparedStatement pstm = con.prepareStatement(query);
+            ResultSet rs = pstm.executeQuery();
+
+            while(rs.next()){
+                UserAccountModel user = new UserAccountModel(
+                        rs.getString("user_id"),
+                        rs.getString("user_name"),
+                        rs.getString("email"),
+                        rs.getString("roll"),
+                        rs.getString("phoneNumber"),
+                        rs.getString("address"),
+                        rs.getString("depName"),
+                        rs.getString("password")
+                );
+                data.add(user);
+            }
+            table1.setItems(data);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
 

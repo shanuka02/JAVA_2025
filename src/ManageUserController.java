@@ -23,4 +23,16 @@ public class ManageUserController{
             System.out.println("error: " + e.getMessage());
         }
     }
+
+    public void createButtonHandle(ActionEvent actionEvent) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("\\FXMLfiles\\create_user.fxml"));
+        try {
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            ApplicationDrive.getPrimaryStage().setScene(scene);
+
+        } catch (IOException e) {
+            System.out.println("error: " + e.getMessage());
+        }
+    }
 }
