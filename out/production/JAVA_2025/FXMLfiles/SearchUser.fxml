@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="615.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SearchUserController">
+<BorderPane fx:id="border" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="615.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SearchUserController">
    <top>
       <HBox prefHeight="74.0" prefWidth="615.0" BorderPane.alignment="CENTER">
          <children>
@@ -80,7 +80,7 @@
                   </content>
                 </Tab>
                   <Tab text="Search By Roll">
-                  
+
                      <content>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>
@@ -106,9 +106,12 @@
                               <Pane layoutX="93.0" layoutY="15.0" prefHeight="46.0" prefWidth="361.0">
                                  <children>
 
-                                    <RadioButton fx:id="B1" layoutY="15.0" mnemonicParsing="false"  text="Undergraduate" toggleGroup="$roll" />
+                                    <RadioButton fx:id="B1" layoutY="15.0" mnemonicParsing="false" text="Undergraduate">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="roll" />
+                                       </toggleGroup></RadioButton>
                                     <RadioButton fx:id="B2" layoutX="121.0" layoutY="15.0" mnemonicParsing="false" text="Lecture" toggleGroup="$roll" />
-                                    <RadioButton fx:id="B3" layoutX="211.0" layoutY="15.0" mnemonicParsing="false"  text="Technical Officer" toggleGroup="$roll" />
+                                    <RadioButton fx:id="B3" layoutX="211.0" layoutY="15.0" mnemonicParsing="false" text="Technical Officer" toggleGroup="$roll" />
                                  </children>
                               </Pane>
                               <Button fx:id="Button2" layoutX="454.0" layoutY="26.0" mnemonicParsing="false" onAction="#handleButton2Click" prefHeight="25.0" prefWidth="145.0" text="Search" />
