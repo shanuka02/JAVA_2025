@@ -161,6 +161,7 @@ public class SearchUserController {
                         rs.getString("depName"),
                         rs.getString("password")
                 );
+
                 data.add(user);
             }
             table1.setItems(data);

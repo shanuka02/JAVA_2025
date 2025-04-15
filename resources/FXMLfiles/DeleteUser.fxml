@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="669.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <HBox prefHeight="72.0" prefWidth="669.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="200.0" prefWidth="200.0" />
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="405.0" prefWidth="679.0">
+               <children>
+                  <TabPane prefHeight="408.0" prefWidth="669.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab text="Delete All">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <ScrollPane layoutX="14.0" layoutY="28.0" prefHeight="307.0" prefWidth="638.0">
+                                       <content>
+                                          <TableView prefHeight="377.0" prefWidth="681.0">
+                                            <columns>
+                                              <TableColumn prefWidth="53.0" text="no: " />
+                                              <TableColumn prefWidth="97.0" text="C2" />
+                                            </columns>
+                                          </TableView>
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                      <Tab text="Delete BY ID">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TableView layoutX="106.0" layoutY="66.0" prefHeight="200.0" prefWidth="200.0">
+                                      <columns>
+                                        <TableColumn prefWidth="75.0" text="C1" />
+                                        <TableColumn prefWidth="75.0" text="C2" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                    </tabs>
+                  </TabPane>
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+   </center>
+   <bottom>
+      <HBox prefHeight="61.0" prefWidth="669.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="200.0" prefWidth="200.0" />
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>

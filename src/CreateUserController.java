@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -102,7 +103,7 @@ public class CreateUserController {
         String roll = Combobox.getValue();
         String email =  Email.getText().trim();
 
-        String query = "INSERT INTO useraccount VALUES ?,?,?,?,?,?,?,?,?";
+        String query = "INSERT INTO useraccount (user_id ,user_name ,email,roll,phoneNumber,address,depName,password,profilePic ) VALUES (?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement pstm = con.prepareStatement(query);
             pstm.setString(1,userId);
@@ -114,6 +115,30 @@ public class CreateUserController {
             pstm.setString(7,depname);
             pstm.setString(8,password);
             pstm.setString(9,selectedFilePath);
+
+            int rowAffected = pstm.executeUpdate(query);
+
+            if(rowAffected > 0){
+                JOptionPane.showMessageDialog(null,"User add successfully","Success",JOptionPane.INFORMATION_MESSAGE);
+                UserId.clear();
+                Username.clear();
+                Email.clear();
+                Password.clear();
+                Address.clear();
+                ProfilePic.clear();
+                Combobox.getSelectionModel().clearSelection();
+                Combobox2.getSelectionModel().clearSelection();
+                selectedFilePath = null;
+
+
+            }else{
+                JOptionPane.showMessageDialog(null,"Unable to Update","Fail Update",JOptionPane.ERROR_MESSAGE);
+
+            }
+
+
+
+
 
 
 
