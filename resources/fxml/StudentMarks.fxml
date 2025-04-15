@@ -1,14 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 
-<!--<AnchorPane xmlns="http://javafx.com/javafx"-->
-<!--            xmlns:fx="http://javafx.com/fxml"-->
-<!--            fx:controller="fxml.StudentMarks"-->
-<!--            prefHeight="400.0" prefWidth="600.0">-->
-
-<!--</AnchorPane>-->
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="591.0" prefWidth="830.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StudentMarksController">
+   <right>
+      <AnchorPane prefHeight="634.0" prefWidth="954.0" BorderPane.alignment="CENTER">
+         <children>
+            <TabPane layoutX="1.0" layoutY="68.0" prefHeight="390.0" prefWidth="830.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab fx:id="caTab" text="CA Marks">
+                     <content>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <AnchorPane layoutY="15.0" prefHeight="281.0" prefWidth="1038.0">
+                                 <children>
+                                    <ScrollPane layoutX="14.0" layoutY="-1.0" prefHeight="314.0" prefWidth="806.0">
+                                       <content>
+                                          <TableView fx:id="caMarkTable" prefHeight="356.0" prefWidth="1022.0">
+                                            <columns>
+                                              <TableColumn fx:id="studentId" prefWidth="85.6000297665596" text="Student Id" />
+                                                <TableColumn fx:id="q1Mark" prefWidth="85.6000297665596" text="Q1_mark" />
+                                                <TableColumn fx:id="q2Mark" prefWidth="85.6000297665596" text="Q2_mark" />
+                                                <TableColumn fx:id="q3Mark" prefWidth="85.6000297665596" text="Q3_mark" />
+                                                <TableColumn fx:id="q4Mark" prefWidth="85.6000297665596" text="Q4_mark" />
+                                                <TableColumn fx:id="qTotal" prefWidth="85.6000297665596" text="Q_Total" />
+                                                <TableColumn fx:id="ass1Mark" prefWidth="85.6000297665596" text="Assess1_mark" />
+                                                <TableColumn fx:id="ass2Mark" prefWidth="85.6000297665596" text="Assess2_mark" />
+                                                <TableColumn fx:id="assTotal" prefWidth="85.6000297665596" text="Assess_Total" />
+                                                <TableColumn fx:id="midMark" prefWidth="85.6000297665596" text="Mid_mark" />
+                                                <TableColumn fx:id="totalCa" minWidth="7.199951171875" prefWidth="85.6000297665596" text="Total_CA" />
+<!--                                                <TableColumn fx:id="nuOfQuis" minWidth="7.199951171875" prefWidth="85.6000297665596" text="no.of_Quis" />-->
+<!--                                                <TableColumn fx:id="nuOfAsse" minWidth="7.199951171875" prefWidth="85.6000297665596" text="no.of_Asses" />-->
+                                            </columns>
+                                          </TableView>
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                <Tab fx:id="finalTab" text="Final Marks">
+                     <content>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <AnchorPane layoutX="1.0" layoutY="-1.0" prefHeight="368.0" prefWidth="830.0">
+                                 <children>
+                                    <TableView layoutX="58.0" layoutY="20.0" prefHeight="314.0" prefWidth="590.0">
+                                      <columns>
+                                        <TableColumn fx:id="studentIdFinal" minWidth="0.0" prefWidth="141.5999755859375" text="Student Id" />
+                                        <TableColumn fx:id="endMark" minWidth="8.79998779296875" prefWidth="154.4000244140625" text="End Mark" />
+                                          <TableColumn fx:id="result" minWidth="0.0" prefWidth="146.4000244140625" text="Result" />
+                                          <TableColumn fx:id="grade" prefWidth="145.60001220703123" text="Grade" />
+                                      </columns>
+                                    </TableView>
+                                    <Button fx:id="calculateResultButton" layoutX="667.0" layoutY="284.0" mnemonicParsing="false" text="Calculate Result" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+            <Label layoutX="29.0" layoutY="472.0" text="TG No:" />
+            <TextField fx:id="searchId" layoutX="74.0" layoutY="468.0" />
+            <Button fx:id="idSearchButton" layoutX="29.0" layoutY="506.0" mnemonicParsing="false" text="search" />
+            <Button fx:id="calculateCaButton" layoutX="683.0" layoutY="471.0" mnemonicParsing="false" text="Calculate CA" onAction="#calculateCa"/>
+         </children>
+      </AnchorPane>
+   </right>
+</BorderPane>

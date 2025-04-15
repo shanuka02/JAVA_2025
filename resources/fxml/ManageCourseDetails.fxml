@@ -4,11 +4,10 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="710.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ManageCourseDetailsController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="710.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ManageCourseDetailsController">
     <!--   <top>-->
     <!--      <SplitPane orientation="VERTICAL" prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #027A7A;" BorderPane.alignment="CENTER" />-->
     <!--   </top>-->
@@ -17,41 +16,31 @@
     <!--   </bottom>-->
 
     <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-        <Button layoutX="329.0" layoutY="66.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="336.0"
-                style="-fx-background-color: #027A7A;" text="Lecture Materals" textFill="WHITE"/>
-        <ImageView fitHeight="31.0" fitWidth="40.0" layoutX="363.0" layoutY="74.0" pickOnBounds="true"
-                   preserveRatio="true">
-            <Image url="/images/chart-pie-alt.png"/>
+        <Button layoutX="329.0" layoutY="66.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="336.0" style="-fx-background-color: #027A7A;" text="Lecture Materals" textFill="WHITE" />
+        <ImageView fitHeight="31.0" fitWidth="40.0" layoutX="363.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../images/chart-pie-alt.png" />
         </ImageView>
-        <Button layoutX="329.0" layoutY="164.0" mnemonicParsing="false" prefHeight="86.0" prefWidth="148.0"
-                style="-fx-background-color: #027A7A;"/>
-        <Button layoutX="510.0" layoutY="167.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="148.0"
-                style="-fx-background-color: #027A7A;"/>
-        <Button layoutX="510.0" layoutY="284.0" mnemonicParsing="false" prefHeight="87.0" prefWidth="148.0"
-                style="-fx-background-color: #027A7A;"/>
-        <Button layoutX="329.0" layoutY="285.0" mnemonicParsing="false" prefHeight="87.0" prefWidth="148.0"
-                style="-fx-background-color: #027A7A;"/>
-        <ImageView fitHeight="36.0" fitWidth="31.0" layoutX="386.0" layoutY="173.0" pickOnBounds="true"
-                   preserveRatio="true">
-            <Image url="/images/users-alt.png"/>
+        <Button fx:id="enrolledStudentButton" layoutX="329.0" layoutY="164.0" mnemonicParsing="false" prefHeight="86.0" prefWidth="148.0" style="-fx-background-color: #027A7A;"  />
+        <Button  fx:id="StudentMarksButton" layoutX="510.0" layoutY="167.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="148.0" style="-fx-background-color: #027A7A;" onAction="#handleStudentMarks"/>
+        <Button layoutX="510.0" layoutY="284.0" mnemonicParsing="false" prefHeight="87.0" prefWidth="148.0" style="-fx-background-color: #027A7A;" />
+        <Button layoutX="329.0" layoutY="285.0" mnemonicParsing="false" prefHeight="87.0" prefWidth="148.0" style="-fx-background-color: #027A7A;" />
+        <ImageView fitHeight="36.0" fitWidth="31.0" layoutX="386.0" layoutY="173.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../images/users-alt.png" />
         </ImageView>
-        <Label layoutX="358.0" layoutY="218.0" text="Enrolled Student" textFill="WHITE"/>
-        <ImageView fitHeight="35.0" fitWidth="36.0" layoutX="559.0" layoutY="176.0" pickOnBounds="true"
-                   preserveRatio="true">
-            <Image url="/images/chart-pie-alt.png"/>
+        <Label layoutX="358.0" layoutY="218.0" text="Enrolled Student" textFill="WHITE" />
+        <ImageView fitHeight="35.0" fitWidth="36.0" layoutX="559.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../images/chart-pie-alt.png" />
         </ImageView>
-        <Label layoutX="546.0" layoutY="218.0" text="Student Marks" textFill="WHITE"/>
-        <ImageView fitHeight="39.0" fitWidth="96.0" layoutX="384.0" layoutY="289.0" pickOnBounds="true"
-                   preserveRatio="true">
-            <Image url="/images/first-aid-kit.png"/>
+        <Label layoutX="546.0" layoutY="218.0" text="Student Marks" textFill="WHITE" />
+        <ImageView fitHeight="39.0" fitWidth="96.0" layoutX="384.0" layoutY="289.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../images/first-aid-kit.png" />
         </ImageView>
-        <Label layoutX="358.0" layoutY="337.0" text="Student Medical" textFill="WHITE"/>
-        <ImageView fitHeight="32.0" fitWidth="50.0" layoutX="568.0" layoutY="292.0" pickOnBounds="true"
-                   preserveRatio="true">
-            <Image url="/images/clock-three.png"/>
+        <Label layoutX="358.0" layoutY="337.0" text="Student Medical" textFill="WHITE" />
+        <ImageView fitHeight="32.0" fitWidth="50.0" layoutX="568.0" layoutY="292.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../images/terms-check.png" />
         </ImageView>
-        <Label layoutX="531.0" layoutY="337.0" text="Student Attendence" textFill="WHITE"/>
-        <Label fx:id="courseNameLabel" layoutX="217.0" layoutY="22.0" text=" y"/>
+        <Label layoutX="531.0" layoutY="337.0" text="Student Attendence" textFill="WHITE" />
+        <Label fx:id="courseNameLabel" layoutX="217.0" layoutY="22.0" text=" y" />
     </Pane>
 
-</AnchorPane>
+</BorderPane>
