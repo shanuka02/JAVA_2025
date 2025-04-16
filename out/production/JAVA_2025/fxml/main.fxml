@@ -54,7 +54,7 @@
             <Circle fx:id="profilePic" layoutX="211.0" layoutY="70.0" radius="47.0" stroke="BLACK" strokeType="INSIDE" />
             <Button fx:id="manageCourseButton" layoutX="69.0" layoutY="153.0" mnemonicParsing="false" onAction="#handleManageCourseButton" prefHeight="121.0" prefWidth="153.0" style="-fx-background-color: #027A7A;" />
             <Button fx:id="viewStudentButton" layoutX="496.0" layoutY="296.0" mnemonicParsing="false" prefHeight="121.0" prefWidth="152.0" style="-fx-background-color: #027A7A;" />
-            <Button fx:id="studentMarksButton" layoutX="496.0" layoutY="153.0" mnemonicParsing="false" prefHeight="121.0" prefWidth="152.0" style="-fx-background-color: #027A7A;" />
+            <Button fx:id="studentMarksButton" onAction="#handleAddMarks" layoutX="496.0" layoutY="153.0" mnemonicParsing="false" prefHeight="121.0" prefWidth="152.0" style="-fx-background-color: #027A7A;" />
             <Button fx:id="studentAttendenceButton" layoutX="282.0" layoutY="296.0" mnemonicParsing="false" prefHeight="121.0" prefWidth="152.0" style="-fx-background-color: #027A7A;" />
             <Label layoutX="303.0" layoutY="378.0" text="Student Attendence" textFill="WHITE" />
             <Button fx:id="studentMedicalButton" layoutX="69.0" layoutY="296.0" mnemonicParsing="false" prefHeight="121.0" prefWidth="152.0" style="-fx-background-color: #027A7A;" />

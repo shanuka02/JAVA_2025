@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="updateMarksController">
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="updateCLable" layoutX="124.0" layoutY="33.0" text="Update Marks " />
+            <TabPane layoutX="21.0" layoutY="68.0" prefHeight="287.0" prefWidth="559.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab fx:id="quizPane" text="Quiz">
+                     <content>
+                        <AnchorPane prefHeight="249.0" prefWidth="526.0">
+                           <children>
+                              <Label layoutX="23.0" layoutY="72.0" text="Quiz 1:" />
+                              <Label layoutX="23.0" layoutY="117.0" text="Quiz 2:" />
+                              <Label layoutX="23.0" layoutY="161.0" text="Quiz 3:" />
+                              <Label layoutX="23.0" layoutY="204.0" text="Quiz 4:" />
+                              <TextField fx:id="updateQ1" layoutX="87.0" layoutY="68.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="58.0" />
+                              <TextField fx:id="updateQ2" layoutX="87.0" layoutY="113.0" prefHeight="26.0" prefWidth="58.0" />
+                              <TextField fx:id="updateQ3" layoutX="87.0" layoutY="157.0" prefHeight="26.0" prefWidth="58.0" />
+                              <TextField fx:id="updateQ4" layoutX="87.0" layoutY="200.0" prefHeight="26.0" prefWidth="58.0" />
+                              <TextField fx:id="EnterTgNumberQ" layoutX="99.0" layoutY="14.0" />
+                              <Label layoutX="23.0" layoutY="18.0" text="TG Number :" />
+                              <Button fx:id="updateQuizButton" layoutX="211.0" layoutY="201.0" mnemonicParsing="false" onAction="#handleUpdateQuiz" text="submit" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                <Tab fx:id="AssesPane" text="Assesment">
+                     <content>
+                        <AnchorPane prefHeight="235.0" prefWidth="494.0">
+                           <children>
+                              <Label layoutX="24.0" layoutY="22.0" text="TG Number :" />
+                              <TextField fx:id="EnterTgNumberAs" layoutX="108.0" layoutY="18.0" />
+                              <Label layoutX="24.0" layoutY="69.0" text="Assesment 1:" />
+                              <Label layoutX="24.0" layoutY="115.0" text="Assesment 2:" />
+                              <TextField fx:id="updateAss1" layoutX="100.0" layoutY="64.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="58.0" />
+                              <TextField fx:id="updateAss2" layoutX="100.0" layoutY="110.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="58.0" />
+                              <Button fx:id="updateAssButton" layoutX="32.0" layoutY="169.0" mnemonicParsing="false" text="submit" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="MidPane" text="Mid Exam">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="25.0" layoutY="26.0" text="TG Number :" />
+                              <TextField fx:id="EnterTgNumberMid" layoutX="109.0" layoutY="22.0" />
+                              <Label layoutX="24.0" layoutY="78.0" text="Mid Exam Marks :" />
+                              <TextField fx:id="updateMid" layoutX="125.0" layoutY="73.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="58.0" />
+                              <Button fx:id="updateMidButton" layoutX="25.0" layoutY="142.0" mnemonicParsing="false" text="submit" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab fx:id="EndPane" text="End Exam">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TextField fx:id="EnterTgNumberEnd" layoutX="99.0" layoutY="26.0" />
+                              <Label layoutX="22.0" layoutY="30.0" text="TG Number :" />
+                              <Label layoutX="22.0" layoutY="79.0" text="End Exam Theory Marks :" />
+                              <TextField fx:id="updateEndTheory" layoutX="174.0" layoutY="74.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="58.0" />
+                              <Button fx:id="updateEndButton" layoutX="22.0" layoutY="173.0" mnemonicParsing="false" text="submit" onAction="#handleUpdateEnd"/>
+                              <Label layoutX="24.0" layoutY="120.0" text="End Exam Practical Marks :" />
+                              <TextField fx:id="updateEndpra" layoutX="174.0" layoutY="115.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="58.0" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </Pane>
+   </center>
+</BorderPane>
