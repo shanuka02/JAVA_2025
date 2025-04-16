@@ -115,6 +115,9 @@ ALTER TABLE courseUnit
 ADD nuOfQuises INT,
 ADD nuOfAssesments int;
 
+ALTER TABLE courseUnit
+ADD ca_percentage INT,
+
 
 
 CREATE TABLE student_course (
