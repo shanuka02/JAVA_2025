@@ -157,6 +157,13 @@ INSERT INTO userAccount (
 ('TG1305', 'Dilani Ranatunga', 'dilanir@example.com', 'Student', '0785678901', '654 Kurunegala Lane', 'SE', 'password123', NULL);
 
 
+INSERT INTO finalMarks (studentId, courseId, finalPractical, finalTheory, finalTotal, grade, cgpa, sgpa)
+VALUES 
+('TG1301', 'ICT2113', 18.0, 52.0, 70.0, 'B', 3.20, 3.10),
+('TG1302', 'ICT2122', 15.0, 45.0, 60.0, 'C', 2.80, 2.70),
+('TG1303', 'ICT2133', 17.0, 56.0, 73.0, 'B+', 3.40, 3.30),
+('TG1304', 'ICT2142', 19.0, 59.0, 78.0, 'A-', 3.60, 3.50),
+('TG1305', 'ICT2152', 14.0, 48.0, 62.0, 'C+', 2.90, 2.85);
 
 
 
