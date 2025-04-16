@@ -9,17 +9,13 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 
 public class StudentMarksController {
     @FXML
     private TableView<modelCaMark> caMarkTable;
-//    @FXML
-//    private TableColumn<modelCaMark, Integer> nuOfQuis, nuOfAsse;
+
     @FXML
     private TableColumn<modelCaMark, String> studentId;
     @FXML
@@ -45,6 +41,7 @@ public class StudentMarksController {
         midMark.setCellValueFactory(new PropertyValueFactory<>("midMark"));
         totalCa.setCellValueFactory(new PropertyValueFactory<>("totalCa"));
 
+
         //load data from db
         loadCaMarks();
 
@@ -59,13 +56,14 @@ public class StudentMarksController {
                 Statement stmt = conn.createStatement();
                 ResultSet rs = stmt.executeQuery("SELECT cm.studentId, cm.courseId, cm.q1_mark, cm.q2_mark, cm.q3_mark, cm.q4_mark, " +
                         "cm.q_total, cm.assessment_mark1, cm.assessment_mark2, cm.assessment_total, " +
-                        "cm.mid_mark, cm.total_ca, cu.nuOfQuises, cu.nuOfAssesments " +
+                        "cm.mid_mark, cm.total_ca, cu.nuOfQuises, cu.nuOfAssesments,cu.ca_percentage,cm.eligibility " +
                         "FROM caMarks cm JOIN courseunit cu ON cm.courseId = cu.courseId");
 
 
                 while (rs.next()) {
                     modelCaMark mark = new modelCaMark(
-                            rs.getString("studentId"),
+
+                    rs.getString("studentId"),
                             rs.getDouble("q1_mark"),
                             rs.getDouble("q2_mark"),
                             rs.getDouble("q3_mark"),
@@ -77,8 +75,11 @@ public class StudentMarksController {
                             rs.getDouble("mid_mark"),
                             rs.getDouble("total_ca"),
                             rs.getInt("nuOfQuises"),
-                            rs.getInt("nuOfAssesments")
-                    );
+                            rs.getInt("nuOfAssesments"),
+                            rs.getInt("ca_percentage"),
+                            rs.getString("eligibility")
+                            );
+
                     caMarkList.add(mark);
                 }
                 //set the data list to the tableview
@@ -115,6 +116,7 @@ public class StudentMarksController {
                     double mid = mark.getMidMark();
                     int nuOfQ = mark.getNuOfQuises();
                     int nuOfAs = mark.getNuOfAssess();
+                    int caPercentage = mark.getCaPercentage();
 
                     double minQ = Math.min(Math.min(q1, q2), Math.min(q3, q4));
 
@@ -158,17 +160,31 @@ public class StudentMarksController {
 
                     }
 
+                    double eligibilityStatus = ((tempca * 100) / caPercentage);
+                    if(eligibilityStatus >= 50){
+                        mark.setEligibility("Eligi");
+                    }else {
+                        mark.setEligibility("not");
+                    }
+
                     mark.setQTotal(quizTotal);
                     mark.setAssTotal(assesTotal);
                     mark.setTotalCa(tempca);
 
-                    String updateQuery = "UPDATE caMarks SET q_total = " + quizTotal +
-                            ", assessment_total = " + assesTotal +
-                            ", total_ca = " + tempca +
-                            " WHERE studentId = '" + mark.getStudentId() + "'";
-                    stmt.executeUpdate(updateQuery);
+                    String updateQuery = "UPDATE caMarks SET q_total = ?, assessment_total = ?, total_ca = ?, eligibility = ? WHERE studentId = ?";
+                    PreparedStatement ps = conn.prepareStatement(updateQuery);
+                    ps.setDouble(1, quizTotal);
+                    ps.setDouble(2, assesTotal);
+                    ps.setDouble(3, tempca);
+                    ps.setString(4, mark.getEligibility());
+                    ps.setString(5, mark.getStudentId());
+                    ps.executeUpdate();
+
                 }
+
+
                 caMarkTable.refresh();
+
 
             } catch (SQLException e) {
                 throw new RuntimeException(e);

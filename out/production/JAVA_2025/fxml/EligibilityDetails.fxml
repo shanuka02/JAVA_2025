@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EligibilityDetailsController">
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView fx:id="eligibilityTable" layoutX="92.0" layoutY="71.0" prefHeight="291.0" prefWidth="231.0">
+              <columns>
+                <TableColumn fx:id="studentIdEligibility" prefWidth="115.2000732421875" text="Student ID" />
+                <TableColumn fx:id="EligibilityStates" prefWidth="115.199951171875" text="Eligibility" />
+              </columns>
+            </TableView>
+            <Label fx:id="couSelectLabel" layoutX="166.0" layoutY="25.0" text="Label" />
+         </children>
+      </Pane>
+   </center>
+</BorderPane>

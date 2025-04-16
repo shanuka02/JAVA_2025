@@ -58,7 +58,7 @@
             <Button fx:id="studentAttendenceButton" layoutX="282.0" layoutY="296.0" mnemonicParsing="false" prefHeight="121.0" prefWidth="152.0" style="-fx-background-color: #027A7A;" />
             <Label layoutX="303.0" layoutY="378.0" text="Student Attendence" textFill="WHITE" />
             <Button fx:id="studentMedicalButton" layoutX="69.0" layoutY="296.0" mnemonicParsing="false" prefHeight="121.0" prefWidth="152.0" style="-fx-background-color: #027A7A;" />
-            <Button fx:id="studentEligibilityButton" layoutX="279.0" layoutY="153.0" mnemonicParsing="false" prefHeight="121.0" prefWidth="152.0" style="-fx-background-color: #027A7A;" />
+            <Button fx:id="studentEligibilityButton" onAction="#handleEligibility" layoutX="279.0" layoutY="153.0" mnemonicParsing="false" prefHeight="121.0" prefWidth="152.0" style="-fx-background-color: #027A7A;" />
             <ImageView fx:id="manageCourseIcon" fitHeight="62.0" fitWidth="83.0" layoutX="114.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
                <Image url="@/images/book-alt.png" />
             </ImageView>

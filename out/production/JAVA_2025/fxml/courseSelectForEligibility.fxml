@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="710.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="courseSelectController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="710.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CourseSelectEligibilityController">
     <!--   <top>-->
     <!--      <SplitPane orientation="VERTICAL" prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #027A7A;" BorderPane.alignment="CENTER" />-->
     <!--   </top>-->
@@ -29,4 +29,4 @@
         <Button fx:id="course5Button" layoutX="459.0" layoutY="260.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" style="-fx-background-color: #027A7A;" text="Select" textFill="WHITE" onAction="#handleCourseButton" />
     </Pane>
 
-</BorderPane>
+</AnchorPane>
