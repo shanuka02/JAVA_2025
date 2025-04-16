@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="504.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CreateUserController">
    <top>
       <HBox prefHeight="70.0" prefWidth="630.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER">
@@ -48,6 +47,7 @@
                         <Label layoutX="331.0" layoutY="96.0" text="Profile Pic" />
                         <Button fx:id="ChooseFilePath" layoutX="473.0" layoutY="129.0" mnemonicParsing="false" onAction="#ChooseFile" prefHeight="11.0" prefWidth="77.0" text="Choose File" />
                         <TextField fx:id="ProfilePic" layoutX="399.0" layoutY="92.0" />
+                        <Button fx:id="Adduser" layoutX="396.0" layoutY="318.0" mnemonicParsing="false" onAction="#handleAddUser" prefHeight="25.0" prefWidth="155.0" text="Add User" />
                      </children>
                   </Pane>
                </content>

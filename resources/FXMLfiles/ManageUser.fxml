@@ -27,16 +27,12 @@
                         <Label text="Create User" />
                      </graphic>
                   </Button>
-                  <Button fx:id="DeleteButton" layoutX="37.0" layoutY="271.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="434.0">
+                  <Button fx:id="DeleteButton" layoutX="37.0" layoutY="271.0" mnemonicParsing="false"  onAction="#DeleteButtonHandle" prefHeight="56.0" prefWidth="434.0">
                      <graphic>
                         <Label prefHeight="17.0" prefWidth="73.0" text="Delete User" />
                      </graphic>
                   </Button>
-                  <Button fx:id="UpdateButton" layoutX="37.0" layoutY="196.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="434.0">
-                     <graphic>
-                        <Label text="Update User" />
-                     </graphic>
-                  </Button>
+
                   <ImageView fitHeight="281.0" fitWidth="200.0" layoutX="500.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Images/ManageUser1.jpeg" />

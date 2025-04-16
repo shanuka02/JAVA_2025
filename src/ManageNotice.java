@@ -1,0 +1,51 @@
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+
+import java.awt.event.ActionEvent;
+import java.io.IOException;
+
+public class ManageNotice {
+    @FXML
+    private Button CreateButton;
+
+    @FXML
+    private Button DeleteButton;
+
+    @FXML
+    private Button SearchButton;
+
+    @FXML
+    private Button UpdateButton;
+
+    @FXML
+    void handleCreateInterface(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("\\FXMLfiles\\CreateNotice.fxml"));
+        try {
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            ApplicationDrive.getPrimaryStage().setScene(scene);
+
+        } catch (IOException e) {
+            System.out.println("error: " + e.getMessage());
+        }
+    }
+
+    @FXML
+    void handleDeleteInterface(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleSearchInterface(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleUpdateInterface(ActionEvent event) {
+
+    }
+
+}
