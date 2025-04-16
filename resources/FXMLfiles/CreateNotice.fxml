@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="487.0" prefWidth="629.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="487.0" prefWidth="629.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CreateNotice">
    <top>
       <HBox prefHeight="65.0" prefWidth="629.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER">
          <children>
@@ -27,10 +27,13 @@
                   <Label layoutX="76.0" layoutY="91.0" text="Notice Title" />
                   <Label layoutX="76.0" layoutY="149.0" prefHeight="17.0" prefWidth="78.0" text="Content" />
                   <TextField fx:id="Content" layoutX="180.0" layoutY="145.0" prefHeight="25.0" prefWidth="202.0" promptText="click the button " />
-                  <Button fx:id="ChooseFileButton" layoutX="394.0" layoutY="145.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="84.0" text="Choose file" />
-                  <Button fx:id="CreateButton" layoutX="394.0" layoutY="285.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="208.0" text="Create" />
+                  <Button fx:id="ChooseFileButton" layoutX="313.0" layoutY="182.0" mnemonicParsing="false" onAction="#HandleChooseFile" prefHeight="25.0" prefWidth="67.0" text="Choose file">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Button>
+                  <Button fx:id="CreateButton" layoutX="394.0" layoutY="285.0" mnemonicParsing="false" onAction="#HandleCreateNotice" prefHeight="44.0" prefWidth="208.0" text="Create" />
                   <TextArea fx:id="Noticetitle" layoutX="180.0" layoutY="82.0" prefHeight="34.0" prefWidth="200.0" />
-                  <Pane layoutX="76.0" layoutY="182.0" prefHeight="148.0" prefWidth="251.0">
+                  <Pane layoutX="76.0" layoutY="195.0" prefHeight="148.0" prefWidth="251.0">
                      <children>
                         <Label layoutY="35.0" prefHeight="17.0" prefWidth="68.0" text="Notice For" />
                         <RadioButton fx:id="RadioUndergraduate" layoutX="135.0" layoutY="35.0" mnemonicParsing="false" selected="true" text="Undergraduate">
