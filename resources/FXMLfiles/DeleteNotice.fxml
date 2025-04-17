@@ -34,7 +34,7 @@
                            </image>
                         </ImageView>
                         <Label layoutX="68.0" layoutY="21.0" prefHeight="17.0" prefWidth="196.0" text="Search Notice Before Delete" />
-                        <Button layoutX="227.0" layoutY="17.0" mnemonicParsing="false" style="-fx-background-color: none;" text="Search" textFill="#3745e8" underline="true">
+                        <Button layoutX="227.0" layoutY="17.0" mnemonicParsing="false" style="-fx-background-color: none;" text="Search" textFill="#3745e8" onAction="#HandleSearchUSer" underline="true">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
