@@ -3,6 +3,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class NoticeModel {
+
 private final SimpleIntegerProperty id;
 private final SimpleStringProperty title;
 private final SimpleStringProperty date;
@@ -19,6 +20,17 @@ NoticeModel(Integer id ,String title, String date ,String roll,String content){
 
 
 }
+    NoticeModel(Integer id ,String title, String date ){
+
+        this.id = new SimpleIntegerProperty(id);
+        this.title = new SimpleStringProperty(title);
+        this.date = new SimpleStringProperty(date);
+        this.roll = null;
+        this.content = null;
+
+    }
+
+
 
     public int getId() {
         return id.get();

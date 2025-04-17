@@ -36,7 +36,7 @@
                                        <content>
                                           <TableView fx:id="Table1" prefHeight="454.0" prefWidth="711.0">
                                             <columns>
-                                              <TableColumn fx:id="Id" prefWidth="75.0" text="No: " />
+                                              <TableColumn fx:id="Id" prefWidth="75.0" text="ID" />
                                               <TableColumn fx:id="Title" prefWidth="150.0" text="Notice Title" />
                                                 <TableColumn fx:id="Date" minWidth="0.0" prefWidth="101.0" text="Posted Date" />
                                                 <TableColumn fx:id="Roll" prefWidth="88.0" text="For Roll" />

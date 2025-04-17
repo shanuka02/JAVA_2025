@@ -36,6 +36,15 @@ public class ManageNotice {
 
     @FXML
     void handleDeleteInterface(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("\\FXMLfiles\\DeleteNotice.fxml"));
+        try {
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            ApplicationDrive.getPrimaryStage().setScene(scene);
+
+        } catch (IOException e) {
+            System.out.println("error: " + e.getMessage());
+        }
 
     }
 
