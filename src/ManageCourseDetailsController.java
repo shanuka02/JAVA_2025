@@ -24,6 +24,10 @@ public class ManageCourseDetailsController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/StudentMarks.fxml"));
         try {
             Parent root = loader.load();
+
+            StudentMarksController controller = loader.getController();
+            controller.setCourseLabel(courseNameLabel.getText());
+
             Stage stage = (Stage) StudentMarksButton.getScene().getWindow();
             stage.setScene(new Scene(root));
 

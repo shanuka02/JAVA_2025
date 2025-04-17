@@ -71,7 +71,7 @@
                               <Label layoutX="22.0" layoutY="30.0" text="TG Number :" />
                               <Label layoutX="22.0" layoutY="79.0" text="End Exam Theory Marks :" />
                               <TextField fx:id="updateEndTheory" layoutX="174.0" layoutY="74.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="58.0" />
-                              <Button fx:id="updateEndButton" layoutX="22.0" layoutY="173.0" mnemonicParsing="false" text="submit" onAction="#handleUpdateEnd"/>
+                              <Button fx:id="updateEndButton" layoutX="22.0" layoutY="173.0" mnemonicParsing="false" onAction="#handleUpdateEnd" text="submit" />
                               <Label layoutX="24.0" layoutY="120.0" text="End Exam Practical Marks :" />
                               <TextField fx:id="updateEndpra" layoutX="174.0" layoutY="115.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="58.0" />
                            </children>

@@ -40,13 +40,13 @@ public class LectureController {
 
             try {
                 Statement stmt = conn.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT courseName from courseUnit");
+                ResultSet rs = stmt.executeQuery("SELECT courseId from courseUnit");
 
                 String [] courseNames = new String[5];
                 int index =0;
                 while (rs.next() && index < courseFields.length){
 
-                        String name = rs.getString("courseName");
+                        String name = rs.getString("courseId");
                         System.out.println("course name "+ name);
                         courseNames[index] = name;
 
