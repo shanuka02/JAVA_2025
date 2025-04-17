@@ -1,76 +1,227 @@
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+
+import javax.swing.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class SearchNoticeController {
     @FXML
-    private TableColumn<?, ?> Content;
+    private TableColumn<NoticeModel, String> Content;
 
     @FXML
-    private TableColumn<?, ?> Content2;
+    private TableColumn<NoticeModel, String> Content2;
 
     @FXML
-    private TableColumn<?, ?> Content3;
+    private TableColumn<NoticeModel, String> Content3;
 
     @FXML
-    private TableColumn<?, ?> Date;
+    private TableColumn<NoticeModel, String> Date;
 
     @FXML
-    private TableColumn<?, ?> Date2;
+    private TableColumn<NoticeModel, String> Date2;
 
     @FXML
-    private TableColumn<?, ?> Date3;
+    private TableColumn<NoticeModel, String> Date3;
 
     @FXML
     private TextField DateTextField2;
 
     @FXML
-    private TableColumn<?, ?> Id;
+    private TableColumn<NoticeModel, Integer> Id;
 
     @FXML
-    private TableColumn<?, ?> Id2;
+    private TableColumn<NoticeModel, String>Id2;
 
     @FXML
-    private TableColumn<?, ?> Id3;
+    private TableColumn<NoticeModel, String> Id3;
 
     @FXML
-    private TableColumn<?, ?> Roll;
+    private TableColumn<NoticeModel, String>Roll;
 
     @FXML
-    private TableColumn<?, ?> Roll2;
+    private TableColumn<NoticeModel, String> Roll2;
 
     @FXML
-    private TableColumn<?, ?> Roll3;
+    private TableColumn<NoticeModel, String>Roll3;
 
     @FXML
     private Button SearchButton;
 
     @FXML
-    private TableView<?> Table1;
+    private TableView<NoticeModel> Table1;
 
     @FXML
-    private TableView<?> Table2;
+    private TableView<NoticeModel> Table2;
 
     @FXML
-    private TableView<?> Table3;
+    private TableView<NoticeModel> Table3;
 
     @FXML
-    private TableColumn<?, ?> Title;
+    private TableColumn<NoticeModel, String> Title;
 
     @FXML
-    private TableColumn<?, ?> Title2;
+    private TableColumn<NoticeModel, String> Title2;
 
     @FXML
-    private TableColumn<?, ?> Title3;
+    private TableColumn<NoticeModel, String> Title3;
 
     @FXML
     private TextField TitleTexttField;
 
-    @FXML
-    void HandleSearch(ActionEvent event) {
+    mySqlCon connection;
 
+    @FXML
+    public void initialize(){
+        Id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        Title.setCellValueFactory(new PropertyValueFactory<>("title"));
+        Date.setCellValueFactory(new PropertyValueFactory<>("date"));
+        Roll.setCellValueFactory(new PropertyValueFactory<>("roll"));
+        Content.setCellValueFactory(new PropertyValueFactory<>("content"));
+
+        Id2.setCellValueFactory(new PropertyValueFactory<>("id"));
+        Title2.setCellValueFactory(new PropertyValueFactory<>("title"));
+        Date2.setCellValueFactory(new PropertyValueFactory<>("date"));
+        Roll2.setCellValueFactory(new PropertyValueFactory<>("roll"));
+        Content2.setCellValueFactory(new PropertyValueFactory<>("content"));
+
+        Id3.setCellValueFactory(new PropertyValueFactory<>("id"));
+        Title3.setCellValueFactory(new PropertyValueFactory<>("title"));
+        Date3.setCellValueFactory(new PropertyValueFactory<>("date"));
+        Roll3.setCellValueFactory(new PropertyValueFactory<>("roll"));
+        Content3.setCellValueFactory(new PropertyValueFactory<>("content"));
+
+        loadData();
+
+        //keep watching what user types into th e text filed
+        //Add listener , every time the text changes, this code runs
+        //observable,oldValue,newValue  this say text changed from old value to newValue
+        TitleTexttField.textProperty().addListener((observable,oldValue,newValue )->{
+            //If the new text is not empty, call the function searchByTitle()
+            if(!newValue.trim().isEmpty()){
+                searchByUserTitle(newValue.trim());
+            }else{
+                //if table is empty clear the table
+                Table2.getItems().clear();
+            }
+        });
+
+
+
+    }
+
+    private void searchByUserTitle(String inputTitle) {
+        connection = new mySqlCon();
+        Connection con = connection.con();
+
+        ObservableList<NoticeModel> data = FXCollections.observableArrayList();
+
+        String query = "SELECT * FROM notice WHERE title  LIKE ?";
+
+
+        try {
+            PreparedStatement pstm = con.prepareStatement(query);
+            pstm.setString(1,inputTitle + "%");
+            ResultSet rs  = pstm.executeQuery();
+
+            while(rs.next()){
+                NoticeModel notice = new NoticeModel(
+                        rs.getInt("notice_id"),
+                        rs.getString("title"),
+                        rs.getString("postedDay"),
+                        rs.getString("content"),
+                        rs.getString("userRoll")
+
+                );
+                data.add(notice);
+            }
+            Table2.setItems(data);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadData(){
+        connection = new mySqlCon();
+        Connection con = connection.con();
+
+        ObservableList<NoticeModel> data = FXCollections.observableArrayList();
+
+        String query = "SELECT * FROM notice";
+
+        try {
+            PreparedStatement pstm = con.prepareStatement(query);
+            ResultSet rs = pstm.executeQuery();
+
+            while(rs.next()){
+                NoticeModel notice = new NoticeModel(
+                        rs.getInt("notice_id"),
+                        rs.getString("title"),
+                        rs.getString("postedDay"),
+                        rs.getString("content"),
+                        rs.getString("userRoll")
+
+                );
+                data.add(notice);
+            }
+            Table1.setItems(data);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    @FXML
+    int HandleSearch(ActionEvent event) {
+
+        String inputDate = DateTextField2.getText().trim();
+        connection = new mySqlCon();
+        Connection con = connection.con();
+        ObservableList<NoticeModel> data = FXCollections.observableArrayList();
+
+
+        if(inputDate.isEmpty()){
+            JOptionPane.showMessageDialog(null,"Please fill the date","warning",JOptionPane.ERROR_MESSAGE);
+            return 1;
+
+        }
+
+
+        String query = " SELECT * FROM notice WHERE  postedDay = ?";
+        try {
+            PreparedStatement pstm = con.prepareStatement(query);
+            pstm.setString(1, inputDate);
+            ResultSet rs = pstm.executeQuery();
+
+            while (rs.next()) {
+               NoticeModel notice = new NoticeModel(
+                        rs.getInt("notice_id"),
+                        rs.getString("title"),
+                        rs.getString("postedDay"),
+                        rs.getString("content"),
+                        rs.getString("userRoll")
+
+                );
+                data.add(notice);
+            }
+
+            Table3.setItems(data);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+
+
+
+        return 0;
     }
 }

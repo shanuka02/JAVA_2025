@@ -37,10 +37,9 @@
                      <children>
                         <Label layoutY="35.0" prefHeight="17.0" prefWidth="68.0" text="Notice For" />
                         <RadioButton fx:id="RadioUndergraduate" layoutX="135.0" layoutY="35.0" mnemonicParsing="false" selected="true" text="Undergraduate">
-                           <toggleGroup>
-                              <ToggleGroup fx:id="roll" />
-                           </toggleGroup>
-                        </RadioButton>
+                        <toggleGroup>
+                           <ToggleGroup fx:id="roll" />
+                        </toggleGroup></RadioButton>
                         <RadioButton fx:id="RadioLecture" layoutX="135.0" layoutY="107.0" mnemonicParsing="false" text="Lecture" toggleGroup="$roll" />
                         <RadioButton fx:id="RadioTechnical" layoutX="135.0" layoutY="75.0" mnemonicParsing="false" text="Technical Officer" toggleGroup="$roll" />
                      </children>

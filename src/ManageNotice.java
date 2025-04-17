@@ -1,10 +1,11 @@
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 
-import java.awt.event.ActionEvent;
+
 import java.io.IOException;
 
 public class ManageNotice {
@@ -56,5 +57,6 @@ public class ManageNotice {
     void handleUpdateInterface(ActionEvent event) {
 
     }
+
 
 }

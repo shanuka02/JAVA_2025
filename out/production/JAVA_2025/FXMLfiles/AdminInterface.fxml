@@ -25,7 +25,7 @@
                         <Label text="Manage User" />
                      </graphic>
                   </Button>
-                  <Button layoutX="245.0" layoutY="125.0" mnemonicParsing="false" prefHeight="109.0" prefWidth="169.0" style="-fx-border-radius: 10px;">
+                  <Button fx:id="Notice" layoutX="245.0" layoutY="125.0" mnemonicParsing="false" onAction="#handleManageNotice" prefHeight="109.0" prefWidth="169.0" style="-fx-border-radius: 10px;">
                      <graphic>
                         <Label text="Manage Notice" />
                      </graphic>

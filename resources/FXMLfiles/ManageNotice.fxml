@@ -27,10 +27,10 @@
          <children>
             <Pane prefHeight="372.0" prefWidth="634.0">
                <children>
-                  <Button layoutX="32.0" layoutY="58.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="309.0" text="Create Notice" />
-                  <Button layoutX="32.0" layoutY="280.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="309.0" text="Delete Notice" />
-                  <Button layoutX="32.0" layoutY="208.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="309.0" text="Update Notice" />
-                  <Button layoutX="32.0" layoutY="132.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="309.0" text="Search Notice" />
+                  <Button layoutX="32.0" layoutY="58.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="309.0" text="Create Notice" onAction="#handleCreateInterface" />
+                  <Button layoutX="32.0" layoutY="280.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="309.0" text="Delete Notice" onAction="#handleDeleteInterface" />
+                  <Button layoutX="32.0" layoutY="208.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="309.0" text="Update Notice"  onAction="#handleUpdateInterface"/>
+                  <Button layoutX="32.0" layoutY="132.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="309.0" text="Search Notice"  onAction="#handleSearchInterface"/>
                   <ImageView fitHeight="271.0" fitWidth="200.0" layoutX="384.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </Pane>

@@ -86,7 +86,7 @@ public class CreateNotice {
             pstm.setString(4,rolls);
 
 
-            int rowAffected = pstm.executeUpdate(query);
+            int rowAffected = pstm.executeUpdate();
 
             if(rowAffected > 0){
                 JOptionPane.showMessageDialog(null,"Notice add successfully","Success",JOptionPane.INFORMATION_MESSAGE);

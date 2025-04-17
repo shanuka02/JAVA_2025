@@ -12,9 +12,26 @@ public class AdminInterface {
 
     @FXML
     private Button B1;
+    @FXML
+    private Button Notice;
+
 
     public void handleManageUser(ActionEvent actionEvent) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("\\FXMLfiles\\ManageUser.fxml"));
+        try {
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            ApplicationDrive.getPrimaryStage().setScene(scene);
+
+        } catch (IOException e) {
+            System.out.println("error: " + e.getMessage());
+        }
+    }
+
+
+    @FXML
+    void handleManageNotice(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("\\FXMLfiles\\ManageNotice.fxml"));
         try {
             Parent root = loader.load();
             Scene scene = new Scene(root);
