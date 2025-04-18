@@ -29,7 +29,7 @@ CREATE TABLE timeTable (
     caption VARCHAR(50) NOT NULL,
     submittedDate DATE NOT NULL,
     depName VARCHAR(20),
-    FOREIGN KEY (depName) REFERENCES userAccount(depName) ON DELETE CASCADE
+  
 );
 
 CREATE TABLE caMarks (
