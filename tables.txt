@@ -108,15 +108,19 @@ CREATE TABLE courseUnit (
     courseId CHAR(7) PRIMARY KEY,
     courseName VARCHAR(40) NOT NULL,
     credit INT NOT NULL,
-    cType VARCHAR(20)
+    cType VARCHAR(20),
+    nuOfQuises INT,
+    nuOfAssesments INT,
+    ca_percentage INT,
+    lectureIncharge VARCHAR(40),
+    gpa_state VARCHAR(5),
+    CONSTRAINT fk_lectureIncharge 
+    FOREIGN KEY (lectureIncharge) REFERENCES userAccount(user_id) ON DELETE CASCADE
 );
 
-ALTER TABLE courseUnit
-ADD nuOfQuises INT,
-ADD nuOfAssesments int;
 
-ALTER TABLE courseUnit
-ADD ca_percentage INT,
+
+
 
 
 
