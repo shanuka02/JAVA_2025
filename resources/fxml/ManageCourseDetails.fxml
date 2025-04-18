@@ -20,7 +20,7 @@
         <ImageView fitHeight="31.0" fitWidth="40.0" layoutX="363.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../images/chart-pie-alt.png" />
         </ImageView>
-        <Button fx:id="enrolledStudentButton" layoutX="329.0" layoutY="164.0" mnemonicParsing="false" prefHeight="86.0" prefWidth="148.0" style="-fx-background-color: #027A7A;"  />
+        <Button fx:id="enrolledStudentButton" onAction="#handleEnrolledStudentButton" layoutX="329.0" layoutY="164.0" mnemonicParsing="false" prefHeight="86.0" prefWidth="148.0" style="-fx-background-color: #027A7A;"  />
         <Button  fx:id="StudentMarksButton" layoutX="510.0" layoutY="167.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="148.0" style="-fx-background-color: #027A7A;" onAction="#handleStudentMarks"/>
         <Button layoutX="510.0" layoutY="284.0" mnemonicParsing="false" prefHeight="87.0" prefWidth="148.0" style="-fx-background-color: #027A7A;" />
         <Button layoutX="329.0" layoutY="285.0" mnemonicParsing="false" prefHeight="87.0" prefWidth="148.0" style="-fx-background-color: #027A7A;" />

@@ -9,6 +9,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.sql.*;
+import java.util.Locale;
 
 
 public class StudentMarksController {
@@ -38,6 +39,9 @@ public class StudentMarksController {
     @FXML
     private Button calculateResultButton;
     private ObservableList<modelFinalMarks> finalMarksList = FXCollections.observableArrayList();
+
+    @FXML private Button idSearchButton;
+    @FXML private TextField searchId;
 
     public double quizTotal, assesTotal, tempca = 0;
 
@@ -315,5 +319,38 @@ public class StudentMarksController {
 
 
         }
-    }
+
+
+        @FXML
+        private void search(){
+            String searchTg = searchId.getText().trim().toLowerCase();
+
+            if(searchTg.isEmpty()){
+                caMarkTable.setItems(caMarkList);
+                finalMarksTable.setItems(finalMarksList);
+                return;
+            }
+
+            ObservableList<modelCaMark> filteredCaList = FXCollections.observableArrayList();
+            ObservableList<modelFinalMarks> filteredFinalList = FXCollections.observableArrayList();
+
+            for(modelCaMark mark: caMarkList){
+                if(mark.getStudentId().toLowerCase().contains(searchTg)){
+                    filteredCaList.add(mark);
+                }
+            }
+
+            for (modelFinalMarks mark : finalMarksList) {
+                if (mark.getStudentId().toLowerCase().contains(searchTg)) {
+                    filteredFinalList.add(mark);
+                }
+            }
+
+            caMarkTable.setItems(filteredCaList);
+            finalMarksTable.setItems(filteredFinalList);
+        }
+
+
+
+}
 

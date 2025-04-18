@@ -75,8 +75,8 @@
             </TabPane>
             <Label layoutX="29.0" layoutY="472.0" text="TG No:" />
             <TextField fx:id="searchId" layoutX="74.0" layoutY="468.0" />
-            <Button fx:id="idSearchButton" layoutX="29.0" layoutY="506.0" mnemonicParsing="false" text="search" />
-            <Button fx:id="calculateCaButton" layoutX="683.0" layoutY="471.0" mnemonicParsing="false" onAction="#calculateCa" text="Calculate CA" />
+            <Button fx:id="idSearchButton"  onAction="#search" layoutX="29.0" layoutY="506.0" mnemonicParsing="false" text="search" />
+            <Button fx:id="calculateCaButton"  layoutX="683.0" layoutY="471.0" mnemonicParsing="false" onAction="#calculateCa" text="Calculate CA" />
             <Label fx:id="courseIdLabel" layoutX="40.0" layoutY="28.0" text="Label" />
          </children>
       </AnchorPane>
