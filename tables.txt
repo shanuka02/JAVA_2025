@@ -30,8 +30,8 @@ CREATE TABLE timeTable (
     timeTable_id CHAR(7) PRIMARY KEY,
     caption VARCHAR(50) NOT NULL,
     submittedDate DATE NOT NULL,
-    depName VARCHAR(20),
-  
+    content BLOB,
+    depName VARCHAR(20)
 );
 
 CREATE TABLE caMarks (
