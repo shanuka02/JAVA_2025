@@ -2,10 +2,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import javax.swing.*;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -179,48 +183,18 @@ public class SearchNoticeController {
 
     @FXML
     int HandleSearch(ActionEvent event) {
-
-        String inputDate = DateTextField2.getText().trim();
-        connection = new mySqlCon();
-        Connection con = connection.con();
-        ObservableList<NoticeModel> data = FXCollections.observableArrayList();
-
-
-        if(inputDate.isEmpty()){
-            JOptionPane.showMessageDialog(null,"Please fill the date","warning",JOptionPane.ERROR_MESSAGE);
-            return 1;
-
-        }
-
-
-        String query = " SELECT * FROM notice WHERE  postedDay = ?";
-        try {
-            PreparedStatement pstm = con.prepareStatement(query);
-            pstm.setString(1, inputDate);
-            ResultSet rs = pstm.executeQuery();
-
-            while (rs.next()) {
-               NoticeModel notice = new NoticeModel(
-                        rs.getInt("notice_id"),
-                        rs.getString("title"),
-                        rs.getString("postedDay"),
-                        rs.getString("content"),
-                        rs.getString("userRoll")
-
-                );
-                data.add(notice);
-            }
-
-            Table3.setItems(data);
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-
-
-
-
         return 0;
+    }
+
+    public void BackbuttonHandle(ActionEvent actionEvent) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("\\FXMLfiles\\ManageNotice.fxml"));
+        try {
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            ApplicationDrive.getPrimaryStage().setScene(scene);
+
+        } catch (IOException e) {
+            System.out.println("error: " + e.getMessage());
+        }
     }
 }

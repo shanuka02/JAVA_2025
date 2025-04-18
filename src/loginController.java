@@ -43,29 +43,18 @@ public class loginController{
     @FXML
     private TextField userField;
 
-    //store username and Password
-    private  String password;
-    private  String userName;
 
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
 
     public void handleLoginButtonClick(ActionEvent actionEvent) {
 
         mySqlCon conobj = new mySqlCon();
         Connection con  = conobj.con();
 
-         userName=  userField.getText().trim();
-         password =  passwordField.getText().trim();
+         String userName=  userField.getText().trim();
+         String password =  passwordField.getText().trim();
 
 
-        String query = "SELECT * FROM userAccount WHERE user_name = ? AND password = ?";
+        String query = "SELECT * FROM useraccount WHERE user_name = ? AND password = ?";
         try{
             PreparedStatement pstmt = con.prepareStatement(query);
             pstmt.setString(1, userName);
@@ -85,7 +74,7 @@ public class loginController{
                         ApplicationDrive.getPrimaryStage().setScene(scene);
 
                     } catch (IOException e) {
-                        System.out.println("error");                    }
+                        System.out.println("error: "+e.getMessage());                    }
 
 
                 }else if("undergraduate".equalsIgnoreCase(roll)){
@@ -104,7 +93,7 @@ public class loginController{
             }
 
         }catch(Exception e){
-            throw new RuntimeException(e);
+            System.out.println("Error: "+ e.getMessage() );
         }
 
 

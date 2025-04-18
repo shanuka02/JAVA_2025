@@ -30,12 +30,12 @@
                         <Label text="Manage Notice" />
                      </graphic>
                   </Button>
-                  <Button layoutX="437.0" layoutY="124.0" mnemonicParsing="false" prefHeight="111.0" prefWidth="169.0" style="-fx-border-radius: 10px;">
+                  <Button layoutX="437.0" layoutY="124.0" mnemonicParsing="false" prefHeight="111.0" prefWidth="169.0" onAction="#handleManageTimetable" style="-fx-border-radius: 10px;">
                      <graphic>
                         <Label text="Manage Timetable" />
                      </graphic>
                   </Button>
-                  <Button layoutX="245.0" layoutY="265.0" mnemonicParsing="false" prefHeight="119.0" prefWidth="169.0" style="-fx-border-radius: 10px;" text="Manage Course">
+                  <Button layoutX="245.0" layoutY="265.0" mnemonicParsing="false" prefHeight="119.0" prefWidth="169.0" onAction="#handleManageCourse"  style="-fx-border-radius: 10px;" text="Manage Course">
                      <graphic>
                         <Label text="Manage Course" />
                      </graphic>

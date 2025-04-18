@@ -1,5 +1,8 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
@@ -10,6 +13,7 @@ import javafx.stage.Stage;
 
 import javax.swing.*;
 import java.io.File;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -152,26 +156,18 @@ public class UpdateTimeTable {
 
     @FXML
     void HandlechooseFile(ActionEvent event) {
-        FileChooser fileChooser= new FileChooser();
-
-        fileChooser.setTitle("Select File");
-
-        fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("All Files","*"),
-                new FileChooser.ExtensionFilter("Image Files","*.png","*.jpg","*.jpeg","*.gif"),
-                new FileChooser.ExtensionFilter("PDF FILES","*.pdf")
-        );
-
-        Button sourceButton =(Button) event.getSource();
-        Stage stage =(Stage) sourceButton.getScene().getWindow();
-
-        File selectedFile = fileChooser.showOpenDialog(stage);
-        if(selectedFile!= null){
-            selectedFilePath = selectedFile.getAbsolutePath();
-            Content.setText(selectedFilePath);
-
-        }
 
     }
 
+    public void BackbuttonHandle(ActionEvent actionEvent) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("\\FXMLfiles\\ManageTimetable.fxml"));
+        try {
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            ApplicationDrive.getPrimaryStage().setScene(scene);
+
+        } catch (IOException e) {
+            System.out.println("error: " + e.getMessage());
+        }
+    }
 }
