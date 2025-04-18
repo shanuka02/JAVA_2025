@@ -8,7 +8,7 @@ import java.io.IOException;
 public class TechnicalMain {
     public void Go(ActionEvent event) throws IOException {
 //        System.out.println("Technical Officer");
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("TechnicalOfficer.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/TechnicalOfficer.fxml"));
         try{
             Parent root = loader.load();
             Scene scene = new Scene(root);
