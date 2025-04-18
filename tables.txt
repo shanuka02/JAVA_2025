@@ -186,6 +186,14 @@ VALUES
 ('TG1305', 'ICT2152', 14.0, 48.0, 62.0, 'C+', 2.90, 2.85);
 
 
+INSERT INTO attendence_medical (studentId, courseId, medicalDate, description, status)
+VALUES 
+('TG1302', 'ICT2113', '2025-04-10', 'Fever and flu symptoms', 'Pending'),
+
+('TG1303', 'ICT2113', '2025-04-12', 'Injury due to accident', 'Approved'),
+
+('TG1302', 'ICT2152', '2025-04-15', 'Hospitalized for surgery', 'Rejected');
+
 
 
 
