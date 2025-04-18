@@ -61,7 +61,7 @@ public class CreateUserController {
         ObservableList<String> list1 = FXCollections.observableArrayList("Undergraduate", "Lecture", "Technical Officer", "Admin");
         Combobox.setItems(list1);
 
-      ObservableList<String> list2 = FXCollections.observableArrayList("ICT","BST","ET","Multy Disiplinary");
+      ObservableList<String> list2 = FXCollections.observableArrayList("ICT","BST","ET","MD");
       Combobox2.setItems(list2);
     }
 
@@ -147,5 +147,8 @@ public class CreateUserController {
         }
 
 
+    }
+
+    public void BackbuttonHandle(ActionEvent actionEvent) {
     }
 }

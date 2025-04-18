@@ -23,7 +23,7 @@ public class ManageCourse {
 
     @FXML
     void HandleAddcourse(ActionEvent event) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("\\FXMLfiles\\AddCourse.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("\\FXMLfiles\\createCourse.fxml"));
         try {
             Parent root = loader.load();
             Scene scene = new Scene(root);
@@ -50,4 +50,15 @@ public class ManageCourse {
 
     }
 
+    public void HandleHomeButton(ActionEvent actionEvent) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("\\FXMLfiles\\AdminInterface.fxml"));
+        try {
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            ApplicationDrive.getPrimaryStage().setScene(scene);
+
+        } catch (IOException e) {
+            System.out.println("error: " + e.getMessage());
+        }
+    }
 }
