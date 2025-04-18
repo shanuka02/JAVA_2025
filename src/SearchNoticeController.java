@@ -173,8 +173,7 @@ public class SearchNoticeController {
             }
             Table1.setItems(data);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+            System.out.println("error");        }
 
     }
 

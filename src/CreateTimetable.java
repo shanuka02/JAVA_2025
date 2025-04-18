@@ -8,40 +8,45 @@ import javax.swing.*;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
-public class CreateNotice {
+public class CreateTimetable {
     @FXML
-    private Button ChooseFileButton;
+    private Button ADDbutton;
+
+    @FXML
+    private RadioButton BST;
+
+    @FXML
+    private TextArea Caption;
+
+    @FXML
+    private Button ChooseButtton;
 
     @FXML
     private TextField Content;
 
     @FXML
-    private Button CreateButton;
+    private ToggleGroup Dep;
 
     @FXML
-    private TextArea Noticetitle;
+    private RadioButton ET;
 
     @FXML
-    private RadioButton RadioLecture;
+    private RadioButton ICT;
 
     @FXML
-    private RadioButton RadioTechnical;
+    private TextField ID;
 
     @FXML
-    private RadioButton RadioUndergraduate;
+    private ToggleGroup dep;
 
-    @FXML
-    private ToggleGroup roll;
-
-    private String selectedFilePath;
-
+    String selectedFilePath;
     mySqlCon connection;
 
     @FXML
-    void HandleChooseFile(ActionEvent event) {
+    void HandleChooseButton(ActionEvent event) {
         FileChooser fileChooser= new FileChooser();
 
         fileChooser.setTitle("Select File");
@@ -62,54 +67,57 @@ public class CreateNotice {
 
         }
 
+
     }
 
     @FXML
-    void HandleCreateNotice(ActionEvent event) {
+    int handleAdd(ActionEvent event) {
+
         connection = new mySqlCon();
         Connection con = connection.con();
 
-        String title = Noticetitle.getText().trim();
+        String id = ID.getText().trim();
+        String caption = Caption.getText().trim();
 
-        RadioButton selectedRadioButton = (RadioButton)roll.getSelectedToggle();
-        String rolls = selectedRadioButton.getText();
+        RadioButton selectedRadioButton = (RadioButton)dep.getSelectedToggle();
+        String deps = selectedRadioButton.getText();
 
+        if(id.isEmpty() || caption.isEmpty() || selectedFilePath.isEmpty() ){
+            JOptionPane.showMessageDialog(null,"All Field are Required","Error",JOptionPane.INFORMATION_MESSAGE);
+            return 1;
 
-        String query = "INSERT INTO notice(title,postedDay,content,userRoll ) VALUES (?,?,?,?)";
+        }
+
+        String query = "INSERT INTO timeTable(timeTable_id,caption,submittedDate, content,depName) VALUES (?,?,?,?,?)";
+
         try {
             java.sql.Date currentDate = new java.sql.Date(System.currentTimeMillis());
-
             PreparedStatement pstm = con.prepareStatement(query);
-            pstm.setString(1,title.toUpperCase());
-            pstm.setString(2, String.valueOf(currentDate));
-            pstm.setString(3,selectedFilePath);
-            pstm.setString(4,rolls);
-
-
+            pstm.setString(1,id);
+            pstm.setString(2,caption);
+            pstm.setString(3,String.valueOf(currentDate));
+            pstm.setString(4,selectedFilePath);
+            pstm.setString(5,deps);
             int rowAffected = pstm.executeUpdate();
 
             if(rowAffected > 0){
                 JOptionPane.showMessageDialog(null,"Notice add successfully","Success",JOptionPane.INFORMATION_MESSAGE);
-                Noticetitle.clear();
+                ID.clear();
                 Content.clear();
+                Caption.clear();
                 selectedFilePath = null;
-                roll.selectToggle(null);
+                dep.selectToggle(null);
 
 
             }else{
                 JOptionPane.showMessageDialog(null,"Unable to Update","Fail Update",JOptionPane.ERROR_MESSAGE);
 
             }
-
-
-
         } catch (SQLException e) {
-            System.out.println(e.getMessage());;
+            System.out.println("Error");
         }
 
+        return 0;
 
     }
-
-
-
 }

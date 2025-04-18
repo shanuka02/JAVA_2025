@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="493.0" prefWidth="655.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CreateTimetable">
+   <top>
+      <HBox prefHeight="58.0" prefWidth="600.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="58.0" prefWidth="659.0" />
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="372.0" prefWidth="658.0">
+               <children>
+                  <Label layoutX="54.0" layoutY="55.0" text="ID" />
+                  <Label layoutX="54.0" layoutY="98.0" text="Caption" />
+                  <Label layoutX="54.0" layoutY="155.0" text="Content" />
+                  <TextField fx:id="ID" layoutX="137.0" layoutY="51.0" prefHeight="25.0" prefWidth="199.0" />
+                  <TextArea fx:id="Caption" layoutX="137.0" layoutY="88.0" prefHeight="34.0" prefWidth="200.0" />
+                  <TextField fx:id="Content" layoutX="137.0" layoutY="143.0" prefHeight="25.0" prefWidth="200.0" />
+                  <Button fx:id="ChooseButtton" layoutX="272.0" layoutY="176.0" mnemonicParsing="false" onAction="#HandleChooseButton" text="Choose File">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Button>
+                  <Pane layoutX="137.0" layoutY="204.0" prefHeight="110.0" prefWidth="200.0">
+                     <children>
+                        <RadioButton fx:id="ICT" layoutX="39.0" layoutY="22.0" mnemonicParsing="false" selected="true" text="ICT">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="Dep" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="ET" layoutX="39.0" layoutY="55.0" mnemonicParsing="false" text="ET">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="dep" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="BST" layoutX="39.0" layoutY="88.0" mnemonicParsing="false" text="BST" toggleGroup="$Dep" />
+                     </children>
+                  </Pane>
+                  <Label layoutX="54.0" layoutY="242.0" text="Department" />
+                  <Button fx:id="ADDbutton" layoutX="478.0" layoutY="291.0" mnemonicParsing="false" onAction="#handleAdd" prefHeight="48.0" prefWidth="139.0" text="Add " />
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+   </center>
+   <bottom>
+      <HBox prefHeight="63.0" prefWidth="655.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="63.0" prefWidth="661.0" />
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>

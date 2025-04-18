@@ -1,5 +1,3 @@
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -58,9 +56,9 @@ public class UpdateNotice {
 
         String query = "SELECT notice_id,title ,content, userRoll FROM notice WHERE notice_id = ? ";
         if(id.isEmpty()){
-            JOptionPane.showMessageDialog(null,"please Enter ID");
-            return 1;
-        }
+        JOptionPane.showMessageDialog(null,"please Enter ID");
+        return 1;
+    }
 
         try {
             PreparedStatement pstm = con.prepareStatement(query);
@@ -131,7 +129,7 @@ public class UpdateNotice {
         String rolls = selectedRadioButton.getText();
 
 
-        String query = "INSERT INTO notice(title,postedDay,content,userRoll ) VALUES (?,?,?,?)";
+        String query = "UPDATE notice SET title = ?,postedDay = ?,content =?,userRoll = ? WHERE notice_id ?";
         try {
             java.sql.Date currentDate = new java.sql.Date(System.currentTimeMillis());
 
@@ -140,6 +138,7 @@ public class UpdateNotice {
             pstm.setString(2, String.valueOf(currentDate));
             pstm.setString(3,selectedFilePath);
             pstm.setString(4,rolls);
+            pstm.setString(5,Id.getText().trim());
 
 
             int rowAffected = pstm.executeUpdate();
@@ -150,6 +149,7 @@ public class UpdateNotice {
                 Title.clear();
                 Content.clear();
                 selectedFilePath = null;
+                roll.selectToggle(null);
 
 
             }else{
@@ -167,5 +167,6 @@ public class UpdateNotice {
 
 
     }
+
 
 }

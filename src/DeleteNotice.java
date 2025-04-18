@@ -93,7 +93,7 @@ public class DeleteNotice {
 
         ObservableList<NoticeModel> data = FXCollections.observableArrayList();
 
-        String query = "SELECT * FROM notice WHERE title  LIKE ?";
+        String query = "SELECT * FROM notice WHERE notice_id  LIKE ?";
 
 
         try {
@@ -120,6 +120,7 @@ public class DeleteNotice {
 
     public void handleDeleteButtonAction(ActionEvent actionEvent) {
         NoticeModel selectNotice = Table1.getSelectionModel().getSelectedItem();
+
         if(selectNotice != null){
             int noticeId = selectNotice.getId();
             NoticeIdField.setText(String.valueOf(noticeId));
@@ -133,8 +134,8 @@ public class DeleteNotice {
                 PreparedStatement pstm = con.prepareStatement(query);
                 pstm.setInt(1,noticeId);
                 pstm.executeUpdate();
-                loadData();
                 NoticeIdField.clear();
+
 
 
             } catch (SQLException e) {
@@ -143,11 +144,12 @@ public class DeleteNotice {
 
 
         }
+        loadData();
     }
 
     @FXML
     void HandleSearchUSer(ActionEvent event) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("\\FXMLfiles\\search_user.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("\\FXMLfiles\\SearchNotice.fxml"));
         try {
             Parent root = loader.load();
             Scene scene = new Scene(root);
