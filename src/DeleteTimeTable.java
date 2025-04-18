@@ -1,28 +1,27 @@
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class ViewTimeTable {
+public class DeleteTimeTable {
 
     @FXML
     private TableColumn<TimetableModel, String> Caption;
 
-    @FXML
-    private TableColumn<TimetableModel, String> Content;
 
     @FXML
     private TableColumn<TimetableModel, String> Date;
 
-    @FXML
-    private TableColumn<TimetableModel, String> DepName;
 
     @FXML
     private TableColumn<TimetableModel, String> ID;
@@ -34,14 +33,12 @@ public class ViewTimeTable {
     @FXML
     public void initialize(){
         ID.setCellValueFactory(new PropertyValueFactory<>("id"));
-        Content.setCellValueFactory(new PropertyValueFactory<>("caption"));
         Date.setCellValueFactory(new PropertyValueFactory<>("submiteddate"));
-        DepName.setCellValueFactory(new PropertyValueFactory<>("content"));
+
         Caption  .setCellValueFactory(new PropertyValueFactory<>("depname"));
 
         loadData();
     }
-
     private void loadData() {
         connection = new mySqlCon();
         Connection con = connection.con();
@@ -58,9 +55,8 @@ public class ViewTimeTable {
                 TimetableModel timetable = new TimetableModel(
                         rs.getString("id"),
                         rs.getString("caption"),
-                        rs.getString("submiteddate"),
-                        rs.getString("content"),
-                        rs.getString("depname")
+                        rs.getString("submiteddate")
+
 
                 );
                 data.add(timetable);
@@ -72,5 +68,36 @@ public class ViewTimeTable {
 
     }
 
+    @FXML
+    void HandleDelete(ActionEvent event) {
+        TimetableModel selectNotice = Table1.getSelectionModel().getSelectedItem();
+
+        if(selectNotice != null){
+            String id = selectNotice.getId();
+
+
+            connection = new mySqlCon();
+            Connection con = connection.con();
+
+            String query = "DELETE FROM notice WHERE notice_id = ?";
+
+            try {
+                PreparedStatement pstm = con.prepareStatement(query);
+                pstm.setString(1,id);
+                pstm.executeUpdate();
+
+
+
+
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null,"Select a Notice Before Delete","warning",JOptionPane.ERROR_MESSAGE);
+            }
+
+
+        }
+        loadData();
+
+
+    }
 
 }

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="496.0" prefWidth="664.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <HBox prefHeight="62.0" prefWidth="643.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="62.0" prefWidth="657.0" style="-fx-background-color: blue;" />
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="346.0" prefWidth="744.0">
+               <children>
+                  <ScrollPane layoutX="14.0" layoutY="20.0" prefHeight="346.0" prefWidth="630.0">
+                     <content>
+                        <Pane prefHeight="377.0" prefWidth="614.0">
+                           <children>
+                              <Label layoutX="30.0" layoutY="36.0" text="Course Code" />
+                              <Label layoutX="30.0" layoutY="75.0" text="Course Name" />
+                              <Label layoutX="48.0" layoutY="111.0" text="Credit" />
+                              <Label layoutX="31.0" layoutY="254.0" text="No Of Quizes" />
+                              <Pane layoutX="14.0" layoutY="136.0" prefHeight="108.0" prefWidth="293.0">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="22.0" text="Course Type" />
+                                    <RadioButton layoutX="140.0" layoutY="22.0" mnemonicParsing="false" text="T" />
+                                    <RadioButton layoutX="140.0" layoutY="46.0" mnemonicParsing="false" text="P" />
+                                    <RadioButton layoutX="140.0" layoutY="69.0" mnemonicParsing="false" text="T/P" />
+                                 </children>
+                              </Pane>
+                              <Label layoutX="17.0" layoutY="289.0" text="No Of Assesments" />
+                              <Label layoutX="27.0" layoutY="335.0" text="CA Percentage" />
+                              <Pane layoutX="343.0" layoutY="68.0" prefHeight="86.0" prefWidth="240.0">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="14.0" text="GPA State" />
+                                    <RadioButton layoutX="120.0" layoutY="14.0" mnemonicParsing="false" text="GPA" />
+                                    <RadioButton layoutX="120.0" layoutY="43.0" mnemonicParsing="false" text="NON GPA" />
+                                 </children>
+                              </Pane>
+                              <Button layoutX="438.0" layoutY="290.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="139.0" text="Add Course" />
+                              <TextField layoutX="124.0" layoutY="32.0" />
+                              <TextField layoutX="124.0" layoutY="331.0" />
+                              <TextField layoutX="124.0" layoutY="71.0" />
+                              <TextField layoutX="124.0" layoutY="107.0" />
+                              <TextField layoutX="124.0" layoutY="250.0" />
+                              <TextField layoutX="124.0" layoutY="285.0" />
+                              <Label layoutX="327.0" layoutY="36.0" text="Lecture Incharge" />
+                              <ComboBox layoutX="433.0" layoutY="32.0" prefWidth="150.0" />
+                           </children>
+                        </Pane>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+   </center>
+   <bottom>
+      <HBox prefHeight="49.0" prefWidth="643.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="49.0" prefWidth="661.0" style="-fx-background-color: blue;" />
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>

@@ -23,6 +23,15 @@ public class ManageTimetable {
 
     @FXML
     void HandleUpdate(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("\\FXMLfiles\\UpdateTimeTable.fxml"));
+        try {
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            ApplicationDrive.getPrimaryStage().setScene(scene);
+
+        } catch (IOException e) {
+            System.out.println("error: " + e.getMessage());
+        }
 
     }
 
@@ -56,6 +65,16 @@ public class ManageTimetable {
 
     @FXML
     void handleDelete(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("\\FXMLfiles\\DeleteTimetable.fxml"));
+        try {
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            ApplicationDrive.getPrimaryStage().setScene(scene);
+
+        } catch (IOException e) {
+            System.out.println("error: " + e.getMessage());
+        }
+
 
     }
 }

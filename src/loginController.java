@@ -43,14 +43,26 @@ public class loginController{
     @FXML
     private TextField userField;
 
+    //store username and Password
+    private  String password;
+    private  String userName;
+
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
 
     public void handleLoginButtonClick(ActionEvent actionEvent) {
 
         mySqlCon conobj = new mySqlCon();
         Connection con  = conobj.con();
 
-        String userName=  userField.getText().trim();
-        String password =  passwordField.getText().trim();
+         userName=  userField.getText().trim();
+         password =  passwordField.getText().trim();
 
 
         String query = "SELECT * FROM userAccount WHERE user_name = ? AND password = ?";

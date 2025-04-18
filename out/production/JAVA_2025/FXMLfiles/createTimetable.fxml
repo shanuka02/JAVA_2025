@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
+
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="493.0" prefWidth="655.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CreateTimetable">
    <top>
       <HBox prefHeight="58.0" prefWidth="600.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER">
@@ -42,7 +43,11 @@
                               <ToggleGroup fx:id="Dep" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton fx:id="ET" layoutX="39.0" layoutY="55.0" mnemonicParsing="false" text="ET" toggleGroup="$Dep" />
+                        <RadioButton fx:id="ET" layoutX="39.0" layoutY="55.0" mnemonicParsing="false" text="ET">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="dep" />
+                           </toggleGroup>
+                        </RadioButton>
                         <RadioButton fx:id="BST" layoutX="39.0" layoutY="88.0" mnemonicParsing="false" text="BST" toggleGroup="$Dep" />
                      </children>
                   </Pane>

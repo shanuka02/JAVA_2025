@@ -94,7 +94,7 @@ public class CreateTimetable {
             java.sql.Date currentDate = new java.sql.Date(System.currentTimeMillis());
             PreparedStatement pstm = con.prepareStatement(query);
             pstm.setString(1,id);
-            pstm.setString(2,caption);
+            pstm.setString(2,caption.toUpperCase());
             pstm.setString(3,String.valueOf(currentDate));
             pstm.setString(4,selectedFilePath);
             pstm.setString(5,deps);

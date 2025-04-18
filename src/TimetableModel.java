@@ -16,6 +16,16 @@ public class TimetableModel {
         this.depname =  new SimpleStringProperty (depname);
     }
 
+    public TimetableModel(String id, String caption, String submiteddate) {
+        this.id = new SimpleStringProperty(id);
+        this.caption =  new SimpleStringProperty(caption);
+        this.submiteddate =  new SimpleStringProperty (submiteddate);
+        this.content = null;
+        this.depname = null;
+
+
+    }
+
     public String getId() {
         return id.get();
     }
