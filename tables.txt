@@ -108,15 +108,32 @@ CREATE TABLE courseUnit (
     courseId CHAR(7) PRIMARY KEY,
     courseName VARCHAR(40) NOT NULL,
     credit INT NOT NULL,
-    cType VARCHAR(20)
+    cType VARCHAR(20),
+    nuOfQuises INT,
+    nuOfAssesments INT,
+    ca_percentage INT,
+    lectureIncharge VARCHAR(40),
+    gpa_state VARCHAR(5),
+    CONSTRAINT fk_lectureIncharge 
+    FOREIGN KEY (lectureIncharge) REFERENCES userAccount(user_id) ON DELETE CASCADE
 );
 
-ALTER TABLE courseUnit
-ADD nuOfQuises INT,
-ADD nuOfAssesments int;
+CREATE TABLE attendance (
+    Att_id INT PRIMARY KEY AUTO_INCREMENT,
+    Att_stu_id CHAR(8) NOT NULL,
+    Att_cou_id CHAR(8) NOT NULL,
+    Pre_date DATE,
+    Pre_time TIME,
+    Lec_hours INT,
+    Lec_type CHAR(2),
+    Statu CHAR(2) NOT NULL,
+    Att_medi_id CHAR(8),
+    FOREIGN KEY (Att_stu_id) REFERENCES userAccount(student_id) ON UPDATE CASCADE,
+    FOREIGN KEY (Att_cou_id) REFERENCES courseunit(courseId) ON UPDATE CASCADE,
+    FOREIGN KEY (Att_medi_id) REFERENCES attendence_medical(medical_id) ON UPDATE CASCADE
+);
 
-ALTER TABLE courseUnit
-ADD ca_percentage INT,
+
 
 
 
@@ -168,6 +185,14 @@ VALUES
 ('TG1304', 'ICT2142', 19.0, 59.0, 78.0, 'A-', 3.60, 3.50),
 ('TG1305', 'ICT2152', 14.0, 48.0, 62.0, 'C+', 2.90, 2.85);
 
+
+INSERT INTO attendence_medical (studentId, courseId, medicalDate, description, status)
+VALUES 
+('TG1302', 'ICT2113', '2025-04-10', 'Fever and flu symptoms', 'Pending'),
+
+('TG1303', 'ICT2113', '2025-04-12', 'Injury due to accident', 'Approved'),
+
+('TG1302', 'ICT2152', '2025-04-15', 'Hospitalized for surgery', 'Rejected');
 
 
 
