@@ -10,7 +10,7 @@
    <center>
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView layoutX="92.0" layoutY="71.0" prefHeight="291.0" prefWidth="231.0">
+            <TableView fx:id="eligibilityTable" layoutX="92.0" layoutY="71.0" prefHeight="291.0" prefWidth="231.0">
               <columns>
                 <TableColumn fx:id="studentIdEligibility" prefWidth="115.2000732421875" text="Student ID" />
                 <TableColumn fx:id="EligibilityStates" prefWidth="115.199951171875" text="Eligibility" />

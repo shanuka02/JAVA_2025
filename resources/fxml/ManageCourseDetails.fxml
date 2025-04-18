@@ -16,7 +16,7 @@
     <!--   </bottom>-->
 
     <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-        <Button layoutX="329.0" layoutY="66.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="336.0" style="-fx-background-color: #027A7A;" text="Lecture Materals" textFill="WHITE" />
+        <Button layoutX="329.0" fx:id="LectureMaterialButton" onAction="#handleLectureMaterials" layoutY="66.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="336.0" style="-fx-background-color: #027A7A;" text="Lecture Materals" textFill="WHITE" />
         <ImageView fitHeight="31.0" fitWidth="40.0" layoutX="363.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../images/chart-pie-alt.png" />
         </ImageView>

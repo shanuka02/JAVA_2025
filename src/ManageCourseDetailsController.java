@@ -16,8 +16,9 @@ public class ManageCourseDetailsController {
     @FXML private Button StudentMarksButton;
     @FXML private Label courseNameLabel;
     @FXML private Button enrolledStudentButton;
+    @FXML private Button LectureMaterialButton;
 
-        public void setCourseLabel(String clabel){
+    public void setCourseLabel(String clabel){
             courseNameLabel.setText(clabel);
         }
 
@@ -44,6 +45,23 @@ public class ManageCourseDetailsController {
             Parent root = loader.load();
 
             EnrolledStudentsViewController controller = loader.getController();
+            controller.setCourseLabel(courseNameLabel.getText());
+
+            Stage stage = (Stage) StudentMarksButton.getScene().getWindow();
+            stage.setScene(new Scene(root));
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public  void handleLectureMaterials(ActionEvent event){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/uploadLectureMaterials.fxml"));
+        try {
+            Parent root = loader.load();
+
+            uploadLectureMaterialController controller = loader.getController();
             controller.setCourseLabel(courseNameLabel.getText());
 
             Stage stage = (Stage) StudentMarksButton.getScene().getWindow();
