@@ -1,58 +1,44 @@
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-
 public class NoticeModel {
 
-private final SimpleIntegerProperty id;
-private final SimpleStringProperty title;
-private final SimpleStringProperty date;
-private final SimpleStringProperty roll;
-private final SimpleStringProperty content;
+    private int id;
+    private String title;
+    private String date;
+    private String roll;
+    private String content;
 
-NoticeModel(Integer id ,String title, String date ,String roll,String content){
-
-    this.id = new SimpleIntegerProperty(id);
-    this.title = new SimpleStringProperty(title);
-    this.date = new SimpleStringProperty(date);
-    this.roll = new SimpleStringProperty(roll);
-    this.content = new SimpleStringProperty(content);
-
-
-}
-    NoticeModel(Integer id ,String title, String date ){
-
-        this.id = new SimpleIntegerProperty(id);
-        this.title = new SimpleStringProperty(title);
-        this.date = new SimpleStringProperty(date);
-        this.roll = null;
-        this.content = null;
-
+    public NoticeModel(int id, String title, String date, String roll, String content) {
+        this.id = id;
+        this.title = title;
+        this.date = date;
+        this.roll = roll;
+        this.content = content;
     }
 
-
+    public NoticeModel(int id, String title, String date) {
+        this.id = id;
+        this.title = title;
+        this.date = date;
+        this.roll = null;
+        this.content = null;
+    }
 
     public int getId() {
-        return id.get();
+        return id;
     }
 
     public String getTitle() {
-        return title.get();
+        return title;
     }
 
-
-
     public String getDate() {
-        return date.get();
+        return date;
     }
 
     public String getRoll() {
-        return roll.get();
+        return roll;
     }
 
     public String getContent() {
-        return content.get();
+        return content;
     }
-
-
 }

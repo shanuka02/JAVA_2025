@@ -95,13 +95,14 @@ public class CreateCourse {
 
 
          RadioButton selectedRadio2 = (RadioButton)GPAvalue.getSelectedToggle();
-         String GPAstste = selectedRadio2.getText();
+         String GPAstate = selectedRadio2.getText();
 
          int quizes = Integer.parseInt(Quize.getText().trim());
          int assesment = Integer.parseInt(Assesment.getText().trim());
          int CApersentage = Integer.parseInt(CA.getText().trim());
 
          String Lecid = Lecture.getValue();
+
 
          String query2 = "Insert INTO courseUnit(courseId ,courseName,credit ,cType ,nuOfQuises , nuOfAssesments ,ca_percentage ,lectureIncharge, gpa_state)VALUES (?,?,?,?,?,?,?,?,?)";
             try {
@@ -114,7 +115,7 @@ public class CreateCourse {
                 pstm.setInt(6, assesment);
                 pstm.setInt(7,CApersentage);
                 pstm.setString(8,Lecid);
-                pstm.setString(9,GPAstste);
+                pstm.setString(9,GPAstate);
 
                 int rowAffected = pstm.executeUpdate();
 
@@ -133,7 +134,7 @@ public class CreateCourse {
 
 
                 }else{
-                    JOptionPane.showMessageDialog(null,"Unable to Update","Fail Update",JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null,"Unable to Create","Fail Update",JOptionPane.ERROR_MESSAGE);
 
                 }
 

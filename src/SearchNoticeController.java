@@ -6,9 +6,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -163,6 +166,9 @@ public class SearchNoticeController {
         try {
             PreparedStatement pstm = con.prepareStatement(query);
             ResultSet rs = pstm.executeQuery();
+            if(!rs.next()){
+                JOptionPane.showMessageDialog(null,"No Notice Found");
+            }
 
             while(rs.next()){
                 NoticeModel notice = new NoticeModel(
@@ -183,6 +189,37 @@ public class SearchNoticeController {
 
     @FXML
     int HandleSearch(ActionEvent event) {
+        connection = new mySqlCon();
+        Connection con = connection.con();
+       String date = DateTextField2.getText().trim();
+
+        ObservableList<NoticeModel> data = FXCollections.observableArrayList();
+
+        String query = "SELECT * FROM notice WHERE postedDay = ? ";
+        try {
+            PreparedStatement pstm = con.prepareStatement(query);
+            pstm.setString(1,date);
+            ResultSet rs = pstm.executeQuery();
+            if(!rs.next()){
+                JOptionPane.showMessageDialog(null,"No Notice Found For the day");
+            }
+            while(rs.next()){
+                NoticeModel notice = new NoticeModel(
+                        rs.getInt("notice_id"),
+                        rs.getString("title"),
+                        rs.getString("postedDay"),
+                        rs.getString("content"),
+                        rs.getString("userRoll")
+
+                );
+                data.add(notice);
+            }
+            Table3.setItems(data);
+
+        } catch (SQLException e) {
+            System.out.println("Error "+e.getMessage());
+        }
+
         return 0;
     }
 

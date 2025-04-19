@@ -1,57 +1,55 @@
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+public class UserAccountModel {
 
-class UserAccountModel {
-    private final StringProperty user_id;
-    private final StringProperty user_name;
-    private final StringProperty email;
-    private final StringProperty roll;
-    private final StringProperty phoneNumber;
-    private final StringProperty address;
-    private final StringProperty depName;
-    private final StringProperty password;
+    private String user_id;
+    private String user_name;
+    private String email;
+    private String roll;
+    private String phoneNumber;
+    private String address;
+    private String depName;
+    private String password;
 
     public UserAccountModel(String user_id, String user_name, String email, String roll,
                             String phoneNumber, String address, String depName, String password) {
-        this.user_id = new SimpleStringProperty(user_id);
-        this.user_name = new SimpleStringProperty(user_name);
-        this.email = new SimpleStringProperty(email);
-        this.roll = new SimpleStringProperty(roll);
-        this.phoneNumber = new SimpleStringProperty(phoneNumber);
-        this.address = new SimpleStringProperty(address);
-        this.depName = new SimpleStringProperty(depName);
-        this.password = new SimpleStringProperty(password);
+        this.user_id = user_id;
+        this.user_name = user_name;
+        this.email = email;
+        this.roll = roll;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.depName = depName;
+        this.password = password;
     }
 
-    public StringProperty user_idProperty() {
+    public String getUser_id() {
         return user_id;
     }
 
-    public StringProperty user_nameProperty() {
+    public String getUser_name() {
         return user_name;
     }
 
-    public StringProperty emailProperty() {
+    public String getEmail() {
         return email;
     }
 
-    public StringProperty rollProperty() {
+    public String getRoll() {
         return roll;
     }
 
-    public StringProperty phoneNumberProperty() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public StringProperty addressProperty() {
+    public String getAddress() {
         return address;
     }
 
-    public StringProperty depNameProperty() {
+    public String getDepName() {
         return depName;
     }
 
-    public StringProperty passwordProperty() {
+    public String getPassword() {
         return password;
     }
 }

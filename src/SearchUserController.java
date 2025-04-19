@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -109,34 +110,37 @@ public class SearchUserController {
 
     @FXML
     public void initialize() {
-        // Setup Table Columns with properties
 
-        colUserId3.setCellValueFactory(data -> data.getValue().user_idProperty());
-        colUserName3.setCellValueFactory(data -> data.getValue().user_nameProperty());
-        colEmail3.setCellValueFactory(data -> data.getValue().emailProperty());
-        colRoll3.setCellValueFactory(data -> data.getValue().rollProperty());
-        colPhone3.setCellValueFactory(data -> data.getValue().phoneNumberProperty());
-        colAddress3.setCellValueFactory(data -> data.getValue().addressProperty());
-        colDep3.setCellValueFactory(data -> data.getValue().depNameProperty());
-        colPassword3.setCellValueFactory(data -> data.getValue().passwordProperty());
 
-        colUserId1.setCellValueFactory(data -> data.getValue().user_idProperty());
-        colUserName1.setCellValueFactory(data -> data.getValue().user_nameProperty());
-        colEmail1.setCellValueFactory(data -> data.getValue().emailProperty());
-        colRoll1.setCellValueFactory(data -> data.getValue().rollProperty());
-        colPhone1.setCellValueFactory(data -> data.getValue().phoneNumberProperty());
-        colAddress1.setCellValueFactory(data -> data.getValue().addressProperty());
-        colDep1.setCellValueFactory(data -> data.getValue().depNameProperty());
-        colPassword1.setCellValueFactory(data -> data.getValue().passwordProperty());
+        colUserId1.setCellValueFactory(new PropertyValueFactory<>("user_id"));
+        colUserName1.setCellValueFactory(new PropertyValueFactory<>("user_name"));
+        colEmail1.setCellValueFactory(new PropertyValueFactory<>("email"));
+        colRoll1.setCellValueFactory(new PropertyValueFactory<>("roll"));
+        colPhone1.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
+        colAddress1.setCellValueFactory(new PropertyValueFactory<>("address"));
+        colDep1.setCellValueFactory(new PropertyValueFactory<>("depName"));
+        colPassword1.setCellValueFactory(new PropertyValueFactory<>("password"));
 
-        colUserId2.setCellValueFactory(data -> data.getValue().user_idProperty());
-        colUserName2.setCellValueFactory(data -> data.getValue().user_nameProperty());
-        colEmail2.setCellValueFactory(data -> data.getValue().emailProperty());
-        colRoll2.setCellValueFactory(data -> data.getValue().rollProperty());
-        colPhone2.setCellValueFactory(data -> data.getValue().phoneNumberProperty());
-        colAddress2.setCellValueFactory(data -> data.getValue().addressProperty());
-        colDep2.setCellValueFactory(data -> data.getValue().depNameProperty());
-        colPassword2.setCellValueFactory(data -> data.getValue().passwordProperty());
+
+        colUserId2.setCellValueFactory(new PropertyValueFactory<>("user_id"));
+        colUserName2.setCellValueFactory(new PropertyValueFactory<>("user_name"));
+        colEmail2.setCellValueFactory(new PropertyValueFactory<>("email"));
+        colRoll2.setCellValueFactory(new PropertyValueFactory<>("roll"));
+        colPhone2.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
+        colAddress2.setCellValueFactory(new PropertyValueFactory<>("address"));
+        colDep2.setCellValueFactory(new PropertyValueFactory<>("depName"));
+        colPassword2.setCellValueFactory(new PropertyValueFactory<>("password"));
+
+
+        colUserId3.setCellValueFactory(new PropertyValueFactory<>("user_id"));
+        colUserName3.setCellValueFactory(new PropertyValueFactory<>("user_name"));
+        colEmail3.setCellValueFactory(new PropertyValueFactory<>("email"));
+        colRoll3.setCellValueFactory(new PropertyValueFactory<>("roll"));
+        colPhone3.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
+        colAddress3.setCellValueFactory(new PropertyValueFactory<>("address"));
+        colDep3.setCellValueFactory(new PropertyValueFactory<>("depName"));
+        colPassword3.setCellValueFactory(new PropertyValueFactory<>("password"));
+
 
         loadAllUsers();
     }
@@ -170,7 +174,7 @@ public class SearchUserController {
             }
             table1.setItems(data);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.println("Error "+ e.getMessage());
         }
 
     }

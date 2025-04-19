@@ -1,56 +1,44 @@
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-
 public class TimetableModel {
-    private final StringProperty id;
-    private final StringProperty caption;
-    private final StringProperty submiteddate;
-    private final StringProperty content;
-    private final StringProperty depname;
+
+    private String id;
+    private String caption;
+    private String submiteddate;
+    private String content;
+    private String depname;
 
     public TimetableModel(String id, String caption, String submiteddate, String content, String depname) {
-        this.id = new SimpleStringProperty(id);
-        this.caption =  new SimpleStringProperty(caption);
-        this.submiteddate =  new SimpleStringProperty (submiteddate);
-        this.content =  new SimpleStringProperty (content);
-        this.depname =  new SimpleStringProperty (depname);
+        this.id = id;
+        this.caption = caption;
+        this.submiteddate = submiteddate;
+        this.content = content;
+        this.depname = depname;
     }
 
     public TimetableModel(String id, String caption, String submiteddate) {
-        this.id = new SimpleStringProperty(id);
-        this.caption =  new SimpleStringProperty(caption);
-        this.submiteddate =  new SimpleStringProperty (submiteddate);
+        this.id = id;
+        this.caption = caption;
+        this.submiteddate = submiteddate;
         this.content = null;
         this.depname = null;
-
-
     }
 
     public String getId() {
-        return id.get();
+        return id;
     }
-
-
 
     public String getCaption() {
-        return caption.get();
+        return caption;
     }
-
 
     public String getSubmiteddate() {
-        return submiteddate.get();
+        return submiteddate;
     }
-
 
     public String getContent() {
-        return content.get();
+        return content;
     }
-
-
 
     public String getDepname() {
-        return depname.get();
+        return depname;
     }
-
-
 }

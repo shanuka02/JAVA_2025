@@ -15,7 +15,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class ViewTimeTable {
+public class SearchTimeTable {
 
     @FXML
     private TableColumn<TimetableModel, String> Caption;
@@ -41,8 +41,8 @@ public class ViewTimeTable {
         ID.setCellValueFactory(new PropertyValueFactory<>("id"));
         Content.setCellValueFactory(new PropertyValueFactory<>("caption"));
         Date.setCellValueFactory(new PropertyValueFactory<>("submiteddate"));
-        DepName.setCellValueFactory(new PropertyValueFactory<>("content"));
-        Caption  .setCellValueFactory(new PropertyValueFactory<>("depname"));
+        DepName.setCellValueFactory(new PropertyValueFactory<>("depname"));
+        Caption  .setCellValueFactory(new PropertyValueFactory<>("caption"));
 
         loadData();
     }
@@ -61,11 +61,11 @@ public class ViewTimeTable {
 
             while(rs.next()){
                 TimetableModel timetable = new TimetableModel(
-                        rs.getString("id"),
-                        rs.getString("caption"),
-                        rs.getString("submiteddate"),
-                        rs.getString("content"),
-                        rs.getString("depname")
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5)
 
                 );
                 data.add(timetable);

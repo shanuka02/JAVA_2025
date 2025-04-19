@@ -37,7 +37,7 @@ public class ManageTimetable {
 
     @FXML
     void HandleView(ActionEvent event) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("\\FXMLfiles\\ViewTimetable.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("\\FXMLfiles\\SearchTimetable.fxml"));
         try {
             Parent root = loader.load();
             Scene scene = new Scene(root);
