@@ -142,7 +142,7 @@ public class CreateCourse {
 
                 }
 
-            } catch (SQLException e) {
+            } catch (SQLException e ) {
                 System.out.println("Error " + e.getMessage());
             }
 

@@ -93,7 +93,7 @@ public class UpdateCourse {
 
         private int loadData(String code) {
             connection = new mySqlCon();
-            Connection con = connection.con();
+            Connection con  = connection.con();
 
             //String id = Id.getText().trim();
 
