@@ -7,9 +7,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class TechnicalMain {
-    private static Stage stage = new Stage();
+    private static final Stage stage = new Stage();
 
-    public void Go(ActionEvent event) throws IOException {
+    public void Go() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/TechnicalOfficer.fxml"));
         try{
             Parent root = loader.load();
@@ -20,7 +20,7 @@ public class TechnicalMain {
         }
     }
 
-    public void attendanceBtn(ActionEvent event) throws IOException {
+    public void attendanceBtn() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/Selection1.fxml"));
         try{
             Parent root = loader.load();
@@ -37,13 +37,30 @@ public class TechnicalMain {
         }
     }
 
-    public void attendanceAdd(ActionEvent event) throws IOException {
+    public void attendanceAdd() throws IOException {
         stage.close();
         System.out.println("Attendance Added");
+        new TechnicalMain().accessToAttendance();
+//        System.out.println(event.getClass().getSimpleName());
     }
 
-    public void attendanceView(ActionEvent event) throws IOException {
+    public void attendanceView() throws IOException {
         stage.close();
         System.out.println("Attendance Viewed");
+    }
+
+    public void backToPage() throws Exception {
+        new Start().start(Start.getPrimaryStage());
+    }
+
+    private void accessToAttendance(){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/AttendanceAdd.fxml"));
+        try {
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Start.getPrimaryStage().setScene(scene);
+        }catch (Exception e){
+            System.out.println("Error_code: x0000e1.4 " + e.getMessage());
+        }
     }
 }

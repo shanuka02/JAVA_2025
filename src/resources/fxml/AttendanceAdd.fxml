@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Attendance">
+   <children>
+      <TextField fx:id="lable1" layoutX="115.0" layoutY="74.0" />
+      <TextField fx:id="lable2" layoutX="116.0" layoutY="135.0" />
+      <Label layoutX="39.0" layoutY="78.0" text="Label" />
+      <Label layoutX="39.0" layoutY="139.0" text="Label" />
+      <Button layoutX="39.0" layoutY="200.0" mnemonicParsing="false" onAction="#submitBtn" text="Submit" />
+      <Button layoutX="115.0" layoutY="200.0" mnemonicParsing="false" text="Reset" />
+   </children>
+</AnchorPane>
