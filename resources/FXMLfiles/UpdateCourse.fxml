@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="481.0" prefWidth="654.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UpdateCourse">
+   <top>
+      <HBox prefHeight="56.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="56.0" prefWidth="669.0" style="-fx-background-color: blue;" />
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <HBox prefHeight="369.0" prefWidth="655.0" BorderPane.alignment="CENTER">
+         <children>
+             <Pane prefHeight="347.0" prefWidth="665.0">
+                 <children>
+                       <Pane layoutX="1.0" layoutY="1.0" prefHeight="366.0" prefWidth="654.0">
+                           <children>
+                               <Label layoutX="30.0" layoutY="28.0" text="Course Code" />
+                               <Label layoutX="30.0" layoutY="71.0" text="Course Name" />
+                               <Label layoutX="48.0" layoutY="111.0" text="Credit" />
+                               <Label layoutX="30.0" layoutY="242.0" text="No Of Quizes" />
+                               <Pane layoutX="14.0" layoutY="127.0" prefHeight="108.0" prefWidth="293.0">
+                                   <children>
+                                       <Label layoutX="14.0" layoutY="22.0" text="Course Type" />
+                                       <RadioButton fx:id="T" layoutX="140.0" layoutY="22.0" mnemonicParsing="false" selected="true" text="T">
+                                           <toggleGroup>
+                                               <ToggleGroup fx:id="Type" />
+                                           </toggleGroup>
+                                       </RadioButton>
+                                       <RadioButton fx:id="P" layoutX="140.0" layoutY="46.0" mnemonicParsing="false" text="P" toggleGroup="$Type" />
+                                       <RadioButton fx:id="TP" layoutX="140.0" layoutY="69.0" mnemonicParsing="false" text="T/P" toggleGroup="$Type" />
+                                   </children>
+                               </Pane>
+                               <Label layoutX="17.0" layoutY="282.0" text="No Of Assesments" />
+                               <Label layoutX="27.0" layoutY="323.0" text="CA Percentage" />
+                               <Pane layoutX="343.0" layoutY="64.0" prefHeight="86.0" prefWidth="240.0">
+                                   <children>
+                                       <Label layoutX="14.0" layoutY="14.0" text="GPA State" />
+                                       <RadioButton layoutX="120.0" layoutY="14.0" mnemonicParsing="false" selected="true" text="GPA">
+                                           <toggleGroup>
+                                               <ToggleGroup fx:id="GPAvalue" />
+                                           </toggleGroup>
+                                       </RadioButton>
+                                       <RadioButton layoutX="120.0" layoutY="43.0" mnemonicParsing="false" text="NON GPA" toggleGroup="$GPAvalue" />
+                                   </children>
+                               </Pane>
+                               <Button fx:id="AddButton" layoutX="454.0" layoutY="303.0" mnemonicParsing="false" onAction="#HndleUpdateButton" prefHeight="41.0" prefWidth="139.0" text="Add Course" />
+                               <TextField fx:id="Code" layoutX="124.0" layoutY="24.0" promptText="Enter C_Code to update" />
+                               <TextField fx:id="CA" layoutX="124.0" layoutY="319.0" />
+                               <TextField fx:id="Name" layoutX="124.0" layoutY="67.0" />
+                               <TextField fx:id="Credit" layoutX="124.0" layoutY="107.0" />
+                               <TextField fx:id="Quize" layoutX="124.0" layoutY="238.0" />
+                               <TextField fx:id="Assesment" layoutX="124.0" layoutY="278.0" />
+                               <Label layoutX="327.0" layoutY="28.0" text="Lecture Incharge" />
+                               <ComboBox fx:id="Lecture" layoutX="433.0" layoutY="24.0" prefWidth="150.0" />
+                           </children>
+                       </Pane>
+                 </children>
+             </Pane>
+         </children>
+      </HBox>
+   </center>
+   <bottom>
+      <HBox prefHeight="56.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="56.0" prefWidth="684.0" style="-fx-background-color: blue;" />
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>

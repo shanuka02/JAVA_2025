@@ -9,6 +9,8 @@ import javafx.stage.Stage;
 
 import javax.swing.*;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -47,30 +49,47 @@ public class UpdateNotice {
     mySqlCon connection;
 
     @FXML
-    public void initializer(){
-        loadData();
+    public void initialize(){
+
+
+        Id.textProperty().addListener((observable,oldValue,newValue )->{
+            //If the new text is not empty, call the function searchByTitle()
+            if(!newValue.trim().isEmpty()){
+                loadData(newValue.trim());
+            }else{
+                //if table is empty clear the table
+                Title.clear();
+                Content.clear();
+
+
+            }
+        });
 
     }
 
-    public int loadData(){
+    public int loadData(String ID){
         connection = new mySqlCon();
         Connection con = connection.con();
 
-        String id = Id.getText().trim();
+        //String id = Id.getText().trim();
 
-        String query = "SELECT notice_id,title ,content, userRoll FROM notice WHERE notice_id = ? ";
-        if(id.isEmpty()){
+        String query = "SELECT title ,content, userRoll FROM notice WHERE notice_id = ? ";
+        if(ID.isEmpty()){
+/*
         JOptionPane.showMessageDialog(null,"please Enter ID");
+*/
         return 1;
     }
 
         try {
             PreparedStatement pstm = con.prepareStatement(query);
-            pstm.setString(1,id);
+            pstm.setString(1,ID);
             ResultSet rs = pstm.executeQuery();
 
             if (!rs.next()) {
+/*
                 JOptionPane.showMessageDialog(null,"No notice Found");
+*/
                 return 1;
             }
 
@@ -79,7 +98,7 @@ public class UpdateNotice {
             Content.setText(rs.getString("content"));
             String roll = rs.getString("userRoll");
 
-            if(roll.equalsIgnoreCase("undergraduate")){
+            if(roll.equalsIgnoreCase("Undergraduate")){
                 //select
                 R1.setSelected(true);
             }else if(roll.equalsIgnoreCase("Technical Officer")){
@@ -133,8 +152,11 @@ public class UpdateNotice {
         String rolls = selectedRadioButton.getText();
 
 
-        String query = "UPDATE notice SET title = ?,postedDay = ?,content =?,userRoll = ? WHERE notice_id ?";
+
+        String query = "UPDATE notice SET title = ?,postedDay = ?,content =?,userRoll = ? WHERE notice_id = ?";
         try {
+
+
             java.sql.Date currentDate = new java.sql.Date(System.currentTimeMillis());
 
             PreparedStatement pstm = con.prepareStatement(query);

@@ -8,6 +8,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -128,7 +129,59 @@ public class SearchCourse {
 
     loadData();
 
+       TextField2.textProperty().addListener((observable,oldValue,newValue )->{
+            //If the new text is not empty, call the function searchByTitle()
+            if(!newValue.trim().isEmpty()){
+                searchByCourseName(newValue.trim());
+            }else{
+                //if table is empty clear the table
+                Table2.getItems().clear();
+            }
+        });
+
     }
+
+    private void searchByCourseName(String trim) {
+
+        connection = new mySqlCon();
+        Connection con = connection.con();
+        ObservableList<CourseModel> data = FXCollections.observableArrayList();
+
+
+        String code = TextField2.getText().trim();
+
+        String query = "select * from courseUnit WHERE courseName = ?";
+
+        try {
+            PreparedStatement pstm =  con.prepareStatement(query);
+            pstm.setString(1,code);
+            ResultSet rs = pstm.executeQuery();
+
+            while(rs.next()){
+                CourseModel course = new CourseModel(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getInt(3),
+                        rs.getString(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getString(8),
+                        rs.getString(9)
+                );
+                data.add(course);
+            }
+            Table3.setItems(data);
+
+
+        } catch (SQLException e) {
+            System.out.println("Error: "+e.getMessage());
+        }
+
+
+    }
+
+
     public void loadData(){
         connection = new mySqlCon();
         Connection con = connection.con();
@@ -163,6 +216,43 @@ public class SearchCourse {
 
 
     public void HandleSearchButton(ActionEvent actionEvent) {
+        connection = new mySqlCon();
+        Connection con = connection.con();
+        ObservableList<CourseModel> data = FXCollections.observableArrayList();
+
+
+        String code = TextField1.getText().trim();
+
+        String query = "select * from courseUnit WHERE courseId = ?";
+
+        try {
+            PreparedStatement pstm =  con.prepareStatement(query);
+            pstm.setString(1,code);
+            ResultSet rs = pstm.executeQuery();
+            if(!rs.next()){
+                JOptionPane.showMessageDialog(null,"No Course Found");
+            }
+            while(rs.next()){
+                CourseModel course = new CourseModel(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getInt(3),
+                        rs.getString(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getString(8),
+                        rs.getString(9)
+                );
+                data.add(course);
+            }
+            Table2.setItems(data);
+
+
+        } catch (SQLException e) {
+            System.out.println("Error: "+e.getMessage());
+        }
+
 
     }
 }

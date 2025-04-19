@@ -191,7 +191,7 @@ public class SearchNoticeController {
     int HandleSearch(ActionEvent event) {
         connection = new mySqlCon();
         Connection con = connection.con();
-       String date = DateTextField2.getText().trim();
+        String date = DateTextField2.getText().trim();
 
         ObservableList<NoticeModel> data = FXCollections.observableArrayList();
 
@@ -216,6 +216,7 @@ public class SearchNoticeController {
             }
             Table3.setItems(data);
 
+            DateTextField2.clear();
         } catch (SQLException e) {
             System.out.println("Error "+e.getMessage());
         }
