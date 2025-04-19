@@ -103,6 +103,10 @@ public class CreateCourse {
 
          String Lecid = Lecture.getValue();
 
+         if(Quize.getText().trim().isEmpty() || Assesment.getText().trim().isEmpty()  ){
+            quizes = 0;
+            assesment = 0;
+         }
 
          String query2 = "Insert INTO courseUnit(courseId ,courseName,credit ,cType ,nuOfQuises , nuOfAssesments ,ca_percentage ,lectureIncharge, gpa_state)VALUES (?,?,?,?,?,?,?,?,?)";
             try {

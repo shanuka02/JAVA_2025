@@ -97,7 +97,7 @@ public class UpdateCourse {
 
             //String id = Id.getText().trim();
 
-            String query = "SELECT courseName,credit,cType,nuOfQuises,nuOfAssesments ,ca_percentage,lectureIncharge ,gpa_state  WHERE courseId = ? ";
+            String query = "SELECT courseName,credit,cType,nuOfQuises,nuOfAssesments ,ca_percentage,lectureIncharge ,gpa_state FROM courseUnit WHERE courseId = ? ";
             if(code.isEmpty()){
 /*
         JOptionPane.showMessageDialog(null,"please Enter ID");
@@ -122,7 +122,7 @@ public class UpdateCourse {
                 Credit.setText(rs.getString("credit"));
                 Quize.setText(rs.getString("nuOfQuises"));
                 Assesment.setText(rs.getString("nuOfAssesments"));
-                Lecture.setItems(rs.getString(""));
+                Lecture.setValue(rs.getString("lectureIncharge"));
                 CA.setText(rs.getString("ca_percentage"));
 
 
@@ -172,23 +172,24 @@ public class UpdateCourse {
             String Lecid = Lecture.getValue();
 
 
-            String query2 = "UPDATE courseUnit SET courseId = ? ,courseName = ?,credit = ? ,cType = ? ,nuOfQuises = ?, nuOfAssesments = ? ,ca_percentage = ? ,lectureIncharge = ?, gpa_state = ? WHERE (?,?,?,?,?,?,?,?,?)";
+            String query2 = "UPDATE courseUnit SET courseName = ?,credit = ? ,cType = ? ,nuOfQuises = ?, nuOfAssesments = ? ,ca_percentage = ? ,lectureIncharge = ?, gpa_state = ? WHERE courseId = ?";
             try {
                 PreparedStatement pstm = con.prepareStatement(query2);
-                pstm.setString(1,coursecode);
-                pstm.setString(2,name);
-                pstm.setInt(3, credit);
-                pstm.setString(4,cType);
-                pstm.setInt(5, quizes);
-                pstm.setInt(6, assesment);
-                pstm.setInt(7,CApersentage);
-                pstm.setString(8,Lecid);
-                pstm.setString(9,GPAstate);
+
+                pstm.setString(1,name);
+                pstm.setInt(2, credit);
+                pstm.setString(3,cType);
+                pstm.setInt(4, quizes);
+                pstm.setInt(5, assesment);
+                pstm.setInt(6,CApersentage);
+                pstm.setString(7,Lecid);
+                pstm.setString(8,GPAstate);
+                pstm.setString(9,coursecode);
 
                 int rowAffected = pstm.executeUpdate();
 
                 if(rowAffected > 0){
-                    JOptionPane.showMessageDialog(null,"Course add successfully","Success",JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null,"Course Update successfully","Success",JOptionPane.INFORMATION_MESSAGE);
                     Assesment.clear();;
                     Quize.clear();
                     CA.clear();
@@ -202,7 +203,7 @@ public class UpdateCourse {
 
 
                 }else{
-                    JOptionPane.showMessageDialog(null,"Unable to Create","Fail Update",JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null,"Unable to Update","Fail Update",JOptionPane.ERROR_MESSAGE);
 
                 }
 
