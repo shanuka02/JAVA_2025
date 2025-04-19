@@ -17,7 +17,8 @@ import java.sql.Statement;
 
 public class LectureController {
 
-     private TextField[] courseFields;
+    public Button viewGpaButton;
+    private TextField[] courseFields;
 
     @FXML private Button manageCourseButton;
     @FXML private Button studentMarksButton;
@@ -173,4 +174,29 @@ public class LectureController {
         }
 
     }
+
+    public void handleViewGpa(ActionEvent event) {
+        Connection conn = dbConnection.getConnection();
+
+        if(conn != null){
+            System.out.println("database connected successfully");
+                //load managecourse.fxml
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/viewGpa.fxml"));
+                //Parent root = null;
+                try {
+                    Parent root = loader.load();
+
+                    viewGpaController controller = loader.getController();
+                    Stage stage = (Stage) studentMarksButton.getScene().getWindow(); // get current stage
+                    stage.setScene(new Scene(root));
+
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
+
+            }
+        }
+
     }
+

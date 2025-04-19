@@ -115,6 +115,9 @@ private String corseIdLec;
                     TitleForLecMaterial.clear();
                     FilePathLecMaterial.clear();
 
+                    materials.clear();          // Clear old data
+                    loadLecMaterial();
+
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }

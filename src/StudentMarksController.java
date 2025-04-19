@@ -170,6 +170,7 @@ public class StudentMarksController {
 
 
                 caMarkTable.refresh();
+                calculateAndLoadFinalMarks();
 
 
             } catch (SQLException e) {
@@ -210,6 +211,8 @@ public class StudentMarksController {
                 ps.setString(1, courseIdLabel.getText());
                 ResultSet rs = ps.executeQuery();
 
+                caMarkList.clear(); //  CLEAR old data
+
 
                 while (rs.next()) {
                     modelCaMark mark = new modelCaMark(
@@ -235,6 +238,7 @@ public class StudentMarksController {
                 }
                 //set the data list to the tableview
                 caMarkTable.setItems(caMarkList);
+                caMarkTable.refresh();
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
@@ -281,23 +285,47 @@ public class StudentMarksController {
                         double fPr = rs.getDouble("finalpractical");
 
                         double endM;
-                        String gr, res;
+                        String gr;
 
                         endM = caTot+fPr+fTh;
 
                         String grade;
-                        if (endM >= 70) {
+//                        if (endM >= 70) {
+//                            gr = "A";
+//                        } else if (endM >= 60) {
+//                            gr = "B";
+//                        } else if (endM >= 50) {
+//                            gr= "C";
+//                        } else if (endM >= 40) {
+//                            gr = "D";
+//                        } else {
+//                            gr = "F";
+//                        }
+                        if (endM >= 90) {
+                            gr = "A+";
+                        } else if (endM >= 85) {
                             gr = "A";
-                        } else if (endM >= 60) {
+                        } else if (endM >= 80) {
+                            gr = "A-";
+                        } else if (endM >= 75) {
+                            gr = "B+";
+                        } else if (endM >= 70) {
                             gr = "B";
+                        } else if (endM >= 65) {
+                            gr = "B-";
+                        } else if (endM >= 60) {
+                            gr = "C+";
+                        } else if (endM >= 55) {
+                            gr = "C";
                         } else if (endM >= 50) {
-                            gr= "C";
+                            gr = "C-";
+                        } else if (endM >= 45) {
+                            gr = "D+";
                         } else if (endM >= 40) {
                             gr = "D";
                         } else {
-                            gr = "F";
+                            gr = "E";
                         }
-
 
 
                         psUp.setDouble(1, endM);
