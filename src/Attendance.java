@@ -1,4 +1,8 @@
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,6 +28,7 @@ public class Attendance {
 
     @FXML
     void submitBtn() {
+        new Attendance().getData();
         if(lable1.getText().isEmpty() || lable2.getText().isEmpty()){
             new Attendance().alert("hellow","hii");
 //            System.out.println("Please fill all the fields");
@@ -44,5 +49,30 @@ public class Attendance {
         alert.setHeaderText("Fill all the fields");
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+    public void getData(){
+        String quary = "SELECT * FROM name";
+        Connection connection = null;
+
+        try {
+            connection  = DBConnection.getConnection();
+            Statement statement = connection.createStatement();
+            ResultSet results = statement.executeQuery(quary);
+
+            while (results.next()) {
+                System.out.println(results.getString(1) + "\t" + results.getString(2)) ;
+            }
+        } catch (SQLException e) {
+            System.out.println("SQL Error: " + e.getMessage());
+        } finally {
+            try {
+                if (connection != null && !connection.isClosed()) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                System.out.println("Error closing connection: " + e.getMessage());
+            }
+        }
     }
 }
