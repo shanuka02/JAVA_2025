@@ -1,15 +1,23 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
-public class AttendanceAdd {
+public class AttendanceAdd implements Initializable {
+    @FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
 
     @FXML
     private TextField courseId;
@@ -33,7 +41,7 @@ public class AttendanceAdd {
     private Button addAttendance;
 
     @FXML
-    private ComboBox<?> status;
+    private ComboBox<String> status;
 
     @FXML
     private TextField studentId;
@@ -49,12 +57,12 @@ public class AttendanceAdd {
 
     @FXML
     void clearBtn() {
-        courseId.setText("");
+        courseId.clear();
         presentDate.setValue(null);
-        lectureTime.setText("");
-        lectureHours.setText("");
-        lectureType.setText("");
-        studentId.setText("");
+        lectureTime.clear();
+        lectureHours.clear();
+        lectureType.clear();
+        studentId.clear();
     }
 
     @FXML
@@ -74,10 +82,11 @@ public class AttendanceAdd {
             }else{
                 String student = studentId.getText().toUpperCase();
                 if(student.contains("TG") && student.length() == 6){
-                    System.out.println("Student ID: "+studentId.getText().toUpperCase());
+                    System.out.println("Student ID is TG" + status.getValue());
+
                 }else {
                     new AttendanceAdd().alert("Please enter the valid ID", "Invalid Student ID");
-                    studentId.setText("");
+                    studentId.clear();
                 }
             }
         }
@@ -101,12 +110,22 @@ public class AttendanceAdd {
 
     @FXML
     void initialize() {
+        assert addAttendance != null : "fx:id=\"addAttendance\" was not injected: check your FXML file 'AttendanceAdd.fxml'.";
         assert courseId != null : "fx:id=\"courseId\" was not injected: check your FXML file 'AttendanceAdd.fxml'.";
         assert lectureHours != null : "fx:id=\"lectureHours\" was not injected: check your FXML file 'AttendanceAdd.fxml'.";
         assert lectureTime != null : "fx:id=\"lectureTime\" was not injected: check your FXML file 'AttendanceAdd.fxml'.";
         assert lectureType != null : "fx:id=\"lectureType\" was not injected: check your FXML file 'AttendanceAdd.fxml'.";
         assert presentDate != null : "fx:id=\"presentDate\" was not injected: check your FXML file 'AttendanceAdd.fxml'.";
+        assert setData != null : "fx:id=\"setData\" was not injected: check your FXML file 'AttendanceAdd.fxml'.";
+        assert status != null : "fx:id=\"status\" was not injected: check your FXML file 'AttendanceAdd.fxml'.";
+        assert studentId != null : "fx:id=\"studentId\" was not injected: check your FXML file 'AttendanceAdd.fxml'.";
 
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        status.getItems().addAll("Present", "Absent", "Medical");
+        status.setValue("Present");
     }
 
     private void alert(String message, String header){
