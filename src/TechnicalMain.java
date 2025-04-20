@@ -39,7 +39,6 @@ public class TechnicalMain {
 
     public void attendanceAdd() throws IOException {
         stage.close();
-        System.out.println("Attendance Added");
         new TechnicalMain().accessToAttendance();
 //        System.out.println(event.getClass().getSimpleName());
     }
