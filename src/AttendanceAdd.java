@@ -30,16 +30,22 @@ public class AttendanceAdd {
     public Label setData;
 
     @FXML
-    private Button submitId;
+    private Button addAttendance;
 
     @FXML
-    public void checkBtn() {
-//        String name = "Hellow";
-//        setData.setText(name);
-//        new AttendanceAdd().getStudentData();
-//        close.setVisible(false);
-        submitId.setDisable(true);
-    }
+    private ComboBox<?> status;
+
+    @FXML
+    private TextField studentId;
+
+//    @FXML
+//    public void checkBtn() {
+////        String name = "Hellow";
+////        setData.setText(name);
+////        new AttendanceAdd().getStudentData();
+////        close.setVisible(false);
+//        submitId.setDisable(true);
+//    }
 
     @FXML
     void clearBtn() {
@@ -48,6 +54,7 @@ public class AttendanceAdd {
         lectureTime.setText("");
         lectureHours.setText("");
         lectureType.setText("");
+        studentId.setText("");
     }
 
     @FXML
@@ -55,6 +62,24 @@ public class AttendanceAdd {
         if(checkFields()){
 //            access to the sql database;
             System.out.println(presentDate.getValue());
+        }
+    }
+
+    @FXML
+    void addAttendanceBtn() {
+        if(checkFields()){
+            if(studentId.getText().isEmpty()){
+                new AttendanceAdd().alert("Please fill the student ID","Can't submit");
+                studentId.requestFocus();
+            }else{
+                String student = studentId.getText().toUpperCase();
+                if(student.contains("TG") && student.length() == 6){
+                    System.out.println("Student ID: "+studentId.getText().toUpperCase());
+                }else {
+                    new AttendanceAdd().alert("Please enter the valid ID", "Invalid Student ID");
+                    studentId.setText("");
+                }
+            }
         }
     }
 
