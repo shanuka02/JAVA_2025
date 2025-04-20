@@ -2,8 +2,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-
-import java.lang.classfile.Label;
+import javafx.scene.control.Label;
+import javafx.scene.control.Alert;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -30,25 +30,33 @@ public class AttendanceAdd {
     public Label setData;
 
     @FXML
-    public void checkData(ActionEvent event) {
+    public void checkBtn(ActionEvent event) {
         String name = "Hellow";
-//        setData.setText();
+        setData.setText(name);
     }
 
     @FXML
-    void setValues(ActionEvent event) {
-
+    void submitBtn(ActionEvent event) {
+        if(presentDate.getValue() == null || courseId.getText().isEmpty() || lectureHours.getText().isEmpty() || lectureTime.getText().isEmpty() || lectureType.getText().isEmpty()){
+            new AttendanceAdd().alert("Please fill all the fields","Can't submit");
+            if(courseId.getText().isEmpty()){
+                courseId.requestFocus();
+//                presentDate.setStyle("-fx-border-color: red");
+//                presentDate.setPromptText("Please select a date");
+            }else if(presentDate.getValue() == null){
+                presentDate.requestFocus();
+            }else if(lectureTime.getText().isEmpty()){
+                lectureTime.requestFocus();
+            }else if(lectureType.getText().isEmpty()){
+                lectureType.requestFocus();
+            }else if(lectureHours.getText().isEmpty()){
+                lectureHours.requestFocus();
+            }
+        }else{
+            System.out.println(presentDate.getValue() + "\t" + courseId.getText() + "\t" + lectureHours.getText() + "\t" + lectureTime.getText() + "\t" + lectureType.getText());
+//            lectureTime.setText("");
+        }
     }
-
-//    @FXML
-//    void submitBtn() {
-//        new AttendanceAdd().getData();
-//        if(lable1.getText().isEmpty() || lable2.getText().isEmpty()){
-//            new AttendanceAdd().alert("hellow","hii");
-//        }else {
-//            System.out.println("Fill all the fields" + lable1.getText() + lable2.getText());
-//        }
-//    }
 
     @FXML
     void initialize() {
@@ -60,16 +68,16 @@ public class AttendanceAdd {
 
     }
 
-//    private void alert(String title, String message){
-//        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-//        alert.setTitle(title);
-//        alert.setHeaderText("Fill all the fields");
-//        alert.setContentText(message);
-//        alert.showAndWait();
-//    }
+    private void alert(String message, String header){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Error");
+        alert.setHeaderText(header);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
 
-    public void getData(){
-        String quary = "SELECT * FROM name";
+    public void getStudentData(){
+        String quary = "SELECT * FROM student";
         Connection connection = null;
 
         try {

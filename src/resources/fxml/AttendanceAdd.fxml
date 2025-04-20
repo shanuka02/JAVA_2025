@@ -43,8 +43,8 @@
             </Pane>
             <Pane layoutY="300.0" prefHeight="60.0" prefWidth="318.0">
                <children>
-                  <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#checkData" prefHeight="32.0" prefWidth="129.0" text="Check" />
-                  <Button layoutX="159.0" layoutY="14.0" mnemonicParsing="false" onAction="#setValues" prefHeight="32.0" prefWidth="129.0" text="Submit" />
+                  <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#checkBtn" prefHeight="32.0" prefWidth="129.0" text="Check" />
+                  <Button layoutX="159.0" layoutY="14.0" mnemonicParsing="false" onAction="#submitBtn" prefHeight="32.0" prefWidth="129.0" text="Submit" />
                </children>
             </Pane>
             <Label fx:id="setData" layoutX="644.0" layoutY="210.0" prefHeight="60.0" prefWidth="166.0" />
