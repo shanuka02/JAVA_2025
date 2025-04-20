@@ -33,9 +33,6 @@ public class AttendanceAdd {
     private Button submitId;
 
     @FXML
-    private ScrollPane items;
-
-    @FXML
     public void checkBtn() {
 //        String name = "Hellow";
 //        setData.setText(name);
@@ -61,20 +58,20 @@ public class AttendanceAdd {
         }
     }
 
-    @FXML
-    public void test() {
-        VBox box = new VBox();
-        box.setSpacing(10); // spacing between fields
-
-        for (int i = 0; i < 5; i++) {
-            TextField textField = new TextField();
-            textField.setPromptText("Enter your " + (i + 1) + " data");
-            box.getChildren().add(textField);
-        }
-
-        items.setContent(box); // Set VBox as the content of the TitledPane
-        System.out.println("Test completed.");
-    }
+//    @FXML
+//    public void test() {
+//        VBox box = new VBox();
+//        box.setSpacing(10); // spacing between fields
+//
+//        for (int i = 0; i < 5; i++) {
+//            TextField textField = new TextField();
+//            textField.setPromptText("Enter your " + (i + 1) + " data");
+//            box.getChildren().add(textField);
+//        }
+//
+//        items.setContent(box); // Set VBox as the content of the TitledPane
+//        System.out.println("Test completed.");
+//    }
 
 
     @FXML
