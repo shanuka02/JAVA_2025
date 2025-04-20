@@ -1,15 +1,13 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Label;
-import javafx.scene.control.Alert;
+import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Objects;
-import javafx.scene.control.Button;
 
 public class AttendanceAdd {
 
@@ -35,6 +33,9 @@ public class AttendanceAdd {
     private Button submitId;
 
     @FXML
+    private ScrollPane items;
+
+    @FXML
     public void checkBtn() {
 //        String name = "Hellow";
 //        setData.setText(name);
@@ -55,9 +56,24 @@ public class AttendanceAdd {
     @FXML
     void submitBtn() {
         if(checkFields()){
-//            access the
+//            access to the sql database;
             System.out.println(presentDate.getValue());
         }
+    }
+
+    @FXML
+    public void test() {
+        VBox box = new VBox();
+        box.setSpacing(10); // spacing between fields
+
+        for (int i = 0; i < 5; i++) {
+            TextField textField = new TextField();
+            textField.setPromptText("Enter your " + (i + 1) + " data");
+            box.getChildren().add(textField);
+        }
+
+        items.setContent(box); // Set VBox as the content of the TitledPane
+        System.out.println("Test completed.");
     }
 
 
