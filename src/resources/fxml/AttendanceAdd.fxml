@@ -20,13 +20,13 @@
             <Pane layoutY="60.0" prefHeight="60.0" prefWidth="338.0">
                <children>
                   <Label layoutX="14.0" layoutY="18.0" text="Present Date" />
-                  <DatePicker fx:id="presentDate" layoutX="108.0" layoutY="14.0" />
+                  <DatePicker fx:id="presentDate" layoutX="108.0" layoutY="14.0" prefHeight="25.0" prefWidth="149.0" />
                </children>
             </Pane>
             <Pane layoutY="120.0" prefHeight="60.0" prefWidth="338.0">
                <children>
                   <Label layoutX="14.0" layoutY="18.0" text="Lecture Time" />
-                  <TextField fx:id="lectureTime" layoutX="108.0" layoutY="14.0" />
+                  <TextField fx:id="lectureTime" layoutX="108.0" layoutY="14.0" promptText="12:00:00" />
                </children>
             </Pane>
             <Pane layoutY="180.0" prefHeight="60.0" prefWidth="338.0">
@@ -44,10 +44,15 @@
             <Pane layoutY="300.0" prefHeight="60.0" prefWidth="318.0">
                <children>
                   <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#checkBtn" prefHeight="32.0" prefWidth="129.0" text="Check" />
-                  <Button layoutX="159.0" layoutY="14.0" mnemonicParsing="false" onAction="#submitBtn" prefHeight="32.0" prefWidth="129.0" text="Submit" />
+                  <Button layoutX="159.0" layoutY="14.0" mnemonicParsing="false" onAction="#clearBtn" prefHeight="32.0" prefWidth="129.0" text="Clear" />
                </children>
             </Pane>
             <Label fx:id="setData" layoutX="644.0" layoutY="210.0" prefHeight="60.0" prefWidth="166.0" />
+            <Pane layoutY="360.0" prefHeight="46.0" prefWidth="318.0">
+               <children>
+                  <Button fx:id="submitId" layoutX="14.0" layoutY="6.0" mnemonicParsing="false" onAction="#submitBtn" prefHeight="32.0" prefWidth="275.0" text="Submit" />
+               </children>
+            </Pane>
          </children>
       </AnchorPane>
    </children>

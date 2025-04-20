@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Objects;
+import javafx.scene.control.Button;
 
 public class AttendanceAdd {
 
@@ -30,33 +32,34 @@ public class AttendanceAdd {
     public Label setData;
 
     @FXML
-    public void checkBtn(ActionEvent event) {
-        String name = "Hellow";
-        setData.setText(name);
+    private Button submitId;
+
+    @FXML
+    public void checkBtn() {
+//        String name = "Hellow";
+//        setData.setText(name);
+//        new AttendanceAdd().getStudentData();
+//        close.setVisible(false);
+        submitId.setDisable(true);
     }
 
     @FXML
-    void submitBtn(ActionEvent event) {
-        if(presentDate.getValue() == null || courseId.getText().isEmpty() || lectureHours.getText().isEmpty() || lectureTime.getText().isEmpty() || lectureType.getText().isEmpty()){
-            new AttendanceAdd().alert("Please fill all the fields","Can't submit");
-            if(courseId.getText().isEmpty()){
-                courseId.requestFocus();
-//                presentDate.setStyle("-fx-border-color: red");
-//                presentDate.setPromptText("Please select a date");
-            }else if(presentDate.getValue() == null){
-                presentDate.requestFocus();
-            }else if(lectureTime.getText().isEmpty()){
-                lectureTime.requestFocus();
-            }else if(lectureType.getText().isEmpty()){
-                lectureType.requestFocus();
-            }else if(lectureHours.getText().isEmpty()){
-                lectureHours.requestFocus();
-            }
-        }else{
-            System.out.println(presentDate.getValue() + "\t" + courseId.getText() + "\t" + lectureHours.getText() + "\t" + lectureTime.getText() + "\t" + lectureType.getText());
-//            lectureTime.setText("");
+    void clearBtn() {
+        courseId.setText("");
+        presentDate.setValue(null);
+        lectureTime.setText("");
+        lectureHours.setText("");
+        lectureType.setText("");
+    }
+
+    @FXML
+    void submitBtn() {
+        if(checkFields()){
+//            access the
+            System.out.println(presentDate.getValue());
         }
     }
+
 
     @FXML
     void initialize() {
@@ -76,8 +79,31 @@ public class AttendanceAdd {
         alert.showAndWait();
     }
 
-    public void getStudentData(){
-        String quary = "SELECT * FROM student";
+    private boolean checkFields(){
+        if(presentDate.getValue() == null || courseId.getText().isEmpty() || lectureHours.getText().isEmpty() || lectureTime.getText().isEmpty() || lectureType.getText().isEmpty()){
+            new AttendanceAdd().alert("Please fill all the fields","Can't submit");
+            if(courseId.getText().isEmpty()){
+                courseId.requestFocus();
+//                presentDate.setStyle("-fx-border-color: red");
+//                presentDate.setPromptText("Please select a date");
+            }else if(presentDate.getValue() == null){
+                presentDate.requestFocus();
+            }else if(lectureTime.getText().isEmpty()){
+                lectureTime.requestFocus();
+            }else if(lectureType.getText().isEmpty()){
+                lectureType.requestFocus();
+            }else if(lectureHours.getText().isEmpty()){
+                lectureHours.requestFocus();
+            }
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    private void getStudentData(){
+        String quary = "SELECT * FROM name";
+        String name = null;
         Connection connection = null;
 
         try {
@@ -86,7 +112,13 @@ public class AttendanceAdd {
             ResultSet results = statement.executeQuery(quary);
 
             while (results.next()) {
-                System.out.println(results.getString(1) + "\t" + results.getString(2)) ;
+                name = results.getString(1);
+                System.out.println(name + "\t" + results.getString(2));
+                if(Objects.equals(name, "1")){
+                    System.out.println("Found");
+                }else {
+                    System.out.println("Not Found");
+                }
             }
         } catch (SQLException e) {
             System.out.println("SQL Error: " + e.getMessage());
