@@ -40,8 +40,8 @@ CREATE TABLE medical(
                         Request_date DATE,
                         Status_ ENUM('rejected', 'pending', 'approved') DEFAULT 'pending',
                         Submitted_date DATE,
-                        FOREIGN KEY (Me_stu_id) REFERENCES student(Student_id) ON UPDATE CASCADE,
-                        FOREIGN KEY (Me_cou_id) REFERENCES course(Co_id) ON UPDATE CASCADE
+                        FOREIGN KEY (Me_stu_id) REFERENCES userAccount(user_id) ON UPDATE CASCADE,
+                        FOREIGN KEY (Me_cou_id) REFERENCES courseUnit(courseId) ON UPDATE CASCADE
 );
 
 INSERT INTO medical()VALUES
