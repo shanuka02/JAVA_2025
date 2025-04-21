@@ -18,8 +18,8 @@ public class NoticeModel {
         this.id = id;
         this.title = title;
         this.date = date;
-        this.roll = null;
-        this.content = null;
+        //this.roll = null;
+        //this.content = null;
     }
 
     public int getId() {

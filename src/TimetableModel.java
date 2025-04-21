@@ -18,8 +18,8 @@ public class TimetableModel {
         this.id = id;
         this.caption = caption;
         this.submiteddate = submiteddate;
-        this.content = null;
-        this.depname = null;
+        /*this.content = null;
+        this.depname = null;*/
     }
 
     public String getId() {

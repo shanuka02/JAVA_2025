@@ -115,7 +115,8 @@ public class SearchNoticeController {
                 searchByUserTitle(newValue.trim());
             }else{
                 //if table is empty clear the table
-                Table2.getItems().clear();
+                //Table2.getItems().clear();
+                loadData();
             }
         });
 
@@ -188,7 +189,7 @@ public class SearchNoticeController {
     }
 
     @FXML
-    int HandleSearch(ActionEvent event) {
+    void HandleSearch(ActionEvent event) {
         connection = new mySqlCon();
         Connection con = connection.con();
         String date = DateTextField2.getText().trim();
@@ -200,6 +201,7 @@ public class SearchNoticeController {
             PreparedStatement pstm = con.prepareStatement(query);
             pstm.setString(1,date);
             ResultSet rs = pstm.executeQuery();
+
             if(!rs.next()){
                 JOptionPane.showMessageDialog(null,"No Notice Found For the day");
             }
@@ -216,12 +218,11 @@ public class SearchNoticeController {
             }
             Table3.setItems(data);
 
-            DateTextField2.clear();
         } catch (SQLException e) {
             System.out.println("Error "+e.getMessage());
         }
 
-        return 0;
+
     }
 
     public void BackbuttonHandle(ActionEvent actionEvent) {

@@ -43,8 +43,7 @@ public class CreateTimetable {
     @FXML
     private TextField ID;
 
-    @FXML
-    private ToggleGroup dep;
+
 
     String selectedFilePath;
     mySqlCon connection;
@@ -83,7 +82,7 @@ public class CreateTimetable {
         String id = ID.getText().trim();
         String caption = Caption.getText().trim();
 
-        RadioButton selectedRadioButton = (RadioButton)dep.getSelectedToggle();
+        RadioButton selectedRadioButton = (RadioButton)Dep.getSelectedToggle();
         String deps = selectedRadioButton.getText();
 
         if(id.isEmpty() || caption.isEmpty() || selectedFilePath.isEmpty() ){
@@ -110,15 +109,15 @@ public class CreateTimetable {
                 Content.clear();
                 Caption.clear();
                 selectedFilePath = null;
-                dep.selectToggle(null);
+                Dep.selectToggle(null);
 
 
             }else{
-                JOptionPane.showMessageDialog(null,"Unable to Update","Fail Update",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null,"Unable to Add","Error",JOptionPane.ERROR_MESSAGE);
 
             }
         } catch (SQLException e) {
-            System.out.println("Error");
+            System.out.println("Error" + e.getMessage());
         }
 
         return 0;

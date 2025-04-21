@@ -127,6 +127,26 @@ public class SearchCourse {
        GPA.setCellValueFactory(new PropertyValueFactory<>("gpaState"));
        Type.setCellValueFactory(new PropertyValueFactory<>("cType"));
 
+        Code1.setCellValueFactory(new PropertyValueFactory<>("courseId"));
+        Name1.setCellValueFactory(new PropertyValueFactory<>("courseName"));
+        Credit1.setCellValueFactory(new PropertyValueFactory<>("credit"));
+        CA1.setCellValueFactory(new PropertyValueFactory<>("caPercentage"));
+        Quizes1.setCellValueFactory(new PropertyValueFactory<>("nuOfQuises"));
+        Assesment1.setCellValueFactory(new PropertyValueFactory<>("nuOfAssesments"));
+        Lecture1.setCellValueFactory(new PropertyValueFactory<>("lectureIncharge"));
+        GPA1.setCellValueFactory(new PropertyValueFactory<>("gpaState"));
+        Type1.setCellValueFactory(new PropertyValueFactory<>("cType"));
+
+        Code11.setCellValueFactory(new PropertyValueFactory<>("courseId"));
+        Name11.setCellValueFactory(new PropertyValueFactory<>("courseName"));
+        Credit11.setCellValueFactory(new PropertyValueFactory<>("credit"));
+        CA11.setCellValueFactory(new PropertyValueFactory<>("caPercentage"));
+        Quizes11.setCellValueFactory(new PropertyValueFactory<>("nuOfQuises"));
+        Assesment11.setCellValueFactory(new PropertyValueFactory<>("nuOfAssesments"));
+        Lecture11.setCellValueFactory(new PropertyValueFactory<>("lectureIncharge"));
+        GPA11.setCellValueFactory(new PropertyValueFactory<>("gpaState"));
+        Type.setCellValueFactory(new PropertyValueFactory<>("cType"));
+
     loadData();
 
        TextField2.textProperty().addListener((observable,oldValue,newValue )->{
@@ -135,13 +155,15 @@ public class SearchCourse {
                 searchByCourseName(newValue.trim());
             }else{
                 //if table is empty clear the table
-                Table2.getItems().clear();
+                loadData();
+                //Table2.getItems().clear();
             }
         });
 
     }
 
-    private void searchByCourseName(String trim) {
+
+    private void searchByCourseName(String Coursename) {
 
         connection = new mySqlCon();
         Connection con = connection.con();
@@ -154,7 +176,7 @@ public class SearchCourse {
 
         try {
             PreparedStatement pstm =  con.prepareStatement(query);
-            pstm.setString(1,code);
+            pstm.setString(1,Coursename);
             ResultSet rs = pstm.executeQuery();
 
             while(rs.next()){
@@ -215,6 +237,7 @@ public class SearchCourse {
     }
 
 
+    @FXML
     public void HandleSearchButton(ActionEvent actionEvent) {
         connection = new mySqlCon();
         Connection con = connection.con();
@@ -250,7 +273,9 @@ public class SearchCourse {
 
 
         } catch (SQLException e) {
-            System.out.println("Error: "+e.getMessage());
+
+            JOptionPane.showMessageDialog(null,e.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
+
         }
 
 

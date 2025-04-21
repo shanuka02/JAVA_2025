@@ -21,6 +21,14 @@ public class UserAccountModel {
         this.password = password;
     }
 
+    public UserAccountModel(String userId, String userName, String roll) {
+        this.user_id = userId;
+        this.user_name = userName;
+        this.roll = roll;
+
+
+    }
+
     public String getUser_id() {
         return user_id;
     }

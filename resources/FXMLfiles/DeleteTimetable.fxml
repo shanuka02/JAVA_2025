@@ -6,18 +6,17 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-
 <?import javafx.scene.text.Font?>
+
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="522.0" prefWidth="706.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DeleteTimeTable">
    <top>
       <HBox prefHeight="58.0" prefWidth="706.0" BorderPane.alignment="CENTER">
          <children>
-             <Pane prefHeight="58.0" prefWidth="720.0" style="-fx-background-color: blue;" >
+             <Pane prefHeight="58.0" prefWidth="720.0" style="-fx-background-color: blue;">
                  <children>
                      <Button fx:id="BackButton" layoutX="26.0" layoutY="23.0" mnemonicParsing="false" onAction="#BackbuttonHandle" style="-fx-background-radius: 20px; -fx-background-color: green;" text="Back" textFill="#fffefe">
                          <cursor>
@@ -53,22 +52,8 @@
                                   </TableView>
                               </content>
                           </ScrollPane>
-                  <Pane layoutX="129.0" layoutY="20.0" prefHeight="58.0" prefWidth="417.0">
-                     <children>
-                        <Label layoutX="118.0" layoutY="21.0" prefHeight="17.0" prefWidth="128.0" text="Search Before Delete" />
-                        <Button layoutX="230.0" layoutY="17.0" mnemonicParsing="false" style="-fx-background-color: none;" text="Search" textFill="#0b2eda" underline="true">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                        <ImageView fitHeight="43.0" fitWidth="44.0" layoutX="58.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Images/warning.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </Pane>
                   <Button fx:id="DeleteButton" layoutX="505.0" layoutY="350.0" mnemonicParsing="false" onAction="#HandleDelete" prefHeight="39.0" prefWidth="154.0" text="Delete" />
+                  <TextField fx:id="TextField1" layoutX="42.0" layoutY="43.0" prefHeight="25.0" prefWidth="230.0" promptText="Enter ID to Search" />
                 </children>
             </Pane>
          </children>

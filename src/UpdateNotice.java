@@ -170,7 +170,7 @@ public class UpdateNotice {
             int rowAffected = pstm.executeUpdate();
 
             if(rowAffected > 0){
-                JOptionPane.showMessageDialog(null,"Notice add successfully","Success",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null,"Notice Update successfully","Success",JOptionPane.INFORMATION_MESSAGE);
                 Id.clear();
                 Title.clear();
                 Content.clear();

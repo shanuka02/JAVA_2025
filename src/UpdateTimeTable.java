@@ -54,25 +54,39 @@ public class UpdateTimeTable {
 
     @FXML
     public void initializer(){
-        loadData();
+
+        ID.textProperty().addListener((observable,oldValue,newValue )->{
+            //If the new text is not empty, call the function searchByTitle()
+            if(!newValue.trim().isEmpty()){
+                loadData(newValue.trim());
+            }else{
+                //if table is empty clear the table
+
+                ID.clear();
+                Caption.clear();
+                Content.clear();
+
+
+            }
+        });
 
     }
 
-    public int loadData(){
+    public int loadData(String TimetableID){
         connection = new mySqlCon();
         Connection con = connection.con();
 
         String id = ID.getText().trim();
 
-        String query = "SELECT  * FROM  timeTable  WHERE timeTable_id  = ? ";
+        String query = "SELECT  * FROM  timetable  WHERE timeTable_id  = ? ";
         if(id.isEmpty()){
-            JOptionPane.showMessageDialog(null,"please Enter ID");
+            //JOptionPane.showMessageDialog(null,"please Enter ID");
             return 1;
         }
 
         try {
             PreparedStatement pstm = con.prepareStatement(query);
-            pstm.setString(1,id);
+            pstm.setString(1,TimetableID);
             ResultSet rs = pstm.executeQuery();
 
             if (!rs.next()) {
@@ -116,7 +130,7 @@ public class UpdateTimeTable {
         String dep = selectedRadioButton.getText();
 
 
-        String query = "UPDATE timeTable SET  caption = ?,submittedDate = ?,content =? depName =? WHERE  timeTable_id  ?";
+        String query = "UPDATE timeTable SET  caption = ?,submittedDate = ?,content =? depName =? WHERE  timeTable_id = ?";
         try {
             java.sql.Date currentDate = new java.sql.Date(System.currentTimeMillis());
 

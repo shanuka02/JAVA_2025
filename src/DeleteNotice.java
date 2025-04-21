@@ -53,7 +53,8 @@ public class DeleteNotice {
                 searchByNoticeId(newValue.trim());
             }else{
                 //if table is empty clear the table
-                Table1.getItems().clear();
+                loadData();
+                //Table1.getItems().clear();
             }
         });
     }
@@ -133,13 +134,24 @@ public class DeleteNotice {
             try {
                 PreparedStatement pstm = con.prepareStatement(query);
                 pstm.setInt(1,noticeId);
-                pstm.executeUpdate();
+                int rowDeleted= pstm.executeUpdate();
                 NoticeIdField.clear();
 
 
 
+                if(  rowDeleted > 0){
+                    JOptionPane.showMessageDialog(null,"Notice Deleted Successfully ","Success",JOptionPane.INFORMATION_MESSAGE);
+
+                }else{
+                    JOptionPane.showMessageDialog(null,"Notice Deleted Unsuccessfully ");
+
+                }
+
+
+
+
             } catch (SQLException e) {
-                JOptionPane.showMessageDialog(null,"Select a Notice Before Delete","warning",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null,e.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
             }
 
 
@@ -160,6 +172,7 @@ public class DeleteNotice {
         }
     }
 
+    @FXML
     public void BackbuttonHandle(ActionEvent actionEvent) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("\\FXMLfiles\\ManageNotice.fxml"));
         try {

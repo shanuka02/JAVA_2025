@@ -120,7 +120,7 @@ public class CreateUserController {
             pstm.setString(8,password);
             pstm.setString(9,selectedFilePath);
 
-            int rowAffected = pstm.executeUpdate(query);
+            int rowAffected = pstm.executeUpdate();
 
             if(rowAffected > 0){
                 JOptionPane.showMessageDialog(null,"User add successfully","Success",JOptionPane.INFORMATION_MESSAGE);
@@ -130,6 +130,7 @@ public class CreateUserController {
                 Password.clear();
                 Address.clear();
                 ProfilePic.clear();
+                PhoneNumber.clear();
                 Combobox.getSelectionModel().clearSelection();
                 Combobox2.getSelectionModel().clearSelection();
                 selectedFilePath = null;

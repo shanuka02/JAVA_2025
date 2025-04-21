@@ -3,19 +3,20 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-
 <?import javafx.scene.text.Font?>
+
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="669.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DeleteUser">
    <top>
       <HBox prefHeight="72.0" prefWidth="669.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="200.0" prefWidth="200.0" >
+            <Pane prefHeight="200.0" prefWidth="200.0">
                <children>
                   <Button fx:id="BackButton" layoutX="26.0" layoutY="23.0" mnemonicParsing="false" onAction="#BackbuttonHandle" style="-fx-background-radius: 20px; -fx-background-color: green;" text="Back" textFill="#fffefe">
                      <cursor>
@@ -40,46 +41,24 @@
          <children>
             <Pane prefHeight="405.0" prefWidth="679.0">
                <children>
-                  <Pane layoutX="39.0" layoutY="97.0" prefHeight="271.0" prefWidth="259.0" style="-fx-background-color: #D6F5F6;">
-                     <children>
-                        <Button fx:id="DeleteAllButton" layoutX="56.0" layoutY="163.0" mnemonicParsing="false" onAction="#HandleDeleteAll" prefHeight="25.0" prefWidth="115.0" text="Delete All Users" />
-                        <ImageView fitHeight="83.0" fitWidth="106.0" layoutX="72.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Images/remove-user.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </Pane>
-                  <Pane layoutX="335.0" layoutY="97.0" prefHeight="271.0" prefWidth="274.0" style="-fx-background-color: #D6F5F6;">
-                     <children>
-                        <TextField fx:id="UserIDField" layoutX="63.0" layoutY="165.0" onAction="#HandleDeleteUser" />
-                        <Button fx:id="DeleteUser" layoutX="80.0" layoutY="204.0" mnemonicParsing="false" onAction="#HandleDeleteUser" prefHeight="25.0" prefWidth="115.0" text="Delete User" />
-                        <Label layoutX="14.0" layoutY="169.0" text="Enter ID" />
-                        <ImageView fitHeight="84.0" fitWidth="100.0" layoutX="96.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Images/delete.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </Pane>
-                  <Pane layoutX="39.0" layoutY="25.0" prefHeight="60.0" prefWidth="571.0" style="-fx-background-color: #F7FEFE;">
-                     <children>
-                        <Label layoutX="115.0" layoutY="22.0" prefHeight="17.0" prefWidth="183.0" text="Search User Before Delete  " />
-                        <Button fx:id="SearchButton" layoutX="252.0" layoutY="18.0" mnemonicParsing="false" onAction="#HandleSearchUSer" prefHeight="25.0" prefWidth="106.0" style="-fx-border-color: none; -fx-background-color: none; -fx-alignment: left;" text="Search" textFill="#161cbf" underline="true">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor></Button>
-                        <ImageView fitHeight="44.0" fitWidth="45.0" layoutX="59.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Images/warning.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                     <cursor>
-                        <Cursor fx:constant="DEFAULT" />
-                     </cursor>
-                  </Pane>
+                  <ScrollPane layoutX="28.0" layoutY="63.0" prefHeight="263.0" prefWidth="602.0">
+                     <content>
+                        <TableView fx:id="table1" prefHeight="286.0" prefWidth="656.0">
+                           <columns>
+
+                              <TableColumn fx:id="colUserId1" prefWidth="75.0" text="user_id" />
+                              <TableColumn fx:id="colUserName1" prefWidth="75.0" text="user_name" />
+                              <TableColumn fx:id="colRoll1" prefWidth="75.0" text="roll" />
+                              <TableColumn fx:id="colDep1" minWidth="0.0" prefWidth="0.0" text="depName" />
+
+                           </columns>
+                        </TableView>
+                     </content>
+                  </ScrollPane>
+                  <TextField fx:id="TextField2" layoutX="28.0" layoutY="23.0" prefHeight="25.0" prefWidth="249.0" promptText="Enter User Id To Search" />
+                  <Button fx:id="Delete" layoutX="470.0" layoutY="354.0" mnemonicParsing="false" onAction="#handleDeleteButton" prefHeight="30.0" prefWidth="164.0" text="Delete" />
                </children>
+
             </Pane>
          </children>
       </HBox>

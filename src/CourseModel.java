@@ -22,6 +22,18 @@ public class CourseModel {
         this.gpaState = gpaState;
     }
 
+    public CourseModel(String courseId, String courseName, int credit, String cType, String lectureIncharge) {
+        this.courseId = courseId;
+        this.courseName = courseName;
+        this.credit = credit;
+        this.cType = cType;
+        this.nuOfQuises = 0;
+        this.nuOfAssesments = 0;
+        this.caPercentage = 0;
+        this.lectureIncharge = lectureIncharge;
+        this.gpaState = null;
+    }
+
     public String getCourseId() {
         return courseId;
     }
