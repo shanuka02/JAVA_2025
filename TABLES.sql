@@ -8,7 +8,7 @@ CREATE TABLE attendance (
                             Lec_type ENUM('Lecture', 'Practical'),
                             Status_ ENUM('Present', 'Absent' , 'Medical') DEFAULT 'Absent',
                             Att_medi_id INT,
-                            FOREIGN KEY (Att_stu_id) REFERENCES student(student_id) ON UPDATE CASCADE,
+                            FOREIGN KEY (Att_stu_id) REFERENCES userAccount(user_id) ON UPDATE CASCADE,
                             FOREIGN KEY (Att_cou_id) REFERENCES courseUnit(courseId) ON UPDATE CASCADE,
                             FOREIGN KEY (Att_medi_id) REFERENCES medical(Medi_id) ON UPDATE CASCADE
 );

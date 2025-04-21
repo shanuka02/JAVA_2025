@@ -134,7 +134,7 @@ public class AttendanceAdd implements Initializable {
         nameId.getItems().addAll(add);
 
 //
-        String quary = "SELECT  FROM name";
+        String quary = "SELECT  FROM CourseUnit";
         String name = null;
         Connection connection = null;
 
