@@ -1,3 +1,4 @@
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -44,14 +45,17 @@ public class AttendanceAdd implements Initializable {
     private ComboBox<String> status;
 
     @FXML
+    private ComboBox<String> nameId;
+
+    @FXML
     private TextField studentId;
 
 //    @FXML
 //    public void checkBtn() {
-////        String name = "Hellow";
-////        setData.setText(name);
-////        new AttendanceAdd().getStudentData();
-////        close.setVisible(false);
+//        String name = "Hellow";
+//        setData.setText(name);
+//        new AttendanceAdd().getStudentData();
+//       close.setVisible(false);
 //        submitId.setDisable(true);
 //    }
 
@@ -83,7 +87,7 @@ public class AttendanceAdd implements Initializable {
                 String student = studentId.getText().toUpperCase();
                 if(student.contains("TG") && student.length() == 6){
                     System.out.println("Student ID is TG" + status.getValue());
-
+//                    code here
                 }else {
                     new AttendanceAdd().alert("Please enter the valid ID", "Invalid Student ID");
                     studentId.clear();
@@ -124,8 +128,41 @@ public class AttendanceAdd implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        String[] add = {"ICT1233","ICT1223"};
         status.getItems().addAll("Present", "Absent", "Medical");
         status.setValue("Present");
+        nameId.getItems().addAll(add);
+
+//
+        String quary = "SELECT  FROM name";
+        String name = null;
+        Connection connection = null;
+
+        try {
+            connection  = DBConnection.getConnection();
+            Statement statement = connection.createStatement();
+            ResultSet results = statement.executeQuery(quary);
+
+            while (results.next()) {
+                name = results.getString(1);
+                System.out.println(name + "\t" + results.getString(2));
+                if(Objects.equals(name, "1")){
+                    System.out.println("Found");
+                }else {
+                    System.out.println("Not Found");
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("SQL Error: " + e.getMessage());
+        } finally {
+            try {
+                if (connection != null && !connection.isClosed()) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                System.out.println("Error closing connection: " + e.getMessage());
+            }
+        }
     }
 
     private void alert(String message, String header){
