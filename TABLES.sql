@@ -5,7 +5,7 @@ CREATE TABLE attendance (
                             Pre_date DATE,
                             Pre_time TIME,
                             Lec_hours INT,
-                            Lec_type ENUM('Lecture', 'Practical'),
+                            Lec_type ENUM('Theory', 'Practical'),
                             Status_ ENUM('Present', 'Absent' , 'Medical') DEFAULT 'Absent',
                             Att_medi_id INT,
                             FOREIGN KEY (Att_stu_id) REFERENCES userAccount(user_id) ON UPDATE CASCADE,
@@ -14,16 +14,16 @@ CREATE TABLE attendance (
 );
 /*Only first run*/
 INSERT INTO attendance (Att_id, Att_stu_id, Att_cou_id, Pre_date, Pre_time, Lec_hours, Lec_type, Status_) VALUES
-    (1,'TG1301','ICT1233','2025-04-05','14:30:00',2,'Lecture','Present');
+    (1,'TG1301','ICT1233','2025-04-05','14:30:00',2,'Theory','Present');
 
 /*data*/
 INSERT INTO attendance (Att_stu_id, Att_cou_id, Pre_date, Pre_time, Lec_hours, Lec_type, Status_) VALUES
-    ('TG1301','ICT1233','2025-04-05','14:30:00',2,'Lecture','Present'),
-    ('TG1303','ICT1233','2025-04-05','14:30:00',2,'Lecture','Present'),
-    ('TG1304','ICT1233','2025-04-05','14:30:00',2,'Lecture','Present'),
-    ('TG1305','ICT1233','2025-04-05','14:30:00',2,'Lecture','Absent'),
-    ('TG1306','ICT1233','2025-04-05','14:30:00',2,'Lecture','Present'),
-    ('TG1307','ICT1233','2025-04-05','14:30:00',2,'Lecture','Present');
+    ('TG1301','ICT1233','2025-04-05','14:30:00',2,'Theory','Present'),
+    ('TG1303','ICT1233','2025-04-05','14:30:00',2,'Theory','Present'),
+    ('TG1304','ICT1233','2025-04-05','14:30:00',2,'Theory','Present'),
+    ('TG1305','ICT1233','2025-04-05','14:30:00',2,'Theory','Absent'),
+    ('TG1306','ICT1233','2025-04-05','14:30:00',2,'Theory','Present'),
+    ('TG1307','ICT1233','2025-04-05','14:30:00',2,'Theory','Present');
 
 ('TG1303','ICT1233',1,1,'t','T01'),
 ('TG1306','ICT1233',1,1,'t','T01'),
