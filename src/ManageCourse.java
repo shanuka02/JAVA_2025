@@ -37,11 +37,30 @@ public class ManageCourse {
 
     @FXML
     void HandleUpdateCourse(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("\\FXMLfiles\\UpdateCourse.fxml"));
+        try {
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            ApplicationDrive.getPrimaryStage().setScene(scene);
+
+        } catch (IOException e) {
+            System.out.println("error: " + e.getMessage());
+        }
 
     }
 
     @FXML
     void handleDeletecourse(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("\\FXMLfiles\\DeleteCourse.fxml"));
+        try {
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            ApplicationDrive.getPrimaryStage().setScene(scene);
+
+        } catch (IOException e) {
+            System.out.println("error: " + e.getMessage());
+        }
+
 
     }
 

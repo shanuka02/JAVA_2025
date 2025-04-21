@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -9,13 +10,30 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="481.0" prefWidth="654.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UpdateCourse">
    <top>
       <HBox prefHeight="56.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
 
-            <Pane prefHeight="56.0" prefWidth="669.0" style="-fx-background-color: blue;" />
+             <Pane prefHeight="56.0" prefWidth="669.0" style="-fx-background-color: blue;">
+                 <children>
+                     <Button fx:id="BackButton" layoutX="26.0" layoutY="23.0" mnemonicParsing="false" onAction="#BackbuttonHandle" style="-fx-background-radius: 20px; -fx-background-color: green;" text="Back" textFill="#fffefe">
+                         <cursor>
+                             <Cursor fx:constant="HAND" />
+                         </cursor>
+                         <font>
+                             <Font size="13.0" />
+                         </font>
+                     </Button>
+                     <Label layoutX="78.0" layoutY="27.0" prefHeight="17.0" prefWidth="144.0" text="| Faculty Of  Technology" textFill="#e4dfdf">
+                         <font>
+                             <Font size="13.0" />
+                         </font>
+                     </Label>
+                 </children>
+             </Pane>
          </children>
       </HBox>
    </top>
@@ -52,7 +70,7 @@
                                                <ToggleGroup fx:id="GPAvalue" />
                                            </toggleGroup>
                                        </RadioButton>
-                                       <RadioButton layoutX="120.0" layoutY="43.0" mnemonicParsing="false" text="NON GPA" toggleGroup="$GPAvalue" />
+                                       <RadioButton layoutX="120.0" layoutY="43.0" mnemonicParsing="false" text="NON " toggleGroup="$GPAvalue" />
                                    </children>
                                </Pane>
                                <Button fx:id="AddButton" layoutX="454.0" layoutY="303.0" mnemonicParsing="false" onAction="#HndleUpdateButton" prefHeight="41.0" prefWidth="139.0" text="Add Course" />

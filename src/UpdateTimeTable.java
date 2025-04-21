@@ -52,6 +52,7 @@ public class UpdateTimeTable {
 
     String selectedFilePath;
 
+
     @FXML
     public void initialize(){
 
@@ -62,10 +63,9 @@ public class UpdateTimeTable {
             }else{
                 //if table is empty clear the table
 
-                ID.clear();
                 Caption.clear();
                 Content.clear();
-
+                Dep.selectToggle(ICT);
 
             }
         });
@@ -95,20 +95,27 @@ public class UpdateTimeTable {
                 return 1;
             }*/
 
+            if(rs.next()){
+                Caption.setText(rs.getString("caption"));
+                Content.setText(rs.getString("content"));
+                String dep = rs.getString("depName");
 
-            Caption.setText(rs.getString("caption"));
-            Content.setText(rs.getString("content"));
-            String dep = rs.getString("depName");
+                if(dep.equalsIgnoreCase("ICT")){
+                    //select
+                    ICT.setSelected(true);
+                }else if(dep.equalsIgnoreCase("BST")){
+                    //select r2
+                    BST.setSelected(true);
+                }else if(dep.equalsIgnoreCase("ET")){
+                    //select r3
+                    ET.setSelected(true);
+                }
 
-            if(dep.equalsIgnoreCase("ICT")){
-                //select
-                ICT.setSelected(true);
-            }else if(dep.equalsIgnoreCase("BST")){
-                //select r2
-                BST.setSelected(true);
-            }else if(dep.equalsIgnoreCase("ET")){
-                //select r3
-                ET.setSelected(true);
+            }else{
+                Caption.clear();
+                Content.clear();
+                Dep.selectToggle(ICT);
+
             }
 
             //how to set value to the radio button
@@ -131,7 +138,7 @@ public class UpdateTimeTable {
         String dep = selectedRadioButton.getText();
 
 
-        String query = "UPDATE timeTable SET  caption = ?,submittedDate = ?,content =? depName =? WHERE  timeTable_id = ?";
+        String query = "UPDATE timeTable SET  caption = ?,submittedDate = ?,content =?, depName =? WHERE  timeTable_id = ?";
         try {
             java.sql.Date currentDate = new java.sql.Date(System.currentTimeMillis());
 
