@@ -172,11 +172,11 @@ public class SearchCourse {
 
         String code = TextField2.getText().trim();
 
-        String query = "select * from courseUnit WHERE courseName = ?";
+        String query = "SELECT * FROM courseUnit WHERE courseId   LIKE ?";
 
         try {
             PreparedStatement pstm =  con.prepareStatement(query);
-            pstm.setString(1,Coursename);
+            pstm.setString(1,Coursename + "%");
             ResultSet rs = pstm.executeQuery();
 
             while(rs.next()){
@@ -229,6 +229,7 @@ public class SearchCourse {
                 data.add(course);
             }
             Table1.setItems(data);
+            Table3.setItems(data);
         } catch (SQLException e) {
             System.out.println("Error: "+e.getMessage());
         }
@@ -252,9 +253,7 @@ public class SearchCourse {
             PreparedStatement pstm =  con.prepareStatement(query);
             pstm.setString(1,code);
             ResultSet rs = pstm.executeQuery();
-            if(!rs.next()){
-                JOptionPane.showMessageDialog(null,"No Course Found");
-            }
+
             while(rs.next()){
                 CourseModel course = new CourseModel(
                         rs.getString(1),
@@ -271,6 +270,7 @@ public class SearchCourse {
             }
             Table2.setItems(data);
 
+           
 
         } catch (SQLException e) {
 

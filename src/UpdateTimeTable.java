@@ -53,7 +53,7 @@ public class UpdateTimeTable {
     String selectedFilePath;
 
     @FXML
-    public void initializer(){
+    public void initialize(){
 
         ID.textProperty().addListener((observable,oldValue,newValue )->{
             //If the new text is not empty, call the function searchByTitle()
@@ -79,6 +79,7 @@ public class UpdateTimeTable {
         String id = ID.getText().trim();
 
         String query = "SELECT  * FROM  timetable  WHERE timeTable_id  = ? ";
+
         if(id.isEmpty()){
             //JOptionPane.showMessageDialog(null,"please Enter ID");
             return 1;
@@ -89,10 +90,10 @@ public class UpdateTimeTable {
             pstm.setString(1,TimetableID);
             ResultSet rs = pstm.executeQuery();
 
-            if (!rs.next()) {
+            /*if (!rs.next()) {
                 JOptionPane.showMessageDialog(null,"No notice Found");
                 return 1;
-            }
+            }*/
 
 
             Caption.setText(rs.getString("caption"));
@@ -170,6 +171,25 @@ public class UpdateTimeTable {
 
     @FXML
     void HandlechooseFile(ActionEvent event) {
+        FileChooser fileChooser= new FileChooser();
+
+        fileChooser.setTitle("Select File");
+
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("All Files","*"),
+                new FileChooser.ExtensionFilter("Image Files","*.png","*.jpg","*.jpeg","*.gif"),
+                new FileChooser.ExtensionFilter("PDF FILES","*.pdf")
+        );
+
+        Button sourceButton =(Button) event.getSource();
+        Stage stage =(Stage) sourceButton.getScene().getWindow();
+
+        File selectedFile = fileChooser.showOpenDialog(stage);
+        if(selectedFile!= null){
+            selectedFilePath = selectedFile.getAbsolutePath();
+            Content.setText(selectedFilePath);
+
+        }
 
     }
 
