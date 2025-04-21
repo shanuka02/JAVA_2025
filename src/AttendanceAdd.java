@@ -21,7 +21,7 @@ public class AttendanceAdd implements Initializable {
     private URL location;
 
     @FXML
-    private TextField courseId;
+    private ComboBox<String> courseId;
 
     @FXML
     private TextField lectureHours;
@@ -30,7 +30,7 @@ public class AttendanceAdd implements Initializable {
     private TextField lectureTime;
 
     @FXML
-    private TextField lectureType;
+    private ComboBox<String> lectureType;
 
     @FXML
     private DatePicker presentDate;
@@ -43,9 +43,6 @@ public class AttendanceAdd implements Initializable {
 
     @FXML
     private ComboBox<String> status;
-
-    @FXML
-    private ComboBox<String> nameId;
 
     @FXML
     private TextField studentId;
@@ -61,11 +58,11 @@ public class AttendanceAdd implements Initializable {
 
     @FXML
     void clearBtn() {
-        courseId.clear();
+//        courseId.getItems();
         presentDate.setValue(null);
         lectureTime.clear();
         lectureHours.clear();
-        lectureType.clear();
+//        lectureType.clear();
         studentId.clear();
     }
 
@@ -128,30 +125,24 @@ public class AttendanceAdd implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        String[] add = {"ICT1233","ICT1223"};
         status.getItems().addAll("Present", "Absent", "Medical");
         status.setValue("Present");
-        nameId.getItems().addAll(add);
+        lectureType.getItems().addAll("Theory","Practical");
 
-//
-        String quary = "SELECT courseId FROM CourseUnit";
-        String name = null;
+        String[] lectureID = new String[20];
+        String quary = "SELECT courseId FROM courseunit";
         Connection connection = null;
-
+        int count = 0;
         try {
             connection  = DBConnection.getConnection();
             Statement statement = connection.createStatement();
             ResultSet results = statement.executeQuery(quary);
 
             while (results.next()) {
-                name = results.getString(1);
-                System.out.println(name + "\t" + results.getString(2));
-                if(Objects.equals(name, "1")){
-                    System.out.println("Found");
-                }else {
-                    System.out.println("Not Found");
-                }
+                lectureID[count] = results.getString(1);
+                count++;
             }
+            courseId.getItems().addAll(lectureID);
         } catch (SQLException e) {
             System.out.println("SQL Error: " + e.getMessage());
         } finally {
@@ -174,9 +165,9 @@ public class AttendanceAdd implements Initializable {
     }
 
     private boolean checkFields(){
-        if(presentDate.getValue() == null || courseId.getText().isEmpty() || lectureHours.getText().isEmpty() || lectureTime.getText().isEmpty() || lectureType.getText().isEmpty()){
+        if(presentDate.getValue() == null || courseId.getItems().isEmpty() || lectureHours.getText().isEmpty() || lectureTime.getText().isEmpty() || lectureType.getItems().isEmpty()){
             new AttendanceAdd().alert("Please fill all the fields","Can't submit");
-            if(courseId.getText().isEmpty()){
+            if(courseId.getItems().isEmpty()){
                 courseId.requestFocus();
 //                presentDate.setStyle("-fx-border-color: red");
 //                presentDate.setPromptText("Please select a date");
@@ -184,7 +175,7 @@ public class AttendanceAdd implements Initializable {
                 presentDate.requestFocus();
             }else if(lectureTime.getText().isEmpty()){
                 lectureTime.requestFocus();
-            }else if(lectureType.getText().isEmpty()){
+            }else if(lectureType.getItems().isEmpty()){
                 lectureType.requestFocus();
             }else if(lectureHours.getText().isEmpty()){
                 lectureHours.requestFocus();
