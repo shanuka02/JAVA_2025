@@ -58,11 +58,9 @@ public class AttendanceAdd implements Initializable {
 
     @FXML
     void clearBtn() {
-//        courseId.getItems();
         presentDate.setValue(null);
         lectureTime.clear();
         lectureHours.clear();
-//        lectureType.clear();
         studentId.clear();
     }
 
@@ -91,6 +89,11 @@ public class AttendanceAdd implements Initializable {
                 }
             }
         }
+    }
+
+    @FXML
+    public void select() {
+        accessDB("lecture");
     }
 
 //    @FXML
@@ -127,32 +130,39 @@ public class AttendanceAdd implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         status.getItems().addAll("Present", "Absent", "Medical");
         status.setValue("Present");
-        lectureType.getItems().addAll("Theory","Practical");
+        accessDB("course");
+    }
 
-        String[] lectureID = new String[20];
-        String quary = "SELECT courseId FROM courseunit";
-        Connection connection = null;
+    private void accessDB(String select){
         int count = 0;
+        String quary;
+        String[] setData;
+
+        if(select.equals("course")){
+            setData = new String[20];
+            quary = "SELECT courseId FROM courseunit";
+        }else{
+            setData = new String[2]; //checks course ID
+            quary = "SELECT cType FROM courseunit where courseId = + courseId.getValue() ";
+        }
         try {
-            connection  = DBConnection.getConnection();
+            Connection connection  = DBConnection.getConnection();
+            assert connection != null;
             Statement statement = connection.createStatement();
             ResultSet results = statement.executeQuery(quary);
 
             while (results.next()) {
-                lectureID[count] = results.getString(1);
+                setData[count] = results.getString(1);
                 count++;
             }
-            courseId.getItems().addAll(lectureID);
+            if(select.equals("course")){
+                courseId.getItems().addAll(setData);
+            }else {
+                lectureType.getItems().addAll(setData);
+            }
+            connection.close();
         } catch (SQLException e) {
             System.out.println("SQL Error: " + e.getMessage());
-        } finally {
-            try {
-                if (connection != null && !connection.isClosed()) {
-                    connection.close();
-                }
-            } catch (SQLException e) {
-                System.out.println("Error closing connection: " + e.getMessage());
-            }
         }
     }
 
@@ -186,35 +196,35 @@ public class AttendanceAdd implements Initializable {
         }
     }
 
-    private void getStudentData(){
-        String quary = "SELECT * FROM name";
-        String name = null;
-        Connection connection = null;
-
-        try {
-            connection  = DBConnection.getConnection();
-            Statement statement = connection.createStatement();
-            ResultSet results = statement.executeQuery(quary);
-
-            while (results.next()) {
-                name = results.getString(1);
-                System.out.println(name + "\t" + results.getString(2));
-                if(Objects.equals(name, "1")){
-                    System.out.println("Found");
-                }else {
-                    System.out.println("Not Found");
-                }
-            }
-        } catch (SQLException e) {
-            System.out.println("SQL Error: " + e.getMessage());
-        } finally {
-            try {
-                if (connection != null && !connection.isClosed()) {
-                    connection.close();
-                }
-            } catch (SQLException e) {
-                System.out.println("Error closing connection: " + e.getMessage());
-            }
-        }
-    }
+//    private void getStudentData(){
+//        String quary = "SELECT * FROM name";
+//        String name = null;
+//        Connection connection = null;
+//
+//        try {
+//            connection  = DBConnection.getConnection();
+//            Statement statement = connection.createStatement();
+//            ResultSet results = statement.executeQuery(quary);
+//
+//            while (results.next()) {
+//                name = results.getString(1);
+//                System.out.println(name + "\t" + results.getString(2));
+//                if(Objects.equals(name, "1")){
+//                    System.out.println("Found");
+//                }else {
+//                    System.out.println("Not Found");
+//                }
+//            }
+//        } catch (SQLException e) {
+//            System.out.println("SQL Error: " + e.getMessage());
+//        } finally {
+//            try {
+//                if (connection != null && !connection.isClosed()) {
+//                    connection.close();
+//                }
+//            } catch (SQLException e) {
+//                System.out.println("Error closing connection: " + e.getMessage());
+//            }
+//        }
+//    }
 }

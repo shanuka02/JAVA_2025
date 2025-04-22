@@ -40,7 +40,6 @@ public class TechnicalMain {
     public void attendanceAdd() throws IOException {
         stage.close();
         new TechnicalMain().accessToAttendance();
-//        System.out.println(event.getClass().getSimpleName());
     }
 
     public void attendanceView() throws IOException {

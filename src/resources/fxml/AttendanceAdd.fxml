@@ -15,7 +15,7 @@
             <Pane prefHeight="60.0" prefWidth="338.0">
                <children>
                   <Label layoutX="14.0" layoutY="18.0" text="Course ID" />
-                  <ComboBox fx:id="courseId" layoutX="107.0" layoutY="14.0" prefWidth="150.0" />
+                  <ComboBox fx:id="courseId" layoutX="107.0" layoutY="14.0" onAction="#select" prefWidth="150.0" />
                </children>
             </Pane>
             <Pane layoutY="60.0" prefHeight="60.0" prefWidth="338.0">
