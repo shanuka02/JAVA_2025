@@ -3,21 +3,29 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.event.ActionEvent;
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.io.ByteArrayInputStream;
+import java.util.Objects;
+import java.util.ResourceBundle;
 
 public class ProfileController {
 
     @FXML
     private ImageView profileImage;
+
+
+    @FXML
+    private ComboBox<String> drop1;
 
     @FXML
     private Label nameLabel;
@@ -36,31 +44,35 @@ public class ProfileController {
     public void initialize() {
         userId = 1;
         loadUserProfile();
+//        drop1.getItems().addAll("world","hellow");
     }
+
 
     private void loadUserProfile() {
         String query = "SELECT name, department, profile_image FROM users WHERE id = ?";
 
-        try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(query)) {
+        try (Connection conn = DBConnection.getConnection()) {
+            assert conn != null;
+            try (PreparedStatement stmt = conn.prepareStatement(query)) {
 
-            stmt.setInt(1, userId);
-            ResultSet rs = stmt.executeQuery();
+                stmt.setInt(1, userId);
+                ResultSet rs = stmt.executeQuery();
 
-            if (rs.next()) {
-                String name = rs.getString("name");
-                String department = rs.getString("department");
-                byte[] imageData = rs.getBytes("profile_image");
+                if (rs.next()) {
+                    String name = rs.getString("name");
+                    String department = rs.getString("department");
+                    byte[] imageData = rs.getBytes("profile_image");
 
-                nameLabel.setText(name);
-                departmentLabel.setText(department);
+                    nameLabel.setText(name);
+                    departmentLabel.setText(department);
 
-                if (imageData != null) {
-                    Image image = new Image(new ByteArrayInputStream(imageData));
-                    profileImage.setImage(image);
-                } else {
+                    if (imageData != null) {
+                        Image image = new Image(new ByteArrayInputStream(imageData));
+                        profileImage.setImage(image);
+                    } else {
 
-                    profileImage.setImage(new Image(getClass().getResourceAsStream("/images/logo.png")));
+                        profileImage.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/logo.png"))));
+                    }
                 }
             }
         } catch (SQLException e) {
@@ -95,7 +107,7 @@ public class ProfileController {
 
     @FXML
     private void handleEditProfile(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("view/EditProfile.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("view/Editprofile.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         TechmisApp.getPrimaryStage().setScene(scene);
@@ -109,8 +121,11 @@ public class ProfileController {
     }
 
     @FXML
-    private void handleCourses(ActionEvent event) {
-        System.out.println("Courses button clicked");
+    private void handleCourses(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("view/Course.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        TechmisApp.getPrimaryStage().setScene(scene);
 
     }
 

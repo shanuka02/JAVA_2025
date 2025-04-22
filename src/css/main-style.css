@@ -5,7 +5,7 @@
     -fx-background-color: #f5f5f5;
 }
 
-/* Header Bar */
+
 .header-bar {
     -fx-background-color: #1e5180;
     -fx-padding: 10px;
@@ -42,7 +42,7 @@
     -fx-underline: true;
 }
 
-/* Profile Section */
+
 .profile-image {
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 0);
     -fx-background-radius: 75;
@@ -80,7 +80,7 @@
     -fx-padding: 0 5px 0 0;
 }
 
-/* Dashboard Buttons */
+
 .dashboard-button {
     -fx-background-color: #1e5180;
     -fx-text-fill: white;
@@ -107,7 +107,7 @@
     -fx-font-weight: bold;
 }
 
-/* Notification Button */
+
 .notification-button {
     -fx-background-color: #e74c3c;
     -fx-text-fill: white;
@@ -131,8 +131,10 @@
     -fx-font-weight: bold;
 }
 
-/* Separators */
+
 .separator {
     -fx-background-color: #cccccc;
     -fx-opacity: 0.7;
 }
+
+
