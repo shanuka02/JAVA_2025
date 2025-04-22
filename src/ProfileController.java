@@ -94,8 +94,11 @@ public class ProfileController {
     }
 
     @FXML
-    private void handleEditProfile(ActionEvent event) {
-        System.out.println("Edit Profile button clicked");
+    private void handleEditProfile(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("view/EditProfile.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        TechmisApp.getPrimaryStage().setScene(scene);
 
     }
 
