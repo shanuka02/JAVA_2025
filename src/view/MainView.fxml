@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ProfileController"
+            stylesheets="@../css/main-style.css"
+            prefHeight="600.0" prefWidth="800.0">
+
+
+    <top>
+        <HBox styleClass="header-bar">
+            <children>
+                <HBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+                    <children>
+
+                        <Label styleClass="header-title" text="Techmis - Faculty of Technology" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_RIGHT" spacing="15">
+                    <children>
+                        <Button text="Dashboard" styleClass="header-button" onAction="#handleDashboard" />
+                        <Button text="Log out" styleClass="header-button" onAction="#handleLogout" />
+                        <Button text="FAQ" styleClass="header-button" onAction="#handleFAQ" />
+                        <Button text="About us" styleClass="header-button" onAction="#handleAboutUs" />
+                    </children>
+
+                </HBox>
+            </children>
+        </HBox>
+    </top>
+
+
+    <center>
+        <VBox alignment="TOP_CENTER" spacing="20">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20" />
+            </padding>
+
+
+            <VBox alignment="CENTER" spacing="10">
+
+                <Label fx:id="nameLabel" styleClass="name-label" text="pasindu shanuka" />
+                <ImageView fx:id="profileImage" fitHeight="150" fitWidth="150" pickOnBounds="true" preserveRatio="true" styleClass="profile-image" />
+                <Label fx:id="departmentLabel" styleClass="department-label" text="Department of ICT" />
+                <Button fx:id="editProfileButton" styleClass="edit-profile-button" text="Edit profile" onAction="#handleEditProfile">
+                    <graphic>
+                        <Label styleClass="edit-icon" />
+                    </graphic>
+                </Button>
+            </VBox>
+
+            <Separator />
+
+
+            <GridPane hgap="20" vgap="20" alignment="CENTER">
+
+
+
+                <Button styleClass="dashboard-button" onAction="#handleCourses" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                    <graphic>
+                        <VBox alignment="CENTER" spacing="15">
+                            <Label styleClass="dashboard-icon" />
+                            <Label styleClass="dashboard-label" text="Courses" />
+                        </VBox>
+                    </graphic>
+                </Button>
+
+
+                <Button styleClass="dashboard-button" onAction="#handleAttendance" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                    <graphic>
+                        <VBox alignment="CENTER" spacing="15">
+                            <Label styleClass="dashboard-icon" />
+                            <Label styleClass="dashboard-label" text="Attendance" />
+                        </VBox>
+                    </graphic>
+                </Button>
+
+
+                <Button styleClass="dashboard-button" onAction="#handleNotice" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                    <graphic>
+                        <VBox alignment="CENTER" spacing="15">
+                            <Label styleClass="dashboard-icon"  />
+                            <Label styleClass="dashboard-label" text="Notice" />
+                        </VBox>
+                    </graphic>
+                </Button>
+
+
+                <Button styleClass="dashboard-button" onAction="#handleTimeTable" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                    <graphic>
+                        <VBox alignment="CENTER" spacing="15">
+                            <Label styleClass="dashboard-icon"  />
+                            <Label styleClass="dashboard-label" text="Time table" />
+                        </VBox>
+                    </graphic>
+                </Button>
+
+
+                <Button styleClass="dashboard-button" onAction="#handleUser" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <graphic>
+                        <VBox alignment="CENTER" spacing="15">
+                            <Label styleClass="dashboard-icon" />
+                            <Label styleClass="dashboard-label" text="User" />
+                        </VBox>
+                    </graphic>
+                </Button>
+            </GridPane>
+        </VBox>
+    </center>
+
+
+    <right>
+        <HBox alignment="TOP_RIGHT" BorderPane.alignment="TOP_RIGHT">
+            <Button fx:id="notificationButton" styleClass="notification-button" onAction="#handleNotifications">
+                <graphic>
+                    <HBox alignment="CENTER" spacing="5">
+                        <Label styleClass="notification-icon" />
+                        <Label styleClass="notification-count" text="Notices (01)" />
+                    </HBox>
+                </graphic>
+            </Button>
+            <padding>
+                <Insets top="20.0" right="20.0" />
+            </padding>
+        </HBox>
+    </right>
+</BorderPane>
