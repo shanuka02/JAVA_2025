@@ -59,5 +59,6 @@
             </AnchorPane>
          </children>
       </AnchorPane>
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToPage" prefHeight="26.0" prefWidth="74.0" text="&lt;&lt; Back" />
    </children>
 </AnchorPane>

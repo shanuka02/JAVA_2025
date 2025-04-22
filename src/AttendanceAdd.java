@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.Objects;
@@ -12,13 +13,7 @@ import java.util.ResourceBundle;
 
 import static java.lang.String.valueOf;
 
-public class AttendanceAdd implements Initializable {
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
+public class AttendanceAdd  {
     @FXML
     private ComboBox<String> courseId;
 
@@ -98,6 +93,7 @@ public class AttendanceAdd implements Initializable {
                     int rowsInserted = preparedStatement.executeUpdate();
                     if (rowsInserted > 0) {
                         new AttendanceAdd().alert("Attendance added successfully", "Success");
+                        studentId.clear();
                     }
                 }else {
                     new AttendanceAdd().alert("Please enter the valid ID", "Invalid Student ID");
@@ -125,10 +121,6 @@ public class AttendanceAdd implements Initializable {
         assert status != null : "fx:id=\"status\" was not injected: check your FXML file 'AttendanceAdd.fxml'.";
         assert studentId != null : "fx:id=\"studentId\" was not injected: check your FXML file 'AttendanceAdd.fxml'.";
 
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
         status.getItems().addAll("Present", "Absent", "Medical");
         status.setValue("Present");
         accessDB("course", "SELECT courseId FROM courseunit");
@@ -139,9 +131,9 @@ public class AttendanceAdd implements Initializable {
         String[] setData;
 
         if(select.equals("course")){
-            setData = new String[20];
+            setData = new String[5];
         }else{
-            setData = new String[2];
+            setData = new String[1];
         }
         try {
             Connection connection  = DBConnection.getConnection();
@@ -156,7 +148,11 @@ public class AttendanceAdd implements Initializable {
             if(select.equals("course")){
                 courseId.getItems().addAll(setData);
             }else {
-                lectureType.getItems().addAll(setData);
+                if(setData[0].equals("Both") || setData[0].equals("both")){
+                    lectureType.getItems().addAll("Theory","Practical");
+                }else{
+                    lectureType.getItems().addAll(setData);
+                }
             }
             connection.close();
         } catch (SQLException e) {
@@ -192,5 +188,9 @@ public class AttendanceAdd implements Initializable {
         }else{
             return true;
         }
+    }
+
+    public void backToPage() throws IOException {
+        new TechnicalMain().Go();
     }
 }

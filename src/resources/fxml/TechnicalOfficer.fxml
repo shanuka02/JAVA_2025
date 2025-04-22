@@ -63,8 +63,8 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Button mnemonicParsing="false" onAction="#attendanceBtn" prefHeight="140.0" prefWidth="292.0" styleClass="btn" stylesheets="@/resources/style/TechnicalStyle.css" text="Button" />
-                <Button mnemonicParsing="false" prefHeight="140.0" prefWidth="292.0" text="Button" GridPane.columnIndex="1" />
+                <Button mnemonicParsing="false" onAction="#attendanceBtn" prefHeight="140.0" prefWidth="292.0" styleClass="btn" stylesheets="@/resources/style/TechnicalStyle.css" text="Attendance" />
+                <Button mnemonicParsing="false" onAction="#medicalBtn" prefHeight="140.0" prefWidth="292.0" text="Medical" GridPane.columnIndex="1" />
                 <Button mnemonicParsing="false" prefHeight="140.0" prefWidth="292.0" text="Button" GridPane.columnIndex="2" />
             </children>
         </GridPane>

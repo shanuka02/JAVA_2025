@@ -1,9 +1,7 @@
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class TechnicalMain {
@@ -27,6 +25,23 @@ public class TechnicalMain {
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.setTitle("Attendance");
+            stage.setResizable(false);
+            stage.setX(500);
+            stage.setY(300);
+            stage.show();
+
+        }catch (Exception e){
+            System.out.println("Error_code: x0000e1.3 " + e.getMessage());
+        }
+    }
+
+    public void medicalBtn(){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/Selection2.fxml"));
+        try{
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Medical");
             stage.setResizable(false);
             stage.setX(500);
             stage.setY(300);
