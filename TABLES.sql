@@ -44,5 +44,14 @@ CREATE TABLE medical(
                         FOREIGN KEY (Me_cou_id) REFERENCES courseUnit(courseId) ON UPDATE CASCADE
 );
 
-INSERT INTO medical()VALUES
-    ();
+INSERT INTO medical (Medi_id, Me_stu_id, Me_cou_id, Reason, Request_date, Status_, Submitted_date)
+VALUES
+    (1, 'TG1301', 'ICT1233', 'Fever and flu for two days', '2025-04-20', 'pending', '2025-04-21');
+
+INSERT INTO medical (Me_stu_id, Me_cou_id, Reason, Request_date, Status_, Submitted_date)
+VALUES
+    ('TG1301', 'ICT1233', 'Fever and flu for two days', '2025-04-20', 'pending', '2025-04-21'),
+    ('TG1305', 'ICT1234', 'Surgery recovery', '2025-04-18', 'approved', '2025-04-20'),
+    ('TG1304', 'ICT1240', 'Family emergency during lectures', '2025-04-17', 'rejected', '2025-04-20'),
+    ('TG1307', 'ICT1239', 'Accident – unable to attend', '2025-04-16', 'pending', '2025-04-18'),
+    ('TG1364', 'ICT1236', 'Hospitalized for dengue', '2025-04-15', 'approved', '2025-04-18');
