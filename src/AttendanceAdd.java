@@ -6,12 +6,11 @@ import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Objects;
 import java.util.ResourceBundle;
+
+import static java.lang.String.valueOf;
 
 public class AttendanceAdd implements Initializable {
     @FXML
@@ -58,8 +57,10 @@ public class AttendanceAdd implements Initializable {
 
     @FXML
     void clearBtn() {
+        courseId.setValue(null);
         presentDate.setValue(null);
         lectureTime.clear();
+        lectureType.setValue(null);
         lectureHours.clear();
         studentId.clear();
     }
@@ -67,13 +68,12 @@ public class AttendanceAdd implements Initializable {
     @FXML
     void submitBtn() {
         if(checkFields()){
-//            access to the sql database;
             System.out.println(presentDate.getValue());
         }
     }
 
     @FXML
-    void addAttendanceBtn() {
+    void addAttendanceBtn() throws SQLException {
         if(checkFields()){
             if(studentId.getText().isEmpty()){
                 new AttendanceAdd().alert("Please fill the student ID","Can't submit");
@@ -82,7 +82,23 @@ public class AttendanceAdd implements Initializable {
                 String student = studentId.getText().toUpperCase();
                 if(student.contains("TG") && student.length() == 6){
                     System.out.println("Student ID is TG" + status.getValue());
-//                    code here
+//                    set the data for database
+                    String quary = "INSERT INTO attendance (Att_stu_id, Att_cou_id, Pre_date, Pre_time, Lec_hours, Lec_type, Status_) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                    Connection connection = DBConnection.getConnection();
+                    assert connection != null;
+                    PreparedStatement preparedStatement = connection.prepareStatement(quary);
+                    preparedStatement.setString(1, student);
+                    preparedStatement.setString(2, courseId.getValue());
+                    preparedStatement.setDate(3, Date.valueOf(presentDate.getValue()));
+                    preparedStatement.setTime(4, Time.valueOf(lectureTime.getText()));
+                    preparedStatement.setInt(5, Integer.parseInt(lectureHours.getText()));
+                    preparedStatement.setString(6, lectureType.getValue());
+                    preparedStatement.setString(7, status.getValue());
+
+                    int rowsInserted = preparedStatement.executeUpdate();
+                    if (rowsInserted > 0) {
+                        new AttendanceAdd().alert("Attendance added successfully", "Success");
+                    }
                 }else {
                     new AttendanceAdd().alert("Please enter the valid ID", "Invalid Student ID");
                     studentId.clear();
@@ -93,24 +109,9 @@ public class AttendanceAdd implements Initializable {
 
     @FXML
     public void select() {
-        accessDB("lecture");
+        lectureType.getItems().clear();
+        accessDB("lecture","SELECT cType FROM courseunit where courseId ='"+courseId.getValue()+"'");
     }
-
-//    @FXML
-//    public void test() {
-//        VBox box = new VBox();
-//        box.setSpacing(10); // spacing between fields
-//
-//        for (int i = 0; i < 5; i++) {
-//            TextField textField = new TextField();
-//            textField.setPromptText("Enter your " + (i + 1) + " data");
-//            box.getChildren().add(textField);
-//        }
-//
-//        items.setContent(box); // Set VBox as the content of the TitledPane
-//        System.out.println("Test completed.");
-//    }
-
 
     @FXML
     void initialize() {
@@ -130,20 +131,17 @@ public class AttendanceAdd implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         status.getItems().addAll("Present", "Absent", "Medical");
         status.setValue("Present");
-        accessDB("course");
+        accessDB("course", "SELECT courseId FROM courseunit");
     }
 
-    private void accessDB(String select){
+    private void accessDB(String select,String quary){
         int count = 0;
-        String quary;
         String[] setData;
 
         if(select.equals("course")){
             setData = new String[20];
-            quary = "SELECT courseId FROM courseunit";
         }else{
-            setData = new String[2]; //checks course ID
-            quary = "SELECT cType FROM courseunit where courseId = + courseId.getValue() ";
+            setData = new String[2];
         }
         try {
             Connection connection  = DBConnection.getConnection();
@@ -175,9 +173,9 @@ public class AttendanceAdd implements Initializable {
     }
 
     private boolean checkFields(){
-        if(presentDate.getValue() == null || courseId.getItems().isEmpty() || lectureHours.getText().isEmpty() || lectureTime.getText().isEmpty() || lectureType.getItems().isEmpty()){
+        if(presentDate.getValue() == null || courseId.getValue() == null || lectureHours.getText().isEmpty() || lectureTime.getText().isEmpty() || lectureType.getItems().isEmpty()){
             new AttendanceAdd().alert("Please fill all the fields","Can't submit");
-            if(courseId.getItems().isEmpty()){
+            if(courseId.getValue() == null){
                 courseId.requestFocus();
 //                presentDate.setStyle("-fx-border-color: red");
 //                presentDate.setPromptText("Please select a date");
@@ -185,7 +183,7 @@ public class AttendanceAdd implements Initializable {
                 presentDate.requestFocus();
             }else if(lectureTime.getText().isEmpty()){
                 lectureTime.requestFocus();
-            }else if(lectureType.getItems().isEmpty()){
+            }else if(lectureType.getValue() == null){
                 lectureType.requestFocus();
             }else if(lectureHours.getText().isEmpty()){
                 lectureHours.requestFocus();
@@ -195,36 +193,4 @@ public class AttendanceAdd implements Initializable {
             return true;
         }
     }
-
-//    private void getStudentData(){
-//        String quary = "SELECT * FROM name";
-//        String name = null;
-//        Connection connection = null;
-//
-//        try {
-//            connection  = DBConnection.getConnection();
-//            Statement statement = connection.createStatement();
-//            ResultSet results = statement.executeQuery(quary);
-//
-//            while (results.next()) {
-//                name = results.getString(1);
-//                System.out.println(name + "\t" + results.getString(2));
-//                if(Objects.equals(name, "1")){
-//                    System.out.println("Found");
-//                }else {
-//                    System.out.println("Not Found");
-//                }
-//            }
-//        } catch (SQLException e) {
-//            System.out.println("SQL Error: " + e.getMessage());
-//        } finally {
-//            try {
-//                if (connection != null && !connection.isClosed()) {
-//                    connection.close();
-//                }
-//            } catch (SQLException e) {
-//                System.out.println("Error closing connection: " + e.getMessage());
-//            }
-//        }
-//    }
 }
