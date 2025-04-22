@@ -60,7 +60,7 @@ public class ProfileController {
                     profileImage.setImage(image);
                 } else {
 
-                    profileImage.setImage(new Image(getClass().getResourceAsStream("/images/default-profile.png")));
+                    profileImage.setImage(new Image(getClass().getResourceAsStream("/images/logo.png")));
                 }
             }
         } catch (SQLException e) {

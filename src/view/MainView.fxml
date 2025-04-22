@@ -12,12 +12,20 @@
             stylesheets="@../css/main-style.css"
             prefHeight="600.0" prefWidth="800.0">
 
-
     <top>
         <HBox styleClass="header-bar">
             <children>
                 <HBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
                     <children>
+
+                        <ImageView fx:id="logoImage" fitHeight="40" fitWidth="40" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/logo.png" />
+                            </image>
+                            <HBox.margin>
+                                <Insets right="10.0" />
+                            </HBox.margin>
+                        </ImageView>
 
                         <Label styleClass="header-title" text="Techmis - Faculty of Technology" />
                     </children>
@@ -29,22 +37,18 @@
                         <Button text="FAQ" styleClass="header-button" onAction="#handleFAQ" />
                         <Button text="About us" styleClass="header-button" onAction="#handleAboutUs" />
                     </children>
-
                 </HBox>
             </children>
         </HBox>
     </top>
-
-
     <center>
+
         <VBox alignment="TOP_CENTER" spacing="20">
             <padding>
                 <Insets top="20" right="20" bottom="20" left="20" />
             </padding>
 
-
             <VBox alignment="CENTER" spacing="10">
-
                 <Label fx:id="nameLabel" styleClass="name-label" text="pasindu shanuka" />
                 <ImageView fx:id="profileImage" fitHeight="150" fitWidth="150" pickOnBounds="true" preserveRatio="true" styleClass="profile-image" />
                 <Label fx:id="departmentLabel" styleClass="department-label" text="Department of ICT" />
@@ -57,11 +61,7 @@
 
             <Separator />
 
-
             <GridPane hgap="20" vgap="20" alignment="CENTER">
-
-
-
                 <Button styleClass="dashboard-button" onAction="#handleCourses" GridPane.columnIndex="0" GridPane.rowIndex="0">
                     <graphic>
                         <VBox alignment="CENTER" spacing="15">
@@ -70,7 +70,6 @@
                         </VBox>
                     </graphic>
                 </Button>
-
 
                 <Button styleClass="dashboard-button" onAction="#handleAttendance" GridPane.columnIndex="1" GridPane.rowIndex="0">
                     <graphic>
@@ -81,26 +80,23 @@
                     </graphic>
                 </Button>
 
-
                 <Button styleClass="dashboard-button" onAction="#handleNotice" GridPane.columnIndex="2" GridPane.rowIndex="0">
                     <graphic>
                         <VBox alignment="CENTER" spacing="15">
-                            <Label styleClass="dashboard-icon"  />
+                            <Label styleClass="dashboard-icon" />
                             <Label styleClass="dashboard-label" text="Notice" />
                         </VBox>
                     </graphic>
                 </Button>
 
-
                 <Button styleClass="dashboard-button" onAction="#handleTimeTable" GridPane.columnIndex="0" GridPane.rowIndex="1">
                     <graphic>
                         <VBox alignment="CENTER" spacing="15">
-                            <Label styleClass="dashboard-icon"  />
+                            <Label styleClass="dashboard-icon" />
                             <Label styleClass="dashboard-label" text="Time table" />
                         </VBox>
                     </graphic>
                 </Button>
-
 
                 <Button styleClass="dashboard-button" onAction="#handleUser" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <graphic>
@@ -113,7 +109,6 @@
             </GridPane>
         </VBox>
     </center>
-
 
     <right>
         <HBox alignment="TOP_RIGHT" BorderPane.alignment="TOP_RIGHT">
