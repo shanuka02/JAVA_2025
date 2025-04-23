@@ -29,7 +29,8 @@
                </children>
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></Pane>
+               </cursor>
+            </Pane>
          </children>
       </HBox>
    </top>

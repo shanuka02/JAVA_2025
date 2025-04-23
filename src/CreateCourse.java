@@ -88,7 +88,7 @@ public class CreateCourse {
 
         String coursecode = Code.getText().trim();
         String name = Name.getText().trim();
-        int credit = Integer.parseInt(Credit.getText().trim()); //parse to int
+        Integer credit = Integer.parseInt(Credit.getText().trim()); //parse to int
 
          RadioButton selectedRadio1 = (RadioButton)Type.getSelectedToggle();
          String cType = selectedRadio1.getText();
@@ -97,16 +97,19 @@ public class CreateCourse {
          RadioButton selectedRadio2 = (RadioButton)GPAvalue.getSelectedToggle();
          String GPAstate = selectedRadio2.getText();
 
-         int quizes = Integer.parseInt(Quize.getText().trim());
-         int assesment = Integer.parseInt(Assesment.getText().trim());
+
          int CApersentage = Integer.parseInt(CA.getText().trim());
+           int quizes = 0;
+           int assesment = 0;
 
          String Lecid = Lecture.getValue();
 
-        /* if(Quize.getText().trim().isEmpty() || Assesment.getText().trim().isEmpty()  ){
-            quizes = 0;
-            assesment = 0;
-         }*/
+         if(!Quize.getText().trim().isEmpty() || !Assesment.getText().trim().isEmpty() ){
+             quizes = Integer.parseInt(Quize.getText().trim());
+              assesment = Integer.parseInt(Assesment.getText().trim());
+
+
+         }
 
          String query2 = "Insert INTO courseUnit(courseId ,courseName,credit ,cType ,nuOfQuises , nuOfAssesments ,ca_percentage ,lectureIncharge, gpa_state)VALUES (?,?,?,?,?,?,?,?,?)";
             try {
