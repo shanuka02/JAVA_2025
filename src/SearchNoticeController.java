@@ -83,14 +83,14 @@ public class SearchNoticeController {
         Id2.setCellValueFactory(new PropertyValueFactory<>("id"));
         Title2.setCellValueFactory(new PropertyValueFactory<>("title"));
         Date2.setCellValueFactory(new PropertyValueFactory<>("date"));
-        Roll2.setCellValueFactory(new PropertyValueFactory<>("roll"));
-        Content2.setCellValueFactory(new PropertyValueFactory<>("content"));
+        Roll2.setCellValueFactory(new PropertyValueFactory<>("content"));
+        Content2.setCellValueFactory(new PropertyValueFactory<>("roll"));
 
         Id3.setCellValueFactory(new PropertyValueFactory<>("id"));
         Title3.setCellValueFactory(new PropertyValueFactory<>("title"));
         Date3.setCellValueFactory(new PropertyValueFactory<>("date"));
-        Roll3.setCellValueFactory(new PropertyValueFactory<>("roll"));
-        Content3.setCellValueFactory(new PropertyValueFactory<>("content"));
+        Roll3.setCellValueFactory(new PropertyValueFactory<>("content"));
+        Content3.setCellValueFactory(new PropertyValueFactory<>("roll"));
 
         loadData();
 

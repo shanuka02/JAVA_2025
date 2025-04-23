@@ -4,12 +4,34 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 
+import javafx.scene.image.ImageView;
+import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 
 public class AdminInterface extends  BaseController {
 
+
+    @FXML
+    private Label Email;
+
+    @FXML
+    private ImageView image;
+
+    @FXML
+    private Label dep;
+
+    @FXML
+    private Label name;
     @FXML
     private Button B1;
     @FXML
@@ -17,6 +39,14 @@ public class AdminInterface extends  BaseController {
 
     @FXML
     private Button Editbutton;
+
+    mySqlCon connection;
+
+    @FXML
+    public void  initialize(){
+
+        loadProfileData();
+    }
 
     @FXML
     void handleEditProfile(ActionEvent event) {
@@ -75,4 +105,56 @@ public class AdminInterface extends  BaseController {
             System.out.println("error: " + e.getMessage());
         }
     }
+
+    @Override
+    public void loadProfileData(){
+        connection = new mySqlCon();
+        Connection con = connection.con();
+
+
+        String userID = Session.getUserId();
+
+        String query = "SELECT * FROM  userAccount WHERE user_id = ?";
+        try {
+
+            PreparedStatement pstm = con.prepareStatement(query);
+            pstm.setString(1,Session.getUserId());
+            ResultSet rs = pstm.executeQuery();
+
+
+            if (rs.next()) {
+/*
+                JOptionPane.showMessageDialog(null,"No notice Found");
+*/
+
+
+
+//if we didnt put condition null pointer execption generate, becouse db data is null
+               name.setText(rs.getString(2));
+                Email.setText(rs.getString(3));
+
+                dep.setText(rs.getString(7));
+
+                String profilePicpath =  rs.getString(9);
+
+                if(!profilePicpath.isEmpty()){
+                    File file = new File(profilePicpath);
+                    
+                    if(file.exists()){
+                        try {
+                            Image profileImage = new Image(file.toURL().toString());
+                            if(image != null)image.setImage(profileImage);
+                        } catch (MalformedURLException e) {
+                            System.out.println("Error: "+e.getMessage());
+                        }
+                    }
+                }
+            }
+
+
+        } catch (SQLException e) {
+            System.out.println("Error: "+e.getMessage());
+        }
+
+    };
 }

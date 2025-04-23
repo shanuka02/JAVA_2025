@@ -24,8 +24,8 @@ public class ApplicationDrive extends Application {
     public void start(Stage stage) throws IOException {
         PrimaryStage = stage;
         stage.setTitle("lms");
-        stage.setWidth(600);
-        stage.setHeight(600);
+        stage.setWidth(1200);
+        stage.setHeight(700);
 
         //creates a new FXMLLoader object that will load  FXML file containing the interface definition.
         FXMLLoader loader = new FXMLLoader(getClass().getResource("\\FXMLfiles\\MainPanel.fxml"));

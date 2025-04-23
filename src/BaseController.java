@@ -4,7 +4,7 @@ import javafx.scene.Scene;
 
 import java.io.IOException;
 
-public class BaseController
+public abstract class BaseController
 {
     public void handleLogout(){
         Session.clearSession();
@@ -31,6 +31,8 @@ public class BaseController
             System.out.println("error: " + e.getMessage());
         }
     }
+
+    public abstract  void loadProfileData();
 
 
 }

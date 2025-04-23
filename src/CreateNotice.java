@@ -97,7 +97,7 @@ public class CreateNotice {
                 Noticetitle.clear();
                 Content.clear();
                 selectedFilePath = null;
-                roll.selectToggle(null);
+                roll.selectToggle(RadioUndergraduate);
 
 
             }else{

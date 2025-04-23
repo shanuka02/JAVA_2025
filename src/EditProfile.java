@@ -2,6 +2,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -10,6 +13,7 @@ import javafx.stage.Stage;
 
 import javax.swing.*;
 import java.io.File;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -98,13 +102,13 @@ public class EditProfile {
         String userId = UserId.getText().trim();
         String username = Username.getText().trim();
         String address = Address.getText().trim();
-        String password = Password.getText().trim();
+
         String phoneNumber = PhoneNumber.getText().trim();
         String depname = Combobox2.getValue();
         String roll = Combobox1.getValue();
         String email =  Email.getText().trim();
 
-        String query = "INSERT INTO useraccount (user_name ,email,roll,phoneNumber,address,depName,profilePic ) VALUES (?,?,?,?,?,?,?)";
+        String query = "UPDATE userAccount SET user_name = ?, email = ?, roll = ?, phoneNumber = ?, address = ?, depName = ?, profilePic = ? WHERE user_id = ?";
         try {
             PreparedStatement pstm = con.prepareStatement(query);
 
@@ -116,21 +120,14 @@ public class EditProfile {
             pstm.setString(6,depname);
 
             pstm.setString(7,selectedFilePath);
+            pstm.setString(8,Session.getUserId());
 
             int rowAffected = pstm.executeUpdate();
 
             if(rowAffected > 0){
-                JOptionPane.showMessageDialog(null,"User add successfully","Success",JOptionPane.INFORMATION_MESSAGE);
-                UserId.clear();
-                Username.clear();
-                Email.clear();
+                JOptionPane.showMessageDialog(null,"Save Data sucessfully successfully","Success",JOptionPane.INFORMATION_MESSAGE);
 
-                Address.clear();
-                ProfilePic.clear();
-                PhoneNumber.clear();
-                Combobox1.getSelectionModel().clearSelection();
-                Combobox2.getSelectionModel().clearSelection();
-                selectedFilePath = null;
+
 
 
             }else{
@@ -190,4 +187,16 @@ public class EditProfile {
 
     }
 
+    @FXML
+    public void HandleHomeButton(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("\\FXMLfiles\\AdminInterface.fxml"));
+        try {
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            ApplicationDrive.getPrimaryStage().setScene(scene);
+
+        } catch (IOException e) {
+            System.out.println("error: " + e.getMessage());
+        }
+    }
 }

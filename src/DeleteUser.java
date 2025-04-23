@@ -72,19 +72,18 @@ public class DeleteUser {
 
         }
 
-        private void searchByUserId(String trim) {
+        private void searchByUserId(String code) {
                 connection = new mySqlCon();
                 Connection con = connection.con();
                 ObservableList<UserAccountModel> data = FXCollections.observableArrayList();
 
 
-                String code = TextField2.getText().trim();
 
-                String query = "select * from useraccount WHERE user_id  = ?";
+                String query = "select * from useraccount WHERE user_id  LIKE ?";
 
                 try {
                         PreparedStatement pstm =  con.prepareStatement(query);
-                        pstm.setString(1,code);
+                        pstm.setString(1,code + "%");
                         ResultSet rs = pstm.executeQuery();
 
                         while(rs.next()){

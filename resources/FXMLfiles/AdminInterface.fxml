@@ -12,7 +12,7 @@
    <top>
       <HBox prefHeight="55.0" prefWidth="646.0" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="40.0" prefWidth="645.0" style="-fx-background-color: blue;" />
+            <Pane prefHeight="40.0" prefWidth="645.0" style="-fx-background-color: blue; -fx-pref-width: 1200;" />
          </children>
       </HBox>
    </top>
@@ -36,20 +36,20 @@
                         <Label text="Manage Timetable" />
                      </graphic>
                   </Button>
-                  <Button layoutX="245.0" layoutY="265.0" mnemonicParsing="false" onAction="#handleManageCourse" prefHeight="119.0" prefWidth="169.0" style="-fx-border-radius: 10px;" text="Manage Course">
+                  <Button layoutX="245.0" layoutY="265.0" mnemonicParsing="false" onAction="#handleManageCourse" prefHeight="119.0" prefWidth="169.0" style="-fx-border-radius: 10px;">
                      <graphic>
                         <Label text="Manage Course" />
                      </graphic>
                   </Button>
-                  <Label fx:id="name" layoutX="323.0" layoutY="40.0" prefHeight="17.0" prefWidth="47.0" text="Name" />
-                  <Label fx:id="dep" layoutX="323.0" layoutY="63.0" prefHeight="17.0" prefWidth="66.0" text="Department" />
-                  <Label fx:id="Email" layoutX="323.0" layoutY="80.0" prefHeight="17.0" prefWidth="35.0" text="Email" />
-                  <ImageView fx:id="Image" fitHeight="98.0" fitWidth="156.0" layoutX="133.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <Label fx:id="name" layoutX="323.0" layoutY="40.0" prefHeight="17.0" prefWidth="166.0" text="Name" />
+                  <Label fx:id="dep" layoutX="323.0" layoutY="63.0" prefHeight="17.0" prefWidth="186.0" text="Department" />
+                  <Label fx:id="Email" layoutX="323.0" layoutY="80.0" prefHeight="17.0" prefWidth="172.0" text="Email" />
+                  <ImageView fx:id="image" fitHeight="98.0" fitWidth="156.0" layoutX="133.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@pexels-ketut-subiyanto-4909509.jpg" />
                      </image>
                   </ImageView>
-                  <Button fx:id="Editbutton" layoutX="321.0" layoutY="100.0" mnemonicParsing="false" onAction="#handleEditProfile" text="Edit Profile" />
+                  <Button fx:id="Editbutton" layoutX="170.0" layoutY="89.0" mnemonicParsing="false" onAction="#handleEditProfile" text="Edit Profile" />
                </children>
             </Pane>
          </children>
