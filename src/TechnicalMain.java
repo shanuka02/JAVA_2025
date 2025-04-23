@@ -52,21 +52,12 @@ public class TechnicalMain {
         }
     }
 
-    public void attendanceAdd() throws IOException {
-        stage.close();
-        new TechnicalMain().accessToAttendance();
-    }
-
-    public void attendanceView() throws IOException {
-        stage.close();
-        System.out.println("Attendance Viewed");
-    }
-
     public void backToPage() throws Exception {
         new Start().start(Start.getPrimaryStage());
     }
 
-    private void accessToAttendance(){
+    public void accessToAddAttendance(){
+        stage.close();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/AttendanceAdd.fxml"));
         try {
             Parent root = loader.load();
@@ -75,5 +66,39 @@ public class TechnicalMain {
         }catch (Exception e){
             System.out.println("Error_code: x0000e1.4 " + e.getMessage());
         }
+    }
+
+    public void accessToViewAttendance(){
+        stage.close();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/AttendanceView.fxml"));
+        try {
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Start.getPrimaryStage().setScene(scene);
+        }catch (Exception e){
+            System.out.println("Error_code: x0000e1.4 " + e.getMessage());
+        }
+    }
+
+    public void accessToAttendanceMedical(){
+        stage.close();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/AttendanceMedical.fxml"));
+        try {
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Start.getPrimaryStage().setScene(scene);
+        }catch (Exception e){
+            System.out.println("Error_code: x0000e1.4 " + e.getMessage());
+        }
+    }
+
+    public void accessToExamMedical(){
+        stage.close();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/ExamMedical.fxml"));
+        try {
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Start.getPrimaryStage().setScene(scene);
+        }catch (Exception e){}
     }
 }
