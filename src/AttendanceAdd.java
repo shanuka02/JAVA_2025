@@ -77,7 +77,6 @@ public class AttendanceAdd  {
                 String student = studentId.getText().toUpperCase();
                 if(student.contains("TG") && student.length() == 6){
                     System.out.println("Student ID is TG" + status.getValue());
-//                    set the data for database
                     String quary = "INSERT INTO attendance (Att_stu_id, Att_cou_id, Pre_date, Pre_time, Lec_hours, Lec_type, Status_) VALUES (?, ?, ?, ?, ?, ?, ?)";
                     Connection connection = DBConnection.getConnection();
                     assert connection != null;

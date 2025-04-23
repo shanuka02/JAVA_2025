@@ -82,6 +82,7 @@ public class TechnicalMain {
 
     public void accessToAttendanceMedical(){
         stage.close();
+        new AttendanceMedical().setAttendance();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/AttendanceMedical.fxml"));
         try {
             Parent root = loader.load();
