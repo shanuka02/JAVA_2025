@@ -35,6 +35,9 @@ public class CreateCourse {
     private ToggleGroup GPAvalue;
 
     @FXML
+    private RadioButton GPAV;
+
+    @FXML
     private ComboBox<String> Lecture;
 
     @FXML
@@ -82,9 +85,18 @@ public class CreateCourse {
     }
 
         @FXML
-    void HnadleAddButton(ActionEvent event) {
-            connection = new mySqlCon();
-            Connection con = connection.con();
+    int HnadleAddButton(ActionEvent event) {
+
+        connection = new mySqlCon();
+        Connection con = connection.con();
+
+
+        if(Code.getText().isEmpty() || Name.getText().isEmpty() || Credit.getText().isEmpty()  || Lecture.getSelectionModel().isEmpty()){
+                JOptionPane.showMessageDialog(null,"Required  fields must be filed","Error",JOptionPane.ERROR_MESSAGE);
+                return 1;
+        }
+
+
 
         String coursecode = Code.getText().trim();
         String name = Name.getText().trim();
@@ -99,16 +111,15 @@ public class CreateCourse {
 
 
          int CApersentage = Integer.parseInt(CA.getText().trim());
-           int quizes = 0;
-           int assesment = 0;
+         int quizes = 0;
+         int assesment = 0;
 
          String Lecid = Lecture.getValue();
 
+       //for not entring values
          if(!Quize.getText().trim().isEmpty() || !Assesment.getText().trim().isEmpty() ){
              quizes = Integer.parseInt(Quize.getText().trim());
-              assesment = Integer.parseInt(Assesment.getText().trim());
-
-
+             assesment = Integer.parseInt(Assesment.getText().trim());
          }
 
          String query2 = "Insert INTO courseUnit(courseId ,courseName,credit ,cType ,nuOfQuises , nuOfAssesments ,ca_percentage ,lectureIncharge, gpa_state)VALUES (?,?,?,?,?,?,?,?,?)";
@@ -132,8 +143,8 @@ public class CreateCourse {
                     Quize.clear();
                     CA.clear();
                    Lecture.getSelectionModel().clearSelection();
-                    GPAvalue.selectToggle(null);
-                    Type.selectToggle(null);
+                    GPAvalue.selectToggle(GPAV);
+                    Type.selectToggle(T);
                     Code.clear();;
                     Name.clear();;
                     Credit.clear();
@@ -148,7 +159,7 @@ public class CreateCourse {
             } catch (SQLException e ) {
                 System.out.println("Error " + e.getMessage());
             }
-
+        return 0;
 
         }
 

@@ -55,6 +55,7 @@
                         </RadioButton>
                         <RadioButton fx:id="P" layoutX="140.0" layoutY="46.0" mnemonicParsing="false" text="P" toggleGroup="$Type" />
                         <RadioButton fx:id="TP" layoutX="140.0" layoutY="69.0" mnemonicParsing="false" text="T/P" toggleGroup="$Type" />
+                        <Label layoutX="78.0" layoutY="15.0" text="*" textFill="#ee0606" />
                      </children>
                   </Pane>
                   <Label layoutX="17.0" layoutY="289.0" text="No Of Assesments" />
@@ -62,12 +63,13 @@
                   <Pane layoutX="343.0" layoutY="68.0" prefHeight="86.0" prefWidth="240.0">
                      <children>
                         <Label layoutX="14.0" layoutY="14.0" text="GPA State" />
-                        <RadioButton layoutX="120.0" layoutY="14.0" mnemonicParsing="false" selected="true" text="GPA">
+                        <RadioButton fx:id="GPAV" layoutX="120.0" layoutY="14.0" mnemonicParsing="false" selected="true" text="GPA">
                            <toggleGroup>
                               <ToggleGroup fx:id="GPAvalue" />
                            </toggleGroup>
                         </RadioButton>
                         <RadioButton layoutX="120.0" layoutY="43.0" mnemonicParsing="false" text="NON " toggleGroup="$GPAvalue" />
+                        <Label layoutX="65.0" layoutY="7.0" text="*" textFill="#ee0606" />
                      </children>
                   </Pane>
                   <Button fx:id="AddButton" layoutX="438.0" layoutY="290.0" mnemonicParsing="false" onAction="#HnadleAddButton" prefHeight="41.0" prefWidth="139.0" text="Add Course" />
@@ -79,6 +81,11 @@
                   <TextField fx:id="Assesment" layoutX="124.0" layoutY="285.0" />
                   <Label layoutX="327.0" layoutY="36.0" text="Lecture Incharge" />
                   <ComboBox fx:id="Lecture" layoutX="433.0" layoutY="32.0" prefWidth="150.0" />
+                  <Label layoutX="102.0" layoutY="28.0" text="*" textFill="#ee0606" />
+                  <Label layoutX="104.0" layoutY="67.0" text="*" textFill="#ee0606" />
+                  <Label layoutX="80.0" layoutY="103.0" text="*" textFill="#ee0606" />
+                  <Label layoutX="412.0" layoutY="28.0" text="*" textFill="#ee0606" />
+                  <Label layoutX="104.0" layoutY="327.0" text="*" textFill="#ee0606" />
                </children>
             </Pane>
          </children>
