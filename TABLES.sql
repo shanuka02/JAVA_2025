@@ -23,13 +23,6 @@ INSERT INTO attendance (Att_stu_id, Att_cou_id, Pre_date, Pre_time, Lec_hours, L
     ('TG1304','ICT2122','2025-04-05','14:30:00',2,'Theory','Absent'),
     ('TG1305','ICT2122','2025-04-05','14:30:00',2,'Theory','Present');
 
-('TG1303','ICT1233',1,1,'t','T01'),
-('TG1306','ICT1233',1,1,'t','T01'),
-('TG1309','ICT1233',1,1,'t','T01'),
-('TG1311','ICT1233',1,1,'t','T01'),
-('TG1312','ICT1233',1,1,'t','T01');
-
-
 CREATE TABLE medical(
                         Medi_id INT PRIMARY KEY AUTO_INCREMENT,
                         Me_stu_id CHAR(8) NOT NULL,
@@ -48,7 +41,7 @@ VALUES
 
 INSERT INTO medical (Me_stu_id, Me_cou_id, Reason, Request_date, Status_, Submitted_date)
 VALUES
-    ('TG1301', 'ICT1233', 'Fever and flu for two days', '2025-04-20', 'pending', '2025-04-21'),
+    ('TG1301', 'ICT2133', 'Fever and flu for two days', '2025-04-20', 'pending', '2025-04-21'),
     ('TG1305', 'ICT1234', 'Surgery recovery', '2025-04-18', 'approved', '2025-04-20'),
     ('TG1304', 'ICT1240', 'Family emergency during lectures', '2025-04-17', 'rejected', '2025-04-20'),
     ('TG1301', 'ICT1239', 'Accident – unable to attend', '2025-04-16', 'pending', '2025-04-18'),
