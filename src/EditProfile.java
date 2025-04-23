@@ -1,27 +1,21 @@
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-
-import javafx.event.ActionEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import javax.swing.*;
 import java.io.File;
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class CreateUserController {
-
+public class EditProfile {
     @FXML
     private Button Adduser;
 
@@ -36,7 +30,7 @@ public class CreateUserController {
     private Button ChooseFilePath;
 
     @FXML
-    private ComboBox<String> Combobox;
+    private ComboBox<String> Combobox1;
 
     @FXML
     private ComboBox<String> Combobox2;
@@ -60,18 +54,20 @@ public class CreateUserController {
 
     mySqlCon connection;
 
+
     @FXML
     public void initialize() {
         ObservableList<String> list1 = FXCollections.observableArrayList("Undergraduate", "Lecture", "Technical Officer");
-        Combobox.setItems(list1);
+        Combobox1.setItems(list1);
 
-      ObservableList<String> list2 = FXCollections.observableArrayList("ICT","BST","ET","MD");
-      Combobox2.setItems(list2);
+        ObservableList<String> list2 = FXCollections.observableArrayList("ICT","BST","ET","MD");
+        Combobox2.setItems(list2);
+
+        loadData();
     }
 
-
     @FXML
-    void ChooseFile(ActionEvent event) {
+    public void ChooseFile(ActionEvent event) {
         FileChooser fileChooser= new FileChooser();
 
         fileChooser.setTitle("Select File");
@@ -87,13 +83,14 @@ public class CreateUserController {
 
         File selectedFile = fileChooser.showOpenDialog(stage);
         if(selectedFile!= null){
-             selectedFilePath = selectedFile.getAbsolutePath();
+            selectedFilePath = selectedFile.getAbsolutePath();
             ProfilePic.setText(selectedFilePath);
 
         }
+
     }
 
-@FXML
+    @FXML
     public void handleAddUser(ActionEvent actionEvent) {
         connection = new mySqlCon();
         Connection con = connection.con();
@@ -104,21 +101,21 @@ public class CreateUserController {
         String password = Password.getText().trim();
         String phoneNumber = PhoneNumber.getText().trim();
         String depname = Combobox2.getValue();
-        String roll = Combobox.getValue();
+        String roll = Combobox1.getValue();
         String email =  Email.getText().trim();
 
-        String query = "INSERT INTO useraccount (user_id ,user_name ,email,roll,phoneNumber,address,depName,password,profilePic ) VALUES (?,?,?,?,?,?,?,?,?)";
+        String query = "INSERT INTO useraccount (user_name ,email,roll,phoneNumber,address,depName,profilePic ) VALUES (?,?,?,?,?,?,?)";
         try {
             PreparedStatement pstm = con.prepareStatement(query);
-            pstm.setString(1,userId);
-            pstm.setString(2,username);
-            pstm.setString(3,email);
-            pstm.setString(4,roll);
-            pstm.setString(5,phoneNumber);
-            pstm.setString(6,address);
-            pstm.setString(7,depname);
-            pstm.setString(8,password);
-            pstm.setString(9,selectedFilePath);
+
+            pstm.setString(1,username);
+            pstm.setString(2,email);
+            pstm.setString(3,roll);
+            pstm.setString(4,phoneNumber);
+            pstm.setString(5,address);
+            pstm.setString(6,depname);
+
+            pstm.setString(7,selectedFilePath);
 
             int rowAffected = pstm.executeUpdate();
 
@@ -127,11 +124,11 @@ public class CreateUserController {
                 UserId.clear();
                 Username.clear();
                 Email.clear();
-                Password.clear();
+
                 Address.clear();
                 ProfilePic.clear();
                 PhoneNumber.clear();
-                Combobox.getSelectionModel().clearSelection();
+                Combobox1.getSelectionModel().clearSelection();
                 Combobox2.getSelectionModel().clearSelection();
                 selectedFilePath = null;
 
@@ -151,19 +148,46 @@ public class CreateUserController {
             System.out.println(e.getMessage());;
         }
 
-
     }
 
-    @FXML
-    public void BackbuttonHandle(ActionEvent actionEvent) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("\\FXMLfiles\\ManageUser.fxml"));
+    public int loadData(){
+        connection = new mySqlCon();
+        Connection con = connection.con();
+
+
+        String userID = Session.getUserId();
+
+        String query = "SELECT * FROM  userAccount WHERE user_id = ?";
         try {
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-            ApplicationDrive.getPrimaryStage().setScene(scene);
 
-        } catch (IOException e) {
-            System.out.println("error: " + e.getMessage());
+            PreparedStatement pstm = con.prepareStatement(query);
+            pstm.setString(1,Session.getUserId());
+            ResultSet rs = pstm.executeQuery();
+
+
+            if (rs.next()) {
+/*
+                JOptionPane.showMessageDialog(null,"No notice Found");
+*/
+
+
+
+                UserId.setText(rs.getString(1));
+                Username.setText(rs.getString(2));
+                Email.setText(rs.getString(3));
+                Combobox1.setValue(rs.getString(4));
+                PhoneNumber.setText(rs.getString(5));
+                Address.setText(rs.getString(6));
+                Combobox2.setValue(rs.getString(7));
+                ProfilePic.setText(rs.getString(9));
+            }
+
+
+        } catch (SQLException e) {
+            System.out.println("Error: "+e.getMessage());
         }
+        return 0;
+
     }
+
 }

@@ -8,13 +8,20 @@ import javafx.scene.control.Button;
 import java.io.IOException;
 
 
-public class AdminInterface {
+public class AdminInterface extends  BaseController {
 
     @FXML
     private Button B1;
     @FXML
     private Button Notice;
 
+    @FXML
+    private Button Editbutton;
+
+    @FXML
+    void handleEditProfile(ActionEvent event) {
+        handleEditprofile();
+    }
 
     @FXML
     public void handleManageUser(ActionEvent actionEvent) {

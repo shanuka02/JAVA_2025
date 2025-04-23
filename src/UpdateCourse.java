@@ -115,37 +115,34 @@ public class UpdateCourse {
                 pstm.setString(1,code);
                 ResultSet rs = pstm.executeQuery();
 
-                if (!rs.next()) {
+                if (rs.next()) {
 /*
                 JOptionPane.showMessageDialog(null,"No notice Found");
 */
-                    return 1;
+
+
+
+                    Name.setText(rs.getString("courseName"));
+                    Credit.setText(rs.getString("credit"));
+                    Quize.setText(rs.getString("nuOfQuises"));
+                    Assesment.setText(rs.getString("nuOfAssesments"));
+                    Lecture.setValue(rs.getString("lectureIncharge"));
+                    CA.setText(rs.getString("ca_percentage"));
+
+
+                    String type = rs.getString("cType");
+
+                    if (type.equalsIgnoreCase("T")) {
+                        //select
+                        T.setSelected(true);
+                    } else if (type.equalsIgnoreCase("P")) {
+                        //select r2
+                        P.setSelected(true);
+                    } else if (type.equalsIgnoreCase("T/P")) {
+                        //select r3
+                        TP.setSelected(true);
+                    }
                 }
-
-
-                Name.setText(rs.getString("courseName"));
-                Credit.setText(rs.getString("credit"));
-                Quize.setText(rs.getString("nuOfQuises"));
-                Assesment.setText(rs.getString("nuOfAssesments"));
-                Lecture.setValue(rs.getString("lectureIncharge"));
-                CA.setText(rs.getString("ca_percentage"));
-
-
-
-
-                String type = rs.getString("cType");
-
-                if(type.equalsIgnoreCase("T")){
-                    //select
-                    T.setSelected(true);
-                }else if(type.equalsIgnoreCase("P")){
-                    //select r2
-                    P.setSelected(true);
-                }else if(type.equalsIgnoreCase("T/P")){
-                    //select r3
-                    TP.setSelected(true);
-                }
-
                 //how to set value to the radio button
             } catch (SQLException e) {
                 System.out.println("Error"+ e.getMessage());

@@ -86,29 +86,29 @@ public class UpdateNotice {
             pstm.setString(1,ID);
             ResultSet rs = pstm.executeQuery();
 
-            if (!rs.next()) {
+            if (rs.next()) {
 /*
                 JOptionPane.showMessageDialog(null,"No notice Found");
 */
-                return 1;
+
+
+
+
+                Title.setText(rs.getString("title"));
+                Content.setText(rs.getString("content"));
+                String roll = rs.getString("userRoll");
+
+                if (roll.equalsIgnoreCase("Undergraduate")) {
+                    //select
+                    R1.setSelected(true);
+                } else if (roll.equalsIgnoreCase("Technical Officer")) {
+                    //select r2
+                    R2.setSelected(true);
+                } else if (roll.equalsIgnoreCase("Lecture")) {
+                    //select r3
+                    R3.setSelected(true);
+                }
             }
-
-
-            Title.setText(rs.getString("title"));
-            Content.setText(rs.getString("content"));
-            String roll = rs.getString("userRoll");
-
-            if(roll.equalsIgnoreCase("Undergraduate")){
-                //select
-                R1.setSelected(true);
-            }else if(roll.equalsIgnoreCase("Technical Officer")){
-                //select r2
-                R2.setSelected(true);
-            }else if(roll.equalsIgnoreCase("Lecture")){
-                //select r3
-                R3.setSelected(true);
-            }
-
             //how to set value to the radio button
         } catch (SQLException e) {
             System.out.println("Error"+ e.getMessage());
