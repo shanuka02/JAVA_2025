@@ -38,8 +38,6 @@ public class SearchCourse {
     @FXML
     private TableColumn<CourseModel, Integer> CA11;
 
-    @FXML
-    private TableColumn<CourseModel, String> Code;
 
     @FXML
     private TableColumn<CourseModel, String> Code1;
@@ -48,16 +46,11 @@ public class SearchCourse {
     private TableColumn<CourseModel, String> Code11;
 
     @FXML
-    private TableColumn<CourseModel, Integer> Credit;
-
-    @FXML
     private TableColumn<CourseModel, Integer> Credit1;
 
     @FXML
     private TableColumn<CourseModel, Integer> Credit11;
 
-    @FXML
-    private TableColumn<CourseModel, String> GPA;
 
     @FXML
     private TableColumn<CourseModel, String> GPA1;
@@ -65,8 +58,6 @@ public class SearchCourse {
     @FXML
     private TableColumn<CourseModel, String> GPA11;
 
-    @FXML
-    private TableColumn<CourseModel, String> Lecture;
 
     @FXML
     private TableColumn<CourseModel, String> Lecture1;
@@ -74,8 +65,6 @@ public class SearchCourse {
     @FXML
     private TableColumn<CourseModel, String> Lecture11;
 
-    @FXML
-    private TableColumn<CourseModel, String> Name;
 
     @FXML
     private TableColumn<CourseModel, String> Name1;
@@ -83,8 +72,7 @@ public class SearchCourse {
     @FXML
     private TableColumn<CourseModel, String> Name11;
 
-    @FXML
-    private TableColumn<CourseModel, Integer> Quizes;
+
 
     @FXML
     private TableColumn<CourseModel, Integer> Quizes1;
@@ -92,8 +80,6 @@ public class SearchCourse {
     @FXML
     private TableColumn<CourseModel, Integer> Quizes11;
 
-    @FXML
-    private TableColumn<CourseModel, String> Type;
 
     @FXML
     private TableColumn<CourseModel, String> Type1;
@@ -103,8 +89,6 @@ public class SearchCourse {
     @FXML
     private Button Search;
 
-    @FXML
-    private TableView<CourseModel> Table1;
 
     @FXML
     private TableView<CourseModel> Table2;
@@ -121,15 +105,6 @@ public class SearchCourse {
 
     @FXML
     public void initialize(){
-       Code.setCellValueFactory(new PropertyValueFactory<>("courseId"));
-       Name.setCellValueFactory(new PropertyValueFactory<>("courseName"));
-       Credit.setCellValueFactory(new PropertyValueFactory<>("credit"));
-       CA.setCellValueFactory(new PropertyValueFactory<>("caPercentage"));
-       Quizes.setCellValueFactory(new PropertyValueFactory<>("nuOfQuises"));
-       Assesment.setCellValueFactory(new PropertyValueFactory<>("nuOfAssesments"));
-       Lecture.setCellValueFactory(new PropertyValueFactory<>("lectureIncharge"));
-       GPA.setCellValueFactory(new PropertyValueFactory<>("gpaState"));
-       Type.setCellValueFactory(new PropertyValueFactory<>("cType"));
 
         Code1.setCellValueFactory(new PropertyValueFactory<>("courseId"));
         Name1.setCellValueFactory(new PropertyValueFactory<>("courseName"));
@@ -149,7 +124,7 @@ public class SearchCourse {
         Assesment11.setCellValueFactory(new PropertyValueFactory<>("nuOfAssesments"));
         Lecture11.setCellValueFactory(new PropertyValueFactory<>("lectureIncharge"));
         GPA11.setCellValueFactory(new PropertyValueFactory<>("gpaState"));
-        Type.setCellValueFactory(new PropertyValueFactory<>("cType"));
+        Type11.setCellValueFactory(new PropertyValueFactory<>("cType"));
 
     loadData();
 
@@ -176,7 +151,7 @@ public class SearchCourse {
 
         String code = TextField2.getText().trim();
 
-        String query = "SELECT * FROM courseUnit WHERE courseId   LIKE ?";
+        String query = "SELECT * FROM courseUnit WHERE  courseName  LIKE ?";
 
         try {
             PreparedStatement pstm =  con.prepareStatement(query);
@@ -232,7 +207,7 @@ public class SearchCourse {
                 );
                 data.add(course);
             }
-            Table1.setItems(data);
+           // Table1.setItems(data);
             Table3.setItems(data);
         } catch (SQLException e) {
             System.out.println("Error: "+e.getMessage());
@@ -285,6 +260,7 @@ public class SearchCourse {
 
     }
 
+    @FXML
     public void BackbuttonHandle(ActionEvent actionEvent) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("\\FXMLfiles\\ManageCourse.fxml"));
         try {

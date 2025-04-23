@@ -19,8 +19,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class SearchNoticeController {
-    @FXML
-    private TableColumn<NoticeModel, String> Content;
 
     @FXML
     private TableColumn<NoticeModel, String> Content2;
@@ -28,8 +26,7 @@ public class SearchNoticeController {
     @FXML
     private TableColumn<NoticeModel, String> Content3;
 
-    @FXML
-    private TableColumn<NoticeModel, String> Date;
+
 
     @FXML
     private TableColumn<NoticeModel, String> Date2;
@@ -40,8 +37,7 @@ public class SearchNoticeController {
     @FXML
     private TextField DateTextField2;
 
-    @FXML
-    private TableColumn<NoticeModel, Integer> Id;
+
 
     @FXML
     private TableColumn<NoticeModel, String>Id2;
@@ -49,8 +45,6 @@ public class SearchNoticeController {
     @FXML
     private TableColumn<NoticeModel, String> Id3;
 
-    @FXML
-    private TableColumn<NoticeModel, String>Roll;
 
     @FXML
     private TableColumn<NoticeModel, String> Roll2;
@@ -61,8 +55,7 @@ public class SearchNoticeController {
     @FXML
     private Button SearchButton;
 
-    @FXML
-    private TableView<NoticeModel> Table1;
+
 
     @FXML
     private TableView<NoticeModel> Table2;
@@ -70,8 +63,7 @@ public class SearchNoticeController {
     @FXML
     private TableView<NoticeModel> Table3;
 
-    @FXML
-    private TableColumn<NoticeModel, String> Title;
+
 
     @FXML
     private TableColumn<NoticeModel, String> Title2;
@@ -86,11 +78,7 @@ public class SearchNoticeController {
 
     @FXML
     public void initialize(){
-        Id.setCellValueFactory(new PropertyValueFactory<>("id"));
-        Title.setCellValueFactory(new PropertyValueFactory<>("title"));
-        Date.setCellValueFactory(new PropertyValueFactory<>("date"));
-        Roll.setCellValueFactory(new PropertyValueFactory<>("roll"));
-        Content.setCellValueFactory(new PropertyValueFactory<>("content"));
+
 
         Id2.setCellValueFactory(new PropertyValueFactory<>("id"));
         Title2.setCellValueFactory(new PropertyValueFactory<>("title"));
@@ -182,7 +170,7 @@ public class SearchNoticeController {
                 );
                 data.add(notice);
             }
-            Table1.setItems(data);
+            Table2.setItems(data);
         } catch (SQLException e) {
             System.out.println("error");        }
 
@@ -202,9 +190,10 @@ public class SearchNoticeController {
             pstm.setString(1,date);
             ResultSet rs = pstm.executeQuery();
 
-            if(!rs.next()){
+          /*  if(!rs.next()){
                 JOptionPane.showMessageDialog(null,"No Notice Found For the day");
-            }
+            }*/
+
             while(rs.next()){
                 NoticeModel notice = new NoticeModel(
                         rs.getInt("notice_id"),
@@ -218,6 +207,7 @@ public class SearchNoticeController {
             }
             Table3.setItems(data);
 
+
         } catch (SQLException e) {
             System.out.println("Error "+e.getMessage());
         }
@@ -225,6 +215,7 @@ public class SearchNoticeController {
 
     }
 
+    @FXML
     public void BackbuttonHandle(ActionEvent actionEvent) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("\\FXMLfiles\\ManageNotice.fxml"));
         try {

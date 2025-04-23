@@ -54,7 +54,7 @@ public class loginController{
          String password =  passwordField.getText().trim();
 
 
-        String query = "SELECT * FROM useraccount WHERE user_name = ? AND password = ?";
+        String query = "SELECT * FROM useraccount WHERE user_id = ? AND password = ?";
         try{
             PreparedStatement pstmt = con.prepareStatement(query);
             pstmt.setString(1, userName);

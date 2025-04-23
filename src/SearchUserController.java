@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -34,8 +35,6 @@ public class SearchUserController {
     @FXML
     private RadioButton B3;
 
-    @FXML
-    private TableView<UserAccountModel> table1;
 
     @FXML
     private TableView<UserAccountModel> table2;
@@ -44,22 +43,7 @@ public class SearchUserController {
     @FXML
     private TableView<UserAccountModel> table3;
 
-    @FXML
-    private TableColumn<UserAccountModel, String> colUserId1;
-    @FXML
-    private TableColumn<UserAccountModel, String> colUserName1;
-    @FXML
-    private TableColumn<UserAccountModel, String> colEmail1;
-    @FXML
-    private TableColumn<UserAccountModel, String> colRoll1;
-    @FXML
-    private TableColumn<UserAccountModel, String> colPhone1;
-    @FXML
-    private TableColumn<UserAccountModel, String> colAddress1;
-    @FXML
-    private TableColumn<UserAccountModel, String> colDep1;
-    @FXML
-    private TableColumn<UserAccountModel, String> colPassword1;
+
 
 
     @FXML
@@ -112,15 +96,6 @@ public class SearchUserController {
     public void initialize() {
 
 
-        colUserId1.setCellValueFactory(new PropertyValueFactory<>("user_id"));
-        colUserName1.setCellValueFactory(new PropertyValueFactory<>("user_name"));
-        colEmail1.setCellValueFactory(new PropertyValueFactory<>("email"));
-        colRoll1.setCellValueFactory(new PropertyValueFactory<>("roll"));
-        colPhone1.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
-        colAddress1.setCellValueFactory(new PropertyValueFactory<>("address"));
-        colDep1.setCellValueFactory(new PropertyValueFactory<>("depName"));
-        colPassword1.setCellValueFactory(new PropertyValueFactory<>("password"));
-
 
         colUserId2.setCellValueFactory(new PropertyValueFactory<>("user_id"));
         colUserName2.setCellValueFactory(new PropertyValueFactory<>("user_name"));
@@ -141,8 +116,19 @@ public class SearchUserController {
         colDep3.setCellValueFactory(new PropertyValueFactory<>("depName"));
         colPassword3.setCellValueFactory(new PropertyValueFactory<>("password"));
 
-
         loadAllUsers();
+
+        TextField1.textProperty().addListener((observable,oldValue,newValue )->{
+            //If the new text is not empty, call the function searchByTitle()
+            if(!newValue.trim().isEmpty()){
+               SearchBYID(newValue.trim());
+            }else{
+                //if table is empty clear the table
+                //Table2.getItems().clear();
+                loadAllUsers();
+            }
+        });
+
     }
 
     public void loadAllUsers(){
@@ -171,8 +157,9 @@ public class SearchUserController {
                 );
 
                 data.add(user);
+                table2.setItems(data);
             }
-            table1.setItems(data);
+
         } catch (SQLException e) {
             System.out.println("Error "+ e.getMessage());
         }
@@ -180,17 +167,17 @@ public class SearchUserController {
     }
 
 
-    public void handleButton1Click(ActionEvent actionEvent) {
+    public void SearchBYID(String UserId) {
         connection = new mySqlCon();
         Connection con = connection.con();
 
-        String userId = TextField1.getText().trim();
+        //String userId = TextField1.getText().trim();
         ObservableList<UserAccountModel> data = FXCollections.observableArrayList();
 
-        String query = "SELECT  user_id ,user_name,email , roll,phoneNumber ,address ,depName ,password   FROM useraccount WHERE user_id = ?";
+        String query = "SELECT  user_id ,user_name,email , roll,phoneNumber ,address ,depName ,password   FROM useraccount WHERE user_id  LIKE ?";
         try {
             PreparedStatement pstm = con.prepareStatement(query);
-            pstm.setString(1, userId);
+            pstm.setString(1, UserId + "%");
             ResultSet rs = pstm.executeQuery();
 
             while (rs.next()) {
@@ -210,10 +197,11 @@ public class SearchUserController {
             table2.setItems(data);
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null,e.getMessage());
         }
     }
 
+    @FXML
     public void handleButton2Click(ActionEvent actionEvent) {
         connection = new mySqlCon();
         Connection con = connection.con();

@@ -62,7 +62,7 @@ public class CreateUserController {
 
     @FXML
     public void initialize() {
-        ObservableList<String> list1 = FXCollections.observableArrayList("Undergraduate", "Lecture", "Technical Officer", "Admin");
+        ObservableList<String> list1 = FXCollections.observableArrayList("Undergraduate", "Lecture", "Technical Officer");
         Combobox.setItems(list1);
 
       ObservableList<String> list2 = FXCollections.observableArrayList("ICT","BST","ET","MD");
