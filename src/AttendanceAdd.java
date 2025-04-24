@@ -1,15 +1,8 @@
-import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.layout.VBox;
 
 import java.io.IOException;
-import java.net.URL;
 import java.sql.*;
-import java.util.Objects;
-import java.util.ResourceBundle;
 
 import static java.lang.String.valueOf;
 
@@ -159,7 +152,7 @@ public class AttendanceAdd  {
         }
     }
 
-    private void alert(String message, String header){
+    public void alert(String message, String header){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Error");
         alert.setHeaderText(header);
