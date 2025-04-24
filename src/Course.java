@@ -43,8 +43,8 @@ public class Course {
     @FXML
     private void handleBackButton(ActionEvent event) {
 
-        Stage stage = (Stage) backButton.getScene().getWindow();
-        stage.close();
+        TechmisApp back = new TechmisApp();
+        back.start(TechmisApp.getPrimaryStage());
 
 
     }

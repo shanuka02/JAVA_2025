@@ -106,6 +106,16 @@
                         </VBox>
                     </graphic>
                 </Button>
+                <Button styleClass="dashboard-button" onAction="#handleGrade" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                    <graphic>
+                        <VBox alignment="CENTER" spacing="15">
+                            <Label styleClass="dashboard-icon" />
+                            <Label styleClass="dashboard-label" text="Grade" />
+                        </VBox>
+                    </graphic>
+                </Button>
+
+
             </GridPane>
         </VBox>
     </center>

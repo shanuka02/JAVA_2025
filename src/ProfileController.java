@@ -44,7 +44,7 @@ public class ProfileController {
     public void initialize() {
         userId = 1;
         loadUserProfile();
-//        drop1.getItems().addAll("world","hellow");
+
     }
 
 
@@ -154,4 +154,14 @@ public class ProfileController {
         System.out.println("User button clicked");
 
     }
+
+    @FXML
+    private void handleGrade(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("view/StudentGrades.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        TechmisApp.getPrimaryStage().setScene(scene);
+    }
+
+
 }
