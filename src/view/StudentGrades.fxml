@@ -9,10 +9,10 @@
 <?import javafx.scene.text.Text?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="529.0" prefWidth="748.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StudentGrade">
-   <bottom>
+   <top>
         <AnchorPane prefHeight="561.0" prefWidth="748.0" BorderPane.alignment="CENTER">
             <children>
-                <Label layoutX="334.0" layoutY="51.0" styleClass="header-label" text="Student Grades">
+                <Label layoutX="258.0" layoutY="64.0" styleClass="header-label" text="Student Grades">
                     <font>
                         <Font name="System Bold" size="32.0" />
                     </font>
@@ -39,8 +39,9 @@
             <TextField fx:id="DatabaseGrade" layoutX="378.0" layoutY="295.0" />
             <TextField fx:id="WebDesignGrade" layoutX="378.0" layoutY="348.0" />
             <TextField fx:id="OperatingSystemsGrade" layoutX="378.0" layoutY="400.0" />
-            <Button layoutX="618.0" layoutY="206.0" mnemonicParsing="false" onAction="#loadStudentGrades" text="Button" />
+            <Button layoutX="565.0" layoutY="150.0" mnemonicParsing="false" onAction="#loadStudentGrades" text="Click here to see Grades" />
+            <Button layoutX="11.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBackButton" text="back" />
             </children>
         </AnchorPane>
-   </bottom>
+   </top>
 </BorderPane>

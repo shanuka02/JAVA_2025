@@ -1,3 +1,4 @@
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
@@ -31,6 +32,15 @@ public class StudentGrade {
     @FXML
     private TextField CGPAGrade;
 
+    @FXML
+    private void handleBackButton(ActionEvent event) {
+
+        TechmisApp back = new TechmisApp();
+        back.start(TechmisApp.getPrimaryStage());
+
+
+    }
+
 
 
     private String calculateGrade(double finalMark) {
@@ -53,7 +63,35 @@ public class StudentGrade {
     public void loadStudentGrades() {
         String quary = "SELECT * FROM mark WHERE studentId = 1";
 
+        try {
+            Connection connection  = DBConnection.getConnection();
+            assert connection != null;
+            Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery(quary);
 
+            while (rs.next()) {
+                String courseCode = rs.getString("courseCode");
+
+                double assessments = rs.getInt("assesment_01") + rs.getInt("assesment_02") + rs.getInt("assesment_03");
+                double quizzes = rs.getInt("quiz_1") + rs.getInt("quiz_2") + rs.getInt("quiz_3");
+                double mid = rs.getInt("midExam");
+                double finalE = rs.getInt("finalExam");
+
+                double finalMark = (assessments * 0.2) + (quizzes * 0.2) + (mid * 0.2) + (finalE * 0.4);
+                String grade = calculateGrade(finalMark);
+                System.out.println(finalMark);
+
+                switch (courseCode) {
+                    case "ICT001" -> ProgrammingGrade.setText(grade);
+                    case "ICT002" -> NetworkingGrade.setText(grade);
+                    case "ICT003" -> DatabaseGrade.setText(grade);
+                    case "ICT004" -> WebDesignGrade.setText(grade);
+                    case "ICT005" -> OperatingSystemsGrade.setText(grade);
+                }
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
 
     }
 
