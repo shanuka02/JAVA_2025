@@ -99,7 +99,8 @@ public class DeleteUser {
 
 
                 } catch (SQLException e) {
-                        System.out.println("Error: "+e.getMessage());
+                        JOptionPane.showMessageDialog(null," "+e.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
+
                 }
 
         }
@@ -130,7 +131,7 @@ public class DeleteUser {
                         }
                         table1.setItems(data);
                 } catch (SQLException e) {
-                        System.out.println("Error "+ e.getMessage());
+                        JOptionPane.showMessageDialog(null," " + e.getMessage(),"warning",JOptionPane.ERROR_MESSAGE);
                 }
 
         }
@@ -165,7 +166,7 @@ public class DeleteUser {
 
 
                         } catch (SQLException e) {
-                                JOptionPane.showMessageDialog(null,"Select a Notice Before Delete","warning",JOptionPane.ERROR_MESSAGE);
+                                JOptionPane.showMessageDialog(null," " + e.getMessage(),"warning",JOptionPane.ERROR_MESSAGE);
                         }
 
 

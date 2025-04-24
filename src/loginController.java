@@ -95,8 +95,10 @@ public class loginController{
 
             }
 
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null," "+e.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
         }catch(Exception e){
-            System.out.println("Error: "+ e.getMessage() );
+            System.out.println("Error: "+e.getMessage());
         }
 
 

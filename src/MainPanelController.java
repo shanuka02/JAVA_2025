@@ -27,7 +27,7 @@ public class MainPanelController{
             ApplicationDrive.getPrimaryStage().setScene(scene);
 
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("Error: "+e.getMessage());
         }
 
 

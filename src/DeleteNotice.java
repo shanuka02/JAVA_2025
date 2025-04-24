@@ -83,7 +83,7 @@ public class DeleteNotice {
             }
             Table1.setItems(data);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            JOptionPane.showMessageDialog(null," "+e.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
         }
 
     }
@@ -113,7 +113,7 @@ public class DeleteNotice {
             Table1.setItems(data);
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null," "+e.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
         }
 
     }
@@ -151,7 +151,7 @@ public class DeleteNotice {
 
 
             } catch (SQLException e) {
-                JOptionPane.showMessageDialog(null,e.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null," "+e.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
             }
 
 
@@ -169,6 +169,7 @@ public class DeleteNotice {
 
         } catch (IOException e) {
             System.out.println("error: " + e.getMessage());
+
         }
     }
 
@@ -182,6 +183,7 @@ public class DeleteNotice {
 
         } catch (IOException e) {
             System.out.println("error: " + e.getMessage());
+
         }
     }
 }

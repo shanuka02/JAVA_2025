@@ -176,7 +176,8 @@ public class SearchCourse {
 
 
         } catch (SQLException e) {
-            System.out.println("Error: "+e.getMessage());
+            JOptionPane.showMessageDialog(null," "+e.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
+
         }
 
 
@@ -210,7 +211,7 @@ public class SearchCourse {
            // Table1.setItems(data);
             Table3.setItems(data);
         } catch (SQLException e) {
-            System.out.println("Error: "+e.getMessage());
+            JOptionPane.showMessageDialog(null," "+e.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
         }
 
 
@@ -253,7 +254,7 @@ public class SearchCourse {
 
         } catch (SQLException e) {
 
-            JOptionPane.showMessageDialog(null,e.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Error: "+e.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
 
         }
 

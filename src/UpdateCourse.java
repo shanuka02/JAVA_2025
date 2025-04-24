@@ -281,7 +281,7 @@ public class UpdateCourse {
                 }
 
             } catch (SQLException e) {
-                System.out.println("Error " + e.getMessage());
+                JOptionPane.showMessageDialog(null," " + e.getMessage(),"warning",JOptionPane.ERROR_MESSAGE);
             }
 
 

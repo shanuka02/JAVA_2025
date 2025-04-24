@@ -111,7 +111,7 @@ public class UpdateNotice {
             }
             //how to set value to the radio button
         } catch (SQLException e) {
-            System.out.println("Error"+ e.getMessage());
+            JOptionPane.showMessageDialog(null," "+e.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
         }
         return 0;
 
@@ -146,7 +146,7 @@ public class UpdateNotice {
         connection = new mySqlCon();
         Connection con = connection.con();
 
-        if(Title.getText().trim().isEmpty() ||selectedFilePath == null || roll.getSelectedToggle() == null ){
+        if(Title.getText().trim().isEmpty() ||Content.getText().trim().isEmpty() || roll.getSelectedToggle() == null ){
             JOptionPane.showMessageDialog(null,"Required  fields must be filed","Error",JOptionPane.ERROR_MESSAGE);
             return 1;
         }
@@ -167,7 +167,7 @@ public class UpdateNotice {
             PreparedStatement pstm = con.prepareStatement(query);
             pstm.setString(1,title.toUpperCase());
             pstm.setString(2, String.valueOf(currentDate));
-            pstm.setString(3,selectedFilePath);
+            pstm.setString(3,Content.getText().trim());
             pstm.setString(4,rolls);
             pstm.setString(5,Id.getText().trim());
 
@@ -180,7 +180,7 @@ public class UpdateNotice {
                 Title.clear();
                 Content.clear();
                 selectedFilePath = null;
-                roll.selectToggle(null);
+                roll.selectToggle(R1);
 
 
             }else{
@@ -191,7 +191,7 @@ public class UpdateNotice {
 
 
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null," "+e.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
         }
 
 

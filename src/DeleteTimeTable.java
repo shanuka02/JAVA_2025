@@ -85,7 +85,7 @@ public class DeleteTimeTable {
             Table1.setItems(data);
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null," "+e.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
         }
 
     }
@@ -114,7 +114,7 @@ public class DeleteTimeTable {
             }
             Table1.setItems(data);
         } catch (SQLException e) {
-            System.out.println("Error" +e.getMessage());
+            JOptionPane.showMessageDialog(null," "+e.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
         }
 
     }
@@ -151,7 +151,7 @@ public class DeleteTimeTable {
 
 
             } catch (SQLException e) {
-                JOptionPane.showMessageDialog(null,e.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null," "+e.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
             }
 
 

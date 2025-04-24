@@ -102,7 +102,7 @@ public class CreateUserController {
         Connection con = connection.con();
 
         if(UserId.getText().trim().isEmpty() || Username.getText().trim().isEmpty() ||Email.getText().trim().isEmpty()||
-        Password.getText().trim().isEmpty() ||Combobox.getSelectionModel() == null || Combobox2.getSelectionModel() == null){
+        Password.getText().trim().isEmpty() ||Combobox.getSelectionModel() == null || Combobox2.getSelectionModel() == null || ProfilePic.getText().trim().isEmpty()){
             JOptionPane.showMessageDialog(null,"Required  fields must be filed","Error",JOptionPane.ERROR_MESSAGE);
             return  1;
 
@@ -117,6 +117,8 @@ public class CreateUserController {
         String roll = Combobox.getValue();
         String email =  Email.getText().trim();
 
+
+
         String query = "INSERT INTO useraccount (user_id ,user_name ,email,roll,phoneNumber,address,depName,password,profilePic ) VALUES (?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement pstm = con.prepareStatement(query);
@@ -128,7 +130,7 @@ public class CreateUserController {
             pstm.setString(6,address);
             pstm.setString(7,depname);
             pstm.setString(8,password);
-            pstm.setString(9,selectedFilePath);
+            pstm.setString(9,ProfilePic.getText().trim());
 
             int rowAffected = pstm.executeUpdate();
 
@@ -153,7 +155,7 @@ public class CreateUserController {
 
 
         } catch (SQLException e) {
-            System.out.println(e.getMessage());;
+            JOptionPane.showMessageDialog(null," "+ e.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
         }
 
 return 1;

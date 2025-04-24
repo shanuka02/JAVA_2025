@@ -8,6 +8,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 
 import javafx.scene.image.ImageView;
+
+import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -153,8 +155,9 @@ public class AdminInterface extends  BaseController {
 
 
         } catch (SQLException e) {
-            System.out.println("Error: "+e.getMessage());
+            JOptionPane.showMessageDialog(null," "+e.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
+
         }
 
-    };
+    }
 }

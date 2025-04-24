@@ -90,14 +90,24 @@ public class EditProfile {
             selectedFilePath = selectedFile.getAbsolutePath();
             ProfilePic.setText(selectedFilePath);
 
+        }else{
+            //set default image path
+            selectedFilePath = "C:\\Users\\User\\IdeaProjects\\JAVA_2025\\resources\\Images\\man.png";
         }
 
     }
 
     @FXML
-    public void handleAddUser(ActionEvent actionEvent) {
+    public int handleAddUser(ActionEvent actionEvent) {
         connection = new mySqlCon();
         Connection con = connection.con();
+
+        if(UserId.getText().trim().isEmpty() || Username.getText().trim().isEmpty() ||Email.getText().trim().isEmpty()||
+               Combobox1.getSelectionModel() == null || Combobox2.getSelectionModel() == null || ProfilePic.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(null,"Required  fields must be filed","Error",JOptionPane.ERROR_MESSAGE);
+            return  1;
+
+        }
 
         String userId = UserId.getText().trim();
         String username = Username.getText().trim();
@@ -107,6 +117,7 @@ public class EditProfile {
         String depname = Combobox2.getValue();
         String roll = Combobox1.getValue();
         String email =  Email.getText().trim();
+        String filepath = ProfilePic.getText().trim();
 
         String query = "UPDATE userAccount SET user_name = ?, email = ?, roll = ?, phoneNumber = ?, address = ?, depName = ?, profilePic = ? WHERE user_id = ?";
         try {
@@ -119,15 +130,13 @@ public class EditProfile {
             pstm.setString(5,address);
             pstm.setString(6,depname);
 
-            pstm.setString(7,selectedFilePath);
+            pstm.setString(7,filepath);
             pstm.setString(8,Session.getUserId());
 
             int rowAffected = pstm.executeUpdate();
 
             if(rowAffected > 0){
-                JOptionPane.showMessageDialog(null,"Save Data sucessfully successfully","Success",JOptionPane.INFORMATION_MESSAGE);
-
-
+                JOptionPane.showMessageDialog(null,"Save Data Successfully","Success",JOptionPane.INFORMATION_MESSAGE);
 
 
             }else{
@@ -136,15 +145,10 @@ public class EditProfile {
             }
 
 
-
-
-
-
-
         } catch (SQLException e) {
-            System.out.println(e.getMessage());;
+            JOptionPane.showMessageDialog(null," "+e.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
         }
-
+return 1;
     }
 
     public int loadData(){
@@ -181,7 +185,7 @@ public class EditProfile {
 
 
         } catch (SQLException e) {
-            System.out.println("Error: "+e.getMessage());
+            JOptionPane.showMessageDialog(null," "+e.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
         }
         return 0;
 

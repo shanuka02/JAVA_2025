@@ -39,7 +39,7 @@
    <center>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="377.0" prefWidth="614.0">
+            <Pane prefHeight="385.0" prefWidth="674.0">
                <children>
                   <Label layoutX="30.0" layoutY="36.0" text="Course Code" />
                   <Label layoutX="30.0" layoutY="75.0" text="Course Name" />

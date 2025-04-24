@@ -73,7 +73,7 @@ public class CreateNotice {
         connection = new mySqlCon();
         Connection con = connection.con();
 
-        if(Noticetitle.getText().trim().isEmpty() ||selectedFilePath == null || roll.getSelectedToggle() == null ){
+        if(Noticetitle.getText().trim().isEmpty() || Content.getText().trim().isEmpty() || roll.getSelectedToggle() == null ){
             JOptionPane.showMessageDialog(null,"Required  fields must be filed","Error",JOptionPane.ERROR_MESSAGE);
             return 1;
         }
@@ -91,7 +91,7 @@ public class CreateNotice {
             PreparedStatement pstm = con.prepareStatement(query);
             pstm.setString(1,title.toUpperCase());
             pstm.setString(2, String.valueOf(currentDate));
-            pstm.setString(3,selectedFilePath);
+            pstm.setString(3,Content.getText().trim());
             pstm.setString(4,rolls);
 
 
@@ -113,7 +113,8 @@ public class CreateNotice {
 
 
         } catch (SQLException e) {
-            System.out.println(e.getMessage());;
+            JOptionPane.showMessageDialog(null," "+ e.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
+
         }
     return 0;
 

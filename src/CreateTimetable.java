@@ -79,7 +79,7 @@ public class CreateTimetable {
         connection = new mySqlCon();
         Connection con = connection.con();
 
-        if(ID.getText().trim().isEmpty() || Caption.getText().trim().isEmpty() || selectedFilePath == null || Dep.getSelectedToggle() == null ){
+        if(ID.getText().trim().isEmpty() || Caption.getText().trim().isEmpty() || Content.getText().trim().isEmpty() || Dep.getSelectedToggle() == null ){
             JOptionPane.showMessageDialog(null,"All Field are Required","Error",JOptionPane.ERROR_MESSAGE);
             return 1;
 
@@ -101,7 +101,7 @@ public class CreateTimetable {
             pstm.setString(1,id);
             pstm.setString(2,caption.toUpperCase());
             pstm.setString(3,String.valueOf(currentDate));
-            pstm.setString(4,selectedFilePath);
+            pstm.setString(4,Content.getText().trim());
             pstm.setString(5,deps);
             int rowAffected = pstm.executeUpdate();
 
@@ -119,7 +119,7 @@ public class CreateTimetable {
 
             }
         } catch (SQLException e) {
-            System.out.println("Error" + e.getMessage());
+            JOptionPane.showMessageDialog(null," "+ e.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
         }
 
         return 0;
