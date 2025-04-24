@@ -79,17 +79,19 @@ public class CreateTimetable {
         connection = new mySqlCon();
         Connection con = connection.con();
 
+        if(ID.getText().trim().isEmpty() || Caption.getText().trim().isEmpty() || selectedFilePath == null || Dep.getSelectedToggle() == null ){
+            JOptionPane.showMessageDialog(null,"All Field are Required","Error",JOptionPane.ERROR_MESSAGE);
+            return 1;
+
+        }
+
+
         String id = ID.getText().trim();
         String caption = Caption.getText().trim();
 
         RadioButton selectedRadioButton = (RadioButton)Dep.getSelectedToggle();
         String deps = selectedRadioButton.getText();
 
-        if(id.isEmpty() || caption.isEmpty() || selectedFilePath.isEmpty() ){
-            JOptionPane.showMessageDialog(null,"All Field are Required","Error",JOptionPane.INFORMATION_MESSAGE);
-            return 1;
-
-        }
 
         String query = "INSERT INTO timeTable(timeTable_id,caption,submittedDate, content,depName) VALUES (?,?,?,?,?)";
 
@@ -104,12 +106,12 @@ public class CreateTimetable {
             int rowAffected = pstm.executeUpdate();
 
             if(rowAffected > 0){
-                JOptionPane.showMessageDialog(null,"Notice add successfully","Success",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null,"Timetable add successfully","Success",JOptionPane.INFORMATION_MESSAGE);
                 ID.clear();
                 Content.clear();
                 Caption.clear();
                 selectedFilePath = null;
-                Dep.selectToggle(null);
+                Dep.selectToggle(ICT);
 
 
             }else{
@@ -132,7 +134,7 @@ public class CreateTimetable {
             ApplicationDrive.getPrimaryStage().setScene(scene);
 
         } catch (IOException e) {
-            System.out.println("error: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
     }
 }

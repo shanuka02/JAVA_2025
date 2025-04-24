@@ -61,7 +61,7 @@ public class UpdateTimeTable {
             if(!newValue.trim().isEmpty()){
                 loadData(newValue.trim());
             }else{
-                //if table is empty clear the table
+                //if field is empty clear the data
 
                 Caption.clear();
                 Content.clear();
@@ -128,9 +128,17 @@ public class UpdateTimeTable {
 
 
     @FXML
-    void HandleUpdate(ActionEvent event) {
+    int HandleUpdate(ActionEvent event) {
         connection = new mySqlCon();
         Connection con = connection.con();
+
+
+        if(ID.getText().trim().isEmpty() || Caption.getText().trim().isEmpty() || selectedFilePath == null || Dep.getSelectedToggle() == null ){
+            JOptionPane.showMessageDialog(null,"All Field are Required","Error",JOptionPane.ERROR_MESSAGE);
+            return 1;
+
+        }
+
 
         String id = ID.getText().trim();
         String caption = Caption.getText().trim();
@@ -153,16 +161,16 @@ public class UpdateTimeTable {
             int rowAffected = pstm.executeUpdate();
 
             if(rowAffected > 0){
-                JOptionPane.showMessageDialog(null,"Notice add successfully","Success",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null,"Timetable add successfully","Success",JOptionPane.INFORMATION_MESSAGE);
                 ID.clear();
                 Caption.clear();
                 Content.clear();
                 selectedFilePath = null;
-                Dep.selectToggle(null);
+                Dep.selectToggle(ICT);
 
 
             }else{
-                JOptionPane.showMessageDialog(null,"Unable to Update","Fail Update",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null,"Unable to Update","Error",JOptionPane.ERROR_MESSAGE);
 
             }
 
@@ -171,8 +179,7 @@ public class UpdateTimeTable {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-
-
+        return  0;
 
     }
 

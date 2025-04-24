@@ -21,6 +21,8 @@ import java.sql.SQLException;
 
 public class UpdateCourse {
 
+         @FXML
+         private RadioButton GPAV;
         @FXML
         private Button AddButton;
 
@@ -89,7 +91,14 @@ public class UpdateCourse {
                 if(!newValue.trim().isEmpty()){
                     loadData(newValue.trim());
                 }else{
-
+                    Name.clear();
+                    Credit.clear();
+                    Type.selectToggle(T);
+                    Quize.clear();
+                    Assesment.clear();
+                    CA.clear();
+                    GPAvalue.selectToggle(GPAV);
+                    Lecture.getSelectionModel().clearSelection();
 
                 }
             });
@@ -152,13 +161,38 @@ public class UpdateCourse {
         }
 
         @FXML
-        public void HndleUpdateButton(ActionEvent actionEvent) {
+        public int HndleUpdateButton(ActionEvent actionEvent) {
+
+
             connection = new mySqlCon();
             Connection con = connection.con();
 
+            //show error message when fields are empty
+            if(Code.getText().isEmpty() || Name.getText().isEmpty() || Credit.getText().isEmpty()  ||
+                    Lecture.getSelectionModel().isEmpty() || CA.getText().trim().isEmpty() ||
+                    Type.getSelectedToggle() == null || GPAvalue.getSelectedToggle() == null){
+                JOptionPane.showMessageDialog(null,"Required  fields must be filed","Error",JOptionPane.ERROR_MESSAGE);
+                return 1;
+            }
+
+
+
+            //get data
             String coursecode = Code.getText().trim();
             String name = Name.getText().trim();
-            int credit = Integer.parseInt(Credit.getText().trim()); //parse to int
+            String Lecid = Lecture.getValue();
+
+            int credit;
+            int CApersentage;
+
+            try{
+                credit = Integer.parseInt(Credit.getText().trim()); //parse to int
+                CApersentage = Integer.parseInt(CA.getText().trim());
+
+            }catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(null,"Credit and CA percentage must be valid numbers");
+                return 1;
+            }
 
             RadioButton selectedRadio1 = (RadioButton)Type.getSelectedToggle();
             String cType = selectedRadio1.getText();
@@ -167,11 +201,48 @@ public class UpdateCourse {
             RadioButton selectedRadio2 = (RadioButton)GPAvalue.getSelectedToggle();
             String GPAstate = selectedRadio2.getText();
 
-            int quizes = Integer.parseInt(Quize.getText().trim());
-            int assesment = Integer.parseInt(Assesment.getText().trim());
-            int CApersentage = Integer.parseInt(CA.getText().trim());
 
-            String Lecid = Lecture.getValue();
+
+
+            int quizes = 0;
+            int assesment = 0;
+
+
+
+
+            if(!Quize.getText().trim().isEmpty()  ){
+                try{
+                    quizes = Integer.parseInt(Quize.getText().trim());
+
+                }catch(NumberFormatException e){
+                    JOptionPane.showMessageDialog(null,"Number of quiz's  must be a valid numbers","Error",JOptionPane.ERROR_MESSAGE);
+                    return  1;
+                }
+            }
+
+
+            if(!Assesment.getText().trim().isEmpty()  ){
+                try{
+                    assesment = Integer.parseInt(Assesment.getText().trim());
+
+                }catch(NumberFormatException e){
+                    JOptionPane.showMessageDialog(null,"Number of Assessment's  must be a valid numbers","Error",JOptionPane.ERROR_MESSAGE);
+                    return  1;
+                }
+            }
+            //validation for data range
+            if(quizes < 0 || quizes > 5){
+                JOptionPane.showMessageDialog(null,"Invalid number of quizzes (0-5 only)","Error",JOptionPane.ERROR_MESSAGE);
+                return 1;
+            }
+            if (assesment < 0 || assesment > 5) {
+                JOptionPane.showMessageDialog(null,"Invalid number of Assessments (0-5 only)","Error",JOptionPane.ERROR_MESSAGE);
+                return 1;
+            }
+            if(CApersentage < 0 || CApersentage > 50 ){
+                JOptionPane.showMessageDialog(null,"CA Percentsge must be between 0 and 50","Error",JOptionPane.ERROR_MESSAGE);
+                return 1;
+            }
 
 
             String query2 = "UPDATE courseUnit SET courseName = ?,credit = ? ,cType = ? ,nuOfQuises = ?, nuOfAssesments = ? ,ca_percentage = ? ,lectureIncharge = ?, gpa_state = ? WHERE courseId = ?";
@@ -196,8 +267,8 @@ public class UpdateCourse {
                     Quize.clear();
                     CA.clear();
                     Lecture.getSelectionModel().clearSelection();
-                    GPAvalue.selectToggle(null);
-                    Type.selectToggle(null);
+                    GPAvalue.selectToggle(GPAV);
+                    Type.selectToggle(T);
                     Code.clear();;
                     Name.clear();;
                     Credit.clear();
@@ -214,7 +285,7 @@ public class UpdateCourse {
             }
 
 
-
+            return 0;
         }
 
     public void BackbuttonHandle(ActionEvent actionEvent) {

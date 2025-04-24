@@ -57,10 +57,10 @@ public class UpdateNotice {
             if(!newValue.trim().isEmpty()){
                 loadData(newValue.trim());
             }else{
-                //if table is empty clear the table
+                //if field is empty clear the data
                 Title.clear();
                 Content.clear();
-
+                roll.selectToggle(R1);
 
             }
         });
@@ -142,9 +142,14 @@ public class UpdateNotice {
     }
 
     @FXML
-    void HandleUpdate(ActionEvent event) {
+    int HandleUpdate(ActionEvent event) {
         connection = new mySqlCon();
         Connection con = connection.con();
+
+        if(Title.getText().trim().isEmpty() ||selectedFilePath == null || roll.getSelectedToggle() == null ){
+            JOptionPane.showMessageDialog(null,"Required  fields must be filed","Error",JOptionPane.ERROR_MESSAGE);
+            return 1;
+        }
 
         String title = Title.getText().trim();
 
@@ -190,7 +195,7 @@ public class UpdateNotice {
         }
 
 
-
+    return 0;
 
     }
 

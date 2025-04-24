@@ -69,9 +69,14 @@ public class CreateNotice {
     }
 
     @FXML
-    void HandleCreateNotice(ActionEvent event) {
+    int HandleCreateNotice(ActionEvent event) {
         connection = new mySqlCon();
         Connection con = connection.con();
+
+        if(Noticetitle.getText().trim().isEmpty() ||selectedFilePath == null || roll.getSelectedToggle() == null ){
+            JOptionPane.showMessageDialog(null,"Required  fields must be filed","Error",JOptionPane.ERROR_MESSAGE);
+            return 1;
+        }
 
         String title = Noticetitle.getText().trim();
 
@@ -101,7 +106,7 @@ public class CreateNotice {
 
 
             }else{
-                JOptionPane.showMessageDialog(null,"Unable to Update","Fail Update",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null,"Unable to Add" ,"Error",JOptionPane.ERROR_MESSAGE);
 
             }
 
@@ -110,7 +115,7 @@ public class CreateNotice {
         } catch (SQLException e) {
             System.out.println(e.getMessage());;
         }
-
+    return 0;
 
     }
 

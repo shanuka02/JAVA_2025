@@ -91,16 +91,32 @@ public class CreateCourse {
         Connection con = connection.con();
 
 
-        if(Code.getText().isEmpty() || Name.getText().isEmpty() || Credit.getText().isEmpty()  || Lecture.getSelectionModel().isEmpty()){
+        //show error message when fields are empty
+        if(Code.getText().trim().isEmpty() || Name.getText().trim().isEmpty() || Credit.getText().trim().isEmpty()  ||
+                Lecture.getSelectionModel().isEmpty() || CA.getText().trim().isEmpty() ||
+                Type.getSelectedToggle() == null || GPAvalue.getSelectedToggle() == null){
                 JOptionPane.showMessageDialog(null,"Required  fields must be filed","Error",JOptionPane.ERROR_MESSAGE);
                 return 1;
         }
 
 
 
+        //get data
         String coursecode = Code.getText().trim();
         String name = Name.getText().trim();
-        Integer credit = Integer.parseInt(Credit.getText().trim()); //parse to int
+        String Lecid = Lecture.getValue();
+
+        int credit;
+        int CApersentage;
+
+        try{
+          credit = Integer.parseInt(Credit.getText().trim()); //parse to int
+            CApersentage = Integer.parseInt(CA.getText().trim());
+
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null,"Credit and CA percentage must be valid numbers");
+            return 1;
+        }
 
          RadioButton selectedRadio1 = (RadioButton)Type.getSelectedToggle();
          String cType = selectedRadio1.getText();
@@ -110,19 +126,49 @@ public class CreateCourse {
          String GPAstate = selectedRadio2.getText();
 
 
-         int CApersentage = Integer.parseInt(CA.getText().trim());
+
+
          int quizes = 0;
          int assesment = 0;
 
-         String Lecid = Lecture.getValue();
 
-       //for not entring values
-         if(!Quize.getText().trim().isEmpty() || !Assesment.getText().trim().isEmpty() ){
-             quizes = Integer.parseInt(Quize.getText().trim());
-             assesment = Integer.parseInt(Assesment.getText().trim());
+
+
+         if(!Quize.getText().trim().isEmpty()  ){
+             try{
+                 quizes = Integer.parseInt(Quize.getText().trim());
+
+             }catch(NumberFormatException e){
+                 JOptionPane.showMessageDialog(null,"Number of quiz's  must be a valid numbers","Error",JOptionPane.ERROR_MESSAGE);
+                 return  1;
+             }
          }
 
-         String query2 = "Insert INTO courseUnit(courseId ,courseName,credit ,cType ,nuOfQuises , nuOfAssesments ,ca_percentage ,lectureIncharge, gpa_state)VALUES (?,?,?,?,?,?,?,?,?)";
+
+            if(!Assesment.getText().trim().isEmpty()  ){
+                try{
+                    assesment = Integer.parseInt(Assesment.getText().trim());
+
+                }catch(NumberFormatException e){
+                    JOptionPane.showMessageDialog(null,"Number of Assessment's  must be a valid numbers","Error",JOptionPane.ERROR_MESSAGE);
+                    return  1;
+                }
+            }
+         //validation for data range
+         if(quizes < 0 || quizes > 5){
+             JOptionPane.showMessageDialog(null,"Invalid number of quizzes (0-5 only)","Error",JOptionPane.ERROR_MESSAGE);
+             return 1;
+         }
+         if (assesment < 0 || assesment > 5) {
+             JOptionPane.showMessageDialog(null,"Invalid number of Assessments (0-5 only)","Error",JOptionPane.ERROR_MESSAGE);
+             return 1;
+         }
+         if(CApersentage < 0 || CApersentage > 50 ){
+             JOptionPane.showMessageDialog(null,"CA Percentsge must be between 0 and 50","Error",JOptionPane.ERROR_MESSAGE);
+             return 1;
+         }
+
+            String query2 = "Insert INTO courseUnit(courseId ,courseName,credit ,cType ,nuOfQuises , nuOfAssesments ,ca_percentage ,lectureIncharge, gpa_state)VALUES (?,?,?,?,?,?,?,?,?)";
             try {
                 PreparedStatement pstm = con.prepareStatement(query2);
                 pstm.setString(1,coursecode);
@@ -139,25 +185,26 @@ public class CreateCourse {
 
                 if(rowAffected > 0){
                     JOptionPane.showMessageDialog(null,"Course add successfully","Success",JOptionPane.INFORMATION_MESSAGE);
-                    Assesment.clear();;
+                    Assesment.clear();
                     Quize.clear();
                     CA.clear();
                    Lecture.getSelectionModel().clearSelection();
                     GPAvalue.selectToggle(GPAV);
                     Type.selectToggle(T);
-                    Code.clear();;
-                    Name.clear();;
+                    Code.clear();
+                    Name.clear();
                     Credit.clear();
 
 
 
                 }else{
-                    JOptionPane.showMessageDialog(null,"Unable to Create","Fail Update",JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null,"Unable to Create","Error",JOptionPane.ERROR_MESSAGE);
 
                 }
 
             } catch (SQLException e ) {
-                System.out.println("Error " + e.getMessage());
+                JOptionPane.showMessageDialog(null,e.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
+
             }
         return 0;
 

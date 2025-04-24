@@ -90,13 +90,23 @@ public class CreateUserController {
              selectedFilePath = selectedFile.getAbsolutePath();
             ProfilePic.setText(selectedFilePath);
 
+        }else{
+            //set default image to store
+            selectedFilePath = "C:\\Users\\User\\IdeaProjects\\JAVA_2025\\resources\\Images\\man.png";
         }
     }
 
 @FXML
-    public void handleAddUser(ActionEvent actionEvent) {
+    public int handleAddUser(ActionEvent actionEvent) {
         connection = new mySqlCon();
         Connection con = connection.con();
+
+        if(UserId.getText().trim().isEmpty() || Username.getText().trim().isEmpty() ||Email.getText().trim().isEmpty()||
+        Password.getText().trim().isEmpty() ||Combobox.getSelectionModel() == null || Combobox2.getSelectionModel() == null){
+            JOptionPane.showMessageDialog(null,"Required  fields must be filed","Error",JOptionPane.ERROR_MESSAGE);
+            return  1;
+
+        }
 
         String userId = UserId.getText().trim();
         String username = Username.getText().trim();
@@ -137,21 +147,16 @@ public class CreateUserController {
 
 
             }else{
-                JOptionPane.showMessageDialog(null,"Unable to Update","Fail Update",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null,"Unable Add User","Error",JOptionPane.ERROR_MESSAGE);
 
             }
-
-
-
-
-
 
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());;
         }
 
-
+return 1;
     }
 
     @FXML
