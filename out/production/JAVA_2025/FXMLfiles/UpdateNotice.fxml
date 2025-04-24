@@ -55,6 +55,7 @@
                         </RadioButton>
                         <RadioButton fx:id="R2" layoutX="87.0" layoutY="51.0" mnemonicParsing="false" text="Technical Officer" toggleGroup="$roll" />
                         <RadioButton fx:id="R3" layoutX="87.0" layoutY="78.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="97.0" text="Lecture" toggleGroup="$roll" />
+                        <Label layoutX="72.0" layoutY="14.0" text="*" textFill="#f50a0a" />
                      </children>
                   </Pane>
                   <Label layoutX="32.0" layoutY="159.0" text="Content" />
@@ -65,6 +66,8 @@
                      </font>
                   </Button>
                   <Button fx:id="UpdateButton" layoutX="478.0" layoutY="290.0" mnemonicParsing="false" onAction="#HandleUpdate" prefHeight="40.0" prefWidth="137.0" text="Update" />
+                  <Label layoutX="53.0" layoutY="96.0" text="*" textFill="#f50a0a" />
+                  <Label layoutX="71.0" layoutY="151.0" text="*" textFill="#f50a0a" />
                </children>
             </Pane>
          </children>
