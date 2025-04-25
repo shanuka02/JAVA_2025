@@ -53,7 +53,13 @@
 
             <VBox alignment="CENTER" spacing="10">
                 <Label fx:id="nameLabel" styleClass="name-label" text="pasindu shanuka" />
-                <ImageView fx:id="profileImage" fitHeight="150" fitWidth="150" pickOnBounds="true" preserveRatio="true" styleClass="profile-image" />
+                <ImageView fx:id="profileImage" fitHeight="150" fitWidth="150" pickOnBounds="true" preserveRatio="true" styleClass="profile-image">
+               <image>
+                  <Image url="@../images/user.png" />
+               </image>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin></ImageView>
                 <Label fx:id="departmentLabel" styleClass="department-label" text="Department of ICT" />
                 <Button fx:id="editProfileButton" onAction="#handleEditProfile" styleClass="edit-profile-button" text="Edit profile">
                     <graphic>
@@ -127,10 +133,10 @@
                             <Label styleClass="dashboard-icon" />
                      <ImageView fitHeight="60.0" fitWidth="74.0" layoutX="35.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                           <Image url="@../images/user.png" />
+                           <Image url="@../images/medical.png" />
                         </image>
                      </ImageView>
-                            <Label styleClass="dashboard-label" text="User" />
+                            <Label styleClass="dashboard-label" text="Medical" />
                         </VBox>
                     </graphic>
                 </Button>
