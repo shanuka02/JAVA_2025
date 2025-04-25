@@ -1,4 +1,4 @@
-public class editProfile {
+public class editProfile  {
 
 
 }

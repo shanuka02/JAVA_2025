@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class MainPanelController{
     @FXML
-    private BorderPane mainPanel1;
+    private  BorderPane mainPanel1;
 
     @FXML
     private Button log;

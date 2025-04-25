@@ -4,7 +4,7 @@ public class modelAttendence {
     private String attType;
     private int present;
     private int total;
-    private double percentage;
+    private double  percentage;
 
     // Constructor, Getters and Setters
     public modelAttendence(String tg, String name, String attType, int present, int total, double percentage) {

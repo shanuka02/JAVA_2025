@@ -9,7 +9,7 @@ public class GpaRecord {
         this.sgpa = sgpa;
     }
 
-    public String getStudentId() {
+    public String  getStudentId() {
         return studentId;
     }
 

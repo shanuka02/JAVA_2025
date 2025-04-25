@@ -4,7 +4,7 @@ public class modelUserData {
 
     public modelUserData(String userId, String userName) {
         this.userId = userId;
-        this.userName = userName;
+         this.userName = userName;
     }
 
     public String getUserId() {

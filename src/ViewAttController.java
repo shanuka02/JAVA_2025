@@ -65,7 +65,7 @@ public class ViewAttController {
             boolean isMedical = medicalButton.isSelected();
 
             // If TG Filter is empty, match everything
-            if (tgFilter.isEmpty()) {
+            if ( tgFilter.isEmpty()) {
                 tgFilter = "%";
             } else {
                 tgFilter = "%" + tgFilter + "%";

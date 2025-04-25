@@ -1,2 +1,2 @@
-public class ManageLecMaterials {
+public class  ManageLecMaterials {
 }

@@ -5,7 +5,7 @@ public class modelFinalMarks {
     private String result;
     private String grade;
 
-    public modelFinalMarks(String studentId, double endMark, String grade) {
+    public modelFinalMarks( String studentId, double endMark, String grade) {
         this.studentId = studentId;
         this.endMark = endMark;
         this.grade = grade;

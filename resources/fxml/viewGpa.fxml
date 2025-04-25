@@ -19,7 +19,7 @@
                     <children>
                         <Button fx:id="homeButton" layoutX="24.0" layoutY="17.0" mnemonicParsing="false" onAction="#handleHome" text="Home" />
                     </children>
-                </Pane>
+                 </Pane>
             </items></SplitPane>
     </top>
     <bottom>

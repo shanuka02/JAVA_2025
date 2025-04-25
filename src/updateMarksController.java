@@ -180,7 +180,7 @@ public class updateMarksController {
         }
     }
 
-    public void handleUpdateEnd() {
+    public void  handleUpdateEnd() {
         Connection conn = dbConnection.getConnection();
 
         tgNumber = EnterTgNumberEnd.getText().trim();

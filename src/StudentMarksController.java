@@ -383,7 +383,7 @@ public class StudentMarksController {
             finalMarksTable.setItems(filteredFinalList);
         }
 
-    public void handleHome(ActionEvent event) {
+    public void  handleHome(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
         Parent root = null;
         try {

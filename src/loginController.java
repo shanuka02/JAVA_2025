@@ -66,7 +66,7 @@ public class loginController{
 
                 String roll =  rs.getString("roll");
                 //create a session
-                Session.setSession(password,userName);
+                Session.setSession (password,userName);
 
                 if("admin".equalsIgnoreCase(roll)){
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("\\FXMLfiles\\AdminInterface.fxml"));

@@ -10,7 +10,7 @@ public class ApplicationDrive extends Application {
 
         private static Stage PrimaryStage;
 
-        public static void main(String[] args) {
+        public static void main(String[] args ) {
             //start the application by calling the luanch()
             launch(args);
         }

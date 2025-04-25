@@ -82,7 +82,7 @@ public class manageCoursesForAttendence {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
         Parent root = null;
         try {
-            root = loader.load();
+            root =  loader.load();
             Scene scene = new Scene(root);
             ApplicationDrive.getPrimaryStage().setScene(scene);
 

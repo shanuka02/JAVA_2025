@@ -127,7 +127,7 @@ public class viewGpaController {
 
             gpaTable.setItems(records);
 
-        } catch (Exception e) {
+        } catch ( Exception e) {
             e.printStackTrace();
         }
 

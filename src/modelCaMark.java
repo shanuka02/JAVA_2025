@@ -30,7 +30,7 @@ public class modelCaMark {
         return eligibility;
     }
 
-    public int getCaPercentage() {
+    public int  getCaPercentage() {
         return caPercentage;
     }
 

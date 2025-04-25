@@ -28,7 +28,7 @@ public class ManageCourseDetailsController {
 
 
 
-    public  void handleStudentMarks(ActionEvent event){
+    public  void  handleStudentMarks(ActionEvent event){
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/StudentMarks.fxml"));
         try {
             Parent root = loader.load();

@@ -5,7 +5,7 @@ public class modelLectureMaterials {
     private String title;
     private String filepath;
 
-    public modelLectureMaterials(int lectureMaterialId, String date, String title, String filepath) {
+    public  modelLectureMaterials(int lectureMaterialId, String date, String title, String filepath) {
         this.lectureMaterialId = lectureMaterialId;
         this.date = date;
         this.title = title;

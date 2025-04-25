@@ -29,7 +29,7 @@ public class ManageCoursesController {
             TextField[] fields = new TextField[]{CourseName1, CourseName2, CourseName3, CourseName4, CourseName5};
             for (int i = 0; i < names.length && i < fields.length; i++) {
                 if (fields[i] != null) {
-                    fields[i].setText(names[i]);
+                     fields[i].setText(names[i]);
                 }
             }
         }

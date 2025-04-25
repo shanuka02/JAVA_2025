@@ -15,7 +15,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 
-public class LectureController {
+public class  LectureController {
 
     public Button viewGpaButton;
     private TextField[] courseFields;
