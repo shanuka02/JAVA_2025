@@ -39,7 +39,7 @@
         <ImageView fitHeight="35.0" fitWidth="36.0" layoutX="559.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../images/chart-pie-alt.png" />
         </ImageView>
-        <Label layoutX="546.0" layoutY="218.0" text="Student Marks" textFill="WHITE" />
+        <Label  layoutX="546.0" layoutY="218.0" text="Student Marks" textFill="WHITE" />
         <ImageView fitHeight="39.0" fitWidth="96.0" layoutX="384.0" layoutY="289.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../images/first-aid-kit.png" />
         </ImageView>

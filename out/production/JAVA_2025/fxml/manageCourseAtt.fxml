@@ -23,7 +23,7 @@
         <SplitPane orientation="VERTICAL" prefHeight="22.0" prefWidth="600.0" style="-fx-background-color: #027A7A;" BorderPane.alignment="CENTER" />
     </bottom>
     <center>
-    <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+    <Pane  prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <TextField fx:id="CourseName1" layoutX="74.0" layoutY="78.0" prefHeight="25.0" prefWidth="317.0"/>
         <TextField fx:id="CourseName2" layoutX="74.0" layoutY="122.0" prefHeight="25.0" prefWidth="318.0" />
         <TextField fx:id="CourseName3" layoutX="74.0" layoutY="171.0" prefHeight="25.0" prefWidth="314.0" />

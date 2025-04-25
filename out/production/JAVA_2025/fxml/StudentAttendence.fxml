@@ -37,7 +37,7 @@
                         <TableColumn fx:id="AllAttendence" prefWidth="127.99996948242188" text="All Attendence" />
                         <TableColumn fx:id="PresentAttendence" prefWidth="135.19998168945312" text="Present Attendence" />
                         <TableColumn fx:id="AttType" prefWidth="121.5999755859375" text="Type" />
-                        <TableColumn fx:id="AttPercentage" prefWidth="94.39990234375" text="Persentage" />
+                         <TableColumn fx:id="AttPercentage" prefWidth="94.39990234375" text="Persentage" />
                     </columns>
                   </TableView>
                </content>
