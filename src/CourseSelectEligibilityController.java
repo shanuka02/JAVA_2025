@@ -79,6 +79,19 @@ import java.io.IOException;
             }
 
         }
+
+        public void handleHome(ActionEvent event) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
+            Parent root = null;
+            try {
+                root = loader.load();
+                Scene scene = new Scene(root);
+                ApplicationDrive.getPrimaryStage().setScene(scene);
+
+            } catch (IOException e) {
+                System.out.println("error: " + e.getMessage());
+            }
+        }
     }
 
 

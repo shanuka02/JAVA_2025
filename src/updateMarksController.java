@@ -1,11 +1,12 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
-import javafx.scene.control.Button;
-import  javafx.scene.control.Label;
-import javafx.scene.control.TabPane;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 
+import java.io.IOException;
 import java.sql.*;
 
 public class updateMarksController {
@@ -42,6 +43,9 @@ public class updateMarksController {
         Double q2 = parseMark(updateQ2.getText());
         Double q3 = parseMark(updateQ3.getText());
         Double q4 = parseMark(updateQ4.getText());
+
+        if (anyInvalidMark(q1, q2, q3, q4)) return;
+
 
         if (conn != null) {
             System.out.println("database connected successfully");
@@ -104,6 +108,9 @@ public class updateMarksController {
         Double as1 = parseMark(updateAss1.getText());
         Double as2 = parseMark(updateAss2.getText());
 
+        if (anyInvalidMark(as1, as2)) return;
+
+
         if (conn != null) {
             System.out.println("database connected successfully");
 
@@ -142,6 +149,9 @@ public class updateMarksController {
         updateCoLable = updateCLable.getText().trim();
         Double midMark = parseMark(updateMid.getText());
 
+        if (anyInvalidMark(midMark)) return;
+
+
         if (conn != null) {
             System.out.println("database connected successfully");
 
@@ -178,6 +188,9 @@ public class updateMarksController {
         Double endMarkT = parseMark(updateEndTheory.getText());
         Double endMarkP = parseMark(updateEndpra.getText());
 
+        if (anyInvalidMark(endMarkT, endMarkP)) return;
+
+
 
         if (conn != null) {
             System.out.println("database connected successfully");
@@ -209,6 +222,35 @@ public class updateMarksController {
         }
     }
 
+    private boolean anyInvalidMark(Double... marks) {
+        for (Double mark : marks) {
+            if (mark != null && (mark < 0 || mark > 100)) {
+                showAlert("All marks must be between 0 and 100.");
+                return true;
+            }
+        }
+        return false;
+    }
 
+    private void showAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Invalid Input");
+        alert.setHeaderText("Input Error");
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    public void handleHome(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
+        Parent root = null;
+        try {
+            root = loader.load();
+            Scene scene = new Scene(root);
+            ApplicationDrive.getPrimaryStage().setScene(scene);
+
+        } catch (IOException e) {
+            System.out.println("error: " + e.getMessage());
+        }
+    }
 
 }

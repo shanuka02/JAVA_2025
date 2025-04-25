@@ -11,20 +11,19 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 
-public class courseSelectController {
+public class manageCoursesForAttendence {
 
     @FXML
     private TextField CourseName1, CourseName2, CourseName3, CourseName4, CourseName5;
-    @FXML
-    private TextField[] fields;
+    @FXML private TextField[] fields;
 
     @FXML
-    public void initialize() {
-        fields = new TextField[]{CourseName1, CourseName2, CourseName3, CourseName4, CourseName5};
+    public void initialize(){
+        fields = new TextField[]{CourseName1,CourseName2,CourseName3,CourseName4,CourseName5};
     }
 
 
-    public void setCourseNames(String[] names) {
+    public void setCourseNames(String[] names){
         TextField[] fields = new TextField[]{CourseName1, CourseName2, CourseName3, CourseName4, CourseName5};
         for (int i = 0; i < names.length && i < fields.length; i++) {
             if (fields[i] != null) {
@@ -34,12 +33,12 @@ public class courseSelectController {
     }
 
 
-    public void handleCourseButton(ActionEvent event) {
+    public void handleCourseButton(ActionEvent event){
         Button clickedButton = (Button) event.getSource();
         String buttonId = clickedButton.getId();
         int index = 0;
 
-        switch (buttonId) {
+        switch (buttonId){
             case "course1Button":
                 index = 0;
                 break;
@@ -63,13 +62,13 @@ public class courseSelectController {
         String updateCoLable = fields[index].getText();
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/updateMarks.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/StudentAttendence.fxml"));
             Parent root = loader.load();
 
-            updateMarksController controller = loader.getController();
+            ViewAttController controller = loader.getController();
             controller.setCourseLabel(updateCoLable);
 
-            Stage stage = (Stage) clickedButton.getScene().getWindow();
+            Stage stage  = (Stage) clickedButton.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
 
@@ -79,7 +78,6 @@ public class courseSelectController {
         }
 
     }
-
     public void handleHome(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
         Parent root = null;

@@ -12,15 +12,21 @@ import javafx.stage.Stage;
 import javax.imageio.IIOException;
 import java.io.IOException;
 
+
 public class ManageCourseDetailsController {
     @FXML private Button StudentMarksButton;
     @FXML private Label courseNameLabel;
     @FXML private Button enrolledStudentButton;
     @FXML private Button LectureMaterialButton;
+    private String label1;
+
 
     public void setCourseLabel(String clabel){
-            courseNameLabel.setText(clabel);
+            label1 = clabel;
+            courseNameLabel.setText(label1);
         }
+
+
 
     public  void handleStudentMarks(ActionEvent event){
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/StudentMarks.fxml"));
@@ -28,7 +34,7 @@ public class ManageCourseDetailsController {
             Parent root = loader.load();
 
             StudentMarksController controller = loader.getController();
-            controller.setCourseLabel(courseNameLabel.getText());
+            controller.setCourseLabel(label1);
 
             Stage stage = (Stage) StudentMarksButton.getScene().getWindow();
             stage.setScene(new Scene(root));
@@ -74,4 +80,17 @@ public class ManageCourseDetailsController {
     }
 
 
+    public void handleHome(ActionEvent event) {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
+        Parent root = null;
+        try {
+            root = loader.load();
+            Scene scene = new Scene(root);
+            ApplicationDrive.getPrimaryStage().setScene(scene);
+
+        } catch (IOException e) {
+            System.out.println("error: " + e.getMessage());
+        }
+    }
 }

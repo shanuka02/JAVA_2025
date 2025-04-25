@@ -16,11 +16,13 @@ public class ManageCoursesController {
         @FXML
         private TextField CourseName1, CourseName2, CourseName3, CourseName4, CourseName5;
         @FXML private TextField[] fields;
+        public String cLable;
 
         @FXML
         public void initialize(){
             fields = new TextField[]{CourseName1,CourseName2,CourseName3,CourseName4,CourseName5};
         }
+
 
 
         public void setCourseNames(String[] names){
@@ -59,7 +61,7 @@ public class ManageCoursesController {
                     break;    
             }
 
-          String cLable = fields[index].getText(); 
+          cLable = fields[index].getText();
 
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/ManageCourseDetails.fxml"));
@@ -78,6 +80,19 @@ public class ManageCoursesController {
             }
 
         }
+
+    public void handleHome(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
+        Parent root = null;
+        try {
+            root = loader.load();
+            Scene scene = new Scene(root);
+            ApplicationDrive.getPrimaryStage().setScene(scene);
+
+        } catch (IOException e) {
+            System.out.println("error: "+e.getMessage());                    }
+
     }
+}
 
 

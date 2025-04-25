@@ -7,14 +7,22 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
+<?import javafx.scene.control.SplitPane?>
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="710.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ManageCourseDetailsController">
-    <!--   <top>-->
-    <!--      <SplitPane orientation="VERTICAL" prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #027A7A;" BorderPane.alignment="CENTER" />-->
-    <!--   </top>-->
-    <!--   <bottom>-->
-    <!--      <SplitPane orientation="VERTICAL" prefHeight="22.0" prefWidth="600.0" style="-fx-background-color: #027A7A;" BorderPane.alignment="CENTER" />-->
-    <!--   </bottom>-->
-
+    <top>
+        <SplitPane orientation="VERTICAL" prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #027A7A;" BorderPane.alignment="CENTER">
+            <items>
+                <Pane prefHeight="200.0" prefWidth="200.0">
+                    <children>
+                        <Button fx:id="homeButton" layoutX="24.0" layoutY="17.0" mnemonicParsing="false" onAction="#handleHome" text="Home" />
+                    </children>
+                </Pane>
+            </items></SplitPane>
+    </top>
+    <bottom>
+        <SplitPane orientation="VERTICAL" prefHeight="22.0" prefWidth="600.0" style="-fx-background-color: #027A7A;" BorderPane.alignment="CENTER" />
+    </bottom>
+<center>
     <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <Button layoutX="329.0" fx:id="LectureMaterialButton" onAction="#handleLectureMaterials" layoutY="66.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="336.0" style="-fx-background-color: #027A7A;" text="Lecture Materals" textFill="WHITE" />
         <ImageView fitHeight="31.0" fitWidth="40.0" layoutX="363.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
@@ -40,7 +48,8 @@
             <Image url="@../images/terms-check.png" />
         </ImageView>
         <Label layoutX="531.0" layoutY="337.0" text="Student Attendence" textFill="WHITE" />
-        <Label fx:id="courseNameLabel" layoutX="217.0" layoutY="22.0" text=" y" />
+        <Label fx:id="courseNameLabel" layoutX="217.0" layoutY="22.0"  />
     </Pane>
+</center>
 
 </BorderPane>

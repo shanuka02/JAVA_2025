@@ -36,7 +36,7 @@
             <Label fx:id="lectureNameLabel" layoutX="286.0" layoutY="24.0" text="lectureName" />
             <Label fx:id="departmentNameLabel" layoutX="286.0" layoutY="52.0" text="departmentName" />
             <Separator layoutX="25.0" layoutY="135.0" prefHeight="0.0" prefWidth="666.0" />
-            <Button layoutX="286.0" layoutY="79.0" mnemonicParsing="false" style="-fx-background-color: #ACACAC;" text="edit profile" textFill="WHITE">
+            <Button fx:id="editButton" onAction="#handleEditDetails" layoutX="286.0" layoutY="79.0" mnemonicParsing="false" style="-fx-background-color: #ACACAC;" text="edit profile" textFill="WHITE">
                <graphic>
                   <ImageView fx:id="editProfileIcon" fitHeight="28.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                      <Image url="@/images/pencil.png" />
@@ -54,7 +54,7 @@
             <Button fx:id="manageCourseButton" layoutX="69.0" layoutY="153.0" mnemonicParsing="false" onAction="#handleManageCourseButton" prefHeight="121.0" prefWidth="153.0" style="-fx-background-color: #027A7A;" />
             <Button fx:id="viewGpaButton" onAction="#handleViewGpa" layoutX="496.0" layoutY="296.0" mnemonicParsing="false" prefHeight="121.0" prefWidth="152.0" style="-fx-background-color: #027A7A;" />
             <Button fx:id="studentMarksButton" layoutX="496.0" layoutY="153.0" mnemonicParsing="false" onAction="#handleAddMarks" prefHeight="121.0" prefWidth="152.0" style="-fx-background-color: #027A7A;" />
-            <Button fx:id="studentAttendenceButton" layoutX="282.0" layoutY="296.0" mnemonicParsing="false" prefHeight="121.0" prefWidth="152.0" style="-fx-background-color: #027A7A;" />
+            <Button fx:id="studentAttendenceButton" onAction="#handleAttendence" layoutX="282.0" layoutY="296.0" mnemonicParsing="false" prefHeight="121.0" prefWidth="152.0" style="-fx-background-color: #027A7A;" />
             <Label layoutX="303.0" layoutY="378.0" text="Student Attendence" textFill="WHITE" />
             <Button fx:id="studentMedicalButton" layoutX="69.0" layoutY="296.0" mnemonicParsing="false" prefHeight="121.0" prefWidth="152.0" style="-fx-background-color: #027A7A;" />
             <Button fx:id="studentEligibilityButton" layoutX="279.0" layoutY="153.0" mnemonicParsing="false" onAction="#handleEligibility" prefHeight="121.0" prefWidth="152.0" style="-fx-background-color: #027A7A;" />

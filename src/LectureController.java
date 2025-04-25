@@ -198,5 +198,70 @@ public class LectureController {
             }
         }
 
+    public void handleAttendence(ActionEvent event) {
+        Connection conn = dbConnection.getConnection();
+
+        if (conn != null) {
+            System.out.println("database connected successfully");
+
+            try {
+                Statement stmt = conn.createStatement();
+                ResultSet rs = stmt.executeQuery("SELECT courseId from courseUnit");
+
+                String[] courseNames = new String[5];
+                int index = 0;
+                while (rs.next() && index < courseFields.length) {
+
+                    String name = rs.getString("courseId");
+                    System.out.println("course name " + name);
+                    courseNames[index] = name;
+
+                    index++;
+                }
+                rs.close();
+                stmt.close();
+                conn.close();
+
+                //load managecourse.fxml
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/manageCourseAtt.fxml"));
+                //Parent root = null;
+                try {
+                    Parent root = loader.load();
+
+                    manageCoursesForAttendence controller = loader.getController();
+                    controller.setCourseNames(courseNames);
+                    Stage stage = (Stage) studentMarksButton.getScene().getWindow(); // get current stage
+                    stage.setScene(new Scene(root));
+
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
+
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
     }
+
+    public void handleEditDetails(ActionEvent event) {
+                //load managecourse.fxml
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/editProfile.fxml"));
+                //Parent root = null;
+                try {
+                    Parent root = loader.load();
+                    Stage stage = (Stage) studentMarksButton.getScene().getWindow(); // get current stage
+                    stage.setScene(new Scene(root));
+
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
+
+            }
+        }
+
+
+
 
