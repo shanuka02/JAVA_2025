@@ -37,12 +37,13 @@
                   <TextField fx:id="attendanceId" layoutX="63.0" layoutY="26.0" />
                   <Button layoutX="238.0" layoutY="26.0" mnemonicParsing="false" onAction="#checkAttendance" prefHeight="26.0" prefWidth="78.0" text="Check" />
                   <TextField fx:id="setStudentId" layoutX="26.0" layoutY="70.0" />
-                  <TextField fx:id="setCourseId" layoutX="193.0" layoutY="70.0" />
-                  <TextField fx:id="setLectureType" layoutX="359.0" layoutY="70.0" />
                   <TextField fx:id="setPresentTime" layoutX="190.0" layoutY="110.0" />
-                  <TextField fx:id="setPresentData" layoutX="26.0" layoutY="110.0" />
-                  <TextField fx:id="setStatus" layoutX="353.0" layoutY="109.0" />
                   <TextField fx:id="setLectureHours" layoutX="525.0" layoutY="70.0" />
+                  <Button layoutX="548.0" layoutY="109.0" mnemonicParsing="false" onAction="#updateAttendance" prefHeight="27.0" prefWidth="78.0" text="Update" />
+                  <ComboBox fx:id="setCourseId" layoutX="189.0" layoutY="69.0" prefWidth="150.0" />
+                  <ComboBox fx:id="setLectureType" layoutX="353.0" layoutY="69.0" prefWidth="150.0" />
+                  <ComboBox fx:id="setStatus" layoutX="353.0" layoutY="110.0" prefWidth="150.0" />
+                  <DatePicker fx:id="setPresentData" layoutX="26.0" layoutY="110.0" prefHeight="26.0" prefWidth="150.0" />
                </children>
             </AnchorPane>
          </children>

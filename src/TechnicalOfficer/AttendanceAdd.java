@@ -63,7 +63,7 @@ public class AttendanceAdd  {
     }
 
     @FXML
-    void addAttendanceBtn() throws SQLException {
+    void addAttendanceBtn() {
         if(checkFields()){
             if(studentId.getText().isEmpty()){
                 new AttendanceAdd().alert("Please fill the student ID","Can't submit");
@@ -73,21 +73,26 @@ public class AttendanceAdd  {
                 if(student.contains("TG") && student.length() == 6){
                     System.out.println("Student ID is TG" + status.getValue());
                     String quary = "INSERT INTO attendance (Att_stu_id, Att_cou_id, Pre_date, Pre_time, Lec_hours, Lec_type, Status_) VALUES (?, ?, ?, ?, ?, ?, ?)";
-                    Connection connection = DBConnection.getConnection();
-                    assert connection != null;
-                    PreparedStatement preparedStatement = connection.prepareStatement(quary);
-                    preparedStatement.setString(1, student);
-                    preparedStatement.setString(2, courseId.getValue());
-                    preparedStatement.setDate(3, Date.valueOf(presentDate.getValue()));
-                    preparedStatement.setTime(4, Time.valueOf(lectureTime.getText()));
-                    preparedStatement.setInt(5, Integer.parseInt(lectureHours.getText()));
-                    preparedStatement.setString(6, lectureType.getValue());
-                    preparedStatement.setString(7, status.getValue());
 
-                    int rowsInserted = preparedStatement.executeUpdate();
-                    if (rowsInserted > 0) {
-                        new AttendanceAdd().alert("Attendance added successfully", "Success");
-                        studentId.clear();
+                    try {
+                        Connection connection = mySqlCon.getConnection();
+                        assert connection != null;
+                        PreparedStatement preparedStatement = connection.prepareStatement(quary);
+                        preparedStatement.setString(1, student);
+                        preparedStatement.setString(2, courseId.getValue());
+                        preparedStatement.setDate(3, Date.valueOf(presentDate.getValue()));
+                        preparedStatement.setTime(4, Time.valueOf(lectureTime.getText()));
+                        preparedStatement.setInt(5, Integer.parseInt(lectureHours.getText()));
+                        preparedStatement.setString(6, lectureType.getValue());
+                        preparedStatement.setString(7, status.getValue());
+
+                        int rowsInserted = preparedStatement.executeUpdate();
+                        if (rowsInserted > 0) {
+                            new AttendanceAdd().alert("Attendance added successfully", "Success");
+                            studentId.clear();
+                        }
+                    }catch (SQLException e){
+                        System.out.println("Error adding attendance " + e.getMessage());
                     }
                 }else {
                     new AttendanceAdd().alert("Please enter the valid ID", "Invalid Student ID");
@@ -98,7 +103,7 @@ public class AttendanceAdd  {
     }
 
     @FXML
-    public void select() {
+    void select() {
         lectureType.getItems().clear();
         accessDB("lecture","SELECT cType FROM courseunit where courseId ='"+courseId.getValue()+"'");
     }
@@ -130,7 +135,7 @@ public class AttendanceAdd  {
             setData = new String[1];
         }
         try {
-            Connection connection  = DBConnection.getConnection();
+            Connection connection  = mySqlCon.getConnection();
             assert connection != null;
             Statement statement = connection.createStatement();
             ResultSet results = statement.executeQuery(quary);
@@ -154,7 +159,7 @@ public class AttendanceAdd  {
         }
     }
 
-    public void alert(String message, String header){
+    void alert(String message, String header){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Error");
         alert.setHeaderText(header);
@@ -184,7 +189,7 @@ public class AttendanceAdd  {
         }
     }
 
-    public void backToPage() throws IOException {
-        new TechnicalMain().Go();
+    public void backToPage() {
+        new TechnicalMain().mainLoader();
     }
 }

@@ -1,8 +1,6 @@
 package TechnicalOfficer;
 
-import java.io.IOException;
 import java.sql.*;
-
 import static java.lang.Integer.parseInt;
 
 public class AttendanceMedical {
@@ -10,9 +8,9 @@ public class AttendanceMedical {
         String quary1 = "SELECT Medi_id, Me_stu_id, Me_cou_id, Lec_type, Request_date FROM Medical WHERE Status_ = 'approved'";
         String quary2 = "SELECT Att_id, Att_stu_id, Att_cou_id, Lec_type, Pre_date FROM attendance WHERE status_ = 'Absent' AND Att_medi_id IS NULL";
 
-        Connection connection = DBConnection.getConnection();
+        Connection connection = mySqlCon.getConnection();
         try {
-            assert connection != null;  //medical table
+            assert connection != null;
             Statement statement1 = connection.createStatement();
             ResultSet results1 = statement1.executeQuery(quary1);
 
@@ -28,7 +26,7 @@ public class AttendanceMedical {
             }
             connection.close();
         } catch (SQLException e) {
-
+            System.out.println("Error updating attendance " + e.getMessage());
         }
     }
 
@@ -49,7 +47,7 @@ public class AttendanceMedical {
         }
     }
 
-    public void backToPage() throws IOException {
-        new TechnicalMain().Go();
+    public void backToPage() {
+        new TechnicalMain().mainLoader();
     }
 }

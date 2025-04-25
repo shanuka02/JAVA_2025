@@ -131,7 +131,6 @@ public class EditProfile {
             pstm.setString(4,phoneNumber);
             pstm.setString(5,address);
             pstm.setString(6,depname);
-
             pstm.setString(7,filepath);
             pstm.setString(8, Session.getUserId());
 

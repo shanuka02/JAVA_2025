@@ -93,8 +93,8 @@ public class loginController{
                         ApplicationDrive.getPrimaryStage().setScene(scene);
 
                     } catch (IOException e) {
-                        System.out.println("error: "+e.getMessage());                    }
-
+                        System.out.println("error: "+e.getMessage());
+                    }
 
                 }else if("Technical Officer".equalsIgnoreCase(roll)){
 
@@ -106,7 +106,8 @@ public class loginController{
                         ApplicationDrive.getPrimaryStage().setScene(scene);
 
                     } catch (IOException e) {
-                        System.out.println("error: "+e.getMessage());                    }
+                        System.out.println("error: "+e.getMessage());
+                    }
                 }else{
                     JOptionPane.showMessageDialog(null,"Unknown Role.","Login Failed",JOptionPane.ERROR_MESSAGE);
                 }
