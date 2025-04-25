@@ -69,7 +69,7 @@ public class ManageCourse {
     @FXML
     void handleSearchCourse(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("FXMLfiles/searchCourse.fxml"));
-        try {
+        try  {
             Parent root = loader.load();
             Scene scene = new Scene(root);
             ApplicationDrive.getPrimaryStage().setScene(scene);
