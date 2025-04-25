@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.shape.Circle?>
 
-<BorderPane fx:id="FirstBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="509.0" prefWidth="710.0" stylesheets="@../lecture_style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LectureController">
+<BorderPane fx:id="FirstBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="509.0" prefWidth="710.0" stylesheets="@../lecture_style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Lecture.LectureController">
 <!--   <top>-->
 <!--      <SplitPane orientation="VERTICAL" prefHeight="54.0" prefWidth="600.0" BorderPane.alignment="CENTER">-->
 <!--         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="48.0" prefWidth="598.0"-->
@@ -43,7 +43,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="noticeButton" layoutX="496.0" layoutY="29.0" mnemonicParsing="false" style="-fx-background-color: #027A7A;" text="Notices" textFill="WHITE">
+            <Button fx:id="noticeButton" onAction="#handleNoticeButton"  layoutX="496.0" layoutY="29.0" mnemonicParsing="false" style="-fx-background-color: #027A7A;" text="Notices" textFill="WHITE">
                <graphic>
                   <ImageView fx:id="noticesIcon" fitHeight="59.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                      <Image url="@/images/bell-ring.png" />
