@@ -130,8 +130,12 @@ public class ProfileController {
     }
 
     @FXML
-    private void handleAttendance(ActionEvent event) {
-        System.out.println("Attendance button clicked");
+    void handleAttendance() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("view/StudentAttendenceView.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        TechmisApp.getPrimaryStage().setScene(scene);
+
 
     }
 
