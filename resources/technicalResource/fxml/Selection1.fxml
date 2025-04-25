@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="170.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TechnicalOfficer.TechnicalMain">
+   <children>
+      <Label alignment="CENTER" layoutX="104.0" layoutY="36.0" prefHeight="38.0" prefWidth="141.0" text="Enter your Choice">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button layoutX="45.0" layoutY="103.0" mnemonicParsing="false" onAction="#accessToAddAttendance" prefHeight="38.0" prefWidth="117.0" text="Add" />
+      <Button layoutX="187.0" layoutY="103.0" mnemonicParsing="false" onAction="#accessToViewAttendance" prefHeight="38.0" prefWidth="117.0" text="View" />
+   </children>
+</AnchorPane>

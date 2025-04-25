@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="479.0" prefWidth="649.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Admin.UpdateNotice">
+   <top>
+      <HBox prefHeight="54.0" prefWidth="649.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="78.0" prefWidth="669.0" style="-fx-background-color: blue;">
+               <children>
+                  <Button fx:id="BackButton" layoutX="26.0" layoutY="23.0" mnemonicParsing="false" onAction="#BackbuttonHandle" style="-fx-background-radius: 20px; -fx-background-color: green;" text="Back" textFill="#fffefe">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="78.0" layoutY="27.0" prefHeight="17.0" prefWidth="144.0" text="| Faculty Of  Technology" textFill="#e4dfdf">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="367.0" prefWidth="654.0">
+               <children>
+                  <Label layoutX="32.0" layoutY="50.0" text="Notice Id" />
+                  <TextField fx:id="Id" layoutX="99.0" layoutY="46.0" prefHeight="25.0" prefWidth="200.0" promptText="Enter Notice Id" />
+                  <TextArea fx:id="Title" layoutX="99.0" layoutY="92.0" prefHeight="41.0" prefWidth="200.0" />
+                  <Label layoutX="32.0" layoutY="104.0" text="Title" />
+                  <Pane layoutX="14.0" layoutY="222.0" prefHeight="136.0" prefWidth="285.0">
+                     <children>
+                        <Label layoutX="20.0" layoutY="26.0" text="Notice For" />
+                        <RadioButton fx:id="R1" layoutX="87.0" layoutY="26.0" mnemonicParsing="false" selected="true" text="Undergraduate">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="roll" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="R2" layoutX="87.0" layoutY="51.0" mnemonicParsing="false" text="Technical Officer" toggleGroup="$roll" />
+                        <RadioButton fx:id="R3" layoutX="87.0" layoutY="78.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="97.0" text="Lecture" toggleGroup="$roll" />
+                        <Label layoutX="72.0" layoutY="14.0" text="*" textFill="#f50a0a" />
+                     </children>
+                  </Pane>
+                  <Label layoutX="32.0" layoutY="159.0" text="Content" />
+                  <TextField fx:id="Content" layoutX="99.0" layoutY="147.0" prefHeight="25.0" prefWidth="199.0" />
+                  <Button fx:id="ChooseFile" layoutX="209.0" layoutY="184.0" mnemonicParsing="false" onAction="#HandleChooseFile" prefHeight="25.0" prefWidth="89.0" text="Choose Content">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="UpdateButton" layoutX="478.0" layoutY="290.0" mnemonicParsing="false" onAction="#HandleUpdate" prefHeight="40.0" prefWidth="137.0" text="Update" />
+                  <Label layoutX="53.0" layoutY="96.0" text="*" textFill="#f50a0a" />
+                  <Label layoutX="71.0" layoutY="151.0" text="*" textFill="#f50a0a" />
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+   </center>
+   <bottom>
+      <HBox prefHeight="58.0" prefWidth="649.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="100.0" prefWidth="602.0" />
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>
