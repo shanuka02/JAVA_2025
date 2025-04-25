@@ -13,6 +13,27 @@ import java.util.Arrays;
 
 public class AttendanceView {
     @FXML
+    private TextField setCourseId;
+
+    @FXML
+    private TextField setLectureHours;
+
+    @FXML
+    private TextField setLectureType;
+
+    @FXML
+    private TextField setPresentData;
+
+    @FXML
+    private TextField setPresentTime;
+
+    @FXML
+    private TextField setStatus;
+
+    @FXML
+    private TextField setStudentId;
+
+    @FXML
     private TextField attendanceId;
 
     @FXML
@@ -153,19 +174,61 @@ public class AttendanceView {
     }
 
     @FXML
-    public void checkAttendance(){
+    public void checkAttendance() throws SQLException {
+        clear();
         if(!attendanceId.getText().isEmpty()){
             int AttId = Integer.parseInt(attendanceId.getText());
             if(AttId > 0){
+                try {
+                    Connection connection = DBConnection.getConnection();
+                    assert connection != null;
+                    PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM attendance WHERE Att_id = ?");
+                    preparedStatement.setInt(1, AttId);
+                    ResultSet results = preparedStatement.executeQuery();
+                    if(results.next()){
+//                        attendanceId.setText(results.getString(1));
+//                        courseId.setValue(results.getString(2));
+//                        lectureType.setValue(results.getString(3));
+//                        preDate.setValue(results.getDate(4).toLocalDate());
+//                        column1.setText("Student ID");
+//                        column2.setText("Course ID");
+//                        column3.setText("Lecture Type");
+//                        if(results.isBeforeFirst() && results.isLast() && results.getRow() == 1){
+//
+//                        }
+                        if(results.getString(1).isEmpty()){
+                            new AttendanceAdd().alert("Attendance ID not found","Can't submit");
+                        }
+                        setStudentId.setText(results.getString(2));
+                        setCourseId.setText(results.getString(3));
+                        setPresentData.setText(results.getDate(4).toLocalDate().toString());
+                        setPresentTime.setText(results.getTime(5).toString());
+                        setLectureHours.setText(results.getString(6));
+                        setLectureType.setText(results.getString(7));
+                        setStatus.setText(results.getString(8));
+                    }
+                }catch (SQLException e){
 
+                }
             }else {
                 new AttendanceAdd().alert("Please Enter valid ID","Can't submit");
+                attendanceId.clear();
+                attendanceId.requestFocus();
             }
         }else{
             new AttendanceAdd().alert("Please fill the attendance ID","Can't submit");
             attendanceId.requestFocus();
-
         }
+    }
+
+    private void clear(){
+        setCourseId.clear();
+        setLectureHours.clear();
+        setLectureType.clear();
+        setPresentData.clear();
+        setPresentTime.clear();
+        setStatus.clear();
+        setStudentId.clear();
     }
 
     private boolean checkFields(){
