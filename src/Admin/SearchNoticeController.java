@@ -13,6 +13,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import javax.swing.*;
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -84,16 +86,17 @@ public class SearchNoticeController {
         Id2.setCellValueFactory(new PropertyValueFactory<>("id"));
         Title2.setCellValueFactory(new PropertyValueFactory<>("title"));
         Date2.setCellValueFactory(new PropertyValueFactory<>("date"));
-        Roll2.setCellValueFactory(new PropertyValueFactory<>("content"));
-        Content2.setCellValueFactory(new PropertyValueFactory<>("roll"));
+        Roll2.setCellValueFactory(new PropertyValueFactory<>("roll"));
+        Content2.setCellValueFactory(new PropertyValueFactory<>("content"));
 
         Id3.setCellValueFactory(new PropertyValueFactory<>("id"));
         Title3.setCellValueFactory(new PropertyValueFactory<>("title"));
         Date3.setCellValueFactory(new PropertyValueFactory<>("date"));
-        Roll3.setCellValueFactory(new PropertyValueFactory<>("content"));
-        Content3.setCellValueFactory(new PropertyValueFactory<>("roll"));
+        Roll3.setCellValueFactory(new PropertyValueFactory<>("roll"));
+        Content3.setCellValueFactory(new PropertyValueFactory<>("content"));
 
         loadData();
+        addPreviewButton();
 
         //keep watching what user types into th e text filed
         //Add listener , every time the text changes, this code runs
@@ -132,8 +135,8 @@ public class SearchNoticeController {
                         rs.getInt("notice_id"),
                         rs.getString("title"),
                         rs.getString("postedDay"),
-                        rs.getString("content"),
-                        rs.getString("userRoll")
+                        rs.getString("userRoll"),
+                        rs.getString("content")
 
                 );
                 data.add(notice);
@@ -165,8 +168,8 @@ public class SearchNoticeController {
                         rs.getInt("notice_id"),
                         rs.getString("title"),
                         rs.getString("postedDay"),
-                        rs.getString("content"),
-                        rs.getString("userRoll")
+                        rs.getString("userRoll"),
+                        rs.getString("content")
 
                 );
                 data.add(notice);
@@ -201,8 +204,8 @@ public class SearchNoticeController {
                         rs.getInt("notice_id"),
                         rs.getString("title"),
                         rs.getString("postedDay"),
-                        rs.getString("content"),
-                        rs.getString("userRoll")
+                        rs.getString("userRoll"),
+                        rs.getString("content")
 
                 );
                 data.add(notice);
@@ -229,4 +232,49 @@ public class SearchNoticeController {
             System.out.println("error: " + e.getMessage());
         }
     }
+
+    //to add preview button
+    private void addPreviewButton() {
+        Content2.setCellFactory(col -> new TableCell<>() {
+            private final Button btn = new Button("Preview");
+
+            {
+                btn.setOnAction(e -> {
+                    NoticeModel notice = getTableView().getItems().get(getIndex());
+                    String filePath = notice.getContent();
+
+                    System.out.println("filepath"+filePath);
+
+                    File file = new File(filePath);
+
+                    if (file.exists()) {
+                        try {
+                            Desktop.getDesktop().open(file);
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
+                    } else {
+                        Alert alert = new Alert(Alert.AlertType.ERROR, "File not found.");
+                        alert.show();
+                    }
+                });
+            }
+
+            @Override
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(btn);
+                }
+            }
+        });
+    }
+
 }
+
+
+
+
+

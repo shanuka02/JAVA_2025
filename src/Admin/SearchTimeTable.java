@@ -7,11 +7,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
+import javafx.scene.control.Button;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import javax.swing.*;
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -42,12 +44,13 @@ public class SearchTimeTable {
     @FXML
     public void initialize(){
         ID.setCellValueFactory(new PropertyValueFactory<>("id"));
-        Content.setCellValueFactory(new PropertyValueFactory<>("caption"));
+        Content.setCellValueFactory(new PropertyValueFactory<>("content"));
         Date.setCellValueFactory(new PropertyValueFactory<>("submiteddate"));
         DepName.setCellValueFactory(new PropertyValueFactory<>("depname"));
         Caption  .setCellValueFactory(new PropertyValueFactory<>("caption"));
 
         loadData();
+        addPreviewButton();
     }
 
     private void loadData() {
@@ -91,5 +94,43 @@ public class SearchTimeTable {
         } catch (IOException e) {
             System.out.println("error: " + e.getMessage());
         }
+    }
+
+    private void addPreviewButton() {
+        Content.setCellFactory(col -> new TableCell<>() {
+            private final Button btn = new Button("Preview");
+
+            {
+                btn.setOnAction(e -> {
+                    TimetableModel timetable = getTableView().getItems().get(getIndex());
+                    String filePath = timetable.getContent();
+
+                    System.out.println("filepath"+filePath);
+
+                    File file = new File(filePath);
+
+                    if (file.exists()) {
+                        try {
+                            Desktop.getDesktop().open(file);
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
+                    } else {
+                        Alert alert = new Alert(Alert.AlertType.ERROR, "File not found.");
+                        alert.show();
+                    }
+                });
+            }
+
+            @Override
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(btn);
+                }
+            }
+        });
     }
 }
