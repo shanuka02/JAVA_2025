@@ -31,11 +31,11 @@
       <Text layoutX="97.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subject" />
       <Text layoutX="280.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
       <Text layoutX="431.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Attendence" />
-      <Button layoutX="435.0" layoutY="154.0" mnemonicParsing="false" onAction="#ViewProgram" text="View" />
-      <Button layoutX="435.0" layoutY="185.0" mnemonicParsing="false" text="View" />
-      <Button layoutX="435.0" layoutY="283.0" mnemonicParsing="false" text="View" />
-      <Button layoutX="435.0" layoutY="217.0" mnemonicParsing="false" text="View" />
-      <Button layoutX="435.0" layoutY="249.0" mnemonicParsing="false" text="View" />
+      <Button layoutX="435.0" layoutY="154.0" mnemonicParsing="false" onAction="#ProgramView" text="View" />
+      <Button layoutX="435.0" layoutY="185.0" mnemonicParsing="false" onAction="#NetworkingView" text="View" />
+      <Button layoutX="435.0" layoutY="283.0" mnemonicParsing="false" onAction="#OperatingSystemView" text="View" />
+      <Button layoutX="435.0" layoutY="217.0" mnemonicParsing="false" onAction="#DatabaseView" text="View" />
+      <Button layoutX="435.0" layoutY="249.0" mnemonicParsing="false" onAction="#WebDesignView" text="View" />
       <Text layoutX="97.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ICT001" />
       <Text layoutX="97.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ICT002" />
       <Text layoutX="97.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ICT003" />

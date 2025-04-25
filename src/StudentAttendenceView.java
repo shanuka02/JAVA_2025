@@ -13,16 +13,37 @@ public class StudentAttendenceView {
         back.start(TechmisApp.getPrimaryStage());
     }
 
-
-
-
-    public void ViewProgram() throws IOException {
+    public void ProgramView() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("view/ProgramView.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         TechmisApp.getPrimaryStage().setScene(scene);
-
-
-
     }
+    public void NetworkingView() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("view/NetworkingView.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        TechmisApp.getPrimaryStage().setScene(scene);
+    }
+    public void DatabaseView() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("view/DatabaseView.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        TechmisApp.getPrimaryStage().setScene(scene);
+    }
+    public void WebDesignView() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("view/WebDesignView.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        TechmisApp.getPrimaryStage().setScene(scene);
+    }
+    public void OperatingSystemView() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("view/OperatingSystemView.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        TechmisApp.getPrimaryStage().setScene(scene);
+    }
+
+
+
 }

@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="ProfileController"
-            stylesheets="@../css/main-style.css"
-            prefHeight="600.0" prefWidth="800.0">
+<BorderPane prefHeight="600.0" prefWidth="800.0" stylesheets="@../css/main-style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ProfileController">
 
     <top>
         <HBox styleClass="header-bar">
@@ -32,10 +35,10 @@
                 </HBox>
                 <HBox alignment="CENTER_RIGHT" spacing="15">
                     <children>
-                        <Button text="Dashboard" styleClass="header-button" onAction="#handleDashboard" />
-                        <Button text="Log out" styleClass="header-button" onAction="#handleLogout" />
-                        <Button text="FAQ" styleClass="header-button" onAction="#handleFAQ" />
-                        <Button text="About us" styleClass="header-button" onAction="#handleAboutUs" />
+                        <Button onAction="#handleDashboard" styleClass="header-button" text="Dashboard" />
+                        <Button onAction="#handleLogout" styleClass="header-button" text="Log out" />
+                        <Button onAction="#handleFAQ" styleClass="header-button" text="FAQ" />
+                        <Button onAction="#handleAboutUs" styleClass="header-button" text="About us" />
                     </children>
                 </HBox>
             </children>
@@ -45,14 +48,14 @@
 
         <VBox alignment="TOP_CENTER" spacing="20">
             <padding>
-                <Insets top="20" right="20" bottom="20" left="20" />
+                <Insets bottom="20" left="20" right="20" top="20" />
             </padding>
 
             <VBox alignment="CENTER" spacing="10">
                 <Label fx:id="nameLabel" styleClass="name-label" text="pasindu shanuka" />
                 <ImageView fx:id="profileImage" fitHeight="150" fitWidth="150" pickOnBounds="true" preserveRatio="true" styleClass="profile-image" />
                 <Label fx:id="departmentLabel" styleClass="department-label" text="Department of ICT" />
-                <Button fx:id="editProfileButton" styleClass="edit-profile-button" text="Edit profile" onAction="#handleEditProfile">
+                <Button fx:id="editProfileButton" onAction="#handleEditProfile" styleClass="edit-profile-button" text="Edit profile">
                     <graphic>
                         <Label styleClass="edit-icon" />
                     </graphic>
@@ -61,59 +64,98 @@
 
             <Separator />
 
-            <GridPane hgap="20" vgap="20" alignment="CENTER">
-                <Button styleClass="dashboard-button" onAction="#handleCourses" GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <GridPane alignment="CENTER" hgap="20" vgap="20">
+                <Button onAction="#handleCourses" styleClass="dashboard-button" GridPane.columnIndex="0" GridPane.rowIndex="0">
                     <graphic>
                         <VBox alignment="CENTER" spacing="15">
                             <Label styleClass="dashboard-icon" />
+                     <ImageView fitHeight="60.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../images/course.png" />
+                        </image>
+                     </ImageView>
                             <Label styleClass="dashboard-label" text="Courses" />
                         </VBox>
                     </graphic>
                 </Button>
 
-                <Button styleClass="dashboard-button" onAction="#handleAttendance" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                <Button onAction="#handleAttendance" styleClass="dashboard-button" GridPane.columnIndex="1" GridPane.rowIndex="0">
                     <graphic>
                         <VBox alignment="CENTER" spacing="15">
                             <Label styleClass="dashboard-icon" />
+                     <ImageView fitHeight="60.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../images/attendence.png" />
+                        </image>
+                     </ImageView>
                             <Label styleClass="dashboard-label" text="Attendance" />
                         </VBox>
                     </graphic>
                 </Button>
 
-                <Button styleClass="dashboard-button" onAction="#handleNotice" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                <Button onAction="#handleNotice" styleClass="dashboard-button" GridPane.columnIndex="2" GridPane.rowIndex="0">
                     <graphic>
                         <VBox alignment="CENTER" spacing="15">
                             <Label styleClass="dashboard-icon" />
+                     <ImageView fitHeight="60.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../images/notices.png" />
+                        </image>
+                     </ImageView>
                             <Label styleClass="dashboard-label" text="Notice" />
                         </VBox>
                     </graphic>
                 </Button>
 
-                <Button styleClass="dashboard-button" onAction="#handleTimeTable" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                <Button onAction="#handleTimeTable" styleClass="dashboard-button" GridPane.rowIndex="1">
                     <graphic>
                         <VBox alignment="CENTER" spacing="15">
                             <Label styleClass="dashboard-icon" />
+                     <ImageView fitHeight="60.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../images/timetable.png" />
+                        </image>
+                     </ImageView>
                             <Label styleClass="dashboard-label" text="Time table" />
                         </VBox>
                     </graphic>
                 </Button>
 
-                <Button styleClass="dashboard-button" onAction="#handleUser" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <Button onAction="#handleUser" styleClass="dashboard-button" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <graphic>
                         <VBox alignment="CENTER" spacing="15">
                             <Label styleClass="dashboard-icon" />
+                     <ImageView fitHeight="60.0" fitWidth="74.0" layoutX="35.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../images/user.png" />
+                        </image>
+                     </ImageView>
                             <Label styleClass="dashboard-label" text="User" />
                         </VBox>
                     </graphic>
                 </Button>
-                <Button styleClass="dashboard-button" onAction="#handleGrade" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                <Button onAction="#handleGrade" styleClass="dashboard-button" GridPane.columnIndex="2" GridPane.rowIndex="1">
                     <graphic>
                         <VBox alignment="CENTER" spacing="15">
                             <Label styleClass="dashboard-icon" />
+                     <ImageView fitHeight="60.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../images/grade.png" />
+                        </image>
+                     </ImageView>
                             <Label styleClass="dashboard-label" text="Grade" />
                         </VBox>
                     </graphic>
                 </Button>
+            <columnConstraints>
+               <ColumnConstraints />
+               <ColumnConstraints />
+               <ColumnConstraints />
+            </columnConstraints>
+            <rowConstraints>
+               <RowConstraints />
+               <RowConstraints />
+            </rowConstraints>
 
 
             </GridPane>
@@ -122,7 +164,7 @@
 
     <right>
         <HBox alignment="TOP_RIGHT" BorderPane.alignment="TOP_RIGHT">
-            <Button fx:id="notificationButton" styleClass="notification-button" onAction="#handleNotifications">
+            <Button fx:id="notificationButton" onAction="#handleNotifications" styleClass="notification-button">
                 <graphic>
                     <HBox alignment="CENTER" spacing="5">
                         <Label styleClass="notification-icon" />
@@ -131,7 +173,7 @@
                 </graphic>
             </Button>
             <padding>
-                <Insets top="20.0" right="20.0" />
+                <Insets right="20.0" top="20.0" />
             </padding>
         </HBox>
     </right>
