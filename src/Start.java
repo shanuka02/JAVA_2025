@@ -22,7 +22,7 @@ public class Start extends Application {
         try {
             primaryStage = stage;
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/fxml/StartUp.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/technicalResources/fxml/StartUp.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             stage.setScene(scene);

@@ -1,3 +1,5 @@
+package TechnicalOfficer;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
@@ -38,7 +40,7 @@ public class AttendanceAdd  {
 //    public void checkBtn() {
 //        String name = "Hellow";
 //        setData.setText(name);
-//        new AttendanceAdd().getStudentData();
+//        new TechnicalOfficer.AttendanceAdd().getStudentData();
 //       close.setVisible(false);
 //        submitId.setDisable(true);
 //    }
@@ -103,15 +105,15 @@ public class AttendanceAdd  {
 
     @FXML
     void initialize() {
-        assert addAttendance != null : "fx:id=\"addAttendance\" was not injected: check your FXML file 'AttendanceAdd.fxml'.";
-        assert courseId != null : "fx:id=\"courseId\" was not injected: check your FXML file 'AttendanceAdd.fxml'.";
-        assert lectureHours != null : "fx:id=\"lectureHours\" was not injected: check your FXML file 'AttendanceAdd.fxml'.";
-        assert lectureTime != null : "fx:id=\"lectureTime\" was not injected: check your FXML file 'AttendanceAdd.fxml'.";
-        assert lectureType != null : "fx:id=\"lectureType\" was not injected: check your FXML file 'AttendanceAdd.fxml'.";
-        assert presentDate != null : "fx:id=\"presentDate\" was not injected: check your FXML file 'AttendanceAdd.fxml'.";
-        assert setData != null : "fx:id=\"setData\" was not injected: check your FXML file 'AttendanceAdd.fxml'.";
-        assert status != null : "fx:id=\"status\" was not injected: check your FXML file 'AttendanceAdd.fxml'.";
-        assert studentId != null : "fx:id=\"studentId\" was not injected: check your FXML file 'AttendanceAdd.fxml'.";
+        assert addAttendance != null : "fx:id=\"addAttendance\" was not injected: check your FXML file 'TechnicalOfficer.AttendanceAdd.fxml'.";
+        assert courseId != null : "fx:id=\"courseId\" was not injected: check your FXML file 'TechnicalOfficer.AttendanceAdd.fxml'.";
+        assert lectureHours != null : "fx:id=\"lectureHours\" was not injected: check your FXML file 'TechnicalOfficer.AttendanceAdd.fxml'.";
+        assert lectureTime != null : "fx:id=\"lectureTime\" was not injected: check your FXML file 'TechnicalOfficer.AttendanceAdd.fxml'.";
+        assert lectureType != null : "fx:id=\"lectureType\" was not injected: check your FXML file 'TechnicalOfficer.AttendanceAdd.fxml'.";
+        assert presentDate != null : "fx:id=\"presentDate\" was not injected: check your FXML file 'TechnicalOfficer.AttendanceAdd.fxml'.";
+        assert setData != null : "fx:id=\"setData\" was not injected: check your FXML file 'TechnicalOfficer.AttendanceAdd.fxml'.";
+        assert status != null : "fx:id=\"status\" was not injected: check your FXML file 'TechnicalOfficer.AttendanceAdd.fxml'.";
+        assert studentId != null : "fx:id=\"studentId\" was not injected: check your FXML file 'TechnicalOfficer.AttendanceAdd.fxml'.";
 
         status.getItems().addAll("Present", "Absent", "Medical");
         status.setValue("Present");

@@ -1,4 +1,5 @@
-import javafx.beans.property.SimpleStringProperty;
+package TechnicalOfficer;
+
 import javafx.beans.property.SimpleStringProperty;
 
 public class AttendanceRow {
