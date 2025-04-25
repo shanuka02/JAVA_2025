@@ -101,7 +101,7 @@ public class EditProfile {
 
     @FXML
     public int handleAddUser(ActionEvent actionEvent) {
-        connection = new mySqlCon();
+        connection = new  mySqlCon();
         Connection con = connection.con();
 
         if(UserId.getText().trim().isEmpty() || Username.getText().trim().isEmpty() ||Email.getText().trim().isEmpty()||
