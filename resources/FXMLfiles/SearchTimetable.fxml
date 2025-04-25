@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="486.0" prefWidth="668.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Admin.SearchTimeTable">
+   <top>
+      <HBox prefHeight="50.0" prefWidth="600.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER">
+         <children>
+             <Pane prefHeight="50.0" prefWidth="671.0" >
+                 <children>
+                     <Button fx:id="BackButton" layoutX="26.0" layoutY="23.0" mnemonicParsing="false" onAction="#BackbuttonHandle" style="-fx-background-radius: 20px; -fx-background-color: green;" text="Back" textFill="#fffefe">
+                         <cursor>
+                             <Cursor fx:constant="HAND" />
+                         </cursor>
+                         <font>
+                             <Font size="13.0" />
+                         </font>
+                     </Button>
+                     <Label layoutX="78.0" layoutY="27.0" prefHeight="17.0" prefWidth="144.0" text="| Faculty Of  Technology" textFill="#e4dfdf">
+                         <font>
+                             <Font size="13.0" />
+                         </font>
+                     </Label>
+                 </children>
+             </Pane>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <HBox prefHeight="366.0" prefWidth="668.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="365.0" prefWidth="679.0">
+               <children>
+                  <TabPane prefHeight="365.0" prefWidth="668.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab text="View All TimeTables">
+                           <content>
+                              <Pane prefHeight="171.0" prefWidth="581.0">
+                                 <children>
+                                    <ScrollPane layoutX="31.0" layoutY="36.0" prefHeight="255.0" prefWidth="623.0">
+                                       <content>
+                                          <TableView fx:id="Table1" prefHeight="361.0" prefWidth="623.0">
+                                            <columns>
+                                              <TableColumn fx:id="ID" prefWidth="75.0" text="ID" />
+                                              <TableColumn fx:id="Caption" prefWidth="160.0" text="Caption" />
+                                                <TableColumn fx:id="Date" prefWidth="92.0" text="Submited Date" />
+                                                <TableColumn fx:id="Content" prefWidth="157.0" text="Content" />
+                                                <TableColumn fx:id="DepName" prefWidth="98.0" text="Dep Name" />
+                                            </columns>
+                                          </TableView>
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                              </Pane>
+                           </content>
+                      </Tab>
+                    </tabs>
+                  </TabPane>
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+   </center>
+   <bottom>
+      <HBox prefHeight="71.0" prefWidth="668.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="71.0" prefWidth="676.0" />
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>
