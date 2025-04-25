@@ -92,6 +92,8 @@ public class loginController{
 
             } else {
                 JOptionPane.showMessageDialog(null, "Invalid username or password.", "Login Failed", JOptionPane.ERROR_MESSAGE);
+                passwordField.clear();
+                userField.clear();
 
             }
 
