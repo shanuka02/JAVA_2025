@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="mainBorder" prefHeight="527.0" prefWidth="801.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="loginController">
+<BorderPane fx:id="mainBorder" prefHeight="527.0" prefWidth="801.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Admin.loginController">
    <left>
       <AnchorPane fx:id="leftPlane" prefHeight="527.0" prefWidth="442.0" style="-fx-background-color: #13D6DD;" BorderPane.alignment="CENTER">
          <children>
