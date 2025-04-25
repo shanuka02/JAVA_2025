@@ -100,7 +100,7 @@ public class EditProfile {
     }
 
     @FXML
-    public int handleAddUser(ActionEvent actionEvent) {
+    public  int handleAddUser(ActionEvent actionEvent) {
         connection = new  mySqlCon();
         Connection con = connection.con();
 
