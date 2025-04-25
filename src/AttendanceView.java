@@ -5,11 +5,15 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
+import java.awt.*;
 import java.io.IOException;
 import java.sql.*;
 import java.util.Arrays;
 
 public class AttendanceView {
+    @FXML
+    private TextField attendanceId;
+
     @FXML
     private ComboBox<String> courseId;
 
@@ -144,6 +148,17 @@ public class AttendanceView {
             connection.close();
         } catch (SQLException e) {
             System.out.println("SQL Error: " + e.getMessage());
+        }
+    }
+
+    @FXML
+    public void checkAttendance(){
+        if(attendanceId.getText().isEmpty()){
+            new AttendanceAdd().alert("Please fill the attendance ID","Can't submit");
+            attendanceId.requestFocus();
+        }else{
+//            System.out.println(Integer.parseInt(attendanceId.getText()));
+            System.out.println(attendanceId.getText());
         }
     }
 

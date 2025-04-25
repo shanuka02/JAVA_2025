@@ -5,6 +5,7 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AttendanceView">
@@ -29,6 +30,12 @@
                   <ComboBox fx:id="lectureType" layoutX="293.0" layoutY="43.0" prefWidth="150.0" />
                   <Button layoutX="682.0" layoutY="43.0" mnemonicParsing="false" onAction="#submitBtn" prefHeight="27.0" prefWidth="78.0" text="Submit" />
                   <DatePicker fx:id="preDate" layoutX="472.0" layoutY="44.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="127.0" layoutY="330.0" prefHeight="164.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <children>
+                  <TextField fx:id="attendanceId" layoutX="63.0" layoutY="26.0" />
+                  <Button layoutX="238.0" layoutY="26.0" mnemonicParsing="false" onAction="#checkAttendance" prefHeight="26.0" prefWidth="78.0" text="Check" />
                </children>
             </AnchorPane>
          </children>
