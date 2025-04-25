@@ -4,6 +4,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 
 import java.awt.*;
 import java.io.IOException;
@@ -153,12 +154,17 @@ public class AttendanceView {
 
     @FXML
     public void checkAttendance(){
-        if(attendanceId.getText().isEmpty()){
+        if(!attendanceId.getText().isEmpty()){
+            int AttId = Integer.parseInt(attendanceId.getText());
+            if(AttId > 0){
+
+            }else {
+                new AttendanceAdd().alert("Please Enter valid ID","Can't submit");
+            }
+        }else{
             new AttendanceAdd().alert("Please fill the attendance ID","Can't submit");
             attendanceId.requestFocus();
-        }else{
-//            System.out.println(Integer.parseInt(attendanceId.getText()));
-            System.out.println(attendanceId.getText());
+
         }
     }
 
