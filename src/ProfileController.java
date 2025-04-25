@@ -115,9 +115,11 @@ public class ProfileController {
     }
 
     @FXML
-    private void handleNotifications(ActionEvent event) {
-        System.out.println("Notifications button clicked");
-
+    private void handleNotifications(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("view/Notice.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        TechmisApp.getPrimaryStage().setScene(scene);
     }
 
     @FXML
@@ -140,8 +142,11 @@ public class ProfileController {
     }
 
     @FXML
-    private void handleNotice(ActionEvent event) {
-        System.out.println("Notice button clicked");
+    private void handleNotice(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("view/Notice.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        TechmisApp.getPrimaryStage().setScene(scene);
 
     }
 
