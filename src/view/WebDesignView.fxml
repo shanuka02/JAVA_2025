@@ -20,7 +20,7 @@
                 <Font name="System Bold" size="24.0" />
             </font>
         </Text>
-        <Text layoutX="316.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Programing" wrappingWidth="178.5924072265625">
+        <Text layoutX="316.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WebDesign" wrappingWidth="178.5924072265625">
             <font>
                 <Font name="System Bold" size="24.0" />
             </font>
@@ -31,5 +31,10 @@
                 <Font name="System Bold" size="23.0" />
             </font>
         </Label>
+      <Text layoutX="495.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Theory" wrappingWidth="69.25909423828125">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Text>
     </children>
 </AnchorPane>

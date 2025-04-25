@@ -10,23 +10,49 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ProgramView">
    <children>
       <Button layoutX="20.0" layoutY="21.0" mnemonicParsing="false" onAction="#backtopage" text="BACK" />
-      <Text layoutX="239.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Attendence">
+      <Text layoutX="211.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Attendence">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <Text layoutX="153.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ICT001" wrappingWidth="129.92578125">
+      <Text layoutX="125.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ICT001" wrappingWidth="129.92578125">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <Text layoutX="316.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Programing" wrappingWidth="178.5924072265625">
+      <Text layoutX="309.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Programing" wrappingWidth="178.5924072265625">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <ProgressBar fx:id="PresentageBar" layoutX="125.0" layoutY="237.0" prefHeight="25.0" prefWidth="358.0" progress="0.0" />
-      <Label fx:id="presentage" layoutX="276.0" layoutY="294.0" text="0%">
+      <ProgressBar fx:id="PresentageBar" layoutX="109.0" layoutY="149.0" prefHeight="25.0" prefWidth="358.0" progress="0.0" />
+      <Label fx:id="presentage" layoutX="255.0" layoutY="190.0" text="0%">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Label>
+      <Text layoutX="488.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Theory" wrappingWidth="71.92578125">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Text>
+      <Text layoutX="488.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Practical" wrappingWidth="83.92578125">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Text>
+      <Text layoutX="309.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Programing" wrappingWidth="178.5924072265625">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="118.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ICT001" wrappingWidth="129.92578125">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+      <ProgressBar fx:id="PresentageBar1" layoutX="109.0" layoutY="300.0" prefHeight="25.0" prefWidth="358.0" progress="0.0" />
+      <Label fx:id="presentage1" layoutX="259.0" layoutY="339.0" text="0%">
          <font>
             <Font name="System Bold" size="23.0" />
          </font>

@@ -15,12 +15,12 @@
                 <Font name="System Bold" size="24.0" />
             </font>
         </Text>
-        <Text layoutX="153.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ICT001" wrappingWidth="129.92578125">
+        <Text layoutX="116.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ICT001" wrappingWidth="129.92578125">
             <font>
                 <Font name="System Bold" size="24.0" />
             </font>
         </Text>
-        <Text layoutX="316.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Programing" wrappingWidth="178.5924072265625">
+        <Text layoutX="321.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Database System " wrappingWidth="223.259033203125">
             <font>
                 <Font name="System Bold" size="24.0" />
             </font>
