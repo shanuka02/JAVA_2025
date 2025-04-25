@@ -13,14 +13,14 @@ CREATE TABLE userAccount (
     address VARCHAR(60),
     depName VARCHAR(20),
     password VARCHAR(255) NOT NULL, 
-    profilePic BLOB
+    profilePic VARCHAR(100)
 );
  --update the notice
 CREATE TABLE notice (
     notice_id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(50) NOT NULL,
     postedDay DATE NOT NULL,
-    content BLOB,
+    content VARCHAR(100),
     userRoll VARCHAR(10)
 )AUTO_INCREMENT=1000;
 
@@ -193,6 +193,15 @@ VALUES
 ('TG1303', 'ICT2113', '2025-04-12', 'Injury due to accident', 'Approved'),
 
 ('TG1302', 'ICT2152', '2025-04-15', 'Hospitalized for surgery', 'Rejected');
+
+
+--------------dta for course---
+INSERT INTO courseUnit (courseId, courseName, credit, cType, nuOfQuises, nuOfAssesments, ca_percentage, lectureIncharge, gpa_state) VALUES
+('ICT2113', 'Introduction to Programming', 3, 'Both', 3, 0, 30, 'L001', 'Yes'),
+('ICT2122', 'Database Systems', 2, 'Theory', 4, 1, 40, 'L002', 'Yes'),
+('ICT2133', 'Web Technologies', 3, 'Both', 3, 2, 30, 'L003', 'Yes'),
+('ICT2142', 'Data Structures', 2, 'Practical', 0, 1, 40, 'L004', 'Yes'),
+('ICT2152', 'Computer Networks', 2, 'Theory', 3, 2, 30, 'L005', 'Yes');
 
 
 
