@@ -30,7 +30,7 @@ CREATE TABLE timeTable (
     timeTable_id CHAR(7) PRIMARY KEY,
     caption VARCHAR(50) NOT NULL,
     submittedDate DATE NOT NULL,
-    content BLOB,
+    content VARCHAR(100),
     depName VARCHAR(20)
 );
 
