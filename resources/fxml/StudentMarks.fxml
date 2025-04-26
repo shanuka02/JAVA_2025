@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -10,14 +11,14 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-
-<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.Pane?>
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="591.0" prefWidth="830.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Lecture.StudentMarksController">
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Lecture.StudentMarksController">
     <top>
-        <SplitPane orientation="VERTICAL" prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #027A7A;" BorderPane.alignment="CENTER">
+        <SplitPane orientation="VERTICAL" prefHeight="50.0" prefWidth="1000.0" style="-fx-background-color: #027A7A;" BorderPane.alignment="CENTER">
              <items>
-                <Pane prefHeight="200.0" prefWidth="200.0">
+                <Pane prefHeight="50.0" prefWidth="1000.0">
                     <children>
                         <Button fx:id="homeButton" layoutX="24.0" layoutY="17.0" mnemonicParsing="false" onAction="#handleHome" text="Home" />
                     </children>
@@ -25,12 +26,12 @@
             </items></SplitPane>
     </top>
     <bottom>
-        <SplitPane orientation="VERTICAL" prefHeight="22.0" prefWidth="600.0" style="-fx-background-color: #027A7A;" BorderPane.alignment="CENTER" />
+        <SplitPane orientation="VERTICAL" prefHeight="30.0" prefWidth="1000.0" style="-fx-background-color: #027A7A;" BorderPane.alignment="CENTER" />
     </bottom>
     <right>
       <AnchorPane prefHeight="634.0" prefWidth="954.0" BorderPane.alignment="CENTER">
          <children>
-            <TabPane layoutX="1.0" layoutY="68.0" prefHeight="390.0" prefWidth="830.0" tabClosingPolicy="UNAVAILABLE">
+            <TabPane layoutX="1.0" layoutY="68.0" prefHeight="390.0" prefWidth="896.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
                 <Tab fx:id="caTab" text="CA Marks">
                      <content>
@@ -38,7 +39,7 @@
                            <children>
                               <AnchorPane layoutY="15.0" prefHeight="281.0" prefWidth="1038.0">
                                  <children>
-                                    <ScrollPane layoutX="14.0" layoutY="-1.0" prefHeight="314.0" prefWidth="806.0">
+                                    <ScrollPane layoutX="14.0" layoutY="-1.0" prefHeight="318.0" prefWidth="882.0">
                                        <content>
                                           <TableView fx:id="caMarkTable" prefHeight="356.0" prefWidth="1022.0">
                                             <columns>
@@ -79,7 +80,7 @@
                                           <TableColumn fx:id="grade" prefWidth="145.60001220703123" text="Grade" />
                                       </columns>
                                     </TableView>
-                                    <Button fx:id="calculateResultButton" layoutX="667.0" layoutY="284.0" mnemonicParsing="false" text="Calculate Result" onAction="#calculateAndLoadFinalMarks"/>
+                                    <Button fx:id="calculateResultButton" layoutX="667.0" layoutY="284.0" mnemonicParsing="false" onAction="#calculateAndLoadFinalMarks" text="Calculate Result" />
                                  </children>
                               </AnchorPane>
                            </children>
@@ -90,9 +91,12 @@
             </TabPane>
             <Label layoutX="29.0" layoutY="472.0" text="TG No:" />
             <TextField fx:id="searchId" layoutX="74.0" layoutY="468.0" />
-            <Button fx:id="idSearchButton"  onAction="#search" layoutX="29.0" layoutY="506.0" mnemonicParsing="false" text="search" />
-            <Button fx:id="calculateCaButton"  layoutX="683.0" layoutY="471.0" mnemonicParsing="false" onAction="#calculateCa" text="Calculate CA" />
-            <Label fx:id="courseIdLabel" layoutX="40.0" layoutY="28.0" text="Label" />
+            <Button fx:id="idSearchButton" layoutX="29.0" layoutY="506.0" mnemonicParsing="false" onAction="#search" text="search" />
+            <Button fx:id="calculateCaButton" layoutX="683.0" layoutY="471.0" mnemonicParsing="false" onAction="#calculateCa" text="Calculate CA" />
+            <Label fx:id="courseIdLabel" layoutX="40.0" layoutY="28.0" text="Label">
+               <font>
+                  <Font name="SansSerif Regular" size="20.0" />
+               </font></Label>
          </children>
       </AnchorPane>
    </right>

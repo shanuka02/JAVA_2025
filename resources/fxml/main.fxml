@@ -11,10 +11,10 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 
-<BorderPane fx:id="FirstBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="509.0" prefWidth="710.0" stylesheets="@../lecture_style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Lecture.LectureController">
+<BorderPane fx:id="FirstBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../lecture_style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Lecture.LectureController">
    <top>
       <SplitPane orientation="VERTICAL" prefHeight="54.0" prefWidth="600.0" BorderPane.alignment="CENTER">
-         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="48.0" prefWidth="598.0" style="-fx-background-color: #027A7A;">
+         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="50.0" prefWidth="598.0" style="-fx-background-color: #027A7A;">
             <Label layoutX="22.0" layoutY="9.0" prefHeight="34.0" prefWidth="308.0" text="TecMIs - Faculty Of Technology" textFill="WHITE" />
          </AnchorPane>
       </SplitPane>
@@ -31,54 +31,59 @@
 
 <!--            <Button fx:id="backButton" layoutX="49.0" layoutY="48.0" onAction="#handleBackButton" text="Back" visible="true" />-->
 <!--            <Button fx:id="backButton" layoutX="31.0" layoutY="48.0" mnemonicParsing="false" text="Button" onAction="#handleBackButton" visible="false" />-->
-            <Label fx:id="name" layoutX="286.0" layoutY="24.0" text="lectureName" />
-            <Label fx:id="dep" layoutX="286.0" layoutY="52.0" text="departmentName" />
-            <Separator layoutX="25.0" layoutY="135.0" prefHeight="0.0" prefWidth="666.0" />
-            <Button fx:id="editButton" layoutX="286.0" layoutY="79.0" mnemonicParsing="false" onAction="#handleEditDetails" style="-fx-background-color: #ACACAC;" text="edit profile" textFill="WHITE">
+            <Label fx:id="name" layoutX="412.0" layoutY="26.0" text="lectureName" />
+            <Label fx:id="dep" layoutX="407.0" layoutY="53.0" text="departmentName" />
+            <Separator layoutX="25.0" layoutY="139.0" prefHeight="0.0" prefWidth="735.0" />
+            <Button fx:id="editButton" layoutX="408.0" layoutY="83.0" mnemonicParsing="false" onAction="#handleEditDetails" style="-fx-background-color: #ACACAC;" text="edit profile" textFill="WHITE">
                <graphic>
                   <ImageView fx:id="editProfileIcon" fitHeight="28.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                      <Image url="@/images/pencil.png" />
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="noticeButton" layoutX="496.0" layoutY="29.0" mnemonicParsing="false" onAction="#handleNoticeButton" style="-fx-background-color: #027A7A;" text="Notices" textFill="WHITE">
+            <Button fx:id="noticeButton" layoutX="617.0" layoutY="34.0" mnemonicParsing="false" onAction="#handleNoticeButton" prefHeight="48.0" prefWidth="132.0" style="-fx-background-color: #027A7A;" text="Notices" textFill="WHITE">
                <graphic>
-                  <ImageView fx:id="noticesIcon" fitHeight="59.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="noticesIcon" fitHeight="34.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
                      <Image url="@/images/bell-ring.png" />
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="manageCourseButton" layoutX="69.0" layoutY="153.0" mnemonicParsing="false" onAction="#handleManageCourseButton" prefHeight="121.0" prefWidth="153.0" style="-fx-background-color: #027A7A;" />
-            <Button fx:id="viewGpaButton" layoutX="496.0" layoutY="296.0" mnemonicParsing="false" onAction="#handleViewGpa" prefHeight="121.0" prefWidth="152.0" style="-fx-background-color: #027A7A;" />
-            <Button fx:id="studentMarksButton" layoutX="496.0" layoutY="153.0" mnemonicParsing="false" onAction="#handleAddMarks" prefHeight="121.0" prefWidth="152.0" style="-fx-background-color: #027A7A;" />
-            <Button fx:id="studentAttendenceButton" layoutX="282.0" layoutY="296.0" mnemonicParsing="false" onAction="#handleAttendence" prefHeight="121.0" prefWidth="152.0" style="-fx-background-color: #027A7A;" />
-            <Label layoutX="303.0" layoutY="378.0" text="Student Attendence" textFill="WHITE" />
-            <Button fx:id="studentMedicalButton" layoutX="69.0" layoutY="296.0" mnemonicParsing="false" onAction="#handleViewMedical" prefHeight="121.0" prefWidth="152.0" style="-fx-background-color: #027A7A;" />
-            <Button fx:id="studentEligibilityButton" layoutX="279.0" layoutY="153.0" mnemonicParsing="false" onAction="#handleEligibility" prefHeight="121.0" prefWidth="152.0" style="-fx-background-color: #027A7A;" />
-            <ImageView fx:id="manageCourseIcon" fitHeight="62.0" fitWidth="83.0" layoutX="114.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
+            <Button fx:id="manageCourseButton" layoutX="93.0" layoutY="153.0" mnemonicParsing="false" onAction="#handleManageCourseButton" prefHeight="130.0" prefWidth="180.0" style="-fx-background-color: #027A7A;" />
+            <Button fx:id="viewGpaButton" layoutX="581.0" layoutY="310.0" mnemonicParsing="false" onAction="#handleViewGpa" prefHeight="130.0" prefWidth="180.0" style="-fx-background-color: #027A7A;" />
+            <Button fx:id="studentMarksButton" layoutX="581.0" layoutY="153.0" mnemonicParsing="false" onAction="#handleAddMarks" prefHeight="130.0" prefWidth="180.0" style="-fx-background-color: #027A7A;" />
+            <Button fx:id="studentAttendenceButton" layoutX="339.0" layoutY="313.0" mnemonicParsing="false" onAction="#handleAttendence" prefHeight="130.0" prefWidth="180.0" style="-fx-background-color: #027A7A;" />
+            <Label layoutX="376.0" layoutY="411.0" text="Student Attendence" textFill="WHITE" />
+            <Button fx:id="studentMedicalButton" layoutX="93.0" layoutY="310.0" mnemonicParsing="false" onAction="#handleViewMedical" prefHeight="130.0" prefWidth="180.0" style="-fx-background-color: #027A7A;" />
+            <Button fx:id="studentEligibilityButton" layoutX="335.0" layoutY="153.0" mnemonicParsing="false" onAction="#handleEligibility" prefHeight="130.0" prefWidth="180.0" style="-fx-background-color: #027A7A;" />
+            <ImageView fx:id="manageCourseIcon" fitHeight="68.0" fitWidth="90.0" layoutX="140.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
                <Image url="@/images/book-alt.png" />
             </ImageView>
-            <ImageView fx:id="viewStudentIcon" fitHeight="70.0" fitWidth="85.0" layoutX="540.0" layoutY="308.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="viewStudentIcon" fitHeight="74.0" fitWidth="85.0" layoutX="630.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true">
                <Image url="@/images/users-alt.png" />
             </ImageView>
-            <ImageView fx:id="StudentMarksIcon" fitHeight="73.0" fitWidth="81.0" layoutX="540.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="StudentMarksIcon" fitHeight="75.0" fitWidth="90.0" layoutX="650.0" layoutY="174.0" pickOnBounds="true" preserveRatio="true">
                <Image url="@/images/chart-pie-alt.png" />
             </ImageView>
-            <ImageView fx:id="studentAttendenceIcon" fitHeight="67.0" fitWidth="72.0" layoutX="325.0" layoutY="308.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="studentAttendenceIcon" fitHeight="65.0" fitWidth="87.0" layoutX="384.0" layoutY="324.0" pickOnBounds="true" preserveRatio="true">
                <Image url="@/images/clock-three.png" />
             </ImageView>
-            <ImageView fx:id="studentMedicalIcon" fitHeight="58.0" fitWidth="107.0" layoutX="116.0" layoutY="313.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="studentMedicalIcon" fitHeight="78.0" fitWidth="87.0" layoutX="130.0" layoutY="318.0" pickOnBounds="true" preserveRatio="true">
                <Image url="@/images/first-aid-kit.png" />
             </ImageView>
-            <ImageView fx:id="studentEligibilityIcon" fitHeight="64.0" fitWidth="109.0" layoutX="330.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="studentEligibilityIcon" fitHeight="69.0" fitWidth="80.0" layoutX="405.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true">
                <Image url="@/images/terms-check.png" />
             </ImageView>
-            <Label alignment="BOTTOM_CENTER" layoutX="95.0" layoutY="238.0" style="-fx-background-color: #027A7A;" text="Manage Courses" textFill="WHITE" />
-            <Label layoutX="304.0" layoutY="238.0" text="Student Eligibility" textFill="WHITE" />
-            <Label layoutX="97.0" layoutY="378.0" text="Student Medical" textFill="WHITE" />
-            <Label fx:id="viewGpa" layoutX="530.0" layoutY="387.0" text="View Students GPA" textFill="WHITE" />
-            <Label layoutX="509.0" layoutY="246.0" text="Student Marks Upload" textFill="WHITE" />
-            <ImageView fx:id="image" fitHeight="113.0" fitWidth="141.0" layoutX="99.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
+            <Label alignment="BOTTOM_CENTER" layoutX="137.0" layoutY="246.0" style="-fx-background-color: #027A7A;" text="Manage Courses" textFill="WHITE" />
+            <Label layoutX="379.0" layoutY="246.0" text="Student Eligibility" textFill="WHITE" />
+            <Label layoutX="126.0" layoutY="411.0" text="Student Medical" textFill="WHITE" />
+            <Label fx:id="viewGpa" layoutX="618.0" layoutY="403.0" text="View Students GPA" textFill="WHITE" />
+            <Label layoutX="611.0" layoutY="259.0" text="Student Marks Upload" textFill="WHITE" />
+            <ImageView fx:id="image" fitHeight="91.0" fitWidth="119.0" layoutX="251.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="195.0" fitWidth="179.0" layoutX="798.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Search%20engines-bro.png" />
+               </image>
+            </ImageView>
 
          </Pane>
       </StackPane>
