@@ -68,6 +68,8 @@ public class AttendanceView {
 
     private int AttendanceId;
 
+    private String studentID;
+
     @FXML
     public void submitBtn() throws SQLException {
         if(checkFields()) {
@@ -210,18 +212,13 @@ public class AttendanceView {
 
     @FXML
     public void updateAttendance() {
-        System.out.println(setCourseId.getValue());
         if(checkUpdateFields()){
-//            updateBtn.setDisable(true);
-            new AttendanceAdd().alert("Please fill all the fields","Can't Update");
-        }else {
-//            updateBtn.setDisable(false);
             String quary = "UPDATE attendance SET Att_stu_id = ?, Att_cou_id = ?, Pre_date = ?, Pre_time = ?, Lec_hours = ?, Lec_type = ?, Status_ = ? WHERE Att_id = ?";
             try {
                 Connection connection = mySqlCon.getConnection();
                 assert connection != null;
                 PreparedStatement preparedStatement = connection.prepareStatement(quary);
-                preparedStatement.setString(1, setStudentId.getText());
+                preparedStatement.setString(1, studentID);
                 preparedStatement.setString(2, setCourseId.getValue());
                 preparedStatement.setDate(3, Date.valueOf(setPresentData.getValue()));
                 preparedStatement.setTime(4, Time.valueOf(setPresentTime.getText()));
@@ -233,12 +230,10 @@ public class AttendanceView {
                 if(preparedStatement.executeUpdate() > 0){
                     new AttendanceAdd().alert("Attendance updated successfully","Success");
                     clear();
-//                    updateBtn.setDisable(true);
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-
         }
     }
 
@@ -287,9 +282,25 @@ public class AttendanceView {
             }else if(setStatus.getValue() == null){
                 setStatus.requestFocus();
             }
-            return true;
-        }else{
+            new AttendanceAdd().alert("Please fill all the fields","Can't Update");
             return false;
+        }else{
+            studentID = setStudentId.getText().toUpperCase();
+            if(studentID.contains("TG") && studentID.length() == 6 ) {
+                if(Integer.parseInt(setLectureHours.getText()) > 0){
+                    return true;
+                }else{
+                    new AttendanceAdd().alert("Please enter the valid data for hours fields","Invalid Data");
+                    setLectureHours.requestFocus();
+                    setLectureHours.clear();
+                    return false;
+                }
+            }else{
+                new AttendanceAdd().alert("Please enter the valid ID","Invalid Student ID");
+                setStudentId.clear();
+                setStudentId.requestFocus();
+                return false;
+            }
         }
     }
 }
