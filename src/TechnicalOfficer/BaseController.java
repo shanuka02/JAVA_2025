@@ -23,7 +23,7 @@ public abstract class BaseController
     }
 
     public void handleEditprofile(){
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("\\FXMLfiles\\EditProfile.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("/FXMLfiles/EditProfile.fxml"));
         try {
             Parent root = loader.load();
             Scene scene = new Scene(root);
