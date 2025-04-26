@@ -12,7 +12,7 @@
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToPage" prefHeight="28.0" prefWidth="82.0" text="&lt;&lt; Back" />
       <AnchorPane layoutX="400.0" layoutY="206.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
          <children>
-            <AnchorPane layoutX="388.0" prefHeight="190.0" prefWidth="1000.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane layoutX="388.0" prefHeight="114.0" prefWidth="1000.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <ComboBox fx:id="getCourseId" layoutX="251.0" layoutY="27.0" onAction="#selectCourseId" prefWidth="150.0" />
                   <ComboBox fx:id="getLectureType" layoutX="425.0" layoutY="27.0" prefWidth="150.0" />
@@ -22,6 +22,7 @@
                   <Button layoutX="425.0" layoutY="74.0" mnemonicParsing="false" onAction="#addMedical" prefHeight="28.0" prefWidth="107.0" text="Button" />
                   <TextField fx:id="getStudentId" layoutX="71.0" layoutY="27.0" />
                </children></AnchorPane>
+            <Button layoutX="701.0" layoutY="248.0" mnemonicParsing="false" onAction="#editMedical" prefHeight="38.0" prefWidth="107.0" text="View and Edit" />
          </children>
       </AnchorPane>
    </children>

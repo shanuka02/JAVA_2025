@@ -1,11 +1,15 @@
 package TechnicalOfficer;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDate;
 
@@ -75,6 +79,19 @@ public class AttendanceMedical {
     public void initialize() {
         getStatus.getItems().addAll("Approved","Rejected","Pending");
         accessDB("course", "SELECT courseId FROM courseunit");
+    }
+
+    @FXML
+    public void editMedical(){
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("technicalResource/fxml/MedicalEdit.fxml"));
+
+        try {
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            ApplicationDrive.getPrimaryStage().setScene(scene);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void setAttendance(){

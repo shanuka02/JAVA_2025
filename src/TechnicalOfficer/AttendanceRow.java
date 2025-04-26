@@ -10,8 +10,9 @@ public class AttendanceRow {
     private final SimpleStringProperty col5;
     private final SimpleStringProperty col6;
     private final SimpleStringProperty col7;
+    private final SimpleStringProperty col8;
 
-    public AttendanceRow(String c1, String c2, String c3, String c4, String c5, String c6, String c7) {
+    public AttendanceRow(String c1, String c2, String c3, String c4, String c5, String c6, String c7, String c8) {
         this.col1 = new SimpleStringProperty(c1);
         this.col2 = new SimpleStringProperty(c2);
         this.col3 = new SimpleStringProperty(c3);
@@ -19,6 +20,7 @@ public class AttendanceRow {
         this.col5 = new SimpleStringProperty(c5);
         this.col6 = new SimpleStringProperty(c6);
         this.col7 = new SimpleStringProperty(c7);
+        this.col8 = new SimpleStringProperty(c8);
     }
 
     public SimpleStringProperty col1Property() { return col1; }
@@ -28,4 +30,5 @@ public class AttendanceRow {
     public SimpleStringProperty col5Property() { return col5; }
     public SimpleStringProperty col6Property() { return col6; }
     public SimpleStringProperty col7Property() { return col7; }
+    public SimpleStringProperty col8Property() { return col8; }
 }

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TechnicalOfficer.MedicalEdit">
+   <children>
+      <AnchorPane layoutX="392.0" layoutY="200.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+         <children>
+            <TableView fx:id="MedicalTable" layoutX="20.0" layoutY="60.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="60.0">
+              <columns>
+                <TableColumn fx:id="column1" prefWidth="62.399959564208984" text="ID" />
+                <TableColumn fx:id="column2" prefWidth="104.0" text="Student ID" />
+                  <TableColumn fx:id="column3" prefWidth="111.99995422363281" text="Course ID" />
+                  <TableColumn fx:id="column4" prefWidth="117.60003662109375" text="Lecture Type" />
+                  <TableColumn fx:id="column5" prefWidth="211.20001220703125" text="Reason" />
+                  <TableColumn fx:id="column6" prefWidth="131.20001220703125" text="Request Date" />
+                  <TableColumn fx:id="column7" prefWidth="100.0" text="Status" />
+                  <TableColumn fx:id="column8" prefWidth="115.199951171875" text="Submitted Date" />
+              </columns>
+            </TableView>
+            <DatePicker fx:id="getRequestDate" layoutX="38.0" layoutY="21.0" />
+            <Button layoutX="277.0" layoutY="21.0" mnemonicParsing="false" onAction="#getMedical" prefHeight="26.0" prefWidth="74.0" text="Button" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

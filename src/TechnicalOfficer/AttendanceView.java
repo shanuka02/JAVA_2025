@@ -64,6 +64,9 @@ public class AttendanceView {
     private TableColumn<AttendanceRow, String> column7;
 
     @FXML
+    private TableColumn<AttendanceRow, String> column8;
+
+    @FXML
     private TableView<AttendanceRow> table;
 
     private int AttendanceId;
@@ -89,6 +92,7 @@ public class AttendanceView {
         column5.setCellValueFactory(cellData -> cellData.getValue().col5Property());
         column6.setCellValueFactory(cellData -> cellData.getValue().col6Property());
         column7.setCellValueFactory(cellData -> cellData.getValue().col7Property());
+        column8.setCellValueFactory(cellData -> cellData.getValue().col8Property());
 
         accessDB("course", "SELECT courseId FROM courseunit");
     }
@@ -110,7 +114,7 @@ public class AttendanceView {
             preparedStatement.setString(3, lectureType.getValue());
             ResultSet results = preparedStatement.executeQuery();
             while (results.next()) {
-                table.getItems().add(new AttendanceRow(results.getString(2), results.getString(3), results.getString(4), results.getString(5), results.getString(6), results.getString(7),results.getString(8)));
+                table.getItems().add(new AttendanceRow(results.getString(2), results.getString(3), results.getString(4), results.getString(5), results.getString(6), results.getString(7),results.getString(8),results.getString(1)));
             }
             if(table.getItems().isEmpty()){
                 new AttendanceAdd().alert("No attendance found","No attendance found");
