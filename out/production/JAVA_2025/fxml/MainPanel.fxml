@@ -22,7 +22,7 @@
                   <ProgressIndicator layoutX="25.0" layoutY="60.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="80.0" prefWidth="80.0" progress="0.0" />
                </children>
             </Pane>
-            <Button fx:id="loginButton" layoutX="390.0" layoutY="328.0" mnemonicParsing="false" text="Button" onAction="#handleLogClick"/>
+            <Button fx:id="loginButton" layoutX="390.0" layoutY="328.0" mnemonicParsing="false" onAction="#handleLogClick" text="Button" />
          </children>
       </AnchorPane>
    </center>

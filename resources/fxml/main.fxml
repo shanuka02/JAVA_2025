@@ -3,60 +3,57 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.shape.Circle?>
 
 <BorderPane fx:id="FirstBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="509.0" prefWidth="710.0" stylesheets="@../lecture_style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Lecture.LectureController">
-<!--   <top>-->
-<!--      <SplitPane orientation="VERTICAL" prefHeight="54.0" prefWidth="600.0" BorderPane.alignment="CENTER">-->
-<!--         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="48.0" prefWidth="598.0"-->
-<!--                     style="-fx-background-color: #027A7A;">-->
-<!--            <Label layoutX="22.0" layoutY="9.0" prefHeight="34.0" prefWidth="308.0"-->
-<!--                   text="TecMIs - Faculty Of Technology" textFill="WHITE"/>-->
-<!--         </AnchorPane>-->
-<!--      </SplitPane>-->
-<!--   </top>-->
-<!--   <bottom>-->
-<!--      <SplitPane orientation="VERTICAL" prefHeight="13.0" prefWidth="600.0" BorderPane.alignment="CENTER">-->
-<!--         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="5.0" prefWidth="598.0"-->
-<!--                     style="-fx-background-color: #027A7A;"/>-->
-<!--      </SplitPane>-->
-<!--   </bottom>-->
-
+   <top>
+      <SplitPane orientation="VERTICAL" prefHeight="54.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="48.0" prefWidth="598.0" style="-fx-background-color: #027A7A;">
+            <Label layoutX="22.0" layoutY="9.0" prefHeight="34.0" prefWidth="308.0" text="TecMIs - Faculty Of Technology" textFill="WHITE" />
+         </AnchorPane>
+      </SplitPane>
+   </top>
+   <bottom>
+      <SplitPane orientation="VERTICAL" prefHeight="13.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="5.0" prefWidth="598.0" style="-fx-background-color: #027A7A;" />
+      </SplitPane>
+   </bottom>
+<center>
       <StackPane fx:id="contentPane" prefHeight="642.0" prefWidth="716.0">
          <!-- This is where all dynamic content will be loaded -->
           <Pane fx:id="mainContentPane" prefHeight="642.0" prefWidth="658.0">
 
 <!--            <Button fx:id="backButton" layoutX="49.0" layoutY="48.0" onAction="#handleBackButton" text="Back" visible="true" />-->
 <!--            <Button fx:id="backButton" layoutX="31.0" layoutY="48.0" mnemonicParsing="false" text="Button" onAction="#handleBackButton" visible="false" />-->
-            <Label fx:id="lectureNameLabel" layoutX="286.0" layoutY="24.0" text="lectureName" />
-            <Label fx:id="departmentNameLabel" layoutX="286.0" layoutY="52.0" text="departmentName" />
+            <Label fx:id="name" layoutX="286.0" layoutY="24.0" text="lectureName" />
+            <Label fx:id="dep" layoutX="286.0" layoutY="52.0" text="departmentName" />
             <Separator layoutX="25.0" layoutY="135.0" prefHeight="0.0" prefWidth="666.0" />
-            <Button fx:id="editButton" onAction="#handleEditDetails" layoutX="286.0" layoutY="79.0" mnemonicParsing="false" style="-fx-background-color: #ACACAC;" text="edit profile" textFill="WHITE">
+            <Button fx:id="editButton" layoutX="286.0" layoutY="79.0" mnemonicParsing="false" onAction="#handleEditDetails" style="-fx-background-color: #ACACAC;" text="edit profile" textFill="WHITE">
                <graphic>
                   <ImageView fx:id="editProfileIcon" fitHeight="28.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                      <Image url="@/images/pencil.png" />
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="noticeButton" onAction="#handleNoticeButton"  layoutX="496.0" layoutY="29.0" mnemonicParsing="false" style="-fx-background-color: #027A7A;" text="Notices" textFill="WHITE">
+            <Button fx:id="noticeButton" layoutX="496.0" layoutY="29.0" mnemonicParsing="false" onAction="#handleNoticeButton" style="-fx-background-color: #027A7A;" text="Notices" textFill="WHITE">
                <graphic>
                   <ImageView fx:id="noticesIcon" fitHeight="59.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                      <Image url="@/images/bell-ring.png" />
                   </ImageView>
                </graphic>
             </Button>
-            <Circle fx:id="profilePic" layoutX="211.0" layoutY="70.0" radius="47.0" stroke="BLACK" strokeType="INSIDE" />
             <Button fx:id="manageCourseButton" layoutX="69.0" layoutY="153.0" mnemonicParsing="false" onAction="#handleManageCourseButton" prefHeight="121.0" prefWidth="153.0" style="-fx-background-color: #027A7A;" />
-            <Button fx:id="viewGpaButton" onAction="#handleViewGpa" layoutX="496.0" layoutY="296.0" mnemonicParsing="false" prefHeight="121.0" prefWidth="152.0" style="-fx-background-color: #027A7A;" />
+            <Button fx:id="viewGpaButton" layoutX="496.0" layoutY="296.0" mnemonicParsing="false" onAction="#handleViewGpa" prefHeight="121.0" prefWidth="152.0" style="-fx-background-color: #027A7A;" />
             <Button fx:id="studentMarksButton" layoutX="496.0" layoutY="153.0" mnemonicParsing="false" onAction="#handleAddMarks" prefHeight="121.0" prefWidth="152.0" style="-fx-background-color: #027A7A;" />
-            <Button fx:id="studentAttendenceButton" onAction="#handleAttendence" layoutX="282.0" layoutY="296.0" mnemonicParsing="false" prefHeight="121.0" prefWidth="152.0" style="-fx-background-color: #027A7A;" />
+            <Button fx:id="studentAttendenceButton" layoutX="282.0" layoutY="296.0" mnemonicParsing="false" onAction="#handleAttendence" prefHeight="121.0" prefWidth="152.0" style="-fx-background-color: #027A7A;" />
             <Label layoutX="303.0" layoutY="378.0" text="Student Attendence" textFill="WHITE" />
-            <Button fx:id="studentMedicalButton" layoutX="69.0" layoutY="296.0" mnemonicParsing="false" prefHeight="121.0" prefWidth="152.0" style="-fx-background-color: #027A7A;" />
+            <Button fx:id="studentMedicalButton" layoutX="69.0" layoutY="296.0" mnemonicParsing="false" onAction="#handleViewMedical" prefHeight="121.0" prefWidth="152.0" style="-fx-background-color: #027A7A;" />
             <Button fx:id="studentEligibilityButton" layoutX="279.0" layoutY="153.0" mnemonicParsing="false" onAction="#handleEligibility" prefHeight="121.0" prefWidth="152.0" style="-fx-background-color: #027A7A;" />
             <ImageView fx:id="manageCourseIcon" fitHeight="62.0" fitWidth="83.0" layoutX="114.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
                <Image url="@/images/book-alt.png" />
@@ -81,8 +78,9 @@
             <Label layoutX="97.0" layoutY="378.0" text="Student Medical" textFill="WHITE" />
             <Label fx:id="viewGpa" layoutX="530.0" layoutY="387.0" text="View Students GPA" textFill="WHITE" />
             <Label layoutX="509.0" layoutY="246.0" text="Student Marks Upload" textFill="WHITE" />
+            <ImageView fx:id="image" fitHeight="113.0" fitWidth="141.0" layoutX="99.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
 
          </Pane>
       </StackPane>
-
+</center>
 </BorderPane>

@@ -40,12 +40,21 @@ public class EligibilityDetailsController {
 
             try{
                 Statement stmt = conn.createStatement();
-                String query = "SELECT studentId, eligibility FROM caMarks WHERE courseId = '" + courseId + "'";
+                String query = "SELECT a.Att_stu_id AS studentId, " +
+                        "CASE " +
+                        "WHEN (SUM(CASE WHEN a.Status_ IN ('Present', 'Medical') THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) >= 80.0 " +
+                        "AND cm.eligibility = 'yes' THEN 'Eligi' " +
+                        "ELSE 'Not' " +
+                        "END AS eligibilityStatus " +
+                        "FROM attendance a " +
+                        "JOIN caMarks cm ON a.Att_stu_id = cm.studentId AND a.Att_cou_id = cm.courseId " +
+                        "WHERE a.Att_cou_id = '" + courseId + "' " +
+                        "GROUP BY a.Att_stu_id, cm.eligibility";
                 ResultSet rs = stmt.executeQuery(query);
 
                 while (rs.next()){
                     String studentId = rs.getString("studentId");
-                    String eligibility = rs.getString("eligibility");
+                    String eligibility = rs.getString("eligibilityStatus");
 
                     dataList.add(new EligibilityModel(studentId,eligibility));
                 }

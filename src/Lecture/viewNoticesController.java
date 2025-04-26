@@ -45,9 +45,10 @@ public class viewNoticesController {
     }
 
     private void loadNotices() {
-        String query = "SELECT * FROM notice WHERE userRoll = 'Lecture'";
+        String query = "SELECT * FROM notice WHERE userRoll = 'Lecture' ";
         try {
             Connection con = mySqlCon.getConnection();
+            assert con != null;
             PreparedStatement ps = con.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
 

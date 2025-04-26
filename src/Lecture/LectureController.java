@@ -6,19 +6,24 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.scene.control.TextField;
 
 
+import javax.swing.*;
+import java.io.File;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.net.MalformedURLException;
+import java.sql.*;
 
 
 public class  LectureController extends BaseController{
 
+
+    @FXML private ImageView image;
     public Button viewGpaButton;
     private TextField[] courseFields;
 
@@ -28,9 +33,16 @@ public class  LectureController extends BaseController{
     @FXML private TextField CourseName1,CourseName2,CourseName3,CourseName4,CourseName5;
     private String[] names;
 
+    @FXML
+    private Label name;
+
+    @FXML
+    private  Label dep;
+
 
     @FXML
     public void initialize() {
+        loadProfileData();
         courseFields = new TextField[]{CourseName1, CourseName2, CourseName3, CourseName4, CourseName5};
     }
 
@@ -267,11 +279,120 @@ public class  LectureController extends BaseController{
 
     }
 
-    @Override
-    public void loadProfileData() {
+
+
+    public void handleViewMedical(ActionEvent event) {
+        Connection conn = mySqlCon.getConnection();
+
+        if (conn != null) {
+            System.out.println("database connected successfully");
+
+            try {
+                Statement stmt = conn.createStatement();
+                ResultSet rs = stmt.executeQuery("SELECT courseId from courseUnit");
+
+                String[] courseNames = new String[5];
+                int index = 0;
+                while (rs.next() && index < courseFields.length) {
+
+                    String name = rs.getString("courseId");
+                    System.out.println("course name " + name);
+                    courseNames[index] = name;
+
+                    index++;
+                }
+                rs.close();
+                stmt.close();
+                conn.close();
+
+                //load managecourse.fxml
+                FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/manageCourseMedi.fxml"));
+                //Parent root = null;
+                try {
+                    Parent root = loader.load();
+
+                    manageCourseMediController controller = loader.getController();
+                    controller.setCourseNames(courseNames);
+                    Stage stage = (Stage) studentMarksButton.getScene().getWindow(); // get current stage
+                    stage.setScene(new Scene(root));
+
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
+
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
 
     }
 
+    @Override
+    public void loadProfileData(){
+        Connection con = mySqlCon.getConnection();
+
+
+        String userID = Session.getUserId();
+
+        String query = "SELECT * FROM  userAccount WHERE user_id = ?";
+        try {
+
+            PreparedStatement pstm = con.prepareStatement(query);
+            pstm.setString(1,Session.getUserId());
+            ResultSet rs = pstm.executeQuery();
+
+
+            if (rs.next()) {
+/*
+                JOptionPane.showMessageDialog(null,"No notice Found");
+*/
+
+
+
+//if we didnt put condition null pointer execption generate, becouse db data is null
+                name.setText(rs.getString(2));
+
+
+                dep.setText(rs.getString(7));
+
+                String profilePicpath =  rs.getString(9);
+
+                if(!profilePicpath.isEmpty()){
+                    File file = new File(profilePicpath);
+
+                    if(file.exists()){
+                        try {
+                            Image profileImage = new Image(file.toURL().toString());
+                            if(image != null)image.setImage(profileImage);
+                        } catch (MalformedURLException e) {
+                            System.out.println("Error: "+e.getMessage());
+                        }
+                    }
+                }else{
+                    File file = new File("images/user.png");
+
+
+                    if(file.exists()){
+                        try {
+                            Image profileImage = new Image(file.toURL().toString());
+                            if(image != null)image.setImage(profileImage);
+                        } catch (MalformedURLException e) {
+                            System.out.println("Error: "+e.getMessage());
+                        }
+                    }
+
+                }
+            }
+
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null," "+e.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
+
+        }
+
+    }
 }
 
 
