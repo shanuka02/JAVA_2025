@@ -1,9 +1,82 @@
 package TechnicalOfficer;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+
 import java.sql.*;
+import java.time.LocalDate;
+
 import static java.lang.Integer.parseInt;
 
 public class AttendanceMedical {
+    @FXML
+    private ComboBox<String> getCourseId;
+
+    @FXML
+    private ComboBox<String> getLectureType;
+
+    @FXML
+    private ComboBox<String> getStatus;
+
+    @FXML
+    private TextField  getStudentId;
+
+    @FXML
+    private DatePicker getRequestDateId;
+
+    @FXML
+    private TextArea getResonId;
+
+    @FXML
+    void addMedical() {
+        if(checkFields()){
+            if(getStudentId.getText().isEmpty()){
+                new AttendanceAdd().alert("Please fill the student ID","Can't submit");
+                getStudentId.requestFocus();
+            }else{
+                String student = getStudentId.getText().toUpperCase();
+                if(student.contains("TG") && student.length() == 6){
+                    String quary = "INSERT INTO medical (Me_stu_id, Me_cou_id, Lec_type, Reason, Request_date, Status_, Submitted_date) " +
+                            "VALUES (?, ?, ?, ?, ?, ?, ?)";
+                    Date sqlDate = Date.valueOf(LocalDate.now());
+
+                    try {
+                        Connection connection = mySqlCon.getConnection();
+                        assert connection != null;
+                        PreparedStatement preparedStatement = connection.prepareStatement(quary);
+                        preparedStatement.setString(1, student);
+                        preparedStatement.setString(2, getCourseId.getValue());
+                        preparedStatement.setString(3, getLectureType.getValue());
+                        preparedStatement.setString(4, getResonId.getText());
+                        preparedStatement.setDate(5, Date.valueOf(getRequestDateId.getValue()));
+                        preparedStatement.setString(6, getStatus.getValue());
+                        preparedStatement.setDate(7,sqlDate);
+
+                        int rowsInserted = preparedStatement.executeUpdate();
+                        if (rowsInserted > 0) {
+                            new AttendanceAdd().alert("Attendance added successfully", "Success");
+                        }
+                    }catch (SQLException e){
+                        System.out.println("Error adding attendance " + e.getMessage());
+                    }
+                }else {
+                    new AttendanceAdd().alert("Please enter the valid ID", "Invalid Student ID");
+                    getStudentId.clear();
+                    getStudentId.requestFocus();
+                }
+            }
+        }
+    }
+
+    @FXML
+    public void initialize() {
+        getStatus.getItems().addAll("Approved","Rejected","Pending");
+        accessDB("course", "SELECT courseId FROM courseunit");
+    }
+
     public void setAttendance(){
         String quary1 = "SELECT Medi_id, Me_stu_id, Me_cou_id, Lec_type, Request_date FROM Medical WHERE Status_ = 'approved'";
         String quary2 = "SELECT Att_id, Att_stu_id, Att_cou_id, Lec_type, Pre_date FROM attendance WHERE status_ = 'Absent' AND Att_medi_id IS NULL";
@@ -44,6 +117,69 @@ public class AttendanceMedical {
             }
         }catch (SQLException e){
             System.out.println("Error updating attendance " + e.getMessage());
+        }
+    }
+
+    public void selectCourseId(){
+        accessDB("lecture","SELECT cType FROM courseunit where courseId ='"+getCourseId.getValue()+"'");
+    }
+
+    private void accessDB(String select,String quary){
+        int count = 0;
+        String[] setData;
+
+        if(select.equals("course")){
+            setData = new String[5];
+        }else{
+            setData = new String[1];
+        }
+        try {
+            Connection connection  = mySqlCon.getConnection();
+            assert connection != null;
+            Statement statement = connection.createStatement();
+            ResultSet results = statement.executeQuery(quary);
+
+            while (results.next()) {
+                setData[count] = results.getString(1);
+                count++;
+            }
+            getLectureType.getItems().clear();
+            if(select.equals("course")){
+                getCourseId.getItems().addAll(setData);
+            }else {
+                if(setData[0].equals("Both") || setData[0].equals("both")){
+                    getLectureType.getItems().addAll("Theory","Practical");
+                }else{
+                    getLectureType.getItems().addAll(setData);
+                }
+            }
+            connection.close();
+        } catch (SQLException e) {
+            System.out.println("SQL Error: " + e.getMessage());
+        }
+    }
+
+    private boolean checkFields(){
+        if(getStudentId.getText().isEmpty() || getRequestDateId.getValue() == null || getResonId.getText().isEmpty() || getCourseId.getValue() == null || getLectureType.getValue() == null){
+            new AttendanceAdd().alert("Please fill all the fields","Can't submit");
+            if(getStudentId.getText().isEmpty()){
+                getStudentId.requestFocus();
+            }else if(getCourseId.getValue() == null){
+                getCourseId.requestFocus();
+            }else if(getLectureType.getValue() == null){
+                getLectureType.requestFocus();
+            }else if(getStatus.getValue() == null){
+                getStatus.requestFocus();
+            }else if(getRequestDateId.getValue() == null){
+                getRequestDateId.requestFocus();
+            }else if(getResonId.getText().isEmpty()){
+                getResonId.requestFocus();
+            }else if(getResonId.getText() == null){
+                getResonId.requestFocus();
+            }
+            return false;
+        }else{
+            return true;
         }
     }
 

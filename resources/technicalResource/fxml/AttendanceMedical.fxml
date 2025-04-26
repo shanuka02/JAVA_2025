@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TechnicalOfficer.AttendanceMedical">
@@ -8,7 +12,16 @@
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToPage" prefHeight="28.0" prefWidth="82.0" text="&lt;&lt; Back" />
       <AnchorPane layoutX="400.0" layoutY="206.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
          <children>
-            <AnchorPane layoutX="388.0" prefHeight="190.0" prefWidth="1000.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <AnchorPane layoutX="388.0" prefHeight="190.0" prefWidth="1000.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <ComboBox fx:id="getCourseId" layoutX="251.0" layoutY="27.0" onAction="#selectCourseId" prefWidth="150.0" />
+                  <ComboBox fx:id="getLectureType" layoutX="425.0" layoutY="27.0" prefWidth="150.0" />
+                  <DatePicker fx:id="getRequestDateId" layoutX="70.0" layoutY="76.0" prefHeight="26.0" prefWidth="150.0" />
+                  <TextArea fx:id="getResonId" layoutX="251.0" layoutY="69.0" prefHeight="26.0" prefWidth="150.0" />
+                  <ComboBox fx:id="getStatus" layoutX="601.0" layoutY="27.0" prefWidth="150.0" />
+                  <Button layoutX="425.0" layoutY="74.0" mnemonicParsing="false" onAction="#addMedical" prefHeight="28.0" prefWidth="107.0" text="Button" />
+                  <TextField fx:id="getStudentId" layoutX="71.0" layoutY="27.0" />
+               </children></AnchorPane>
          </children>
       </AnchorPane>
    </children>
