@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StudentPackage.Notice">
+    <center>
+        <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label layoutX="244.0" layoutY="32.0" text="Notices">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font></Label>
+                <TableView fx:id="noticeTable" layoutX="37.0" layoutY="81.0" prefHeight="292.0" prefWidth="527.0">
+                    <columns>
+                        <TableColumn fx:id="noticeNumber" prefWidth="75.0" text="Number" />
+                        <TableColumn fx:id="noticeDate" prefWidth="150.0" text="Date" />
+                        <TableColumn fx:id="noticeTitle" prefWidth="169.60003662109375" text="Title" />
+                        <TableColumn fx:id="previewButton" prefWidth="130.39996337890625" text="Preview" />
+
+                    </columns>
+                </TableView>
+            <Button layoutX="24.0" layoutY="19.0" mnemonicParsing="false" onAction="#backtopage" style="-fx-background-radius: 100;" text="BACK">
+               <font>
+                  <Font name="System Bold" size="11.0" />
+               </font>
+            </Button>
+            </children>
+        </Pane>
+    </center>
+</BorderPane>
