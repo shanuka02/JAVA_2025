@@ -319,7 +319,7 @@ public class  LectureController extends BaseController{
 
                     manageCourseMediController controller = loader.getController();
                     controller.setCourseNames(courseNames);
-                    Stage stage = (Stage) studentMarksButton.getScene().getWindow(); // get current stage
+                    Stage stage = (Stage) studentMarksButton.getScene().getWindow();
                     stage.setScene(new Scene(root));
 
                 } catch (IOException e) {
@@ -403,7 +403,7 @@ public class  LectureController extends BaseController{
 
     @FXML
     private void handleTimeTable(ActionEvent event) {
-        String depName = dep.getText(); // get the department name from label
+        String depName = dep.getText();
 
         if (depName == null || depName.isEmpty()) {
             new Alert(Alert.AlertType.ERROR, "Department name is missing.").show();
@@ -416,7 +416,7 @@ public class  LectureController extends BaseController{
             Connection con = mySqlCon.getConnection();
             assert con != null;
             PreparedStatement ps = con.prepareStatement(query);
-            ps.setString(1, depName); // set the department name into query
+            ps.setString(1, depName);
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
@@ -448,16 +448,15 @@ public class  LectureController extends BaseController{
             new Alert(Alert.AlertType.ERROR, "Database error: " + e.getMessage()).show();
         }
 
-        // Now, you can save the file path using the `saveFilePathToDatabase` method if needed.
-        File selectedFile = chooseFile();  // Assuming you have a method to choose the file
+        File selectedFile = chooseFile();
         if (selectedFile != null) {
-            saveFilePathToDatabase(selectedFile, depName);  // Save file path to the database
+            saveFilePathToDatabase(selectedFile, depName);
         }
     }
 
     private void saveFilePathToDatabase(File file, String depName) {
         String originalPath = file.getAbsolutePath();
-        String correctedPath = originalPath.replace("\\", "/"); // fix the path
+        String correctedPath = originalPath.replace("\\", "/");
 
         String query = "INSERT INTO timetable (depName, content) VALUES (?, ?)";
 
@@ -476,7 +475,6 @@ public class  LectureController extends BaseController{
         }
     }
 
-    // Assuming you have a file chooser method to select the timetable file
     private File chooseFile() {
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF Files", "*.pdf"));

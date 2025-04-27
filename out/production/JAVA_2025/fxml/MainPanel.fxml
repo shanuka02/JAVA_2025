@@ -8,11 +8,11 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-<BorderPane fx:id="mainPanel1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="453.0" prefWidth="612.0" style="-fx-max-width: 1512px; -fx-max-height: 982px;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Lecture.MainPanelController">
+<BorderPane fx:id="mainPanel1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="1000.0" style="-fx-max-width: 1512px; -fx-max-height: 982px;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Lecture.MainPanelController">
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="219.0" fitWidth="247.0" layoutX="191.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="219.0" fitWidth="247.0" layoutX="388.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="387.2" AnchorPane.rightAnchor="387.6585388183594">
                <image>
                   <Image url="@../images/logoFac.jpg" />
                </image>
@@ -22,7 +22,7 @@
                   <ProgressIndicator layoutX="25.0" layoutY="60.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="80.0" prefWidth="80.0" progress="0.0" />
                </children>
             </Pane>
-            <Button fx:id="loginButton" layoutX="390.0" layoutY="328.0" mnemonicParsing="false" onAction="#handleLogClick" text="Button" />
+            <Button fx:id="loginButton" layoutX="487.0" layoutY="496.0" mnemonicParsing="false" onAction="#handleLogClick" text="Button" />
          </children>
       </AnchorPane>
    </center>
