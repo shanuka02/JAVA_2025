@@ -76,7 +76,7 @@
                                       <columns>
                                         <TableColumn fx:id="studentIdFinal" minWidth="0.0" prefWidth="141.5999755859375" text="Student Id" />
                                         <TableColumn fx:id="endMark" minWidth="8.79998779296875" prefWidth="154.4000244140625" text="End Mark" />
-                                          <TableColumn fx:id="result" minWidth="0.0" prefWidth="146.4000244140625" text="Result" />
+<!--                                          <TableColumn fx:id="result" minWidth="0.0" prefWidth="146.4000244140625" text="Result" />-->
                                           <TableColumn fx:id="grade" prefWidth="145.60001220703123" text="Grade" />
                                       </columns>
                                     </TableView>

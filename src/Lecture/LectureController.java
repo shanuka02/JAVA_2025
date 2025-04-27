@@ -60,8 +60,13 @@ public class  LectureController extends BaseController{
             System.out.println("database connected successfully");
 
             try {
-                Statement stmt = conn.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT courseId from courseUnit");
+
+                String query = "SELECT * FROM lecture_course WHERE lecId = ?";
+                PreparedStatement pstm = conn.prepareStatement(query);
+                pstm.setString(1,Session.getUserId());
+                ResultSet rs  = pstm.executeQuery();
+
+
 
                 String [] courseNames = new String[5];
                 int index =0;
@@ -74,7 +79,7 @@ public class  LectureController extends BaseController{
                     index++;
                 }
                 rs.close();
-                stmt.close();
+//                stmt.close();
                 conn.close();
 
                 //load managecourse.fxml

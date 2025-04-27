@@ -75,7 +75,7 @@ public class StudentMarksController {
 
         studentIdFinal.setCellValueFactory(new PropertyValueFactory<>("studentId"));
         endMark.setCellValueFactory(new PropertyValueFactory<>("endMark"));
-        result.setCellValueFactory(new PropertyValueFactory<>("result"));
+//        result.setCellValueFactory(new PropertyValueFactory<>("result"));
         grade.setCellValueFactory(new PropertyValueFactory<>("grade"));
 
         calculateResultButton.setOnAction(e -> calculateAndLoadFinalMarks());

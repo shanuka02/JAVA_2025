@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.sql.*;
 
@@ -37,8 +38,14 @@ public class updateMarksController {
 
     }
 
-    public void handleUpdateQuiz(ActionEvent event) {
+    @FXML
+    public int handleUpdateQuiz(ActionEvent event) {
         Connection conn = mySqlCon.getConnection();
+
+        if(EnterTgNumberQ.getText().trim().isEmpty() || updateQ1.getText().trim().isEmpty() ||  updateQ2.getText().trim().isEmpty() || updateQ3.getText().trim().isEmpty() || updateQ4.getText().trim().isEmpty()  ){
+            JOptionPane.showMessageDialog(null," All fields are requireded");
+            return 1;
+        }
 
         tgNumber = EnterTgNumberQ.getText();
         Double q1 = parseMark(updateQ1.getText());
@@ -46,7 +53,25 @@ public class updateMarksController {
         Double q3 = parseMark(updateQ3.getText());
         Double q4 = parseMark(updateQ4.getText());
 
-        if (anyInvalidMark(q1, q2, q3, q4)) return;
+        //if (anyInvalidMark(q1, q2, q3, q4)) return;
+        if(q1 < 0 || q1 > 100){
+            JOptionPane.showMessageDialog(null," Invalid range of values");
+            return 1;
+        }
+        if(q2 < 0 || q2 > 100){
+            JOptionPane.showMessageDialog(null," Invalid range of values");
+            return 1;
+        }
+        if(q3 < 0 || q3 > 100){
+            JOptionPane.showMessageDialog(null," Invalid range of values");
+            return 1;
+        }
+
+
+        if(q4 < 0 || q4 > 100){
+            JOptionPane.showMessageDialog(null," Invalid range of values");
+            return 1;
+        }
 
 
         if (conn != null) {
@@ -85,6 +110,7 @@ public class updateMarksController {
             }
 
         }
+        return  0;
     }
 
     private Double parseMark(String text) {
@@ -103,14 +129,27 @@ public class updateMarksController {
         }
     }
 
-    public void handleUpdateAses (ActionEvent event) {
+    @FXML
+    public int  handleUpdateAses (ActionEvent event) {
         Connection conn = mySqlCon.getConnection();
 
+        if(EnterTgNumberAs.getText().trim().isEmpty() || updateAss1.getText().trim().isEmpty() || updateAss2.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(null," All fields are required");
+            return 1;
+        }
         tgNumber = EnterTgNumberAs.getText();
         Double as1 = parseMark(updateAss1.getText());
         Double as2 = parseMark(updateAss2.getText());
 
-        if (anyInvalidMark(as1, as2)) return;
+//        if (anyInvalidMark(as1, as2)) return;
+        if(as1 < 0 || as1 > 100){
+            JOptionPane.showMessageDialog(null," Invalid range of values");
+            return 1;
+        }
+        if(as2 < 0 || as2 > 100){
+            JOptionPane.showMessageDialog(null," Invalid range of values");
+            return 1;
+        }
 
 
         if (conn != null) {
@@ -142,16 +181,26 @@ public class updateMarksController {
             }
 
         }
+        return 0;
     }
 
-    public void handleUpdateMid() {
+    @FXML
+    public int handleUpdateMid() {
         Connection conn = mySqlCon.getConnection();
 
+        if(EnterTgNumberMid.getText().trim().isEmpty() || updateMid.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(null," All fields are required");
+            return 1;
+        }
         tgNumber = EnterTgNumberMid.getText().trim();
         updateCoLable = updateCLable.getText().trim();
         Double midMark = parseMark(updateMid.getText());
 
-        if (anyInvalidMark(midMark)) return;
+//        if (anyInvalidMark(midMark)) return;
+        if(midMark < 0 || midMark > 100){
+            JOptionPane.showMessageDialog(null," Invalid range of values");
+            return 1;
+        }
 
 
         if (conn != null) {
@@ -180,17 +229,31 @@ public class updateMarksController {
                 throw new RuntimeException(e);
             }
         }
+        return 0;
     }
 
-    public void  handleUpdateEnd() {
+    @FXML
+    public int  handleUpdateEnd() {
         Connection conn = mySqlCon.getConnection();
 
+        if(EnterTgNumberEnd.getText().trim().isEmpty() || updateEndTheory.getText().trim().isEmpty() || updateEndpra.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(null," All fields are required");
+            return 1;
+        }
         tgNumber = EnterTgNumberEnd.getText().trim();
         updateCoLable = updateCLable.getText().trim();
         Double endMarkT = parseMark(updateEndTheory.getText());
         Double endMarkP = parseMark(updateEndpra.getText());
 
-        if (anyInvalidMark(endMarkT, endMarkP)) return;
+//        if (anyInvalidMark(endMarkT, endMarkP)) return;
+        if(endMarkP < 0 || endMarkP > 100){
+            JOptionPane.showMessageDialog(null," Invalid range of values");
+            return 1;
+        }
+        if(endMarkT < 0 || endMarkT > 100){
+            JOptionPane.showMessageDialog(null," Invalid range of values");
+            return 1;
+        }
 
 
 
@@ -222,6 +285,7 @@ public class updateMarksController {
                 throw new RuntimeException(e);
             }
         }
+        return 0;
     }
 
     private boolean anyInvalidMark(Double... marks) {

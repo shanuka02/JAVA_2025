@@ -90,7 +90,7 @@
                                  </font></Label>
                               <TextField fx:id="updateAss1" layoutX="132.0" layoutY="70.0" minWidth="-Infinity" prefHeight="41.0" prefWidth="82.0" />
                               <TextField fx:id="updateAss2" layoutX="135.0" layoutY="135.0" minWidth="-Infinity" prefHeight="42.0" prefWidth="76.0" />
-                              <Button fx:id="updateAssButton" layoutX="40.0" layoutY="222.0" mnemonicParsing="false" text="submit" />
+                              <Button fx:id="updateAssButton" layoutX="40.0" layoutY="222.0" mnemonicParsing="false" onAction="#handleUpdateAses" text="submit" />
                            </children>
                         </AnchorPane>
                      </content>
@@ -109,7 +109,7 @@
                                     <Font size="15.0" />
                                  </font></Label>
                               <TextField fx:id="updateMid" layoutX="163.0" layoutY="78.0" minWidth="-Infinity" prefHeight="44.0" prefWidth="102.0" />
-                              <Button fx:id="updateMidButton" layoutX="25.0" layoutY="167.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="61.0" text="submit" />
+                              <Button fx:id="updateMidButton" layoutX="25.0" layoutY="167.0" mnemonicParsing="false" onAction="#handleUpdateMid" prefHeight="35.0" prefWidth="61.0" text="submit" />
                            </children>
                         </AnchorPane>
                     </content>

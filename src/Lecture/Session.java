@@ -1,6 +1,7 @@
 package Lecture;
 
 public class Session {
+    public static String getUserId;
     private static String password;
     private static String UserId;
 
