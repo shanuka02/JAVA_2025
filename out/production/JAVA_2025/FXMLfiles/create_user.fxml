@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="527.0" prefWidth="662.0" style="-fx-pref-height: 620; -fx-pref-width: 1000;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Admin.CreateUserController">
+   <top>
+      <HBox prefHeight="70.0" prefWidth="630.0" style="-fx-background-color: #027A7A;" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="70.0" prefWidth="657.0" style="-fx-background-color: #027A7A; -fx-pref-height: 50;">
+               <children>
+                  <Button fx:id="BackButton" layoutX="26.0" layoutY="23.0" mnemonicParsing="false" onAction="#BackbuttonHandle" style="-fx-background-radius: 20px; -fx-background-color: green;" text="Back" textFill="#fffefe">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="78.0" layoutY="27.0" prefHeight="17.0" prefWidth="144.0" text="| Faculty Of  Technology" textFill="#e4dfdf">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+               </children></Pane>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="520.0" prefWidth="685.0">
+               <children>
+                  <TextField fx:id="UserId" layoutX="136.0" layoutY="69.0" prefHeight="35.0" prefWidth="200.0" />
+                  <TextField fx:id="Username" layoutX="136.0" layoutY="125.0" prefHeight="36.0" prefWidth="200.0" />
+                  <TextField fx:id="PhoneNumber" layoutX="136.0" layoutY="298.0" prefHeight="34.0" prefWidth="200.0" />
+                  <Group layoutX="43.0" layoutY="70.0">
+                     <children>
+                        <Label layoutY="12.0" text="User ID" />
+                        <Label layoutX="36.0" text="*" textFill="#fc1313" />
+                     </children>
+                  </Group>
+                  <Label layoutX="20.0" layoutY="302.0" text="Phone Number" />
+                  <Group layoutX="47.0" layoutY="248.0">
+                     <children>
+                        <Label layoutY="8.0" text="Roll" />
+                        <Label layoutX="29.0" text="*" textFill="#fc1313" />
+                     </children>
+                  </Group>
+                  <Group layoutX="45.0" layoutY="190.0">
+                     <children>
+                        <Label layoutY="8.0" text="Email" />
+                        <Label layoutX="33.0" text="*" textFill="#fc1313" />
+                     </children>
+                  </Group>
+                  <Group layoutX="37.0" layoutY="129.0">
+                     <children>
+                        <Label layoutY="8.0" text="User name" />
+                        <Label layoutX="54.0" text="*" textFill="#fc1313" />
+                     </children>
+                  </Group>
+                  <Label layoutX="28.0" layoutY="358.0" text="Address" />
+                  <TextField fx:id="Address" layoutX="136.0" layoutY="354.0" prefHeight="34.0" prefWidth="200.0" />
+                  <Group layoutX="27.0" layoutY="419.0">
+                     <children>
+                        <Label layoutY="12.0" prefHeight="17.0" prefWidth="79.0" text="Department " />
+                        <Label layoutX="63.0" text="*" textFill="#fc1313" />
+                     </children>
+                  </Group>
+                  <ComboBox id="1" fx:id="Combobox2" layoutX="136.0" layoutY="418.0" prefHeight="34.0" prefWidth="201.0" promptText=" Select Department" />
+                  <Group layoutX="377.0" layoutY="73.0">
+                     <children>
+                        <Label layoutY="12.0" text="Password" />
+                        <Label layoutX="49.0" prefHeight="17.0" prefWidth="0.0" text="*" textFill="#fc1313" />
+                     </children>
+                  </Group>
+                  <TextField fx:id="Password" layoutX="460.0" layoutY="69.0" prefHeight="36.0" prefWidth="200.0" />
+                  <Group layoutX="377.0" layoutY="129.0">
+                     <children>
+                        <Label layoutY="12.0" text="Profile Pic" />
+                        <Label layoutX="49.0" prefHeight="17.0" prefWidth="0.0" text="*" textFill="#fc1313" />
+                     </children>
+                  </Group>
+                  <Button fx:id="ChooseFilePath" layoutX="587.0" layoutY="178.0" mnemonicParsing="false" onAction="#ChooseFile" prefHeight="11.0" prefWidth="77.0" text="Choose File" />
+                  <TextField fx:id="ProfilePic" layoutX="460.0" layoutY="126.0" prefHeight="35.0" prefWidth="200.0" promptText="click to choose file" />
+                  <Button fx:id="Adduser" layoutX="505.0" layoutY="413.0" mnemonicParsing="false" onAction="#handleAddUser" prefHeight="41.0" prefWidth="155.0" text="Add User" />
+                  <ComboBox id="1" fx:id="Combobox" layoutX="136.0" layoutY="243.0" prefHeight="35.0" prefWidth="200.0" promptText="Select Roll" />
+                  <TextField fx:id="Email" layoutX="136.0" layoutY="186.0" prefHeight="33.0" prefWidth="200.0" />
+               </children>
+               <effect>
+                  <Blend />
+               </effect>
+            </Pane>
+         </children>
+      </HBox>
+   </center>
+   <bottom>
+      <HBox prefHeight="54.0" prefWidth="630.0" style="-fx-background-color: #027A7A; -fx-pref-height: 30;" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="54.0" prefWidth="715.0" style="-fx-background-color: #027A7A; -fx-pref-width: 30;" />
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>

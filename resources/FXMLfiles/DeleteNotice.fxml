@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="531.0" prefWidth="653.0" style="-fx-pref-height: 620; -fx-pref-width: 1000;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Admin.DeleteNotice">
+   <top>
+      <HBox prefHeight="58.0" prefWidth="637.0" style="-fx-background-color: #027A7A; -fx-pref-height: 50;" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="58.0" prefWidth="654.0" style="-fx-background-color: #027A7A; -fx-pref-height: 50;">
+               <children>
+                  <Button fx:id="BackButton" layoutX="26.0" layoutY="12.0" mnemonicParsing="false" onAction="#BackbuttonHandle" style="-fx-background-radius: 20px; -fx-background-color: green;" text="Back" textFill="#fffefe">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="78.0" layoutY="16.0" prefHeight="17.0" prefWidth="144.0" text="| Faculty Of  Technology" textFill="#e4dfdf">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <HBox alignment="CENTER" prefHeight="330.0" prefWidth="637.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="378.0" prefWidth="653.0">
+               <children>
+                  <Pane layoutX="175.0" layoutY="14.0" prefHeight="51.0" prefWidth="337.0" style="-fx-background-color: none;" />
+                  <ScrollPane layoutX="23.0" layoutY="125.0" prefHeight="263.0" prefWidth="631.0">
+                     <content>
+                        <TableView fx:id="Table1" prefHeight="280.0" prefWidth="650.0">
+                          <columns>
+                            <TableColumn fx:id="Id" prefWidth="75.0" text="ID " />
+                            <TableColumn fx:id="Title" prefWidth="183.0" text="Title" />
+                              <TableColumn fx:id="Date" minWidth="0.0" prefWidth="119.0" text="Date Posted" />
+                          </columns>
+                        </TableView>
+                     </content>
+                  </ScrollPane>
+                  <TextField fx:id="NoticeIdField" layoutX="23.0" layoutY="69.0" prefHeight="37.0" prefWidth="262.0" promptText="Enter NoticeID" />
+                  <Button fx:id="DeleteButton" layoutX="480.0" layoutY="423.0" mnemonicParsing="false" onAction="#handleDeleteButtonAction" prefHeight="42.0" prefWidth="174.0" text="Delete" />
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+   </center>
+   <bottom>
+      <HBox prefHeight="61.0" prefWidth="637.0" style="-fx-pref-height: 30;" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="61.0" prefWidth="1093.0" style="-fx-background-color: #027A7A; -fx-pref-height: 30;" />
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>

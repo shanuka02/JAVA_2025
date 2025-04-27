@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="672.0" style="-fx-pref-height: 620; -fx-pref-width: 1000;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Admin.SearchCourse">
+   <top>
+      <HBox prefHeight="53.0" prefWidth="670.0" style="-fx-pref-height: 50;" BorderPane.alignment="CENTER">
+         <children>
+             <Pane prefHeight="50.0" prefWidth="1131.0" style="-fx-background-color: #027A7A;">
+                 <children>
+                     <Button fx:id="BackButton" layoutX="26.0" layoutY="23.0" mnemonicParsing="false" onAction="#BackbuttonHandle" style="-fx-background-radius: 20px; -fx-background-color: green;" text="Back" textFill="#fffefe">
+                         <cursor>
+                             <Cursor fx:constant="HAND" />
+                         </cursor>
+                         <font>
+                             <Font size="13.0" />
+                         </font>
+                     </Button>
+                     <Label layoutX="78.0" layoutY="27.0" prefHeight="17.0" prefWidth="144.0" text="| Faculty Of  Technology" textFill="#e4dfdf">
+                         <font>
+                             <Font size="13.0" />
+                         </font>
+                     </Label>
+                 </children>
+             </Pane>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <HBox alignment="CENTER" prefHeight="379.0" prefWidth="705.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="540.0" prefWidth="997.0">
+               <children>
+                  <TabPane prefHeight="549.0" prefWidth="1025.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                        <Tab text="View course">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextField fx:id="TextField2" layoutX="126.0" layoutY="33.0" prefHeight="41.0" prefWidth="257.0" promptText="Enter  Course Name" />
+                                    <ScrollPane layoutX="126.0" layoutY="93.0" prefHeight="293.0" prefWidth="773.0">
+                                       <content>
+                                          <TableView fx:id="Table3" prefHeight="334.0" prefWidth="814.0">
+                                             <columns>
+                                                <TableColumn fx:id="Code11" prefWidth="75.0" text="C_Code" />
+                                                <TableColumn fx:id="Name11" prefWidth="138.0" text="C_Name" />
+                                                <TableColumn fx:id="Credit11" prefWidth="66.0" text="Credit" />
+                                                <TableColumn fx:id="Type11" prefWidth="59.0" text="C_type" />
+                                                <TableColumn fx:id="Quizes11" prefWidth="66.0" text="Quizes" />
+                                                <TableColumn fx:id="Assesment11" prefWidth="79.0" text="Assesments" />
+                                                <TableColumn fx:id="CA11" prefWidth="89.0" text="CA Percentage" />
+                                                <TableColumn fx:id="Lecture11" prefWidth="69.0" text="Lecture " />
+                                                <TableColumn fx:id="GPA11" prefWidth="73.0" text="GPA State" />
+                                             </columns>
+                                          </TableView>
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                                 <effect>
+                                    <Blend />
+                                 </effect>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                      <Tab text="Search By ID">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextField fx:id="TextField1" layoutX="248.0" layoutY="76.0" prefHeight="33.0" prefWidth="192.0" />
+                                    <Label layoutX="162.0" layoutY="84.0" text="Course Code" />
+                                    <ScrollPane layoutX="162.0" layoutY="144.0" prefHeight="200.0" prefWidth="636.0">
+                                       <content>
+                                          <TableView fx:id="Table2" prefHeight="298.0" prefWidth="745.0">
+                                             <columns>
+                                                <TableColumn fx:id="Code1" prefWidth="75.0" text="C_Code" />
+                                                <TableColumn fx:id="Name1" prefWidth="75.0" text="C_Name" />
+                                                <TableColumn fx:id="Credit1" prefWidth="75.0" text="Credit" />
+                                                <TableColumn fx:id="Type1" prefWidth="75.0" text="C_type" />
+                                                <TableColumn fx:id="Quizes1" prefWidth="75.0" text="Quizes" />
+                                                <TableColumn fx:id="Assesment1" prefWidth="75.0" text="Assesments" />
+                                                <TableColumn fx:id="CA1" prefWidth="88.0" text="CA Percentage" />
+                                                <TableColumn fx:id="Lecture1" prefWidth="88.0" text="Lecture " />
+                                                <TableColumn fx:id="GPA1" prefWidth="88.0" text="GPA State" />
+                                             </columns>
+                                          </TableView>
+                                       </content>
+                                    </ScrollPane>
+                                    <Button fx:id="Search" layoutX="671.0" layoutY="79.0" mnemonicParsing="false" onAction="#HandleSearchButton" prefHeight="33.0" prefWidth="127.0" text="Search" />
+                                 </children>
+                                 <effect>
+                                    <Blend />
+                                 </effect>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                    </tabs>
+                  </TabPane>
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+   </center>
+   <bottom>
+      <HBox prefHeight="59.0" prefWidth="690.0" style="-fx-pref-height: 30;" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="30.0" prefWidth="1156.0" style="-fx-background-color: #027A7A;" />
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Lecture.viewMedicalDetails">
+    <top>
+        <SplitPane orientation="VERTICAL" prefWidth="600.0" style="-fx-background-color: #027A7A;" BorderPane.alignment="CENTER">
+            <items>
+                <Pane prefHeight="50.0" prefWidth="1000.0">
+                    <children>
+                        <Button fx:id="homeButton" layoutX="24.0" layoutY="17.0" mnemonicParsing="false" onAction="#handleHome" stylesheets="@../lecture_style.css" text="Home" />
+                    </children>
+                </Pane>
+            </items></SplitPane>
+    </top>
+    <bottom>
+        <SplitPane orientation="VERTICAL" prefHeight="30.0" prefWidth="1000.0" style="-fx-background-color: #027A7A;" BorderPane.alignment="CENTER" />
+    </bottom>
+    <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ScrollPane layoutX="22.0" layoutY="74.0" prefHeight="438.0" prefWidth="750.0">
+               <content>
+                  <TableView fx:id="tableView" prefHeight="439.0" prefWidth="748.0">
+                    <columns>
+                      <TableColumn fx:id="MediId" prefWidth="75.0" text="Medical Id " />
+                      <TableColumn fx:id="stuId" prefWidth="96.800048828125" text="Student ID" />
+                        <TableColumn fx:id="reason" prefWidth="288.8000030517578" text="Reason" />
+                        <TableColumn fx:id="reqDate" minWidth="0.0" prefWidth="110.4000244140625" text="Request Date" />
+                        <TableColumn fx:id="status" minWidth="0.0" prefWidth="0.0" text="Status " />
+                        <TableColumn fx:id="subDate" prefWidth="178.40008544921875" text="Submited Date " />
+                    </columns>
+                  </TableView>
+               </content>
+            </ScrollPane>
+            <Label fx:id="coIdMedi" layoutX="180.0" layoutY="28.0" text="Label">
+               <font>
+                  <Font name="SansSerif Regular" size="20.0" />
+               </font></Label>
+         </children>
+      </Pane>
+   </center>
+</BorderPane>

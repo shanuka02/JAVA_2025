@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="518.0" prefWidth="629.0" style="-fx-pref-height: 620; -fx-pref-width: 1000;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Admin.ManageNotice">
+   <top>
+      <HBox prefHeight="70.0" prefWidth="629.0" style="-fx-background-color: #027A7A; -fx-pref-height: 50;" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="70.0" prefWidth="652.0" style="-fx-background-color: #027A7A;">
+
+               <children>
+                  <Button fx:id="HomeButton" layoutX="22.0" layoutY="19.0" mnemonicParsing="false" onAction="#HandleHomeButton" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: none;" text="Home" textFill="#ebe2e2">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="87.0" layoutY="23.0" prefHeight="17.0" prefWidth="147.0" text="|  Manage Notice" textFill="#f5ecec">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Pane>
+         </children>
+      </HBox>
+   </top>
+   <bottom>
+      <HBox prefHeight="76.0" prefWidth="629.0" style="-fx-background-color: #027A7A; -fx-pref-height: 30;" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="100.0" prefWidth="639.0" style="-fx-background-color: #027A7A;" />
+         </children>
+      </HBox>
+   </bottom>
+   <center>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="372.0" prefWidth="634.0">
+               <children>
+                  <Button layoutX="32.0" layoutY="71.0" mnemonicParsing="false" onAction="#handleCreateInterface" prefHeight="54.0" prefWidth="309.0" style="-fx-pref-height: 60;" text="Add Notice" />
+                  <Button layoutX="32.0" layoutY="316.0" mnemonicParsing="false" onAction="#handleDeleteInterface" prefHeight="54.0" prefWidth="309.0" style="-fx-pref-height: 60;" text="Delete Notice" />
+                  <Button layoutX="32.0" layoutY="232.0" mnemonicParsing="false" onAction="#handleUpdateInterface" prefHeight="54.0" prefWidth="309.0" style="-fx-pref-height: 60;" text="Update Notice" />
+                  <Button layoutX="32.0" layoutY="151.0" mnemonicParsing="false" onAction="#handleSearchInterface" prefHeight="54.0" prefWidth="309.0" style="-fx-pref-height: 60;" text="Search Notice" />
+                  <ImageView fitHeight="363.0" fitWidth="302.0" layoutX="380.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/Thesis-bro.png" />
+                     </image></ImageView>
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+   </center>
+</BorderPane>

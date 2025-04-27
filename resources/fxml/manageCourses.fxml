@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Lecture.ManageCoursesController">
+   <top>
+      <SplitPane orientation="VERTICAL" prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #027A7A;" BorderPane.alignment="CENTER">
+         <items>
+            <Pane prefHeight="50.0" prefWidth="1000.0">
+               <children>
+                  <Button fx:id="homeButton" layoutX="24.0" layoutY="17.0" mnemonicParsing="false" onAction="#handleHome" text="Home" />
+               </children>
+            </Pane>
+         </items>
+      </SplitPane>
+   </top>
+   <bottom>
+      <SplitPane orientation="VERTICAL" prefHeight="30.0" prefWidth="1000.0" style="-fx-background-color: #027A7A;" BorderPane.alignment="CENTER" />
+   </bottom>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <TextField fx:id="CourseName1" layoutX="74.0" layoutY="78.0" prefHeight="40.0" prefWidth="300.0" />
+         <TextField fx:id="CourseName2" layoutX="73.0" layoutY="151.0" prefHeight="40.0" prefWidth="300.0" />
+         <TextField fx:id="CourseName3" layoutX="73.0" layoutY="238.0" prefHeight="40.0" prefWidth="300.0" />
+         <TextField fx:id="CourseName4" layoutX="73.0" layoutY="316.0" prefHeight="40.0" prefWidth="300.0" />
+         <TextField fx:id="CourseName5" layoutX="73.0" layoutY="391.0" prefHeight="40.0" prefWidth="300.0" />
+         <Label id="selectCourseId" layoutX="73.0" layoutY="25.0" prefHeight="27.0" prefWidth="150.0" text="Select Course">
+            <font>
+               <Font name="SansSerif Regular" size="20.0" />
+            </font></Label>
+         <Button fx:id="course1Button" layoutX="459.0" layoutY="78.0" mnemonicParsing="false" onAction="#handleCourseButton" prefHeight="40.0" prefWidth="80.0" style="-fx-background-color: #027A7A;" text="Select" textFill="#fffefe" />
+         <Button fx:id="course2Button" layoutX="459.0" layoutY="151.0" mnemonicParsing="false" onAction="#handleCourseButton" prefHeight="40.0" prefWidth="80.0" style="-fx-background-color: #027A7A;" text="Select" textFill="WHITE" />
+         <Button fx:id="course3Button" layoutX="459.0" layoutY="225.0" mnemonicParsing="false" onAction="#handleCourseButton" prefHeight="40.0" prefWidth="80.0" style="-fx-background-color: #027A7A;" text="Select" textFill="WHITE" />
+         <Button fx:id="course4Button" layoutX="460.0" layoutY="316.0" mnemonicParsing="false" onAction="#handleCourseButton" prefHeight="40.0" prefWidth="80.0" style="-fx-background-color: #027A7A;" text="Select" textFill="WHITE" />
+         <Button fx:id="course5Button" layoutX="460.0" layoutY="391.0" mnemonicParsing="false" onAction="#handleCourseButton" prefHeight="40.0" prefWidth="80.0" style="-fx-background-color: #027A7A;" text="Select" textFill="WHITE" />
+         <ImageView fitHeight="244.0" fitWidth="266.0" layoutX="660.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../images/Online%20resume-cuate.png" />
+            </image>
+         </ImageView>
+      </Pane>
+   </center>
+</BorderPane>

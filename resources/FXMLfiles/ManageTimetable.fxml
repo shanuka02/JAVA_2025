@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="496.0" prefWidth="665.0" style="-fx-pref-height: 620; -fx-pref-width: 1000;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Admin.ManageTimetable">
+   <top>
+      <HBox prefHeight="56.0" prefWidth="600.0" style="-fx-background-color: #027A7A; -fx-pref-height: 50;" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="56.0" prefWidth="673.0">
+               <children>
+                  <Button fx:id="HomeButton" layoutX="22.0" layoutY="19.0" mnemonicParsing="false" onAction="#HandleHomeButton" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: none;" text="Home" textFill="#ebe2e2">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="87.0" layoutY="23.0" prefHeight="17.0" prefWidth="147.0" text="|  Manage Timetable" textFill="#f5ecec">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Pane>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="377.0" prefWidth="742.0">
+               <children>
+                  <Button fx:id="AddButton" layoutX="59.0" layoutY="80.0" mnemonicParsing="false" onAction="#HnadleAdd" prefHeight="56.0" prefWidth="283.0" text="Add Timetable" />
+                  <Button fx:id="ViewButton" layoutX="59.0" layoutY="158.0" mnemonicParsing="false" onAction="#HandleView" prefHeight="56.0" prefWidth="283.0" text="Search Timetable" />
+                  <Button fx:id="UpdateButton" layoutX="59.0" layoutY="236.0" mnemonicParsing="false" onAction="#HandleUpdate" prefHeight="59.0" prefWidth="283.0" text="Update Timetable" />
+                  <Button fx:id="DeleteButton" layoutX="59.0" layoutY="314.0" mnemonicParsing="false" onAction="#handleDelete" prefHeight="59.0" prefWidth="283.0" text="DeleteTimetable" />
+                  <ImageView fitHeight="368.0" fitWidth="328.0" layoutX="383.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/Thesis-rafiki.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+   </center>
+   <bottom>
+      <HBox prefHeight="63.0" prefWidth="665.0" style="-fx-background-color: #027A7A; -fx-pref-height: 30;" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="63.0" prefWidth="668.0" />
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="496.0" prefWidth="664.0" style="-fx-pref-height: 620; -fx-pref-width: 1000;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Admin.CreateCourse">
+   <top>
+      <HBox prefHeight="62.0" prefWidth="643.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="62.0" prefWidth="1018.0" style="-fx-background-color: #027A7A; -fx-pref-height: 50;">
+               <children>
+                  <Button fx:id="BackButton" layoutX="26.0" layoutY="23.0" mnemonicParsing="false" onAction="#BackbuttonHandle" style="-fx-background-radius: 20px; -fx-background-color: green;" text="Back" textFill="#fffefe">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="78.0" layoutY="27.0" prefHeight="17.0" prefWidth="144.0" text="| Faculty Of  Technology" textFill="#e4dfdf">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="528.0" prefWidth="706.0">
+               <children>
+                  <Group layoutX="30.0" layoutY="28.0">
+                     <children>
+                        <Label layoutY="8.0" text="Course Code" />
+                        <Label layoutX="72.0" text="*" textFill="#ee0606" />
+                     </children>
+                  </Group>
+                  <Group layoutX="29.0" layoutY="84.0">
+                     <children>
+                        <Label layoutY="8.0" text="Course Name" />
+                        <Label layoutX="74.0" text="*" textFill="#ee0606" />
+                     </children>
+                  </Group>
+                  <Group layoutX="51.0" layoutY="139.0">
+                     <children>
+                        <Label layoutY="8.0" text="Credit" />
+                        <Label layoutX="32.0" text="*" textFill="#ee0606" />
+                     </children>
+                  </Group>
+                  <Label layoutX="31.0" layoutY="301.0" text="No Of Quizes" />
+                  <Pane layoutX="16.0" layoutY="168.0" prefHeight="108.0" prefWidth="316.0">
+                     <children>
+                        <Group layoutX="14.0" layoutY="15.0">
+                           <children>
+                              <Label layoutY="7.0" text="Course Type" />
+                              <Label layoutX="64.0" text="*" textFill="#ee0606" />
+                           </children>
+                        </Group>
+                        <RadioButton fx:id="T" layoutX="140.0" layoutY="22.0" mnemonicParsing="false" selected="true" text="T">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="Type" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="P" layoutX="140.0" layoutY="46.0" mnemonicParsing="false" text="P" toggleGroup="$Type" />
+                        <RadioButton fx:id="TP" layoutX="140.0" layoutY="69.0" mnemonicParsing="false" text="T/P" toggleGroup="$Type" />
+                     </children>
+                  </Pane>
+                  <Label layoutX="16.0" layoutY="354.0" text="No Of Assesments" />
+                  <Group layoutX="24.0" layoutY="410.0">
+                     <children>
+                        <Label layoutY="8.0" text="CA Percentage" />
+                        <Label layoutX="77.0" text="*" textFill="#ee0606" />
+                     </children>
+                  </Group>
+                  <Pane layoutX="377.0" layoutY="120.0" prefHeight="88.0" prefWidth="240.0">
+                     <children>
+                        <Group layoutX="14.0" layoutY="7.0">
+                           <children>
+                              <Label layoutY="7.0" text="GPA State" />
+                              <Label layoutX="51.0" text="*" textFill="#ee0606" />
+                           </children>
+                        </Group>
+                        <RadioButton fx:id="GPAV" layoutX="120.0" layoutY="14.0" mnemonicParsing="false" selected="true" text="GPA">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="GPAvalue" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton layoutX="120.0" layoutY="43.0" mnemonicParsing="false" text="NON " toggleGroup="$GPAvalue" />
+                     </children>
+                  </Pane>
+                  <Button fx:id="AddButton" layoutX="492.0" layoutY="402.0" mnemonicParsing="false" onAction="#HnadleAddButton" prefHeight="41.0" prefWidth="200.0" text="Add Course" />
+                  <TextField fx:id="Code" layoutX="124.0" layoutY="32.0" style="-fx-pref-width: 200; -fx-pref-height: 35;" />
+                  <TextField fx:id="CA" layoutX="124.0" layoutY="405.0" prefHeight="33.0" prefWidth="149.0" style="-fx-pref-height: 35; -fx-pref-width: 200;" />
+                  <TextField fx:id="Name" layoutX="124.0" layoutY="79.0" style="-fx-pref-height: 35; -fx-pref-width: 200;" />
+                  <TextField fx:id="Credit" layoutX="124.0" layoutY="134.0" style="-fx-pref-height: 35; -fx-pref-width: 200;" />
+                  <TextField fx:id="Quize" layoutX="124.0" layoutY="292.0" prefHeight="35.0" prefWidth="200.0" />
+                  <TextField fx:id="Assesment" layoutX="124.0" layoutY="345.0" style="-fx-pref-height: 35; -fx-pref-width: 200;" />
+                  <Group layoutX="388.0" layoutY="37.0">
+                     <children>
+                        <Label layoutY="8.0" text="Lecture Incharge" />
+                        <Label layoutX="85.0" text="*" textFill="#ee0606" />
+                     </children>
+                  </Group>
+                  <ComboBox fx:id="Lecture" layoutX="497.0" layoutY="41.0" prefWidth="150.0" style="-fx-pref-height: 35; -fx-pref-width: 200;" />
+               </children>
+               <effect>
+                  <Blend />
+               </effect>
+            </Pane>
+         </children>
+      </HBox>
+   </center>
+   <bottom>
+      <HBox prefHeight="49.0" prefWidth="643.0" style="-fx-pref-height: 30;" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="49.0" prefWidth="1014.0" style="-fx-background-color: #027A7A; -fx-pref-height: 30;" />
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="486.0" prefWidth="668.0" style="-fx-pref-height: 620; -fx-pref-width: 1000;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Admin.SearchTimeTable">
+   <top>
+      <HBox prefHeight="50.0" prefWidth="600.0" style="-fx-background-color: #027A7A; -fx-pref-height: 50;" BorderPane.alignment="CENTER">
+         <children>
+             <Pane prefHeight="50.0" prefWidth="671.0">
+                 <children>
+                     <Button fx:id="BackButton" layoutX="26.0" layoutY="14.0" mnemonicParsing="false" onAction="#BackbuttonHandle" style="-fx-background-radius: 20px; -fx-background-color: green;" text="Back" textFill="#fffefe">
+                         <cursor>
+                             <Cursor fx:constant="HAND" />
+                         </cursor>
+                         <font>
+                             <Font size="13.0" />
+                         </font>
+                     </Button>
+                     <Label layoutX="78.0" layoutY="18.0" prefHeight="19.0" prefWidth="193.0" text="| Faculty Of  Technology" textFill="#e4dfdf">
+                         <font>
+                             <Font size="13.0" />
+                         </font>
+                     </Label>
+                 </children>
+             </Pane>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <HBox alignment="CENTER" prefHeight="366.0" prefWidth="668.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="540.0" prefWidth="1008.0">
+               <children>
+                  <TabPane layoutY="-3.0" prefHeight="586.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab text="View All TimeTables">
+                           <content>
+                              <Pane prefHeight="171.0" prefWidth="581.0">
+                                 <children>
+                                    <ScrollPane layoutX="167.0" layoutY="117.0" prefHeight="295.0" prefWidth="698.0">
+                                       <content>
+                                          <TableView fx:id="Table1" prefHeight="361.0" prefWidth="790.0">
+                                            <columns>
+                                              <TableColumn fx:id="ID" prefWidth="75.0" text="ID" />
+                                              <TableColumn fx:id="Caption" prefWidth="239.0" text="Caption" />
+                                                <TableColumn fx:id="Date" prefWidth="117.0" text="Submited Date" />
+                                                <TableColumn fx:id="DepName" prefWidth="75.0" text="Dep Name" />
+                                                <TableColumn fx:id="Content" prefWidth="84.0" text="Content" />
+                                            </columns>
+                                          </TableView>
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                              </Pane>
+                           </content>
+                      </Tab>
+                    </tabs>
+                  </TabPane>
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+   </center>
+   <bottom>
+      <HBox prefHeight="71.0" prefWidth="668.0" style="-fx-background-color: #027A7A; -fx-pref-height: 30;" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="71.0" prefWidth="676.0" />
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>
