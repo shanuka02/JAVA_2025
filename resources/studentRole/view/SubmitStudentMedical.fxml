@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="620.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StudentPackage.SubmitStudentMedical">
+<AnchorPane prefHeight="620.0" prefWidth="1000.0" style="-fx-background-color: #c3c7e3;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StudentPackage.SubmitStudentMedical">
     <children>
         <Label layoutX="291.0" layoutY="64.0" text="Submit Student Medical Information">
             <font>
