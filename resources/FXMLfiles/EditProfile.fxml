@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="681.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Admin.EditProfile">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="681.0" style="-fx-pref-height: 620; -fx-pref-width: 1000;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Admin.EditProfile">
    <top>
-      <HBox prefHeight="65.0" prefWidth="660.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER">
+      <HBox prefHeight="65.0" prefWidth="660.0" style="-fx-background-color: #027A7A; -fx-pref-height: 50;" BorderPane.alignment="CENTER">
          <children>
              <Pane prefHeight="65.0" prefWidth="688.0">
                  <children>
@@ -35,39 +37,72 @@
       </HBox>
    </top>
    <center>
-      <HBox prefHeight="328.0" prefWidth="660.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="328.0" prefWidth="660.0" BorderPane.alignment="CENTER">
          <children>
              <Pane prefHeight="375.0" prefWidth="713.0">
                  <children>
-                     <TextField fx:id="UserId" layoutX="133.0" layoutY="43.0" />
-                     <TextField fx:id="Username" layoutX="133.0" layoutY="92.0" />
-                     <TextField fx:id="Email" layoutX="133.0" layoutY="137.0" />
-                     <TextField fx:id="PhoneNumber" layoutX="133.0" layoutY="236.0" />
-                     <Label layoutX="40.0" layoutY="47.0" text="User ID" />
-                     <Label layoutX="33.0" layoutY="240.0" text="Phone Number" />
-                     <Label layoutX="49.0" layoutY="194.0" text="Roll" />
-                     <Label layoutX="45.0" layoutY="141.0" text="Email" />
-                     <Label layoutX="37.0" layoutY="96.0" text="User name" />
-                     <Pane layoutX="133.0" layoutY="178.0" prefHeight="33.0" prefWidth="161.0">
-                         <children>
-                             <ComboBox id="1" fx:id="Combobox1" layoutY="7.0" prefWidth="150.0" promptText="Select Roll" />
-                         </children>
+                     <TextField fx:id="UserId" layoutX="131.0" layoutY="47.0" style="-fx-pref-width: 200; -fx-pref-height: 35;" />
+                     <TextField fx:id="Username" layoutX="131.0" layoutY="96.0" style="-fx-pref-height: 35; -fx-pref-width: 200;" />
+                     <TextField fx:id="Email" layoutX="131.0" layoutY="146.0" style="-fx-pref-height: 35; -fx-pref-width: 200;" />
+                     <TextField fx:id="PhoneNumber" layoutX="131.0" layoutY="277.0" style="-fx-pref-height: 35; -fx-pref-width: 200;" />
+                  <Group layoutX="48.0" layoutY="46.0">
+                     <children>
+                           <Label layoutY="21.0" text="User ID" />
+                        <Label layoutX="40.0" text="*" textFill="#fc0303" />
+                     </children>
+                  </Group>
+                     <Label layoutX="35.0" layoutY="286.0" text="Phone Number" />
+                  <Group layoutX="62.0" layoutY="215.0">
+                     <children>
+                           <Label layoutY="8.0" text="Roll" />
+                        <Label layoutX="21.0" text="*" textFill="#fc0303" />
+                     </children>
+                  </Group>
+                  <Group layoutX="52.0" layoutY="151.0">
+                     <children>
+                           <Label layoutY="8.0" text="Email" />
+                        <Label layoutX="31.0" text="*" textFill="#fc0303" />
+                     </children>
+                  </Group>
+                  <Group layoutX="45.0" layoutY="101.0">
+                     <children>
+                           <Label layoutY="8.0" text="User name" />
+                        <Label layoutX="54.0" text="*" textFill="#fc0303" />
+                     </children>
+                  </Group>
+                     <Pane layoutX="133.0" layoutY="211.0" prefHeight="33.0" prefWidth="196.0">
+                     <children>
+                             <ComboBox id="1" fx:id="Combobox1" layoutX="-2.0" layoutY="-4.0" prefHeight="37.0" prefWidth="201.0" promptText="Select Roll" />
+                     </children>
                      </Pane>
-                     <Label layoutX="33.0" layoutY="276.0" text="Address" />
-                     <TextField fx:id="Address" layoutX="133.0" layoutY="272.0" />
-                     <Label layoutX="30.0" layoutY="322.0" prefHeight="17.0" prefWidth="79.0" text="Department " />
-                     <ComboBox id="1" fx:id="Combobox2" layoutX="132.0" layoutY="318.0" prefWidth="150.0" promptText=" Select Department" />
-                     <Label layoutX="341.0" layoutY="47.0" text="Profile Pic" />
-                     <Button fx:id="ChooseFilePath" layoutX="476.0" layoutY="80.0" mnemonicParsing="false" onAction="#ChooseFile" prefHeight="11.0" prefWidth="77.0" text="Choose File" />
-                     <TextField fx:id="ProfilePic" layoutX="402.0" layoutY="43.0" promptText="click to choose file" />
-                     <Button fx:id="Adduser" layoutX="419.0" layoutY="310.0" mnemonicParsing="false" onAction="#handleAddUser" prefHeight="25.0" prefWidth="155.0" text="Save " />
+                     <Label layoutX="31.0" layoutY="337.0" text="Address" />
+                     <TextField fx:id="Address" layoutX="131.0" layoutY="328.0" style="-fx-pref-height: 35; -fx-pref-width: 200;" />
+                  <Group layoutX="23.0" layoutY="380.0">
+                     <children>
+                           <Label layoutY="8.0" prefHeight="17.0" prefWidth="79.0" text="Department " />
+                        <Label layoutX="63.0" text="*" textFill="#fc0303" />
+                     </children>
+                  </Group>
+                     <ComboBox id="1" fx:id="Combobox2" layoutX="131.0" layoutY="374.0" prefHeight="38.0" prefWidth="200.0" promptText=" Select Department" />
+                  <Group layoutX="357.0" layoutY="50.0">
+                     <children>
+                           <Label layoutY="12.0" text="Profile Pic" />
+                        <Label layoutX="49.0" text="*" textFill="#fc0303" />
+                     </children>
+                  </Group>
+                     <Button fx:id="ChooseFilePath" layoutX="549.0" layoutY="88.0" mnemonicParsing="false" onAction="#ChooseFile" prefHeight="11.0" prefWidth="77.0" text="Choose File" />
+                     <TextField fx:id="ProfilePic" layoutX="426.0" layoutY="48.0" promptText="click to choose file" style="-fx-pref-height: 35; -fx-pref-width: 200;" />
+                     <Button fx:id="Adduser" layoutX="449.0" layoutY="366.0" mnemonicParsing="false" onAction="#handleAddUser" prefHeight="39.0" prefWidth="167.0" text="Save " />
                  </children>
+               <effect>
+                  <Blend />
+               </effect>
              </Pane>
          </children>
       </HBox>
    </center>
    <bottom>
-      <HBox prefHeight="48.0" prefWidth="660.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER">
+      <HBox prefHeight="48.0" prefWidth="660.0" style="-fx-background-color: #027A7A; -fx-pref-height: 30;" BorderPane.alignment="CENTER">
          <children>
             <Pane prefHeight="200.0" prefWidth="200.0" />
          </children>

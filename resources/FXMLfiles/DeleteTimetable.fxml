@@ -12,13 +12,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="522.0" prefWidth="706.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Admin.DeleteTimeTable">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="522.0" prefWidth="706.0" style="-fx-pref-height: 620; -fx-pref-width: 1000;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Admin.DeleteTimeTable">
    <top>
-      <HBox prefHeight="58.0" prefWidth="706.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="58.0" prefWidth="706.0" style="-fx-pref-height: 50;" BorderPane.alignment="CENTER">
          <children>
-             <Pane prefHeight="58.0" prefWidth="720.0" style="-fx-background-color: blue;">
+             <Pane prefHeight="58.0" prefWidth="1118.0" style="-fx-background-color: #027A7A; -fx-pref-height: 50;">
                  <children>
-                     <Button fx:id="BackButton" layoutX="26.0" layoutY="23.0" mnemonicParsing="false" onAction="#BackbuttonHandle" style="-fx-background-radius: 20px; -fx-background-color: green;" text="Back" textFill="#fffefe">
+                     <Button fx:id="BackButton" layoutX="26.0" layoutY="14.0" mnemonicParsing="false" onAction="#BackbuttonHandle" style="-fx-background-radius: 20px; -fx-background-color: green;" text="Back" textFill="#fffefe">
                          <cursor>
                              <Cursor fx:constant="HAND" />
                          </cursor>
@@ -26,7 +26,7 @@
                              <Font size="13.0" />
                          </font>
                      </Button>
-                     <Label layoutX="78.0" layoutY="27.0" prefHeight="17.0" prefWidth="144.0" text="| Faculty Of  Technology" textFill="#e4dfdf">
+                     <Label layoutX="78.0" layoutY="18.0" prefHeight="17.0" prefWidth="144.0" text="| Faculty Of  Technology" textFill="#e4dfdf">
                          <font>
                              <Font size="13.0" />
                          </font>
@@ -37,13 +37,13 @@
       </HBox>
    </top>
    <center>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <Pane prefHeight="400.0" prefWidth="715.0">
                 <children>
-                          <ScrollPane layoutX="42.0" layoutY="87.0" prefHeight="237.0" prefWidth="623.0">
+                          <ScrollPane layoutX="42.0" layoutY="117.0" prefHeight="286.0" prefWidth="661.0">
                               <content>
-                                  <TableView fx:id="Table1" prefHeight="250.0" prefWidth="633.0">
+                                  <TableView fx:id="Table1" prefHeight="302.0" prefWidth="694.0">
                                       <columns>
                                           <TableColumn fx:id="ID" prefWidth="75.0" text="ID" />
                                           <TableColumn fx:id="Caption" prefWidth="160.0" text="Caption" />
@@ -52,17 +52,17 @@
                                   </TableView>
                               </content>
                           </ScrollPane>
-                  <Button fx:id="DeleteButton" layoutX="505.0" layoutY="350.0" mnemonicParsing="false" onAction="#HandleDelete" prefHeight="39.0" prefWidth="154.0" text="Delete" />
-                  <TextField fx:id="TextField1" layoutX="42.0" layoutY="43.0" prefHeight="25.0" prefWidth="230.0" promptText="Enter ID to Search" />
+                  <Button fx:id="DeleteButton" layoutX="520.0" layoutY="440.0" mnemonicParsing="false" onAction="#HandleDelete" prefHeight="39.0" prefWidth="183.0" text="Delete" />
+                  <TextField fx:id="TextField1" layoutX="42.0" layoutY="58.0" prefHeight="40.0" prefWidth="248.0" promptText="Enter ID to Search" />
                 </children>
             </Pane>
          </children>
       </HBox>
    </center>
    <bottom>
-      <HBox prefHeight="64.0" prefWidth="706.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="64.0" prefWidth="706.0" style="-fx-pref-height: 30;" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="64.0" prefWidth="714.0" style="-fx-background-color: blue;" />
+            <Pane prefHeight="64.0" prefWidth="1316.0" style="-fx-background-color: #027A7A; -fx-pref-height: 30;" />
          </children>
       </HBox>
    </bottom>

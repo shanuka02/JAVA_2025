@@ -251,7 +251,8 @@ public class SearchNoticeController {
                         try {
                             Desktop.getDesktop().open(file);
                         } catch (IOException ex) {
-                            ex.printStackTrace();
+                            JOptionPane.showMessageDialog(null," "+ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
+
                         }
                     } else {
                         Alert alert = new Alert(Alert.AlertType.ERROR, "File not found.");

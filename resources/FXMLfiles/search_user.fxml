@@ -17,13 +17,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="border" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="615.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Admin.SearchUserController">
+<BorderPane fx:id="border" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="615.0" style="-fx-pref-height: 620; -fx-pref-width: 1000;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Admin.SearchUserController">
    <top>
-      <HBox prefHeight="74.0" prefWidth="615.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="74.0" prefWidth="615.0" style="-fx-background-color: #027A7A; -fx-pref-height: 50;" BorderPane.alignment="CENTER">
          <children>
-             <Pane prefHeight="74.0" prefWidth="615.0" style="-fx-background-color: blue;">
+             <Pane prefHeight="74.0" prefWidth="615.0" style="-fx-background-color: #027A7A;">
                  <children>
-                     <Button fx:id="BackButton" layoutX="26.0" layoutY="23.0" mnemonicParsing="false" onAction="#BackbuttonHandle" style="-fx-background-radius: 20px; -fx-background-color: green;" text="Back" textFill="#fffefe">
+                     <Button fx:id="BackButton" layoutX="23.0" layoutY="14.0" mnemonicParsing="false" onAction="#BackbuttonHandle" style="-fx-background-radius: 20px; -fx-background-color: green;" text="Back" textFill="#fffefe">
                          <cursor>
                              <Cursor fx:constant="HAND" />
                          </cursor>
@@ -31,7 +31,7 @@
                              <Font size="13.0" />
                          </font>
                      </Button>
-                     <Label layoutX="78.0" layoutY="27.0" prefHeight="17.0" prefWidth="144.0" text="| Faculty Of  Technology" textFill="#e4dfdf">
+                     <Label layoutX="78.0" layoutY="16.0" prefHeight="17.0" prefWidth="144.0" text="| Faculty Of  Technology" textFill="#e4dfdf">
                          <font>
                              <Font size="13.0" />
                          </font>
@@ -42,18 +42,18 @@
       </HBox>
    </top>
    <center>
-      <HBox prefHeight="326.0" prefWidth="615.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="326.0" prefWidth="615.0" BorderPane.alignment="CENTER">
          <children>
-            <TabPane fx:id="SearchTab" prefHeight="325.0" prefWidth="623.0" tabClosingPolicy="UNAVAILABLE">
+            <TabPane fx:id="SearchTab" prefHeight="540.0" prefWidth="1059.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
                 <Tab fx:id="ViewByUSerId" text="Search By UserID">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <TextField fx:id="TextField1" layoutX="14.0" layoutY="34.0" prefHeight="25.0" prefWidth="248.0" promptText="Enter User Id to Search" />
-                              <ScrollPane layoutX="14.0" layoutY="82.0" prefHeight="228.0" prefWidth="588.0">
+                              <TextField fx:id="TextField1" layoutX="163.0" layoutY="40.0" prefHeight="35.0" prefWidth="273.0" promptText="Enter User Id to Search" />
+                              <ScrollPane layoutX="163.0" layoutY="98.0" prefHeight="294.0" prefWidth="682.0">
                                  <content>
-                                    <TableView fx:id="table2" prefHeight="270.0" prefWidth="639.0">
+                                    <TableView fx:id="table2" prefHeight="309.0" prefWidth="745.0">
                                       <columns>
                                         <TableColumn fx:id="colUserId2" prefWidth="75.0" text="userId" />
                                         <TableColumn fx:id="colUserName2" prefWidth="75.0" text="user_name" />
@@ -76,25 +76,25 @@
                      <content>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <Label layoutX="14.0" layoutY="29.0" text="Select Roll :  " />
-                              <ScrollPane layoutX="14.0" layoutY="81.0" prefHeight="239.0" prefWidth="586.0">
+                              <Label layoutX="137.0" layoutY="79.0" text="Select Roll :  " />
+                              <ScrollPane layoutX="137.0" layoutY="126.0" prefHeight="301.0" prefWidth="708.0">
                                  <content>
-                                    <TableView fx:id="table3" prefHeight="324.0" prefWidth="602.0">
+                                    <TableView fx:id="table3" prefHeight="324.0" prefWidth="788.0">
                                       <columns>
                                         <TableColumn fx:id="colUserId3" prefWidth="75.0" text="user_id" />
                                         <TableColumn fx:id="colUserName3" prefWidth="75.0" text="user_name" />
-                                          <TableColumn fx:id="colEmail3" prefWidth="75.0" text="email" />
-                                          <TableColumn fx:id="colRoll3" prefWidth="75.0" text="roll" />
-                                          <TableColumn fx:id="colPhone3" prefWidth="75.0" text="phoneNumber" />
-                                          <TableColumn fx:id="colAddress3" prefWidth="75.0" text="address" />
+                                          <TableColumn fx:id="colEmail3" prefWidth="82.0" text="email" />
+                                          <TableColumn fx:id="colRoll3" prefWidth="99.0" text="roll" />
+                                          <TableColumn fx:id="colPhone3" prefWidth="83.0" text="phoneNum" />
+                                          <TableColumn fx:id="colAddress3" prefWidth="140.0" text="address" />
                                           <TableColumn fx:id="colDep3" prefWidth="75.0" text="depName" />
-                                          <TableColumn fx:id="colPassword3" prefWidth="75.0" text="password" />
+                                          <TableColumn fx:id="colPassword3" prefWidth="83.0" text="password" />
 
                                       </columns>
                                     </TableView>
                                  </content>
                               </ScrollPane>
-                              <Pane layoutX="93.0" layoutY="15.0" prefHeight="46.0" prefWidth="361.0">
+                              <Pane layoutX="252.0" layoutY="64.0" prefHeight="46.0" prefWidth="361.0">
                                  <children>
 
                                     <RadioButton fx:id="B1" layoutY="15.0" mnemonicParsing="false" selected="true" text="Undergraduate">
@@ -105,7 +105,7 @@
                                     <RadioButton fx:id="B3" layoutX="211.0" layoutY="15.0" mnemonicParsing="false" text="Technical Officer" toggleGroup="$roll" />
                                  </children>
                               </Pane>
-                              <Button fx:id="Button2" layoutX="454.0" layoutY="26.0" mnemonicParsing="false" onAction="#handleButton2Click" prefHeight="25.0" prefWidth="145.0" text="Search" />
+                              <Button fx:id="Button2" layoutX="700.0" layoutY="66.0" mnemonicParsing="false" onAction="#handleButton2Click" prefHeight="41.0" prefWidth="145.0" text="Search" />
                            </children>
                         </AnchorPane>
                      </content>
@@ -116,9 +116,9 @@
       </HBox>
    </center>
    <bottom>
-      <HBox prefHeight="41.0" prefWidth="615.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER">
+      <HBox prefHeight="41.0" prefWidth="615.0" style="-fx-background-color: #027A7A; -fx-pref-height: 30;" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="200.0" prefWidth="200.0" />
+            <Pane prefHeight="30.0" prefWidth="891.0" />
          </children>
       </HBox>
    </bottom>

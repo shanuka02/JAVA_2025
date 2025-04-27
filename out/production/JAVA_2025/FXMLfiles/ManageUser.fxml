@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -7,22 +8,21 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.text.Font?>
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="481.0" prefWidth="714.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Admin.ManageUserController">
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="481.0" prefWidth="714.0" style="-fx-pref-height: 620; -fx-pref-width: 1000;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Admin.ManageUserController">
    <top>
-      <HBox prefHeight="72.0" prefWidth="600.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER">
+      <HBox prefHeight="72.0" prefWidth="600.0" style="-fx-background-color: #027A7A; -fx-pref-height: 50;" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="200.0" prefWidth="200.0" >
+            <Pane prefHeight="200.0" prefWidth="200.0">
 
                <children>
-                  <Button fx:id="HomeButton" layoutX="22.0" layoutY="19.0" mnemonicParsing="false" onAction="#HandleHomeButton" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: none;" text="Home" textFill="#ebe2e2">
+                  <Button fx:id="HomeButton" layoutX="22.0" layoutY="10.0" mnemonicParsing="false" onAction="#HandleHomeButton" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: none;" text="Home" textFill="#ebe2e2">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Button>
-                  <Label layoutX="87.0" layoutY="23.0" prefHeight="17.0" prefWidth="147.0" text="|  Faculty Of Technology" textFill="#f5ecec">
+                  <Label layoutX="87.0" layoutY="14.0" prefHeight="17.0" prefWidth="147.0" text="|  Manage User" textFill="#f5ecec">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -35,29 +35,29 @@
          </children></HBox>
    </top>
    <center>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="337.0" prefWidth="730.0" style="-fx-background-color: White;">
+            <Pane prefHeight="337.0" prefWidth="730.0">
                <children>
-                  <Button fx:id="SearchButton" layoutX="37.0" layoutY="48.0" mnemonicParsing="false" onAction="#searchButtonHandle" prefHeight="56.0" prefWidth="434.0">
+                  <Button fx:id="SearchButton" layoutX="37.0" layoutY="242.0" mnemonicParsing="false" onAction="#searchButtonHandle" prefHeight="56.0" prefWidth="434.0">
                      <graphic>
                         <Label text="Search User" />
                      </graphic>
                   </Button>
-                  <Button fx:id="CreateButton" layoutX="37.0" layoutY="123.0" mnemonicParsing="false" onAction="#createButtonHandle" prefHeight="56.0" prefWidth="434.0">
+                  <Button fx:id="CreateButton" layoutX="37.0" layoutY="154.0" mnemonicParsing="false" onAction="#createButtonHandle" prefHeight="56.0" prefWidth="434.0">
                      <graphic>
-                        <Label text="Create User" />
+                        <Label text="Add User" />
                      </graphic>
                   </Button>
-                  <Button fx:id="DeleteButton" layoutX="37.0" layoutY="206.0" mnemonicParsing="false" onAction="#DeleteButtonHandle" prefHeight="56.0" prefWidth="434.0">
+                  <Button fx:id="DeleteButton" layoutX="37.0" layoutY="326.0" mnemonicParsing="false" onAction="#DeleteButtonHandle" prefHeight="56.0" prefWidth="434.0">
                      <graphic>
                         <Label prefHeight="17.0" prefWidth="73.0" text="Delete User" />
                      </graphic>
                   </Button>
 
-                  <ImageView fitHeight="281.0" fitWidth="200.0" layoutX="500.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="281.0" fitWidth="200.0" layoutX="501.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Images/ManageUser1.jpeg" />
+                        <Image url="@../Images/management.png" />
                      </image>
                   </ImageView>
                </children>
@@ -66,6 +66,6 @@
       </HBox>
    </center>
    <bottom>
-      <HBox prefHeight="52.0" prefWidth="714.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER" />
+      <HBox prefHeight="52.0" prefWidth="714.0" style="-fx-background-color: #027A7A; -fx-pref-height: 30;" BorderPane.alignment="CENTER" />
    </bottom>
 </BorderPane>

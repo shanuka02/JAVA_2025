@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.Blend?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.scene.Cursor?>
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="658.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Admin.UpdateTimeTable">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="658.0" style="-fx-pref-height: 620; -fx-pref-width: 1000;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Admin.UpdateTimeTable">
    <top>
-      <HBox prefHeight="58.0" prefWidth="658.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER">
+      <HBox prefHeight="58.0" prefWidth="658.0" style="-fx-background-color: #027A7A; -fx-pref-height: 50;" BorderPane.alignment="CENTER">
          <children>
-             <Pane prefHeight="49.0" prefWidth="658.0" >
+             <Pane prefHeight="49.0" prefWidth="658.0">
                  <children>
-                     <Button fx:id="BackButton" layoutX="26.0" layoutY="23.0" mnemonicParsing="false" onAction="#BackbuttonHandle" style="-fx-background-radius: 20px; -fx-background-color: green;" text="Back" textFill="#fffefe">
+                     <Button fx:id="BackButton" layoutX="26.0" layoutY="14.0" mnemonicParsing="false" onAction="#BackbuttonHandle" style="-fx-background-radius: 20px; -fx-background-color: green;" text="Back" textFill="#fffefe">
                          <cursor>
                              <Cursor fx:constant="HAND" />
                          </cursor>
@@ -26,7 +27,7 @@
                              <Font size="13.0" />
                          </font>
                      </Button>
-                     <Label layoutX="78.0" layoutY="27.0" prefHeight="17.0" prefWidth="144.0" text="| Faculty Of  Technology" textFill="#e4dfdf">
+                     <Label layoutX="78.0" layoutY="18.0" prefHeight="17.0" prefWidth="144.0" text="| Faculty Of  Technology" textFill="#e4dfdf">
                          <font>
                              <Font size="13.0" />
                          </font>
@@ -36,18 +37,18 @@
          </children></HBox>
    </top>
    <center>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <Pane prefHeight="50.0" prefWidth="660.0" style="-fx-background-color: none;">
                 <children>
-                    <Label layoutX="54.0" layoutY="55.0" text="ID" />
-                    <Label layoutX="54.0" layoutY="98.0" text="Caption" />
-                    <Label layoutX="54.0" layoutY="155.0" text="Content" />
-                    <TextField fx:id="ID" layoutX="137.0" layoutY="51.0" prefHeight="25.0" prefWidth="199.0" />
-                    <TextArea fx:id="Caption" layoutX="137.0" layoutY="88.0" prefHeight="34.0" prefWidth="200.0" />
-                    <TextField fx:id="Content" layoutX="137.0" layoutY="143.0" prefHeight="25.0" prefWidth="200.0" />
+                    <Label layoutX="68.0" layoutY="60.0" text="ID" />
+                    <Label layoutX="53.0" layoutY="117.0" text="Caption" />
+                    <Label layoutX="53.0" layoutY="173.0" text="Content" />
+                    <TextField fx:id="ID" layoutX="137.0" layoutY="51.0" prefHeight="25.0" prefWidth="199.0" style="-fx-pref-height: 35; -fx-pref-width: 200;" />
+                    <TextArea fx:id="Caption" layoutX="137.0" layoutY="107.0" prefHeight="34.0" prefWidth="200.0" style="-fx-pref-height: 35; -fx-pref-width: 200;" />
+                    <TextField fx:id="Content" layoutX="137.0" layoutY="164.0" prefHeight="25.0" prefWidth="200.0" style="-fx-pref-height: 35; -fx-pref-width: 200;" />
 
-                    <Pane layoutX="137.0" layoutY="204.0" prefHeight="110.0" prefWidth="200.0">
+                    <Pane layoutX="137.0" layoutY="251.0" prefHeight="110.0" prefWidth="200.0">
                         <children>
                             <RadioButton fx:id="ICT" layoutX="39.0" layoutY="22.0" mnemonicParsing="false" selected="true" text="ICT">
                                 <toggleGroup>
@@ -58,22 +59,25 @@
                             <RadioButton fx:id="BST" layoutX="39.0" layoutY="88.0" mnemonicParsing="false" text="BST" toggleGroup="$Dep" />
                         </children>
                     </Pane>
-                    <Label layoutX="54.0" layoutY="242.0" text="Department" />
-                    <Button fx:id="UpdateButton" layoutX="478.0" layoutY="291.0" mnemonicParsing="false" onAction="#HandleUpdate" prefHeight="48.0" prefWidth="139.0" text="Update" />
-                  <Button fx:id="chooseFileButton" layoutX="272.0" layoutY="176.0" mnemonicParsing="false" onAction="#HandlechooseFile" text="Choose File">
+                    <Label layoutX="54.0" layoutY="277.0" text="Department" />
+                    <Button fx:id="UpdateButton" layoutX="460.0" layoutY="361.0" mnemonicParsing="false" onAction="#HandleUpdate" prefHeight="48.0" prefWidth="160.0" text="Update" />
+                  <Button fx:id="chooseFileButton" layoutX="272.0" layoutY="207.0" mnemonicParsing="false" onAction="#HandlechooseFile" text="Choose File">
                      <font>
                         <Font size="10.0" />
                      </font>
                   </Button>
                 </children>
+               <effect>
+                  <Blend />
+               </effect>
              </Pane>
          </children>
       </HBox>
    </center>
    <bottom>
-      <HBox prefHeight="67.0" prefWidth="658.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="67.0" prefWidth="658.0" style="-fx-pref-height: 30;" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="67.0" prefWidth="667.0" style="-fx-background-color: blue;" />
+            <Pane prefHeight="67.0" prefWidth="1268.0" style="-fx-background-color: #027A7A; -fx-pref-height: 30;" />
          </children>
       </HBox>
    </bottom>

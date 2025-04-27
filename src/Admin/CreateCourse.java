@@ -213,7 +213,7 @@ public class CreateCourse {
         }
 
     public void BackbuttonHandle(ActionEvent actionEvent) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("\\FXMLfiles\\ManageCourse.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("FXMLfiles/ManageCourse.fxml"));
         try {
             Parent root = loader.load();
             Scene scene = new Scene(root);

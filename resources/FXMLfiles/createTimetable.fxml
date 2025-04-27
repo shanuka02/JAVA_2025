@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="493.0" prefWidth="655.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Admin.CreateTimetable">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="493.0" prefWidth="655.0" style="-fx-pref-height: 620; -fx-pref-width: 1000;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Admin.CreateTimetable">
    <top>
-      <HBox prefHeight="58.0" prefWidth="600.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER">
+      <HBox prefHeight="58.0" prefWidth="600.0" style="-fx-background-color: #027A7A; -fx-pref-height: 50;" BorderPane.alignment="CENTER">
          <children>
             <Pane prefHeight="58.0" prefWidth="659.0">
                <children>
-                  <Button fx:id="BackButton" layoutX="26.0" layoutY="23.0" mnemonicParsing="false" onAction="#BackbuttonHandle" style="-fx-background-radius: 20px; -fx-background-color: green;" text="Back" textFill="#fffefe">
+                  <Button fx:id="BackButton" layoutX="24.0" layoutY="14.0" mnemonicParsing="false" onAction="#BackbuttonHandle" style="-fx-background-radius: 20px; -fx-background-color: green;" text="Back" textFill="#fffefe">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -26,7 +29,7 @@
                         <Font size="13.0" />
                      </font>
                   </Button>
-                  <Label layoutX="78.0" layoutY="27.0" prefHeight="17.0" prefWidth="144.0" text="| Faculty Of  Technology" textFill="#e4dfdf">
+                  <Label layoutX="78.0" layoutY="18.0" prefHeight="17.0" prefWidth="144.0" text="| Faculty Of  Technology" textFill="#e4dfdf">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -37,22 +40,37 @@
       </HBox>
    </top>
    <center>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <Pane prefHeight="372.0" prefWidth="658.0">
                <children>
-                  <Label layoutX="54.0" layoutY="55.0" text="ID" />
-                  <Label layoutX="54.0" layoutY="98.0" text="Caption" />
-                  <Label layoutX="54.0" layoutY="155.0" text="Content" />
-                  <TextField fx:id="ID" layoutX="137.0" layoutY="51.0" prefHeight="25.0" prefWidth="199.0" />
-                  <TextArea fx:id="Caption" layoutX="137.0" layoutY="88.0" prefHeight="34.0" prefWidth="200.0" />
-                  <TextField fx:id="Content" layoutX="137.0" layoutY="143.0" prefHeight="25.0" prefWidth="200.0" />
-                  <Button fx:id="ChooseButtton" layoutX="272.0" layoutY="176.0" mnemonicParsing="false" onAction="#HandleChooseButton" text="Choose File">
+                  <Group layoutX="65.0" layoutY="71.0">
+                     <children>
+                        <Label layoutY="12.0" text="ID" />
+                        <Label layoutX="18.0" text="*" textFill="#f80707" />
+                     </children>
+                  </Group>
+                  <Group layoutX="55.0" layoutY="129.0">
+                     <children>
+                        <Label layoutY="8.0" text="Caption" />
+                        <Label layoutX="38.0" text="*" textFill="#f80707" />
+                     </children>
+                  </Group>
+                  <Group layoutX="54.0" layoutY="186.0">
+                     <children>
+                        <Label layoutY="8.0" text="Content" />
+                        <Label layoutX="40.0" text="*" textFill="#f80707" />
+                     </children>
+                  </Group>
+                  <TextField fx:id="ID" layoutX="137.0" layoutY="68.0" prefHeight="25.0" prefWidth="199.0" style="-fx-pref-height: 35; -fx-pref-width: 200;" />
+                  <TextArea fx:id="Caption" layoutX="137.0" layoutY="123.0" prefHeight="34.0" prefWidth="200.0" style="-fx-pref-height: 35; -fx-pref-width: 200;" />
+                  <TextField fx:id="Content" layoutX="137.0" layoutY="181.0" prefHeight="25.0" prefWidth="200.0" style="-fx-pref-height: 35; width: 200;" />
+                  <Button fx:id="ChooseButtton" layoutX="272.0" layoutY="238.0" mnemonicParsing="false" onAction="#HandleChooseButton" text="Choose File">
                      <font>
                         <Font size="10.0" />
                      </font>
                   </Button>
-                  <Pane layoutX="137.0" layoutY="204.0" prefHeight="110.0" prefWidth="200.0">
+                  <Pane layoutX="155.0" layoutY="270.0" prefHeight="110.0" prefWidth="200.0">
                      <children>
                         <RadioButton fx:id="ICT" layoutX="39.0" layoutY="22.0" mnemonicParsing="false" selected="true" text="ICT">
                            <toggleGroup>
@@ -63,19 +81,26 @@
                         <RadioButton fx:id="BST" layoutX="39.0" layoutY="88.0" mnemonicParsing="false" text="BST" toggleGroup="$Dep" />
                      </children>
                   </Pane>
-                  <Label layoutX="54.0" layoutY="242.0" text="Department" />
-                  <Button fx:id="ADDbutton" layoutX="478.0" layoutY="291.0" mnemonicParsing="false" onAction="#handleAdd" prefHeight="48.0" prefWidth="139.0" text="Add " />
-                  <Label layoutX="72.0" layoutY="43.0" text="*" textFill="#f80707" />
-                  <Label layoutX="92.0" layoutY="90.0" text="*" textFill="#f80707" />
-                  <Label layoutX="94.0" layoutY="147.0" text="*" textFill="#f80707" />
-                  <Label layoutX="115.0" layoutY="234.0" text="*" textFill="#f80707" />
+                  <Group layoutX="55.0" layoutY="313.0">
+                     <children>
+                        <Label layoutY="8.0" text="Department" />
+                        <Label layoutX="61.0" text="*" textFill="#f80707" />
+                     </children>
+                  </Group>
+                  <Button fx:id="ADDbutton" layoutX="425.0" layoutY="347.0" mnemonicParsing="false" onAction="#handleAdd" prefHeight="41.0" prefWidth="200.0" text="Add " />
                </children>
+               <effect>
+                  <ColorAdjust />
+               </effect>
             </Pane>
          </children>
+         <effect>
+            <Blend />
+         </effect>
       </HBox>
    </center>
    <bottom>
-      <HBox prefHeight="63.0" prefWidth="655.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER">
+      <HBox prefHeight="63.0" prefWidth="655.0" style="-fx-background-color: #027A7A; -fx-pref-height: 30;" BorderPane.alignment="CENTER">
          <children>
             <Pane prefHeight="63.0" prefWidth="661.0" />
          </children>

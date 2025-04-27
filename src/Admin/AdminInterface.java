@@ -21,7 +21,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
-public class AdminInterface extends  BaseController {
+public class AdminInterface extends  BaseController  implements AdminInterfaceImplement {
 
 
     @FXML
@@ -53,8 +53,15 @@ public class AdminInterface extends  BaseController {
 
     @FXML
     void handleEditProfile(ActionEvent event) {
+
         handleEditprofile();
     }
+
+    @FXML
+    public void handlelogoutButton(){
+        handleLogout();
+    }
+
 
     @FXML
     public void handleManageUser(ActionEvent actionEvent) {
@@ -71,7 +78,7 @@ public class AdminInterface extends  BaseController {
 
 
     @FXML
-    void handleManageNotice(ActionEvent event) {
+    public void handleManageNotice(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("FXMLfiles/ManageNotice.fxml"));
         try {
             Parent root = loader.load();
@@ -109,7 +116,7 @@ public class AdminInterface extends  BaseController {
         }
     }
 
-    @Override
+
     public void loadProfileData(){
         connection = new mySqlCon();
         Connection con = connection.con();
@@ -130,10 +137,8 @@ public class AdminInterface extends  BaseController {
                 JOptionPane.showMessageDialog(null,"No notice Found");
 */
 
-
-
 //if we didnt put condition null pointer execption generate, becouse db data is null
-               name.setText(rs.getString(2));
+                name.setText(rs.getString(2));
                 Email.setText(rs.getString(3));
 
                 dep.setText(rs.getString(7));
@@ -161,4 +166,6 @@ public class AdminInterface extends  BaseController {
         }
 
     }
+
+
 }

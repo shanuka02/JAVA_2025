@@ -12,13 +12,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="669.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Admin.DeleteUser">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="669.0" style="-fx-pref-height: 620; -fx-pref-width: 1000;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Admin.DeleteUser">
    <top>
-      <HBox prefHeight="72.0" prefWidth="669.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER">
+      <HBox prefHeight="72.0" prefWidth="669.0" style="-fx-background-color: #027A7A; -fx-pref-height: 50;" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="200.0" prefWidth="200.0">
+            <Pane prefHeight="50.0" prefWidth="686.0">
                <children>
-                  <Button fx:id="BackButton" layoutX="26.0" layoutY="23.0" mnemonicParsing="false" onAction="#BackbuttonHandle" style="-fx-background-radius: 20px; -fx-background-color: green;" text="Back" textFill="#fffefe">
+                  <Button fx:id="BackButton" layoutX="26.0" layoutY="14.0" mnemonicParsing="false" onAction="#BackbuttonHandle" style="-fx-background-radius: 20px; -fx-background-color: green;" text="Back" textFill="#fffefe">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -26,7 +26,7 @@
                         <Font size="13.0" />
                      </font>
                   </Button>
-                  <Label layoutX="78.0" layoutY="27.0" prefHeight="17.0" prefWidth="144.0" text="| Faculty Of  Technology" textFill="#e4dfdf">
+                  <Label layoutX="79.0" layoutY="18.0" prefHeight="17.0" prefWidth="144.0" text="| Faculty Of  Technology" textFill="#e4dfdf">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -37,11 +37,11 @@
       </HBox>
    </top>
    <center>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <Pane prefHeight="405.0" prefWidth="679.0">
                <children>
-                  <ScrollPane layoutX="28.0" layoutY="63.0" prefHeight="263.0" prefWidth="602.0">
+                  <ScrollPane layoutX="28.0" layoutY="130.0" prefHeight="275.0" prefWidth="647.0">
                      <content>
                         <TableView fx:id="table1" prefHeight="286.0" prefWidth="656.0">
                            <columns>
@@ -55,8 +55,8 @@
                         </TableView>
                      </content>
                   </ScrollPane>
-                  <TextField fx:id="TextField2" layoutX="28.0" layoutY="23.0" prefHeight="25.0" prefWidth="249.0" promptText="Enter User Id To Search" />
-                  <Button fx:id="Delete" layoutX="470.0" layoutY="354.0" mnemonicParsing="false" onAction="#handleDeleteButton" prefHeight="30.0" prefWidth="164.0" text="Delete" />
+                  <TextField fx:id="TextField2" layoutX="28.0" layoutY="66.0" prefHeight="35.0" prefWidth="249.0" promptText="Enter User Id To Search" />
+                  <Button fx:id="Delete" layoutX="511.0" layoutY="427.0" mnemonicParsing="false" onAction="#handleDeleteButton" prefHeight="37.0" prefWidth="164.0" text="Delete" />
                </children>
 
             </Pane>
@@ -64,7 +64,7 @@
       </HBox>
    </center>
    <bottom>
-      <HBox prefHeight="61.0" prefWidth="669.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER">
+      <HBox prefHeight="61.0" prefWidth="669.0" style="-fx-background-color: #027A7A; -fx-pref-height: 30;" BorderPane.alignment="CENTER">
          <children>
             <Pane prefHeight="200.0" prefWidth="200.0" />
          </children>

@@ -9,7 +9,7 @@ import java.io.IOException;
 
 
 
-public class ApplicationDrive extends Application {
+public class ApplicationDrive extends Application{
 
     private static Stage PrimaryStage;
 
@@ -26,8 +26,8 @@ public class ApplicationDrive extends Application {
     public void start(Stage stage) throws IOException {
         PrimaryStage = stage;
         stage.setTitle("lms");
-        stage.setWidth(1200);
-        stage.setHeight(700);
+        stage.setWidth(1000);
+        stage.setHeight(650);
 
         //creates a new FXMLLoader object that will load  FXML file containing the interface definition.
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("FXMLfiles/MainPanel.fxml"));

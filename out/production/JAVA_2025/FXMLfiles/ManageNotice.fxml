@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-
-
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.Cursor?>
+
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="518.0" prefWidth="629.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Admin.ManageNotice">
    <top>
-      <HBox prefHeight="70.0" prefWidth="629.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="70.0" prefWidth="629.0" style="-fx-background-color: #027A7A; -fx-pref-height: 50;" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="70.0" prefWidth="652.0" style="-fx-background-color: blue;" >
+            <Pane prefHeight="70.0" prefWidth="652.0" style="-fx-background-color: #027A7A;">
 
                <children>
                   <Button fx:id="HomeButton" layoutX="22.0" layoutY="19.0" mnemonicParsing="false" onAction="#HandleHomeButton" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: none;" text="Home" textFill="#ebe2e2">
@@ -22,7 +22,7 @@
                         <Font size="13.0" />
                      </font>
                   </Button>
-                  <Label layoutX="87.0" layoutY="23.0" prefHeight="17.0" prefWidth="147.0" text="|  Faculty Of Technology" textFill="#f5ecec">
+                  <Label layoutX="87.0" layoutY="23.0" prefHeight="17.0" prefWidth="147.0" text="|  Manage Notice" textFill="#f5ecec">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -35,9 +35,9 @@
       </HBox>
    </top>
    <bottom>
-      <HBox prefHeight="76.0" prefWidth="629.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="76.0" prefWidth="629.0" style="-fx-background-color: #027A7A; -fx-pref-height: 30;" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="100.0" prefWidth="639.0" style="-fx-background-color: blue;" />
+            <Pane prefHeight="100.0" prefWidth="639.0" style="-fx-background-color: #027A7A;" />
          </children>
       </HBox>
    </bottom>
@@ -46,11 +46,14 @@
          <children>
             <Pane prefHeight="372.0" prefWidth="634.0">
                <children>
-                  <Button layoutX="32.0" layoutY="58.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="309.0" text="Create Notice" onAction="#handleCreateInterface" />
-                  <Button layoutX="32.0" layoutY="280.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="309.0" text="Delete Notice" onAction="#handleDeleteInterface" />
-                  <Button layoutX="32.0" layoutY="208.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="309.0" text="Update Notice"  onAction="#handleUpdateInterface"/>
-                  <Button layoutX="32.0" layoutY="132.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="309.0" text="Search Notice"  onAction="#handleSearchInterface"/>
-                  <ImageView fitHeight="271.0" fitWidth="200.0" layoutX="384.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button layoutX="32.0" layoutY="58.0" mnemonicParsing="false" onAction="#handleCreateInterface" prefHeight="54.0" prefWidth="309.0" text="Add Notice" />
+                  <Button layoutX="32.0" layoutY="280.0" mnemonicParsing="false" onAction="#handleDeleteInterface" prefHeight="54.0" prefWidth="309.0" text="Delete Notice" />
+                  <Button layoutX="32.0" layoutY="208.0" mnemonicParsing="false" onAction="#handleUpdateInterface" prefHeight="54.0" prefWidth="309.0" text="Update Notice" />
+                  <Button layoutX="32.0" layoutY="132.0" mnemonicParsing="false" onAction="#handleSearchInterface" prefHeight="54.0" prefWidth="309.0" text="Search Notice" />
+                  <ImageView fitHeight="271.0" fitWidth="200.0" layoutX="383.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/notice.png" />
+                     </image></ImageView>
                </children>
             </Pane>
          </children>

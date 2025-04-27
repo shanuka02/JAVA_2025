@@ -77,14 +77,46 @@ public class loginController{
                         ApplicationDrive.getPrimaryStage().setScene(scene);
 
                     } catch (IOException e) {
-                        System.out.println("error: "+e.getMessage());                    }
+                        System.out.println("error: "+e.getMessage());
+                    }
 
 
                 }else if("undergraduate".equalsIgnoreCase(roll)){
 
+                    FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("FXMLfiles/AdminInterface.fxml"));
+                    Parent root = null;
+                    try {
+                        root = loader.load();
+                        Scene scene = new Scene(root);
+                        ApplicationDrive.getPrimaryStage().setScene(scene);
+
+                    } catch (IOException e) {
+                        System.out.println("error: "+e.getMessage());
+                    }
 
                 }else if("lecture".equalsIgnoreCase(roll)){
+                    FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("FXMLfiles/AdminInterface.fxml"));
+                    Parent root = null;
+                    try {
+                        root = loader.load();
+                        Scene scene = new Scene(root);
+                        ApplicationDrive.getPrimaryStage().setScene(scene);
 
+                    } catch (IOException e) {
+                        System.out.println("error: "+e.getMessage());
+                    }
+
+                }else if("Technical Officer".equalsIgnoreCase(roll)){
+                    FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("FXMLfiles/AdminInterface.fxml"));
+                    Parent root = null;
+                    try {
+                        root = loader.load();
+                        Scene scene = new Scene(root);
+                        ApplicationDrive.getPrimaryStage().setScene(scene);
+
+                    } catch (IOException e) {
+                        System.out.println("error: "+e.getMessage());
+                    }
 
                 }else{
                     JOptionPane.showMessageDialog(null,"Unknown Role.","Login Failed",JOptionPane.ERROR_MESSAGE);
