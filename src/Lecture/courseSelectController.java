@@ -83,7 +83,7 @@ public class courseSelectController {
     }
 
     public void handleHome(ActionEvent event ) {
-        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("/fxml/main.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/main.fxml"));
         Parent root = null;
         try {
             root = loader.load();
