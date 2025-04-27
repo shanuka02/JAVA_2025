@@ -66,7 +66,7 @@ public class loginController{
 
                 String roll =  rs.getString("roll");
                 //create a session
-                Session.setSession(password,userName);
+                Session.setSession(password,userName,roll);
 
                 if("admin".equalsIgnoreCase(roll)){
                     FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("FXMLfiles/AdminInterface.fxml"));
@@ -81,16 +81,16 @@ public class loginController{
                     }
 
 
-                }else if("undergraduate".equalsIgnoreCase(roll)){
+                }else if("Undergraduate".equalsIgnoreCase(roll)){
 
-                    FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("FXMLfiles/AdminInterface.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("studentRole/view/MainView.fxml"));
                     Parent root = null;
                     try {
                         root = loader.load();
                         Scene scene = new Scene(root);
                         ApplicationDrive.getPrimaryStage().setScene(scene);
 
-                    } catch (IOException e) {
+                    } catch (Exception e) {
                         System.out.println("error: "+e.getMessage());
                     }
 
@@ -107,7 +107,7 @@ public class loginController{
                     }
 
                 }else if("Technical Officer".equalsIgnoreCase(roll)){
-                    FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("FXMLfiles/AdminInterface.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("technicalResource/fxml/TechnicalOfficer.fxml"));
                     Parent root = null;
                     try {
                         root = loader.load();

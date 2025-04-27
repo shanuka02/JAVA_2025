@@ -195,14 +195,51 @@ return 1;
 
     @FXML
     public void HandleHomeButton(ActionEvent event) {
-        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("FXMLfiles/AdminInterface.fxml"));
-        try {
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-            ApplicationDrive.getPrimaryStage().setScene(scene);
 
-        } catch (IOException e) {
-            System.out.println("error: " + e.getMessage());
+        String roll = Session.getRollVal();
+        if(roll.equalsIgnoreCase("Admin")){
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("FXMLfiles/AdminInterface.fxml"));
+            try {
+                Parent root = loader.load();
+                Scene scene = new Scene(root);
+                ApplicationDrive.getPrimaryStage().setScene(scene);
+
+            } catch (IOException e) {
+                System.out.println("error: " + e.getMessage());
+            }
+        }else if(roll.equalsIgnoreCase("Technical Officer")){
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("technicalResource/fxml/TechnicalOfficer.fxml"));
+            try {
+                Parent root = loader.load();
+                Scene scene = new Scene(root);
+                ApplicationDrive.getPrimaryStage().setScene(scene);
+
+            } catch (IOException e) {
+                System.out.println("error: " + e.getMessage());
+            }
+        }else if(roll.equalsIgnoreCase("Lecture")){
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/main.fxml"));
+            try {
+                Parent root = loader.load();
+                Scene scene = new Scene(root);
+                ApplicationDrive.getPrimaryStage().setScene(scene);
+
+            } catch (IOException e) {
+                System.out.println("error: " + e.getMessage());
+            }
+        }else if(roll.equalsIgnoreCase("Undergraduate")){
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/main.fxml"));
+            try {
+                Parent root = loader.load();
+                Scene scene = new Scene(root);
+                ApplicationDrive.getPrimaryStage().setScene(scene);
+
+            } catch (IOException e) {
+                System.out.println("error: " + e.getMessage());
+            }
+        }else{
+            System.out.println("error");
         }
+
     }
 }

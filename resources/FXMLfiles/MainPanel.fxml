@@ -33,7 +33,7 @@
    <center>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="231.0" prefWidth="600.0" />
+            <Pane prefHeight="284.0" prefWidth="773.0" />
          </children></HBox>
    </center>
 </BorderPane>
