@@ -1,0 +1,6 @@
+INSERT INTO timeTable (timeTable_id, caption, submittedDate, content, depName)
+VALUES
+('tt01', 'First Semester TimeTable', '2025-04-20', 'C:\Users\USER\Desktop\java\JAVA_2025\resources\images\Online resume-pana.png', 'ICT'),
+('tt02', 'Second Semester TimeTable', '2025-04-22', 'C:\Users\USER\Desktop\java\JAVA_2025\resources\images\Online resume-amico.png', 'ET'),
+('tt03', 'Revision Schedule', '2025-04-23', "C:\Users\USER\Desktop\java\JAVA_2025\resources\images\Online resume-bro.png", 'ICT'),
+('tt04', 'Exam TimeTable', '2025-04-24', "C:\Users\USER\Desktop\java\JAVA_2025\resources\images\Online resume-rafiki.png", 'BST');
