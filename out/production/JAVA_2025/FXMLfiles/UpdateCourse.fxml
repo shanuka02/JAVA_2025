@@ -99,7 +99,7 @@
                               <Label layoutX="64.0" layoutY="6.0" text="*" textFill="#eb0909" />
                                    </children>
                                </Pane>
-                               <Button fx:id="AddButton" layoutX="505.0" layoutY="392.0" mnemonicParsing="false" onAction="#HndleUpdateButton" prefHeight="41.0" prefWidth="171.0" text="Add Course" />
+                               <Button fx:id="AddButton" layoutX="505.0" layoutY="392.0" mnemonicParsing="false" onAction="#HndleUpdateButton" prefHeight="41.0" prefWidth="171.0" text="Update Course" />
                                <TextField fx:id="Code" layoutX="144.0" layoutY="42.0" promptText="Enter C_Code to update" style="-fx-pref-height: 35; -fx-pref-width: 200;" />
                                <TextField fx:id="CA" layoutX="144.0" layoutY="407.0" style="-fx-pref-height: 35; -fx-pref-width: 200;" />
                                <TextField fx:id="Name" layoutX="144.0" layoutY="86.0" style="-fx-pref-height: 35; -fx-pref-width: 200;" />

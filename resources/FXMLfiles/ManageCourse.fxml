@@ -43,9 +43,9 @@
                   <Button fx:id="SearchCourse" layoutX="79.0" layoutY="194.0" mnemonicParsing="false" onAction="#handleSearchCourse" prefHeight="57.0" prefWidth="308.0" style="-fx-pref-width: 300;" text="Search Courses" />
                   <Button fx:id="UpdateCourse" layoutX="79.0" layoutY="280.0" mnemonicParsing="false" onAction="#HandleUpdateCourse" prefHeight="56.0" prefWidth="308.0" style="-fx-pref-width: 300;" text="Update Cources" />
                   <Button fx:id="DeleteCourse" layoutX="79.0" layoutY="366.0" mnemonicParsing="false" onAction="#handleDeletecourse" prefHeight="60.0" prefWidth="304.0" style="-fx-pref-width: 300;" text="Delete Course" />
-                  <ImageView fitHeight="197.0" fitWidth="219.0" layoutX="427.0" layoutY="251.0" opacity="0.87" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="291.0" fitWidth="280.0" layoutX="428.0" layoutY="168.0" opacity="0.87" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Images/execution.png" />
+                        <Image url="@../Images/Thesis-pana%20(1).png" />
                      </image>
                   </ImageView>
                </children>

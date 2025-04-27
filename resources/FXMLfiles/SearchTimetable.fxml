@@ -27,7 +27,7 @@
                              <Font size="13.0" />
                          </font>
                      </Button>
-                     <Label layoutX="78.0" layoutY="18.0" prefHeight="17.0" prefWidth="144.0" text="| Faculty Of  Technology" textFill="#e4dfdf">
+                     <Label layoutX="78.0" layoutY="18.0" prefHeight="19.0" prefWidth="193.0" text="| Faculty Of  Technology" textFill="#e4dfdf">
                          <font>
                              <Font size="13.0" />
                          </font>
@@ -42,7 +42,7 @@
          <children>
             <Pane prefHeight="540.0" prefWidth="1008.0">
                <children>
-                  <TabPane prefHeight="583.0" prefWidth="1065.0" tabClosingPolicy="UNAVAILABLE">
+                  <TabPane layoutY="-3.0" prefHeight="586.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE">
                     <tabs>
                       <Tab text="View All TimeTables">
                            <content>

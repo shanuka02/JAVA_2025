@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="518.0" prefWidth="629.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Admin.ManageNotice">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="518.0" prefWidth="629.0" style="-fx-pref-height: 620; -fx-pref-width: 1000;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Admin.ManageNotice">
    <top>
       <HBox prefHeight="70.0" prefWidth="629.0" style="-fx-background-color: #027A7A; -fx-pref-height: 50;" BorderPane.alignment="CENTER">
          <children>
@@ -42,17 +42,17 @@
       </HBox>
    </bottom>
    <center>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <Pane prefHeight="372.0" prefWidth="634.0">
                <children>
-                  <Button layoutX="32.0" layoutY="58.0" mnemonicParsing="false" onAction="#handleCreateInterface" prefHeight="54.0" prefWidth="309.0" text="Add Notice" />
-                  <Button layoutX="32.0" layoutY="280.0" mnemonicParsing="false" onAction="#handleDeleteInterface" prefHeight="54.0" prefWidth="309.0" text="Delete Notice" />
-                  <Button layoutX="32.0" layoutY="208.0" mnemonicParsing="false" onAction="#handleUpdateInterface" prefHeight="54.0" prefWidth="309.0" text="Update Notice" />
-                  <Button layoutX="32.0" layoutY="132.0" mnemonicParsing="false" onAction="#handleSearchInterface" prefHeight="54.0" prefWidth="309.0" text="Search Notice" />
-                  <ImageView fitHeight="271.0" fitWidth="200.0" layoutX="383.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
+                  <Button layoutX="32.0" layoutY="71.0" mnemonicParsing="false" onAction="#handleCreateInterface" prefHeight="54.0" prefWidth="309.0" style="-fx-pref-height: 60;" text="Add Notice" />
+                  <Button layoutX="32.0" layoutY="316.0" mnemonicParsing="false" onAction="#handleDeleteInterface" prefHeight="54.0" prefWidth="309.0" style="-fx-pref-height: 60;" text="Delete Notice" />
+                  <Button layoutX="32.0" layoutY="232.0" mnemonicParsing="false" onAction="#handleUpdateInterface" prefHeight="54.0" prefWidth="309.0" style="-fx-pref-height: 60;" text="Update Notice" />
+                  <Button layoutX="32.0" layoutY="151.0" mnemonicParsing="false" onAction="#handleSearchInterface" prefHeight="54.0" prefWidth="309.0" style="-fx-pref-height: 60;" text="Search Notice" />
+                  <ImageView fitHeight="363.0" fitWidth="302.0" layoutX="380.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Images/notice.png" />
+                        <Image url="@../Images/Thesis-bro.png" />
                      </image></ImageView>
                </children>
             </Pane>

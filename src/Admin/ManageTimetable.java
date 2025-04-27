@@ -80,6 +80,7 @@ public class ManageTimetable {
 
     }
 
+    @FXML
     public void HandleHomeButton(ActionEvent actionEvent) {
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("FXMLfiles/AdminInterface.fxml"));
         try {

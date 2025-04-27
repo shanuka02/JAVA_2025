@@ -95,7 +95,7 @@ public class loginController{
                     }
 
                 }else if("lecture".equalsIgnoreCase(roll)){
-                    FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("FXMLfiles/AdminInterface.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/main.fxml"));
                     Parent root = null;
                     try {
                         root = loader.load();

@@ -55,9 +55,9 @@
                      </graphic>
                   </Button>
 
-                  <ImageView fitHeight="281.0" fitWidth="200.0" layoutX="501.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="324.0" fitWidth="245.0" layoutX="505.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Images/management.png" />
+                        <Image url="@../Images/Online%20learning-rafiki.png" />
                      </image>
                   </ImageView>
                </children>

@@ -70,6 +70,9 @@
                                        </content>
                                     </ScrollPane>
                                  </children>
+                                 <effect>
+                                    <Blend />
+                                 </effect>
                               </AnchorPane>
                            </content>
                         </Tab>

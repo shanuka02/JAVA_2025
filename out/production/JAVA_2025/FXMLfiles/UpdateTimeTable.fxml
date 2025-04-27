@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -27,7 +28,7 @@
                              <Font size="13.0" />
                          </font>
                      </Button>
-                     <Label layoutX="78.0" layoutY="18.0" prefHeight="17.0" prefWidth="144.0" text="| Faculty Of  Technology" textFill="#e4dfdf">
+                     <Label layoutX="78.0" layoutY="18.0" prefHeight="19.0" prefWidth="162.0" text="| Faculty Of  Technology" textFill="#e4dfdf">
                          <font>
                              <Font size="13.0" />
                          </font>
@@ -66,6 +67,11 @@
                         <Font size="10.0" />
                      </font>
                   </Button>
+
+                  <Label layoutX="83.0" layoutY="52.0" text="*" textFill="#ee0303" />
+                  <Label layoutX="92.0" layoutY="109.0" text="*" textFill="#ee0303" />
+                  <Label layoutX="92.0" layoutY="165.0" text="*" textFill="#ee0303" />
+                  <Label layoutX="115.0" layoutY="262.0" text="*" textFill="#ee0303" />
                 </children>
                <effect>
                   <Blend />

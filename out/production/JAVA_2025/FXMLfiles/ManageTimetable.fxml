@@ -43,9 +43,9 @@
                   <Button fx:id="ViewButton" layoutX="59.0" layoutY="158.0" mnemonicParsing="false" onAction="#HandleView" prefHeight="56.0" prefWidth="283.0" text="Search Timetable" />
                   <Button fx:id="UpdateButton" layoutX="59.0" layoutY="236.0" mnemonicParsing="false" onAction="#HandleUpdate" prefHeight="59.0" prefWidth="283.0" text="Update Timetable" />
                   <Button fx:id="DeleteButton" layoutX="59.0" layoutY="314.0" mnemonicParsing="false" onAction="#handleDelete" prefHeight="59.0" prefWidth="283.0" text="DeleteTimetable" />
-                  <ImageView fitHeight="268.0" fitWidth="200.0" layoutX="416.0" layoutY="203.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="368.0" fitWidth="328.0" layoutX="383.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Images/calendar.png" />
+                        <Image url="@../Images/Thesis-rafiki.png" />
                      </image>
                   </ImageView>
                </children>
