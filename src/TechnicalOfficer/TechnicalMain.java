@@ -116,7 +116,6 @@ public class TechnicalMain extends BaseController{
     }
 
     public void noticeBtn(){
-        System.out.println("noticeBtn");
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("technicalResource/fxml/Notice.fxml"));
         Parent root = null;
         try{

@@ -1,28 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
 
-<BorderPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TechnicalOfficer.Notice">
-
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TechnicalOfficer.Notice">
     <top>
-        <ToolBar>
-            <Button onAction="#backtopage" text="Back" />
-        </ToolBar>
+        <SplitPane orientation="VERTICAL" prefHeight="50.0" prefWidth="1000.0" style="-fx-background-color: #027A7A;" BorderPane.alignment="CENTER">
+            <items>
+                <Pane prefHeight="50.0" prefWidth="1000.0" styleClass="nav-body" stylesheets="@../style/TechnicalStyle.css">
+                    <children>
+                        <Button fx:id="homeButton" layoutX="22.0" layoutY="8.0" mnemonicParsing="false" onAction="#backToPage" text="Home" />
+                  <Label layoutX="716.0" layoutY="4.0" prefHeight="41.0" prefWidth="282.0" styleClass="nav-text" stylesheets="@../style/TechnicalStyle.css" text="NOTICE  |  FACULTY OF TECHNOLOGY" />
+                    </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+                </Pane>
+            </items></SplitPane>
     </top>
-
+    <bottom>
+        <SplitPane orientation="VERTICAL" prefHeight="30.0" prefWidth="1000.0" style="-fx-background-color: #027A7A;" BorderPane.alignment="CENTER" />
+    </bottom>
     <center>
-        <TableView fx:id="noticeTable">
-            <columns>
-                <TableColumn fx:id="noticeNumber" prefWidth="100" text="Notice ID" />
-                <TableColumn fx:id="noticeDate" prefWidth="150" text="Date" />
-                <TableColumn fx:id="noticeTitle" prefWidth="300" text="Title" />
-                <TableColumn fx:id="previewButton" prefWidth="100" text="Preview" />
-            </columns>
-        </TableView>
-    </center>
+        <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <TableView fx:id="noticeTable" layoutX="35.0" layoutY="51.0" prefHeight="438.0" prefWidth="903.0" stylesheets="@../style/TechnicalStyle.css">
+                    <columns>
+                        <TableColumn fx:id="noticeNumber" prefWidth="102.39999008178711" text="Number" />
+                        <TableColumn fx:id="noticeDate" prefWidth="154.40000915527344" text="Date" />
+                        <TableColumn fx:id="noticeTitle" prefWidth="422.4000244140625" text="Title" />
+                        <TableColumn fx:id="previewButton" prefWidth="220.800048828125" text="Preview" />
 
+                    </columns>
+                </TableView>
+                <ImageView fitHeight="329.0" fitWidth="200.0" layoutX="756.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+<!--                        <Image url="@../images/Online%20resume-pana.png" />-->
+                    </image>
+                </ImageView>
+            </children>
+        </Pane>
+    </center>
 </BorderPane>

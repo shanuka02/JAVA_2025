@@ -215,7 +215,7 @@ public class MedicalEdit {
 
     @FXML
     public void backToPage(){
-        new TechnicalMain().accessToAddAttendance();
+        new TechnicalMain().accessToAttendanceMedical();
     }
 
     public boolean checkFields(){
