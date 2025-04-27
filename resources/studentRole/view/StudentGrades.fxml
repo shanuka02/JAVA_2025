@@ -5,43 +5,110 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="529.0" prefWidth="748.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StudentPackage.StudentGrade">
-   <top>
-        <AnchorPane prefHeight="561.0" prefWidth="748.0" BorderPane.alignment="CENTER">
+   <left>
+        <AnchorPane prefHeight="620.0" prefWidth="1000.0" style="-fx-background-color: #1e5180;" BorderPane.alignment="CENTER">
             <children>
                 <Label layoutX="258.0" layoutY="64.0" styleClass="header-label" text="Student Grades">
                     <font>
                         <Font name="System Bold" size="32.0" />
                     </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="1.0" startY="0.05362773618487529">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.28070175647735596" green="0.1992635875940323" blue="0.1992635875940323" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
                 </Label>
-            <Text layoutX="62.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Course Name " />
-            <Text layoutX="224.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Course Code " />
-            <Text layoutX="432.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Grade" />
-            <Text layoutX="450.0" layoutY="470.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SGPA" />
-            <Text layoutX="644.0" layoutY="469.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CGPA" />
-            <TextField fx:id="SGPAGrade" layoutX="391.0" layoutY="479.0" />
+            <Text fill="#f8f6f6" layoutX="62.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Course Name ">
+               <font>
+                  <Font name="System Bold Italic" size="20.0" />
+               </font></Text>
+            <Text fill="#f8f6f6" layoutX="224.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Course Code ">
+               <font>
+                  <Font name="System Bold Italic" size="20.0" />
+               </font></Text>
+            <Text fill="#f8f6f6" layoutX="428.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Grade">
+               <font>
+                  <Font name="System Bold Italic" size="20.0" />
+               </font></Text>
+            <Text fill="#f8f6f6" layoutX="432.0" layoutY="468.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SGPA">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Text>
+            <Text fill="#f8f6f6" layoutX="644.0" layoutY="469.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CGPA">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Text>
+            <TextField fx:id="SGPAGrade" layoutX="375.0" layoutY="479.0" />
             <TextField fx:id="CGPAGrade" layoutX="582.0" layoutY="479.0" />
-            <Text layoutX="52.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Programming" />
-            <Text layoutX="60.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Networking" />
-            <Text layoutX="62.0" layoutY="314.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Database" />
-            <Text layoutX="55.0" layoutY="366.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Web Design" />
-            <Text layoutX="38.0" layoutY="418.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Operating Systems" />
-            <Text layoutX="240.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ICT 001" />
-            <Text layoutX="240.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ICT 002" />
-            <Text layoutX="240.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ICT 003" />
-            <Text layoutX="240.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ICT 004" />
-            <Text layoutX="240.0" layoutY="417.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ICT 005" />
+            <Text fill="#f8f6f6" layoutX="54.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Programming">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Text>
+            <Text fill="#f8f6f6" layoutX="51.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Web Technologies">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Text>
+            <Text fill="#f8f6f6" layoutX="47.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Database Systems">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Text>
+            <Text fill="#f8f6f6" layoutX="51.0" layoutY="366.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Computer Networks">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Text>
+            <Text fill="#f8f6f6" layoutX="56.0" layoutY="420.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data Structures">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Text>
+            <Text fill="#f8f6f6" layoutX="240.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ICT2113">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Text>
+            <Text fill="#f8f6f6" layoutX="240.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ICT2133">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Text>
+            <Text fill="#f8f6f6" layoutX="240.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ICT2122">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Text>
+            <Text fill="#f8f6f6" layoutX="236.0" layoutY="366.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" ICT2152">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Text>
+            <Text fill="#f8f6f6" layoutX="240.0" layoutY="418.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ICT2142">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Text>
             <TextField fx:id="ProgrammingGrade" layoutX="378.0" layoutY="189.0" />
             <TextField fx:id="NetworkingGrade" layoutX="378.0" layoutY="236.0" />
             <TextField fx:id="DatabaseGrade" layoutX="378.0" layoutY="295.0" />
             <TextField fx:id="WebDesignGrade" layoutX="378.0" layoutY="348.0" />
             <TextField fx:id="OperatingSystemsGrade" layoutX="378.0" layoutY="400.0" />
-            <Button layoutX="565.0" layoutY="150.0" mnemonicParsing="false" onAction="#loadStudentGrades" text="Click here to see Grades" />
+            <Button layoutX="565.0" layoutY="150.0" mnemonicParsing="false" onAction="#loadStudentGrades" style="-fx-background-color: yellow;" text="Click here to see Grades">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Button>
             <Button layoutX="11.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBackButton" text="back" />
             </children>
         </AnchorPane>
-   </top>
+   </left>
 </BorderPane>

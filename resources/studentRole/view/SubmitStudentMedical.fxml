@@ -7,32 +7,47 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="StudentPackage.SubmitStudentMedical">
+<AnchorPane prefHeight="620.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StudentPackage.SubmitStudentMedical">
     <children>
-        <Label layoutX="100.0" layoutY="40.0" text="Submit Student Medical Information">
+        <Label layoutX="291.0" layoutY="64.0" text="Submit Student Medical Information">
             <font>
-                <Font name="System" size="20.0" />
+                <Font name="System Bold" size="27.0" />
             </font>
         </Label>
 
-        <Label layoutX="50.0" layoutY="100.0" text="Student Name:" />
-        <TextField fx:id="studentName" layoutX="150.0" layoutY="95.0" prefWidth="200.0" />
+        <Label layoutX="199.0" layoutY="173.0" text="Student Name:">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+        <TextField fx:id="studentName" layoutX="620.0" layoutY="182.0" prefWidth="200.0" />
 
-        <Label layoutX="50.0" layoutY="150.0" text="TG Number:" />
-        <TextField fx:id="tgNumber" layoutX="150.0" layoutY="145.0" prefWidth="200.0" />
+        <Label layoutX="199.0" layoutY="223.0" text="TG Number:">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+        <TextField fx:id="tgNumber" layoutX="620.0" layoutY="232.0" prefWidth="200.0" />
 
-        <Label layoutX="50.0" layoutY="200.0" text="Course Code:" />
-        <TextField fx:id="courseCode" layoutX="150.0" layoutY="195.0" prefWidth="200.0" />
+        <Label layoutX="199.0" layoutY="273.0" text="Course Code:">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+        <TextField fx:id="courseCode" layoutX="620.0" layoutY="282.0" prefWidth="200.0" />
 
-        <Label layoutX="50.0" layoutY="250.0" text="Medical Date:" />
-        <TextField fx:id="medicalDate" layoutX="150.0" layoutY="245.0" prefWidth="200.0" />
+        <Label layoutX="199.0" layoutY="323.0" text="Medical Date:">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+        <TextField fx:id="medicalDate" layoutX="620.0" layoutY="332.0" prefWidth="200.0" />
 
-        <Label layoutX="50.0" layoutY="300.0" text="Upload Medical Image:" />
-        <Button fx:id="uploadImageButton" layoutX="150.0" layoutY="295.0" onAction="#handleImageUpload" text="Choose Image" />
+        <Label layoutX="199.0" layoutY="373.0" text="Upload Medical Image:">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+        <Button fx:id="uploadImageButton" layoutX="620.0" layoutY="382.0" onAction="#handleImageUpload" text="Choose Image" />
 
-        <ImageView fx:id="medicalImageView" fitHeight="150.0" fitWidth="200.0" layoutX="150.0" layoutY="340.0" />
+        <ImageView fx:id="medicalImageView" fitHeight="150.0" fitWidth="200.0" layoutX="368.0" layoutY="422.0" />
 
-        <Button fx:id="submitButton" layoutX="200.0" layoutY="400.0" onAction="#handleSubmit" text="Submit" />
+        <Button fx:id="submitButton" layoutX="639.0" layoutY="553.0" onAction="#handleSubmit" text="Submit" />
       <Button layoutX="24.0" layoutY="27.0" mnemonicParsing="false" onAction="#backtopage" text="back" />
     </children>
 </AnchorPane>
