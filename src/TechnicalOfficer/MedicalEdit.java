@@ -168,16 +168,19 @@ public class MedicalEdit {
                 setData[count] = results.getString(1);
                 count++;
             }
-            if(select.equals("course")){
-                getCourseId.getItems().addAll(setData);
-            }else {
-                getLectureType.getItems().clear();
-                if(setData[0].equals("Both") || setData[0].equals("both")){
-                    getLectureType.getItems().addAll("Theory","Practical");
-                }else{
-                    getLectureType.getItems().addAll(setData);
+            try {
+                if (select.equals("course")) {
+                    getCourseId.getItems().addAll(setData);
+                } else {
+                    getLectureType.getItems().clear();
+                    if (setData[0].equals("Both") || setData[0].equals("both")) {
+                        getLectureType.getItems().clear();
+                        getLectureType.getItems().addAll("Theory", "Practical");
+                    } else {
+                        getLectureType.getItems().addAll(setData);
+                    }
                 }
-            }
+            }catch (Exception e){}
             connection.close();
         } catch (SQLException e) {
             System.out.println("SQL Error: " + e.getMessage());

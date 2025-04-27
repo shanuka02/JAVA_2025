@@ -114,4 +114,17 @@ public class TechnicalMain extends BaseController{
     public void edit() {
         handleEditprofile();
     }
+
+    public void noticeBtn(){
+        System.out.println("noticeBtn");
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("technicalResource/fxml/Notice.fxml"));
+        Parent root = null;
+        try{
+            root = loader.load();
+            Scene scene = new Scene(root);
+            ApplicationDrive.getPrimaryStage().setScene(scene);
+        }catch (Exception e){
+            System.out.println("Error_code: x0000e1.5 " + e.getMessage());
+        }
+    }
 }

@@ -130,7 +130,7 @@ public class AttendanceAdd  {
         String[] setData;
 
         if(select.equals("course")){
-            setData = new String[5];
+            setData = new String[7];
         }else{
             setData = new String[1];
         }

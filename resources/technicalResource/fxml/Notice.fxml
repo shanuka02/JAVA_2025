@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TechnicalOfficer.Notice">
+
+    <top>
+        <ToolBar>
+            <Button onAction="#backtopage" text="Back" />
+        </ToolBar>
+    </top>
+
+    <center>
+        <TableView fx:id="noticeTable">
+            <columns>
+                <TableColumn fx:id="noticeNumber" prefWidth="100" text="Notice ID" />
+                <TableColumn fx:id="noticeDate" prefWidth="150" text="Date" />
+                <TableColumn fx:id="noticeTitle" prefWidth="300" text="Title" />
+                <TableColumn fx:id="previewButton" prefWidth="100" text="Preview" />
+            </columns>
+        </TableView>
+    </center>
+
+</BorderPane>

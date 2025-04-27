@@ -183,25 +183,23 @@ return 1;
                 Combobox2.setValue(rs.getString(7));
                 ProfilePic.setText(rs.getString(9));
             }
-
-
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null," "+e.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
         }
         return 0;
-
     }
 
     @FXML
     public void HandleHomeButton(ActionEvent event) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("\\FXMLfiles\\AdminInterface.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("technicalResource/fxml/TechnicalOfficer.fxml"));
+        Parent root = null;
         try {
-            Parent root = loader.load();
+            root = loader.load();
             Scene scene = new Scene(root);
             ApplicationDrive.getPrimaryStage().setScene(scene);
 
         } catch (IOException e) {
-            System.out.println("error: " + e.getMessage());
+            System.out.println("error: "+e.getMessage());
         }
     }
 }

@@ -20,8 +20,6 @@ public class MainPanelController{
 
 
     public void handleLogClick(ActionEvent actionEvent) {
-
-
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("FXMLfiles\\loginform.fxml"));
         try {
             Parent root = loader.load();
@@ -31,8 +29,5 @@ public class MainPanelController{
         } catch (IOException e) {
             System.out.println("Error: "+e.getMessage());
         }
-
-
-
     }
 }

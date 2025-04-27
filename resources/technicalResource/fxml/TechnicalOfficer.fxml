@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -17,11 +18,7 @@
     <children>
         <HBox alignment="CENTER" layoutX="223.0" layoutY="33.0" prefHeight="186.0" prefWidth="522.0" styleClass="profile-details" stylesheets="@../style/TechnicalStyle.css" AnchorPane.leftAnchor="223.0">
             <children>
-                <Pane prefHeight="200.0" prefWidth="200.0" styleClass="rounded-image" stylesheets="@../style/TechnicalStyle.css">
-                    <HBox.margin>
-                        <Insets right="20.0" />
-                    </HBox.margin>
-                </Pane>
+            <ImageView fx:id="image" fitHeight="188.0" fitWidth="205.0" pickOnBounds="true" preserveRatio="true" />
                 <VBox alignment="CENTER_LEFT" prefHeight="186.0" prefWidth="236.0" styleClass="profile-details" stylesheets="@../style/TechnicalStyle.css">
                     <HBox.margin>
                         <Insets />
@@ -29,7 +26,7 @@
                     <children>
                   <Button mnemonicParsing="false" onAction="#edit" text="edit" />
 
-                        <Label prefHeight="25.0" prefWidth="241.0" text="Vihaga Yasitha">
+                        <Label fx:id="name" prefHeight="25.0" prefWidth="241.0" text="Vihaga Yasitha">
                             <font>
                                 <Font size="20.0" />
                             </font>
@@ -37,7 +34,7 @@
                                 <Insets bottom="15.0" />
                             </VBox.margin>
                         </Label>
-                        <Label prefHeight="19.0" prefWidth="315.0" text="Department of ICT">
+                        <Label fx:id="dep" prefHeight="19.0" prefWidth="315.0" text="Department of ICT">
                             <font>
                                 <Font size="14.0" />
                             </font>
@@ -70,5 +67,6 @@
             </children>
         </GridPane>
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToPage" prefHeight="20.0" prefWidth="79.0" text="&lt;&lt; Back" />
+      <Button layoutX="817.0" layoutY="89.0" mnemonicParsing="false" onAction="#noticeBtn" text="Notice" />
     </children>
 </AnchorPane>

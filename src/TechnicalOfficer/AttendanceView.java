@@ -135,7 +135,7 @@ public class AttendanceView {
         String[] setData;
 
         if(select.equals("course") || select.equals("setCourseId")){
-            setData = new String[5];
+            setData = new String[7];
         }else{
             setData = new String[1];
         }
