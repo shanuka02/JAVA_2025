@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="StudentPackage.Course">
+<AnchorPane minHeight="620.0" minWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="StudentPackage.Course">
     <children>
-        <TableView fx:id="courseTable" layoutX="20.0" layoutY="60.0" prefHeight="400.0" prefWidth="600.0">
+        <TableView fx:id="courseTable" layoutX="200.0" layoutY="110.0" prefHeight="400.0" prefWidth="600.0">
             <columns>
-                <TableColumn fx:id="materialId" text="Material ID" prefWidth="100.0" />
-                <TableColumn fx:id="materialTitle" text="Title" prefWidth="200.0" />
-                <TableColumn fx:id="materialUploadDate" text="Upload Date" prefWidth="150.0" />
-                <TableColumn fx:id="courseId" text="Course ID" prefWidth="150.0" />
-                <TableColumn fx:id="previewButton" text="Preview" prefWidth="100.0" />
+                <TableColumn fx:id="materialId" prefWidth="100.0" text="Material ID" />
+                <TableColumn fx:id="materialTitle" prefWidth="200.0" text="Title" />
+                <TableColumn fx:id="materialUploadDate" prefWidth="150.0" text="Upload Date" />
+                <TableColumn fx:id="courseId" prefWidth="150.0" text="Course ID" />
+                <TableColumn fx:id="previewButton" prefWidth="100.0" text="Preview" />
             </columns>
         </TableView>
-        <Button text="Back" layoutX="20.0" layoutY="480.0" onAction="#backtopage" />
+        <Button layoutX="36.0" layoutY="36.0" onAction="#backtopage" prefHeight="25.0" prefWidth="55.0" text="Back" />
     </children>
 </AnchorPane>

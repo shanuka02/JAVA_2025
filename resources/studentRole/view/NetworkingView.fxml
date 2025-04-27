@@ -7,56 +7,59 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StudentPackage.NetworkingView">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StudentPackage.NetworkingView">
     <children>
-        <Button layoutX="20.0" layoutY="21.0" mnemonicParsing="false" onAction="#backtopage" text="BACK" />
-        <Text layoutX="230.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Attendance">
+        <Button layoutX="75.0" layoutY="50.0" mnemonicParsing="false" onAction="#backtopage" text="BACK" />
+        <Text layoutX="429.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Attendance">
             <font>
                 <Font name="System Bold" size="26.0" />
             </font>
         </Text>
-        <Text layoutX="125.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ICT2133">
+        <Text layoutX="248.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ICT2133">
             <font>
                 <Font name="System Bold" size="20.0" />
             </font>
         </Text>
-        <Text layoutX="309.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Web Technologies">
+        <Text layoutX="576.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Web Technologies">
             <font>
                 <Font name="System Bold" size="20.0" />
             </font>
         </Text>
-        <ProgressBar fx:id="PresentageBar" layoutX="109.0" layoutY="149.0" prefHeight="25.0" prefWidth="358.0" progress="0.0" />
-        <Label fx:id="presentage" layoutX="260.0" layoutY="190.0" text="0%">
+        <ProgressBar fx:id="PresentageBar" layoutX="248.0" layoutY="192.0" prefHeight="35.0" prefWidth="501.0" progress="0.0" style="-fx-background-color: blue;" />
+        <Label fx:id="presentage" layoutX="488.0" layoutY="276.0" text="0%">
             <font>
-                <Font name="System Bold" size="18.0" />
+                <Font name="System Bold" size="20.0" />
             </font>
         </Label>
-        <Text layoutX="488.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Theory">
-            <font>
-                <Font name="System Bold" size="17.0" />
-            </font>
-        </Text>
-        <Text layoutX="118.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ICT2133">
+        <Text layoutX="791.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Theory">
             <font>
                 <Font name="System Bold" size="20.0" />
             </font>
         </Text>
-        <Text layoutX="309.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Web Technologies">
+        <Text layoutX="248.0" layoutY="369.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ICT2133">
             <font>
                 <Font name="System Bold" size="20.0" />
             </font>
         </Text>
-        <ProgressBar fx:id="PresentageBar1" layoutX="109.0" layoutY="300.0" prefHeight="25.0" prefWidth="358.0" progress="0.0" />
-        <Label fx:id="presentage1" layoutX="260.0" layoutY="340.0" text="0%">
+        <Text layoutX="576.0" layoutY="370.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Web Technologies">
             <font>
-                <Font name="System Bold" size="18.0" />
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Text>
+        <ProgressBar fx:id="PresentageBar1" layoutX="248.0" layoutY="395.0" prefHeight="35.0" prefWidth="501.0" progress="0.0" style="-fx-background-color: blue;" />
+        <Label fx:id="presentage1" layoutX="488.0" layoutY="499.0" text="0%">
+            <font>
+                <Font name="System Bold" size="20.0" />
             </font>
         </Label>
-        <Text layoutX="488.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Practical">
+        <Text layoutX="791.0" layoutY="416.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Practical">
             <font>
-                <Font name="System Bold" size="17.0" />
+                <Font name="System Bold" size="20.0" />
             </font>
         </Text>
-        <Button layoutX="450.0" layoutY="30.0" mnemonicParsing="false" onAction="#loadAttendance" text="View Attendance" />
+        <Button layoutX="797.0" layoutY="96.0" mnemonicParsing="false" onAction="#loadAttendance" prefHeight="30.0" prefWidth="128.0" style="-fx-background-color: yellow;" text="View Attendance">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
     </children>
 </AnchorPane>
