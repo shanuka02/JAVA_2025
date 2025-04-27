@@ -1,32 +1,6 @@
-public class EditContactDetails extends EditProfile {
-
-    @Override
-    @FXML
-    public void handleAddUser(ActionEvent actionEvent) {
-        connection = new mySqlCon();
-        Connection con = connection.con();
-
-        String email = Email.getText().trim();
-        String phoneNumber = PhoneNumber.getText().trim();
-        String address = Address.getText().trim();
-
-        String query = "UPDATE userAccount SET email = ?, phoneNumber = ?, address = ? WHERE user_id = ?";
-        try {
-            PreparedStatement pstm = con.prepareStatement(query);
-            pstm.setString(1, email);
-            pstm.setString(2, phoneNumber);
-            pstm.setString(3, address);
-            pstm.setString(4, Lecture.Session.getUserId());
-
-            int rowAffected = pstm.executeUpdate();
-            if (rowAffected > 0) {
-                JOptionPane.showMessageDialog(null, "Contact details updated successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
-            } else {
-                JOptionPane.showMessageDialog(null, "Failed to update contact details.", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-
-        } catch (SQLException e) {
-            System.out.println("SQL Error: " + e.getMessage());
-        }
-    }
-}
+INSERT INTO timeTable (timeTable_id, caption, submittedDate, content, depName)
+VALUES
+('tt01', 'First Semester TimeTable', '2025-04-20', 'C:\Users\USER\Desktop\java\JAVA_2025\resources\images\Online resume-pana.png', 'ICT'),
+('tt02', 'Second Semester TimeTable', '2025-04-22', 'C:\Users\USER\Desktop\java\JAVA_2025\resources\images\Online resume-amico.png', 'ET'),
+('tt03', 'Revision Schedule', '2025-04-23', "C:\Users\USER\Desktop\java\JAVA_2025\resources\images\Online resume-bro.png", 'ICT'),
+('tt04', 'Exam TimeTable', '2025-04-24', "C:\Users\USER\Desktop\java\JAVA_2025\resources\images\Online resume-rafiki.png", 'BST');

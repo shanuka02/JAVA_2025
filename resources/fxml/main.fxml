@@ -43,7 +43,7 @@
             </Button>
             <Button fx:id="noticeButton" layoutX="617.0" layoutY="34.0" mnemonicParsing="false" onAction="#handleNoticeButton" prefHeight="48.0" prefWidth="132.0" style="-fx-background-color: #027A7A;" text="Notices" textFill="WHITE">
                <graphic>
-                  <ImageView fx:id="noticesIcon" fitHeight="34.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="noticesIcon" fitHeight="23.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <Image url="@/images/bell-ring.png" />
                   </ImageView>
                </graphic>
@@ -84,6 +84,7 @@
                   <Image url="@../images/Search%20engines-bro.png" />
                </image>
             </ImageView>
+            <Button fx:id="timeTableButton" layoutX="621.0" layoutY="87.0" mnemonicParsing="false" onAction="#handleTimeTable" prefHeight="34.0" prefWidth="143.0" style="-fx-background-color: #027A7A;" text="Time table" textAlignment="JUSTIFY" textFill="WHITE" />
 
          </Pane>
       </StackPane>

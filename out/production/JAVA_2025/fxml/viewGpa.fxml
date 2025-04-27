@@ -6,11 +6,13 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Lecture.viewGpaController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Lecture.viewGpaController">
     <top>
         <SplitPane orientation="VERTICAL" prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #027A7A;" BorderPane.alignment="CENTER">
             <items>
@@ -27,19 +29,24 @@
     <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ScrollPane layoutX="53.0" layoutY="94.0" prefHeight="263.0" prefWidth="459.0">
+            <ScrollPane layoutX="53.0" layoutY="94.0" prefHeight="408.0" prefWidth="625.0">
                <content>
-                  <TableView fx:id="gpaTable" prefHeight="517.0" prefWidth="442.0">
+                  <TableView fx:id="gpaTable" prefHeight="518.0" prefWidth="610.0">
                     <columns>
                       <TableColumn fx:id="stuIdGpa" prefWidth="168.79998475313187" text="Student Id" />
-                      <TableColumn fx:id="cgpa" minWidth="0.0" prefWidth="142.40003967285156" text="CGPA" />
-                        <TableColumn fx:id="sgpa" prefWidth="130.39999999999998" text="SGPA" />
+                      <TableColumn fx:id="cgpa" minWidth="0.0" prefWidth="232.00009155273438" text="CGPA" />
+                        <TableColumn fx:id="sgpa" prefWidth="208.7999267578125" text="SGPA" />
                     </columns>
                   </TableView>
                </content>
             </ScrollPane>
             <TextField fx:id="searchField" layoutX="53.0" layoutY="35.0" />
             <Button fx:id="searchButton" layoutX="221.0" layoutY="35.0" mnemonicParsing="false" onAction="#searchGpa" text="TG Number Search" />
+            <ImageView fitHeight="260.0" fitWidth="249.0" layoutX="720.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Online%20resume-rafiki.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </center>

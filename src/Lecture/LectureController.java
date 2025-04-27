@@ -5,15 +5,18 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.scene.control.TextField;
 
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -38,6 +41,9 @@ public class  LectureController extends BaseController{
 
     @FXML
     private  Label dep;
+
+    @FXML
+    private Button timeTableButton;
 
 
     @FXML
@@ -393,6 +399,92 @@ public class  LectureController extends BaseController{
         }
 
     }
+
+
+    @FXML
+    private void handleTimeTable(ActionEvent event) {
+        String depName = dep.getText(); // get the department name from label
+
+        if (depName == null || depName.isEmpty()) {
+            new Alert(Alert.AlertType.ERROR, "Department name is missing.").show();
+            return;
+        }
+
+        String query = "SELECT content FROM timetable WHERE depName = ?";
+
+        try {
+            Connection con = mySqlCon.getConnection();
+            assert con != null;
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, depName); // set the department name into query
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                String filePath = rs.getString("content");
+
+                if (filePath == null || filePath.isEmpty()) {
+                    new Alert(Alert.AlertType.ERROR, "Timetable file path is missing.").show();
+                    return;
+                }
+
+                File file = new File(filePath);
+
+                if (file.exists()) {
+                    try {
+                        Desktop.getDesktop().open(file);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        new Alert(Alert.AlertType.ERROR, "Cannot open the timetable file.").show();
+                    }
+                } else {
+                    new Alert(Alert.AlertType.ERROR, "File not found:\n" + file.getAbsolutePath()).show();
+                }
+            } else {
+                new Alert(Alert.AlertType.ERROR, "No timetable found for department: " + depName).show();
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Database error: " + e.getMessage()).show();
+        }
+
+        // Now, you can save the file path using the `saveFilePathToDatabase` method if needed.
+        File selectedFile = chooseFile();  // Assuming you have a method to choose the file
+        if (selectedFile != null) {
+            saveFilePathToDatabase(selectedFile, depName);  // Save file path to the database
+        }
+    }
+
+    private void saveFilePathToDatabase(File file, String depName) {
+        String originalPath = file.getAbsolutePath();
+        String correctedPath = originalPath.replace("\\", "/"); // fix the path
+
+        String query = "INSERT INTO timetable (depName, content) VALUES (?, ?)";
+
+        try {
+            Connection con = mySqlCon.getConnection();
+            assert con != null;
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, depName);
+            ps.setString(2, correctedPath); // save the corrected path
+            ps.executeUpdate();
+
+            System.out.println("Timetable saved successfully.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Database error: " + e.getMessage()).show();
+        }
+    }
+
+    // Assuming you have a file chooser method to select the timetable file
+    private File chooseFile() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF Files", "*.pdf"));
+        return fileChooser.showOpenDialog(null);
+    }
+
+
+
 }
 
 

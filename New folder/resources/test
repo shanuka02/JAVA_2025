@@ -1,0 +1,32 @@
+public class EditContactDetails extends EditProfile {
+
+    @Override
+    @FXML
+    public void handleAddUser(ActionEvent actionEvent) {
+        connection = new mySqlCon();
+        Connection con = connection.con();
+
+        String email = Email.getText().trim();
+        String phoneNumber = PhoneNumber.getText().trim();
+        String address = Address.getText().trim();
+
+        String query = "UPDATE userAccount SET email = ?, phoneNumber = ?, address = ? WHERE user_id = ?";
+        try {
+            PreparedStatement pstm = con.prepareStatement(query);
+            pstm.setString(1, email);
+            pstm.setString(2, phoneNumber);
+            pstm.setString(3, address);
+            pstm.setString(4, Lecture.Session.getUserId());
+
+            int rowAffected = pstm.executeUpdate();
+            if (rowAffected > 0) {
+                JOptionPane.showMessageDialog(null, "Contact details updated successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "Failed to update contact details.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+
+        } catch (SQLException e) {
+            System.out.println("SQL Error: " + e.getMessage());
+        }
+    }
+}

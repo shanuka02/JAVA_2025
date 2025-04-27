@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+
+<?import javafx.scene.control.SplitPane?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="606.0" prefWidth="866.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Lecture.ViewAttController">
+    <top>
+        <SplitPane orientation="VERTICAL" prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #027A7A;" BorderPane.alignment="CENTER">
+            <items>
+                <Pane prefHeight="200.0" prefWidth="200.0">
+                    <children>
+                        <Button fx:id="homeButton" layoutX="24.0" layoutY="17.0" mnemonicParsing="false" onAction="#handleHome" text="Home" />
+                    </children>
+                </Pane>
+            </items></SplitPane>
+    </top>
+    <bottom>
+        <SplitPane orientation="VERTICAL" prefHeight="22.0" prefWidth="600.0" style="-fx-background-color: #027A7A;" BorderPane.alignment="CENTER" />
+    </bottom>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ScrollPane layoutX="23.0" layoutY="110.0" prefHeight="413.0" prefWidth="820.0">
+               <content>
+                  <TableView prefHeight="462.0" prefWidth="997.0" fx:id="attendanceTable">
+                    <columns>
+                      <TableColumn fx:id="tgAttendence" prefWidth="75.0" text="TG Number" />
+                      <TableColumn fx:id="NameAtt" prefWidth="254.40001678466797" text="Name " />
+                        <TableColumn fx:id="AllAttendence" prefWidth="127.99996948242188" text="All Attendence" />
+                        <TableColumn fx:id="PresentAttendence" prefWidth="135.19998168945312" text="Present Attendence" />
+                        <TableColumn fx:id="AttType" prefWidth="121.5999755859375" text="Type" />
+                         <TableColumn fx:id="AttPercentage" prefWidth="94.39990234375" text="Persentage" />
+                    </columns>
+                  </TableView>
+               </content>
+            </ScrollPane>
+            <TextField fx:id="EnterTgforAtt" layoutX="570.0" layoutY="59.0" />
+            <Label layoutX="38.0" layoutY="63.0" text="medical : " />
+            <RadioButton fx:id="medicalButton" layoutX="102.0" layoutY="63.0" mnemonicParsing="false" />
+            <Label fx:id="CoIdAtt" layoutX="168.0" layoutY="22.0" text="coid" />
+            <Button fx:id="searchButton" layoutX="732.0" layoutY="59.0" mnemonicParsing="false" text="Button" onAction="#handleSearch"/>
+         </children>
+      </Pane>
+   </center>
+</BorderPane>
