@@ -4,96 +4,121 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.TableCell;
+
+import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.awt.Desktop;
 
 public class Course {
 
     @FXML
-    private ComboBox<String> drop1;
+    private TableView<modelCourse> courseTable;
 
     @FXML
-    private TextField materialField;
+    private TableColumn<modelCourse, Integer> materialId;
 
     @FXML
-    private Button backButton;
+    private TableColumn<modelCourse, String> materialTitle;
 
     @FXML
-    private Button downloadButton;
-
-    private final ObservableList<String> subjects = FXCollections.observableArrayList(
-            "ICT001 - Programming",
-            "ICT002 - Networking",
-            "ICT003 - Database",
-            "ICT004 - Web Design",
-            "ICT005 - Operating Systems"
-    );
+    private TableColumn<modelCourse, String> materialUploadDate;
 
     @FXML
+    private TableColumn<modelCourse, String> courseId;
+
+    @FXML
+    private TableColumn<modelCourse, Void> previewButton;
+
+    ObservableList<modelCourse> courses = FXCollections.observableArrayList();
+
     public void initialize() {
-        drop1.setItems(subjects);
+        materialId.setCellValueFactory(new PropertyValueFactory<>("lectureMaterialId"));
+        materialTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
+        materialUploadDate.setCellValueFactory(new PropertyValueFactory<>("uploadDate"));
+        courseId.setCellValueFactory(new PropertyValueFactory<>("courseId"));
+        addPreviewButton();
+        loadCourses();
     }
 
-    @FXML
-    private void handleBackButton(ActionEvent event) {
-        TechmisApp back = new TechmisApp();
-        back.start(TechmisApp.getPrimaryStage());
-    }
-
-    @FXML
-    private void handleDownloadButton(ActionEvent event) {
-        String selectedSubject = drop1.getValue();
-        if (selectedSubject != null && !selectedSubject.isEmpty()) {
-            downloadMaterialFromDatabase(selectedSubject);
-        } else {
-            materialField.setText("Please select a course first");
-        }
-    }
-
-    private void downloadMaterialFromDatabase(String selectedSubject) {
+    private void loadCourses() {
+        String query = "SELECT * FROM lectureMaterials";
         try {
-            String subjectCode = selectedSubject.split(" - ")[0];
-            String filePath = getFilePathFromDatabase(subjectCode);
+            Connection connection = DBConnection.getConnection();
+            PreparedStatement statement = connection.prepareStatement(query);
+            ResultSet rs = statement.executeQuery();
 
-            if (filePath != null && !filePath.trim().isEmpty()) {
-                File file = new File(filePath);
-                if (file.exists()) {
-                    Desktop.getDesktop().open(file);
-                    materialField.setText("Opening file: " + filePath);
-                } else {
-                    materialField.setText("File not found: " + filePath);
-                }
-            } else {
-                materialField.setText("File path is empty or invalid");
+            while (rs.next()) {
+                int id = rs.getInt("LectureMaterialId");
+                String title = rs.getString("Title");
+                String date = rs.getTimestamp("UploadDate").toString();
+                String filePath = rs.getString("FilePath");
+                String course = rs.getString("CourseId");
+
+                String fixedPath = fixFilePath(filePath);
+
+                modelCourse courseMaterial = new modelCourse(id, title, date, fixedPath, course);
+                courses.add(courseMaterial);
             }
-        } catch (SQLException | IOException e) {
-            materialField.setText("Error: " + e.getMessage());
+
+            courseTable.setItems(courses);
+
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    private String getFilePathFromDatabase(String subjectCode) throws SQLException {
-        String filePath = null;
-        String query = "SELECT content FROM notice WHERE title = 2"; // Assuming the 'notice' table stores the material for the course
-
-        try (Connection connection = DBConnection.getConnection();
-             PreparedStatement statement = connection.prepareStatement(query)) {
-
-            statement.setString(1, subjectCode);
-            ResultSet rs = statement.executeQuery();
-
-            if (rs.next()) {
-                filePath = rs.getString("content"); // Assuming 'content' is the column with the file path
-            }
+    private String fixFilePath(String path) {
+        String basePath = "/resources/studentRole/Lecture_Materials";
+        if (!path.startsWith("")) {
+            path = basePath + path;
         }
-        return filePath;
+        return path;
+    }
+
+    private void addPreviewButton() {
+        previewButton.setCellFactory(col -> new TableCell<modelCourse, Void>() {
+            private final Button btn = new Button("Preview");
+
+            {
+                btn.setOnAction(event -> {
+                    modelCourse material = getTableView().getItems().get(getIndex());
+                    String filePath = material.getFilePath();
+
+                    if (filePath != null && !filePath.trim().isEmpty()) {
+                        File file = new File(filePath);
+                        if (file.exists()) {
+                            try {
+                                Desktop.getDesktop().open(file);
+                            } catch (IOException ex) {
+                                ex.printStackTrace();
+                            }
+                        } else {
+                            System.out.println("File not found: " + filePath);
+                        }
+                    } else {
+                        System.out.println("Invalid file path.");
+                    }
+                });
+            }
+
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+                setGraphic(empty ? null : btn);
+            }
+        });
+    }
+
+    @FXML
+    private void backtopage(ActionEvent event) {
+        TechmisApp back = new TechmisApp();
+        back.start(TechmisApp.getPrimaryStage());
     }
 }

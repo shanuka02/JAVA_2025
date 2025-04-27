@@ -39,7 +39,6 @@ public class Notice {
         noticeNumber.setCellValueFactory(new PropertyValueFactory<>("noticeId"));
         noticeDate.setCellValueFactory(new PropertyValueFactory<>("postedDay"));
         noticeTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
-
         addPreviewButton();
         loadNotices();
     }
@@ -75,7 +74,6 @@ public class Notice {
         if (!path.startsWith("")) {
             path = basePath + path;
         }
-
         return path;
     }
 

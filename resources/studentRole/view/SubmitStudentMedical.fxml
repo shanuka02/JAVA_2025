@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="StudentPackage.SubmitStudentMedical">
+    <children>
+        <Label layoutX="100.0" layoutY="40.0" text="Submit Student Medical Information">
+            <font>
+                <Font name="System" size="20.0" />
+            </font>
+        </Label>
+
+        <Label layoutX="50.0" layoutY="100.0" text="Student Name:" />
+        <TextField fx:id="studentName" layoutX="150.0" layoutY="95.0" prefWidth="200.0" />
+
+        <Label layoutX="50.0" layoutY="150.0" text="TG Number:" />
+        <TextField fx:id="tgNumber" layoutX="150.0" layoutY="145.0" prefWidth="200.0" />
+
+        <Label layoutX="50.0" layoutY="200.0" text="Course Code:" />
+        <TextField fx:id="courseCode" layoutX="150.0" layoutY="195.0" prefWidth="200.0" />
+
+        <Label layoutX="50.0" layoutY="250.0" text="Medical Date:" />
+        <TextField fx:id="medicalDate" layoutX="150.0" layoutY="245.0" prefWidth="200.0" />
+
+        <Label layoutX="50.0" layoutY="300.0" text="Upload Medical Image:" />
+        <Button fx:id="uploadImageButton" layoutX="150.0" layoutY="295.0" onAction="#handleImageUpload" text="Choose Image" />
+
+        <ImageView fx:id="medicalImageView" fitHeight="150.0" fitWidth="200.0" layoutX="150.0" layoutY="340.0" />
+
+        <Button fx:id="submitButton" layoutX="200.0" layoutY="400.0" onAction="#handleSubmit" text="Submit" />
+      <Button layoutX="24.0" layoutY="27.0" mnemonicParsing="false" onAction="#backtopage" text="back" />
+    </children>
+</AnchorPane>

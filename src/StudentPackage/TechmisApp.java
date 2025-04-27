@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
 
+
 public class TechmisApp extends Application {
     private static Stage primaryStage;
 

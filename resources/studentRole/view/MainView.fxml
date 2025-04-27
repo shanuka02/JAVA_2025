@@ -125,7 +125,7 @@
                     </graphic>
                 </Button>
 
-                <Button onAction="#handleUser" styleClass="dashboard-button" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <Button onAction="#handlemedical" styleClass="dashboard-button" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <graphic>
                         <VBox alignment="CENTER" spacing="15">
                             <Label styleClass="dashboard-icon" />

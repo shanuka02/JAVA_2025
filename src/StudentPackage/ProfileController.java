@@ -18,6 +18,7 @@ import java.sql.SQLException;
 import java.io.ByteArrayInputStream;
 import java.util.Objects;
 
+
 public class ProfileController extends BaseController {
 
     @FXML
@@ -129,15 +130,18 @@ public class ProfileController extends BaseController {
 
     @FXML
     private void handleTimeTable() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("studentRole/view/TimeTable.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-        TechmisApp.getPrimaryStage().setScene(scene);
+//        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("studentRole/view/TimeTable.fxml"));
+//        Parent root = loader.load();
+//        Scene scene = new Scene(root);
+//        TechmisApp.getPrimaryStage().setScene(scene);
     }
 
     @FXML
-    private void handleUser(ActionEvent event) {
-        System.out.println("User button clicked");
+    private void handlemedical(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("studentRole/view/SubmitStudentMedical.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        TechmisApp.getPrimaryStage().setScene(scene);
 
     }
 
