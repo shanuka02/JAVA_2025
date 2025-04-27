@@ -8,9 +8,9 @@ CREATE TABLE attendance (
                             Lec_type ENUM('Theory', 'Practical'),
                             Status_ ENUM('Present', 'Absent' , 'Medical') DEFAULT 'Absent',
                             Att_medi_id INT,
-                            FOREIGN KEY (Att_stu_id) REFERENCES userAccount(user_id) ON UPDATE CASCADE,
-                            FOREIGN KEY (Att_cou_id) REFERENCES courseUnit(courseId) ON UPDATE CASCADE,
-                            FOREIGN KEY (Att_medi_id) REFERENCES medical(Medi_id) ON UPDATE CASCADE
+                            FOREIGN KEY (Att_stu_id) REFERENCES userAccount(user_id),
+                            FOREIGN KEY (Att_cou_id) REFERENCES courseUnit(courseId),
+                            FOREIGN KEY (Att_medi_id) REFERENCES medical(Medi_id)
 );
 /*Only first run*/
 INSERT INTO attendance (Att_id, Att_stu_id, Att_cou_id, Pre_date, Pre_time, Lec_hours, Lec_type, Status_) VALUES
@@ -32,8 +32,8 @@ CREATE TABLE medical(
                         Request_date DATE,
                         Status_ ENUM('pending','approved','rejected'),
                         Submitted_date DATE,
-                        FOREIGN KEY (Me_stu_id) REFERENCES userAccount(user_id) ON UPDATE CASCADE,
-                        FOREIGN KEY (Me_cou_id) REFERENCES courseUnit(courseId) ON UPDATE CASCADE
+                        FOREIGN KEY (Me_stu_id) REFERENCES userAccount(user_id) ,
+                        FOREIGN KEY (Me_cou_id) REFERENCES courseUnit(courseId) 
 );
 
 INSERT INTO medical (Medi_id, Me_stu_id, Me_cou_id, Lec_type, Reason, Request_date, Status_, Submitted_date)
