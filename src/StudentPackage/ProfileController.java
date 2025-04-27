@@ -1,5 +1,4 @@
 package StudentPackage;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,13 +9,13 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.event.ActionEvent;
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.io.ByteArrayInputStream;
-import java.util.Objects;
 
 
 public class ProfileController extends BaseController {
@@ -129,12 +128,47 @@ public class ProfileController extends BaseController {
     }
 
     @FXML
-    private void handleTimeTable() throws IOException {
-//        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("studentRole/view/TimeTable.fxml"));
-//        Parent root = loader.load();
-//        Scene scene = new Scene(root);
-//        TechmisApp.getPrimaryStage().setScene(scene);
+    private void handleTimeTable() {
+        String query = "SELECT content FROM notice WHERE notice_id = 1000";
+
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement ps = connection.prepareStatement(query)) {
+
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                String contentPath = rs.getString("content");
+
+                if (contentPath != null && !contentPath.isEmpty()) {
+                    loadTimeTable(contentPath);
+                } else {
+                    System.out.println("No Content Found");
+                }
+            } else {
+                System.out.println("No Content Found");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Error loading timetable list: " + e.getMessage());
+        }
     }
+
+    private void loadTimeTable(String filePath) {
+        File file = new File(filePath);
+
+        if (file.exists()) {
+            try {
+                Desktop.getDesktop().open(file);
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println("Error loading timetable list: " + e.getMessage());
+            }
+        } else {
+            System.out.println("No File Found");
+        }
+    }
+
 
     @FXML
     private void handlemedical(ActionEvent event) throws IOException {
