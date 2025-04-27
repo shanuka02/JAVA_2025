@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StudentPackage.EditProfile">
+    <top>
+        <HBox prefHeight="65.0" prefWidth="660.0" style="-fx-background-color: #1e5180;" BorderPane.alignment="CENTER">
+            <children>
+                <Pane prefHeight="65.0" prefWidth="688.0">
+                    <children>
+                        <Button fx:id="HomeButton" layoutX="19.0" layoutY="18.0" mnemonicParsing="false" onAction="#HandleHomeButton" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: none;" text="Home" textFill="#ebe2e2">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Button>
+                        <Label layoutX="100.0" layoutY="23.0" prefHeight="17.0" prefWidth="147.0" text="|  Faculty Of Technology" textFill="#f5ecec">
+                            <font>
+                                <Font size="13.0" />
+                            </font>
+                        </Label>
+                    </children>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Pane>
+            </children>
+        </HBox>
+    </top>
+    <center>
+        <HBox prefHeight="328.0" prefWidth="660.0" BorderPane.alignment="CENTER">
+            <children>
+                <Pane prefHeight="620.0" prefWidth="1000.0">
+                    <children>
+                        <TextField fx:id="PhoneNumber" layoutX="223.0" layoutY="94.0" prefHeight="37.0" prefWidth="203.0" />
+                        <Label layoutX="33.0" layoutY="97.0" text="Phone Number">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+
+                        <Label layoutX="500.0" layoutY="102.0" prefHeight="33.0" prefWidth="106.0" text="Profile Pic">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+
+
+                        <ImageView fx:id="ProfilePic" layoutX="659.0" layoutY="80.0" fitHeight="120.0" fitWidth="120.0" preserveRatio="true" style="-fx-border-color: black; -fx-border-width: 1px;" />
+
+                        <Button fx:id="ChooseFilePath" layoutX="814.0" layoutY="220.0" mnemonicParsing="false" onAction="#ChooseFile" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: yellow; -fx-background-radius: 20;" text="Choose File">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Button>
+
+                        <Button fx:id="Adduser" layoutX="756.0" layoutY="448.0" mnemonicParsing="false" onAction="#handleAddUser" prefHeight="25.0" prefWidth="155.0" text="Save " />
+                    </children>
+                </Pane>
+            </children>
+        </HBox>
+    </center>
+    <bottom>
+        <HBox prefHeight="48.0" prefWidth="660.0" style="-fx-background-color: #1e5180;" BorderPane.alignment="CENTER">
+            <children>
+                <Pane prefHeight="200.0" prefWidth="200.0" />
+            </children>
+        </HBox>
+    </bottom>
+</BorderPane>
